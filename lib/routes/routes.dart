@@ -8,6 +8,7 @@ class Routes {
   static const calendar = "/calendar";
   static const addStudent = "/addStudent";
   static const reminder = "/reminder";
+  static const report = "/report";
 
   static const hexToLink = "/hexToLink";
 }

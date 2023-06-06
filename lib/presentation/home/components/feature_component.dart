@@ -65,7 +65,7 @@ class FeatureItem extends StatelessWidget {
           children: [
             Column(
               children: [
-                Expanded(child: data.image),
+                Expanded(child: Image.asset(data.image)),
                 sizedBoxH04,
                 Text(
                   data.title,

@@ -36,7 +36,6 @@ class HexToLinkController extends BaseController {
     }
   }
 
-  //TODO
   void onDecode() {
     try {
       final str = hexController.text;
