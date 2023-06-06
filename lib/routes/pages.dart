@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:scheduler/presentation/hex_to_link/hex_to_link_binding.dart';
+import 'package:scheduler/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:scheduler/presentation/home/home_binding.dart';
 import 'package:scheduler/presentation/home/home_page.dart';
 
@@ -17,6 +19,11 @@ class AppPages {
       name: Routes.home,
       page: () => const HomePage(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.hexToLink,
+      page: () => const HexToLinkPage(),
+      binding: HexToLinkBinding(),
     ),
   ];
 }

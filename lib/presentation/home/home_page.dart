@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 
+import 'components/feature_component.dart';
+import 'components/user_component.dart';
 import 'home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -8,6 +11,13 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const BaseScafold(
+        body: Column(
+      children: [
+        UserComponent(),
+        FeatureComponent(),
+        SizedBox(),
+      ],
+    ));
   }
 }

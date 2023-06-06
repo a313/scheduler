@@ -1,3 +1,7 @@
 import 'package:get/get.dart';
 
-class BaseController extends GetxController {}
+import 'base_common_widget.dart';
+
+class BaseController extends GetxController with BaseCommonWidgets {
+  void backToHome({int selectTab = 0}) {}
+}

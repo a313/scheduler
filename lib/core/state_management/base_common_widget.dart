@@ -10,7 +10,7 @@ import '../../widgets/popups/confirm_popup.dart';
 import '../usecase/data_state.dart';
 import '../utils/util.dart';
 
-class BaseCommonWidgets {
+mixin BaseCommonWidgets {
   /// Do not call on onInit
   ///
   /// it may cause error
@@ -67,28 +67,28 @@ class BaseCommonWidgets {
       case SnackBarType.info:
         textColor = context.neutral1100;
         bgColor = context.bgColor;
-        iconPath = "assets/svg/ic_info_regular.svg";
+        iconPath = "assets/svg/Regular/Info.svg";
         iconColor = context.primaryDark;
         break;
 
       case SnackBarType.error:
         textColor = context.neutral100;
         bgColor = context.funcRadicalRed;
-        iconPath = "assets/svg/ic_warning_circle_regular.svg";
+        iconPath = "assets/svg/Regular/WarningCircle.svg";
         iconColor = context.neutral100;
         break;
 
       case SnackBarType.success:
         textColor = context.neutral100;
         bgColor = context.primaryDark;
-        iconPath = "assets/svg/ic_check_circle.svg";
+        iconPath = "assets/svg/Regular/Check.svg";
         iconColor = context.neutral100;
         break;
 
       case SnackBarType.warning:
         textColor = context.primaryDark;
         bgColor = context.funcIcterine;
-        iconPath = "assets/svg/ic_warning_regular.svg";
+        iconPath = "assets/svg/Regular/Warning.svg";
         iconColor = context.primaryDark;
         break;
     }

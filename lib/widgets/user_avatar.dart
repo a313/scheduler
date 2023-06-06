@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scheduler/widgets/shimmer/shimmer_avatar.dart';
 
 class UserAvatar extends StatelessWidget {
@@ -41,9 +42,10 @@ class _DefaultAvatarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      'assets/png/anh_di/di-avatar.png',
-      fit: BoxFit.fill,
+    return SvgPicture.asset(
+      'assets/svg/Regular/UserCircle.svg',
+      width: 40.0,
+      height: 40.0,
     );
   }
 }
