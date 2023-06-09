@@ -56,7 +56,7 @@ class BaseBottomSheet extends StatelessWidget {
                           title,
                           maxLines: 1,
                           minFontSize: 6,
-                          style: AppFonts.h600
+                          style: AppFonts.h400
                               .copyWith(color: context.neutral1100),
                         ),
                       ),

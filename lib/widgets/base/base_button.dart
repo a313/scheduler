@@ -110,7 +110,7 @@ class BaseButton extends StatelessWidget {
   factory BaseButton.largePrimary({
     required String title,
     required VoidCallback? onPressed,
-    double? width,
+    double? width = double.infinity,
   }) {
     return BaseButton._(
         builder: (context) => SizedBox(

@@ -2,11 +2,12 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/presentation/onboarding/components/ob_page.dart';
 import 'package:scheduler/routes/routes.dart';
 
-class OnboardingController extends GetxController {
+class OnboardingController extends BaseController {
   final pageController = PageController();
   RxInt currentPage = 0.obs;
 
@@ -36,6 +37,11 @@ class OnboardingController extends GetxController {
   double get percent => currentPage / (list.length - 1);
 
   void onSkip() {
+    doneOnboarding();
+  }
+
+  void doneOnboarding() {
+    local.setPassIntro(true);
     Get.toNamed(Routes.home);
   }
 
@@ -47,7 +53,7 @@ class OnboardingController extends GetxController {
 
   void onNext() {
     if (currentPage.value == list.length - 1) {
-      Get.toNamed(Routes.home);
+      doneOnboarding();
     } else {
       pageController.animateToPage(currentPage.value + 1,
           duration: dur300, curve: Curves.easeIn);

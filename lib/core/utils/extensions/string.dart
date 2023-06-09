@@ -144,4 +144,12 @@ extension CustomStringExtension on String {
     var checksum = sha256.convert(encode).toString();
     return checksum;
   }
+
+  List<int> toListInt(String pattern, {int onFailed = -1}) {
+    if (isEmpty) return [];
+    final list = split(pattern);
+    return list.map((e) => int.tryParse(e) ?? onFailed).toList();
+  }
+
+  List<String> toListString(String pattern) => split(pattern);
 }

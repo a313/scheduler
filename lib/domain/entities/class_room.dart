@@ -1,13 +1,20 @@
 class ClassRoom {
-  final int id;
+  final int? id;
   final String name;
-  final DateTime createDate;
+  final int createDateRaw;
   final int tuition;
-  final List<DateTime> scheduler;
-  final bool isOpen;
+  final String schedulerIdsRaw;
+  final int isOpenRaw;
   final int index;
   final String? image;
 
-  ClassRoom(this.id, this.name, this.createDate, this.tuition, this.scheduler,
-      this.isOpen, this.index, this.image);
+  ClassRoom(
+      {this.id,
+      required this.name,
+      required this.createDateRaw,
+      required this.tuition,
+      required this.schedulerIdsRaw,
+      required this.isOpenRaw,
+      this.index = -1,
+      this.image});
 }

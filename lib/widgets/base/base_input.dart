@@ -1,116 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:scheduler/core/state_management/base_common_widget.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/theme/app_fonts.dart';
-
-class BaseInput extends StatelessWidget {
-  const BaseInput({
-    Key? key,
-    required this.title,
-    this.isRequired = false,
-    this.hintText,
-    this.helperText,
-    this.errorText,
-    this.validator,
-    this.keyboardType,
-    this.controller,
-    this.focusNode,
-    this.autofocus = false,
-    this.enabled = true,
-    this.formaters,
-    this.textCapitalization = TextCapitalization.words,
-    this.onChanged,
-    this.onSubmitted,
-    this.textInputAction,
-    this.prefix,
-    this.suffix,
-    this.maxLength,
-    this.maxLines = 1,
-    this.textStyle,
-    this.validMode,
-    this.obscureText = false,
-  }) : super(key: key);
-  final String title;
-  final String? hintText;
-  final String? helperText;
-  final String? errorText;
-  final bool isRequired;
-  final bool enabled;
-  final String? Function(String?)? validator;
-  final TextInputType? keyboardType;
-  final TextEditingController? controller;
-  final FocusNode? focusNode;
-  final bool autofocus;
-  final List<TextInputFormatter>? formaters;
-  final TextCapitalization textCapitalization;
-  final Function(String)? onChanged;
-  final Function(String)? onSubmitted;
-  final TextInputAction? textInputAction;
-  final TextStyle? textStyle;
-  final Widget? prefix;
-  final Widget? suffix;
-  final int? maxLength;
-  final int? maxLines;
-  final AutovalidateMode? validMode;
-  final bool obscureText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Padding(
-            padding: const EdgeInsets.only(left: 2.0),
-            child: RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(children: <TextSpan>[
-                TextSpan(
-                  text: title,
-                  style: AppFonts.bSmall.copyWith(color: context.neutral1100),
-                ),
-                if (isRequired)
-                  TextSpan(
-                    text: ' (bắt buộc)',
-                    style:
-                        AppFonts.bSmall.copyWith(color: context.funcRadicalRed),
-                  ),
-              ]),
-            )),
-        sizedBoxH08,
-        BaseTextField(
-          autofocus: autofocus,
-          focusNode: focusNode,
-          controller: controller,
-          keyboardType: keyboardType,
-          maxLength: maxLength,
-          maxLines: maxLines,
-          validator: validator,
-          textCapitalization: textCapitalization,
-          enabled: enabled,
-          formaters: formaters,
-          textInputAction: textInputAction,
-          onChanged: onChanged,
-          onSubmitted: onSubmitted,
-          validMode: validMode,
-          obscureText: obscureText,
-          prefix: prefix,
-          suffix: suffix,
-          hintText: hintText,
-          textStyle: textStyle ?? AppFonts.pMedium,
-          helperText: helperText,
-          errorText: errorText,
-        ),
-      ],
-    );
-  }
-}
+import 'package:scheduler/widgets/base/base_search_page.dart';
+import 'package:scheduler/widgets/bottomsheets/date_picker_bottomsheet.dart';
 
 class BaseTextField extends StatelessWidget {
   const BaseTextField({
     Key? key,
-    this.hintText,
+    this.labelText,
     this.helperText,
     this.errorText,
     this.validator,
@@ -149,7 +50,7 @@ class BaseTextField extends StatelessWidget {
   final AutovalidateMode? validMode;
   final Widget? prefix;
   final Widget? suffix;
-  final String? hintText;
+  final String? labelText;
   final TextStyle? textStyle;
   final String? helperText;
   final String? errorText;
@@ -179,37 +80,37 @@ class BaseTextField extends StatelessWidget {
       decoration: InputDecoration(
         prefixIcon: prefix,
         suffixIcon: suffix,
-        contentPadding: padSymHor16Ver12,
-        hintText: hintText,
-        filled: true,
+        labelText: labelText,
+        // filled: true,
         fillColor: enabled ? context.neutral100 : context.neutral300,
         labelStyle: (textStyle ?? AppFonts.pMedium).copyWith(height: 1),
         hintStyle: (textStyle ?? AppFonts.pMedium)
             .copyWith(color: context.neutral600, height: 1),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(color: context.neutral300, width: 2.0),
-          borderRadius: borRad08,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: context.neutral300, width: 2.0),
-          borderRadius: borRad08,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: context.primaryDark, width: 2.0),
-          borderRadius: borRad08,
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: context.funcRadicalRed, width: 2.0),
-          borderRadius: borRad08,
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: context.funcRadicalRed, width: 2.0),
-          borderRadius: borRad08,
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: context.neutral300, width: 2.0),
-          borderRadius: borRad08,
-        ),
+        // border: OutlineInputBorder(
+        //   borderSide: BorderSide(color: context.neutral300, width: 2.0),
+        //   borderRadius: borRad08,
+        // ),
+        // enabledBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: context.neutral300, width: 2.0),
+        //   borderRadius: borRad08,
+        // ),
+        // focusedBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: context.primaryDark, width: 2.0),
+        //   borderRadius: borRad08,
+        // ),
+        // focusedErrorBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: context.funcRadicalRed, width: 2.0),
+        //   borderRadius: borRad08,
+        // ),
+        // errorBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: context.funcRadicalRed, width: 2.0),
+        //   borderRadius: borRad08,
+        // ),
+        // disabledBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: context.neutral300, width: 2.0),
+        //   borderRadius: borRad08,
+        // ),
+
         helperMaxLines: 1,
         counter: const SizedBox(),
         helperText: helperText,
@@ -420,5 +321,186 @@ class _MoneyInputState extends State<MoneyInput> {
       content = controller.text;
       size = _textSize(content, (widget.textStyle ?? AppFonts.h700));
     });
+  }
+}
+
+class BaseDateField extends StatefulWidget {
+  const BaseDateField({
+    Key? key,
+    required this.labelText,
+    this.mode = CupertinoDatePickerMode.date,
+    this.initDate,
+    this.minDate,
+    this.maxDate,
+    required this.onSelected,
+    required this.timeFormat,
+    this.validator,
+  }) : super(key: key);
+
+  final String labelText;
+  final CupertinoDatePickerMode mode;
+
+  final DateTime? initDate;
+  final DateTime? minDate;
+  final DateTime? maxDate;
+  final String timeFormat;
+  final Function(DateTime?) onSelected;
+  final String? Function(String?)? validator;
+
+  @override
+  State<BaseDateField> createState() => _BaseDateFieldState();
+}
+
+class _BaseDateFieldState extends State<BaseDateField> with BaseCommonWidgets {
+  TextEditingController controller = TextEditingController();
+  @override
+  void initState() {
+    final initTime = widget.initDate ?? DateTime.now();
+    controller.text = initTime.toStringFormat(widget.timeFormat);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: showPicker,
+      behavior: HitTestBehavior.translucent,
+      child: IgnorePointer(
+        ignoring: true,
+        child: BaseTextField(
+          labelText: widget.labelText,
+          controller: controller,
+          validator: widget.validator,
+        ),
+      ),
+    );
+  }
+
+  void showPicker() {
+    bottomSheet(DatePickerBottomsheet(
+        mode: widget.mode,
+        title: widget.labelText,
+        onSelected: (date) {
+          if (date != null) {
+            setState(() {
+              controller.text = date.toStringFormat(widget.timeFormat);
+            });
+          }
+          widget.onSelected.call(date);
+        }));
+  }
+}
+
+class BaseSearchField<T> extends StatefulWidget {
+  const BaseSearchField(
+      {super.key,
+      this.isMultiSelect = false,
+      required this.onSelected,
+      required this.labelText,
+      this.validator,
+      this.initValue,
+      required this.options,
+      required this.itemBuilder,
+      this.onSearchEmpty,
+      required this.searchBy,
+      this.selectedBuilder});
+  final List<T>? initValue;
+  final List<T> options;
+  final bool isMultiSelect;
+  final Function(List<T>?) onSelected;
+  final String labelText;
+  final String? Function(String?)? validator;
+  final Widget Function(BuildContext context, T obj) itemBuilder;
+  final Widget Function(BuildContext context, T obj)? selectedBuilder;
+  final Widget Function(BuildContext context)? onSearchEmpty;
+  final bool Function(T element, String value) searchBy;
+  @override
+  State<BaseSearchField<T>> createState() => _BaseSearchFieldState<T>();
+}
+
+class _BaseSearchFieldState<T> extends State<BaseSearchField<T>> {
+  TextEditingController controller = TextEditingController();
+  @override
+  void initState() {
+    if (widget.initValue != null && widget.initValue!.isNotEmpty) {
+      final initValue = widget.initValue!.join(',');
+      controller.text = initValue;
+    }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: toSearchPage,
+      behavior: HitTestBehavior.translucent,
+      child: IgnorePointer(
+        ignoring: true,
+        child: BaseTextField(
+          labelText: widget.labelText,
+          controller: controller,
+          validator: widget.validator,
+        ),
+      ),
+    );
+  }
+
+  Future<void> toSearchPage() async {
+    final value = await Get.to(BaseSearchPage(
+        isMultiSelect: widget.isMultiSelect,
+        title: widget.labelText,
+        options: widget.options,
+        itemBuilder: widget.itemBuilder,
+        selectedBuilder: widget.selectedBuilder,
+        searchBy: widget.searchBy));
+    widget.onSelected(value);
+  }
+}
+
+class BaseSwitchField extends StatefulWidget {
+  const BaseSwitchField({
+    super.key,
+    required this.initState,
+    required this.labelText,
+    required this.onChanged,
+  });
+  final bool initState;
+  final String labelText;
+  final Function(bool value) onChanged;
+  @override
+  State<BaseSwitchField> createState() => _BaseSwitchFieldState();
+}
+
+class _BaseSwitchFieldState extends State<BaseSwitchField> {
+  bool currentState = false;
+
+  @override
+  void initState() {
+    currentState = widget.initState;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.centerRight,
+      children: [
+        IgnorePointer(
+          ignoring: true,
+          child: BaseTextField(
+            labelText: widget.labelText,
+          ),
+        ),
+        CupertinoSwitch(
+          value: currentState,
+          onChanged: (value) {
+            setState(() {
+              currentState = value;
+            });
+            widget.onChanged(currentState);
+          },
+        ),
+      ],
+    );
   }
 }

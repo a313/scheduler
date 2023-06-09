@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '/core/utils/util.dart';
 import '/theme/app_fonts.dart';
@@ -36,12 +35,9 @@ class SearchField extends StatelessWidget {
             c.clear();
             onClearSearch?.call();
           },
-          child: Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: SvgPicture.asset(
-              'assets/svg/icon_x_circle.svg',
-              colorFilter: context.neutral700.filterSrcIn,
-            ),
+          child: Icon(
+            Icons.clear,
+            color: context.neutral1100,
           ),
         ),
         hintText: hintText,
@@ -72,6 +68,7 @@ class SearchField extends StatelessWidget {
           borderSide: BorderSide(color: context.neutral300, width: 2.0),
           borderRadius: borRad08,
         ),
+        contentPadding: padSymHor08Ver06,
         helperMaxLines: 1,
         helperStyle: const TextStyle(fontSize: 0),
         errorMaxLines: 1,

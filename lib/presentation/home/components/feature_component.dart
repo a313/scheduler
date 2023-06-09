@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
@@ -13,7 +15,7 @@ class FeatureComponent extends GetWidget<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    final itemSize = (Get.width - 32) / 4;
+    final itemSize = (min(Get.height, Get.width) - 32) / 4;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

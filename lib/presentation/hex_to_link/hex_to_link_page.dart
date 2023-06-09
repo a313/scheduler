@@ -23,13 +23,13 @@ class HexToLinkPage extends GetView<HexToLinkController> {
                   children: [
                     BaseTextField(
                       controller: controller.hexController,
-                      hintText: 'Hex String',
+                      labelText: 'Hex String',
                       maxLines: 4,
                     ),
                     sizedBoxH08,
                     BaseTextField(
                       controller: controller.decodedController,
-                      hintText: 'Decoded String',
+                      labelText: 'Decoded String',
                       maxLines: 4,
                     ),
                   ],

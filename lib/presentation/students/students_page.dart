@@ -4,6 +4,7 @@ import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/presentation/students/components/student_item.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
+import 'package:scheduler/widgets/custom_divider.dart';
 import 'package:scheduler/widgets/custom_refresher.dart';
 import 'package:scheduler/widgets/shimmer/shimmer_list.dart';
 
@@ -15,11 +16,20 @@ class StudentsPage extends GetView<StudentsController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
+      fab: FloatingActionButton(
+        mini: true,
+        onPressed: controller.addStudent,
+        backgroundColor: context.funcBitterLemon,
+        child: Icon(
+          Icons.add,
+          color: context.neutral100,
+        ),
+      ),
       actions: [
         TextButton(
           onPressed: controller.onTappedFilter,
           child: Text(
-            'Bộ lọc',
+            'Filter',
             style: AppFonts.bSmall.copyWith(
               color: context.primaryDark,
             ),
@@ -33,12 +43,12 @@ class StudentsPage extends GetView<StudentsController> {
           onLoading: controller.onLoading,
           controller: controller.refreshController,
           child: ListView.separated(
-              padding: padAll16,
               itemCount: state!.length,
-              separatorBuilder: (context, index) => sizedBoxH16,
+              separatorBuilder: (context, index) => const CustomDivider(),
               itemBuilder: (context, index) {
                 return StudentItem(
                   data: state[index],
+                  onEdit: controller.onEditStudent,
                   onTapped: controller.onTappedStudent,
                 );
               }),
@@ -48,7 +58,7 @@ class StudentsPage extends GetView<StudentsController> {
           onRefresh: controller.onRefresh,
           onLoading: controller.onRefresh,
           controller: controller.emptyController,
-          child: const Text("Hiện tại chưa có thông báo nào!"),
+          child: const Center(child: Text("Not exist Student")),
         ),
       ),
     );

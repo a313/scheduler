@@ -9,6 +9,11 @@ enum SnackBarType {
   warning,
 }
 
+enum DateFieldMode {
+  date,
+  dateAndTime,
+}
+
 enum BiometricReason { login, active }
 
 enum CTAType {
