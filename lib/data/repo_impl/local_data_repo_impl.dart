@@ -1,7 +1,7 @@
 import 'package:get_storage/get_storage.dart';
-import 'package:scheduler/domain/repo_abs/local_data_abs.dart';
+import 'package:scheduler/domain/repo_abs/local_data_repo_abs.dart';
 
-class LocalDataImpl extends LocalData {
+class LocalDataImpl extends LocalDataRepo {
   final GetStorage _;
 
   LocalDataImpl(this._);

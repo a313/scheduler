@@ -1,36 +1,34 @@
 import 'package:sqflite/sqflite.dart';
 
-const STUDENT_TABLE = "student_db";
+const CLASSROOM_TABLE = "class_room_db";
 
-abstract class StudentDB {
+abstract class ClassRoomDB {
   static String getCreateSQL() {
-    return '''CREATE TABLE $STUDENT_TABLE (
+    return '''CREATE TABLE $CLASSROOM_TABLE (
       id INTEGER PRIMARY KEY,
-      name TEXT not null,
-      classId TEXT not null,
-      beginStudy TEXT,
-      phones TEXT,
-      isSpecial INTEGER,
-      fee INTEGER,
-      isFollow INTEGER,
-      image TEXT
+      name TEXT not null,      
+      createDate TEXT,      
+      tuition INTEGER,      
+      isOpen INTEGER,          
+      softIndex INTEGER,
+      image TEXT      
       )''';
   }
 
-  Future<List<Map<String, Object?>>> getAllStudent();
+  Future<List<Map<String, Object?>>> getAllClassRoom();
   Future<bool> isExist(int id);
   Future<int> insertOrUpdate(Map<String, Object?> values);
   Future<int> insert(Map<String, Object?> values);
   Future<int> update(Map<String, Object?> values);
 }
 
-class StudentDbImpl extends StudentDB {
+class ClassRoomDBImpl extends ClassRoomDB {
   final Database _;
-  final table = STUDENT_TABLE;
-  StudentDbImpl(this._);
+  final table = CLASSROOM_TABLE;
+  ClassRoomDBImpl(this._);
 
   @override
-  Future<List<Map<String, Object?>>> getAllStudent() async {
+  Future<List<Map<String, Object?>>> getAllClassRoom() async {
     return await _.query(table);
   }
 

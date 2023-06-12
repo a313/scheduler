@@ -6,7 +6,7 @@ import 'package:scheduler/domain/repo_abs/student_repo_abs.dart';
 import '../../core/utils/util.dart';
 
 class StudentRepoImpl extends StudentRepo {
-  final StudentDb db;
+  final StudentDB db;
 
   StudentRepoImpl(this.db);
   @override

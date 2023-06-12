@@ -3,12 +3,12 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/domain/usecases/student_usecase.dart';
+import 'package:scheduler/domain/usecases/student_usecases.dart';
 
 import '../../routes/routes.dart';
 
 class StudentsController extends BaseController with StateMixin<List<Student>> {
-  final StudentUseCase useCase = Get.find();
+  final StudentUseCases useCase = Get.find();
 
   final refreshController = RefreshController();
   final emptyController = RefreshController();
@@ -47,11 +47,19 @@ class StudentsController extends BaseController with StateMixin<List<Student>> {
     }
   }
 
-  void addStudent() {
-    Get.toNamed(Routes.editStudent);
+  Future<void> addStudent() async {
+    final result = await Get.toNamed(Routes.editStudent);
+    if (result != null) {
+      //Need reload;
+      getData();
+    }
   }
 
-  void onEditStudent(Student student) {
-    Get.toNamed(Routes.editStudent, arguments: student);
+  Future<void> onEditStudent(Student student) async {
+    final result = await Get.toNamed(Routes.editStudent, arguments: student);
+    if (result != null) {
+      //Need reload;
+      getData();
+    }
   }
 }

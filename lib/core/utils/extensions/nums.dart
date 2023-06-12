@@ -67,6 +67,12 @@ extension CustomNumExtension on num {
 
     return formattedDuration;
   }
+
+  bool get toBool => this == 1;
+}
+
+extension BoolExt on bool {
+  int get toInt => this == true ? 1 : 0;
 }
 
 extension CustomNumNulsafetyExtension on num? {

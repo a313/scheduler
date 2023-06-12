@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/students/components/student_item.dart';
-import 'package:scheduler/theme/app_fonts.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
-import 'package:scheduler/widgets/custom_refresher.dart';
-import 'package:scheduler/widgets/shimmer/shimmer_list.dart';
 
-import 'students_controller.dart';
+import '../../theme/app_fonts.dart';
+import '../../widgets/base/base_scafold_appbar.dart';
+import '../../widgets/custom_divider.dart';
+import '../../widgets/custom_refresher.dart';
+import '../../widgets/shimmer/shimmer_list.dart';
+import 'class_room_controller.dart';
+import 'components/class_room_item.dart';
 
-class StudentsPage extends GetView<StudentsController> {
-  const StudentsPage({Key? key}) : super(key: key);
+class ClassRoomPage extends GetView<ClassRoomController> {
+  const ClassRoomPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
       fab: FloatingActionButton(
         mini: true,
-        onPressed: controller.addStudent,
+        onPressed: controller.addClassRoom,
         backgroundColor: context.funcBitterLemon,
         child: Icon(
           Icons.add,
@@ -36,7 +36,7 @@ class StudentsPage extends GetView<StudentsController> {
           ),
         )
       ],
-      title: 'Students',
+      title: 'Class Room',
       body: controller.obx(
         (state) => CustomRefresher(
           onRefresh: controller.onRefresh,
@@ -46,10 +46,10 @@ class StudentsPage extends GetView<StudentsController> {
               itemCount: state!.length,
               separatorBuilder: (context, index) => const CustomDivider(),
               itemBuilder: (context, index) {
-                return StudentItem(
+                return ClassRoomCell(
                   data: state[index],
-                  onEdit: controller.onEditStudent,
-                  onTapped: controller.onTappedStudent,
+                  onEdit: controller.onEditClassRoom,
+                  onTapped: controller.onTappedClassRoom,
                 );
               }),
         ),
@@ -59,7 +59,7 @@ class StudentsPage extends GetView<StudentsController> {
           onLoading: controller.onRefresh,
           controller: controller.emptyController,
           child: const Center(
-            child: Text("Not exist Student"),
+            child: Text("Not exist Class Room"),
           ),
         ),
       ),

@@ -1,7 +1,7 @@
-import 'package:scheduler/domain/repo_abs/local_data_abs.dart';
+import 'package:scheduler/domain/repo_abs/local_data_repo_abs.dart';
 
 class LocalUseCases {
-  final LocalData _;
+  final LocalDataRepo _;
 
   LocalUseCases(this._);
   void setPassIntro(bool value) {

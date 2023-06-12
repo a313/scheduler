@@ -1,36 +1,35 @@
 import 'package:sqflite/sqflite.dart';
 
-const STUDENT_TABLE = "student_db";
+const REMINDER_TABLE = "reminder_db";
 
-abstract class StudentDB {
+abstract class ReminderDB {
   static String getCreateSQL() {
-    return '''CREATE TABLE $STUDENT_TABLE (
+    return '''CREATE TABLE $REMINDER_TABLE (
       id INTEGER PRIMARY KEY,
-      name TEXT not null,
-      classId TEXT not null,
-      beginStudy TEXT,
-      phones TEXT,
-      isSpecial INTEGER,
-      fee INTEGER,
-      isFollow INTEGER,
-      image TEXT
+      name TEXT not null,      
+      createDate TEXT,      
+      tuition INTEGER,      
+      isOpen INTEGER,          
+      softIndex INTEGER,
+      image TEXT      
       )''';
   }
 
-  Future<List<Map<String, Object?>>> getAllStudent();
+  Future<List<Map<String, Object?>>> getAllReminder();
   Future<bool> isExist(int id);
   Future<int> insertOrUpdate(Map<String, Object?> values);
   Future<int> insert(Map<String, Object?> values);
   Future<int> update(Map<String, Object?> values);
+  Future<int> delete(int id);
 }
 
-class StudentDbImpl extends StudentDB {
+class ReminderDBImpl extends ReminderDB {
   final Database _;
-  final table = STUDENT_TABLE;
-  StudentDbImpl(this._);
+  final table = REMINDER_TABLE;
+  ReminderDBImpl(this._);
 
   @override
-  Future<List<Map<String, Object?>>> getAllStudent() async {
+  Future<List<Map<String, Object?>>> getAllReminder() async {
     return await _.query(table);
   }
 
@@ -46,7 +45,7 @@ class StudentDbImpl extends StudentDB {
 
   @override
   Future<bool> isExist(int id) async {
-    return (await _.query(table, where: 'id = $id')).isNotEmpty;
+    return (await _.query(table, where: 'id = ?', whereArgs: [id])).isNotEmpty;
   }
 
   @override
@@ -57,5 +56,10 @@ class StudentDbImpl extends StudentDB {
   @override
   Future<int> update(Map<String, Object?> values) async {
     return await _.update(table, values);
+  }
+
+  @override
+  Future<int> delete(int id) async {
+    return await _.delete(table, where: 'id = ?', whereArgs: [id]);
   }
 }

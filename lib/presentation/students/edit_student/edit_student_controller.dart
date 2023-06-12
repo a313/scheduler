@@ -1,9 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
+import 'package:scheduler/core/usecase/data_state.dart';
+import 'package:scheduler/core/utils/util.dart';
+import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/domain/entities/class_room.dart';
-import 'package:scheduler/domain/usecases/student_usecase.dart';
+import 'package:scheduler/domain/usecases/student_usecases.dart';
 
 class EditStudentController extends BaseController {
   final Student? initData;
@@ -12,7 +14,7 @@ class EditStudentController extends BaseController {
   final phoneController = TextEditingController();
 
   late Student data;
-  late StudentUseCase studentUseCase;
+  late StudentUseCases studentUseCase;
   List<ClassRoom> allClassRoom = [];
   RxBool shouldShowFee = false.obs;
 
@@ -42,6 +44,7 @@ class EditStudentController extends BaseController {
   }
 
   void onChangeIsSpecial(bool value) {
+    shouldShowFee.value = value;
     data.isSpecial = value;
   }
 
@@ -53,11 +56,23 @@ class EditStudentController extends BaseController {
     data.phones = [phone];
   }
 
-  void onInsertOrUpdate() {
+  Future<void> onInsertOrUpdate() async {
     if (initData == data) {
       Get.back();
     } else {
-      studentUseCase.insertOrUpdate(data);
+      showLoading();
+      if (data.image != null && initData?.image != data.image) {
+        final file = await Utils.saveFileToLocal(filePath: data.image!);
+        data.image = file.path;
+      }
+
+      final result = await studentUseCase.insertOrUpdate(data);
+      dismissLoading();
+      if (result is DataSuccess<Student>) {
+        Get.back(result: result.data);
+      } else if (result is DataFailure<Student>) {
+        onDataFailed(result);
+      }
     }
   }
 

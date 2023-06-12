@@ -6,10 +6,14 @@ class Routes {
   static const editStudent = "/editStudent";
 
   static const classRoom = "/classRoom";
+  static const editClassRoom = "/editClassRoom";
+
   static const scheduler = "/scheduler";
   static const calendar = "/calendar";
 
   static const reminder = "/reminder";
+  static const editReminder = "/editReminder";
+
   static const report = "/report";
 
   static const hexToLink = "/hexToLink";
