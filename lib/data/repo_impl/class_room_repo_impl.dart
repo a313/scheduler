@@ -11,7 +11,7 @@ class ClassRoomRepoImpl extends ClassRoomRepo {
   ClassRoomRepoImpl(this.db);
   @override
   Future<DataState<List<ClassRoom>>> getAllClassRoom() async {
-    final data = await db.getAllClassRoom();
+    final data = await db.fetchAll();
     return DataSuccess(ClassRoom.getListFromDB(data));
   }
 
@@ -23,7 +23,7 @@ class ClassRoomRepoImpl extends ClassRoomRepo {
 
   @override
   Future<DataState<ClassRoom>> insertOrUpdate(ClassRoom data) async {
-    final id = await db.insertOrUpdate(data.toDB());
+    final id = await db.insertOrUpdate(data.toJson());
     data.id = id;
     if (id == 0) {
       return DataFailure(DB_ERR_CODE, DB_ERR_MSG);

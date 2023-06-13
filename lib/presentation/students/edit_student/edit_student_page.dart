@@ -25,14 +25,21 @@ class EditStudentPage extends GetView<EditStudentController> {
               child: SingleChildScrollView(
                 padding: padAll16,
                 child: Form(
+                  key: controller.formKey,
                   child: Column(
                     children: [
                       AvatarPicker(onChangedAvatar: controller.onChangedAvatar),
                       BaseTextField(
-                        labelText: 'Tên Học Sinh',
+                        labelText: 'Tên học sinh',
                         controller: controller.nameController,
                         textInputAction: TextInputAction.next,
                         onChanged: controller.onChangeName,
+                        validator: (name) {
+                          if (name == null || name.isEmpty) {
+                            return 'Tên không được để trống';
+                          }
+                          return null;
+                        },
                       ),
                       BaseSearchField<ClassRoom>(
                         onSelected: controller.onSelectedClass,
@@ -42,7 +49,7 @@ class EditStudentPage extends GetView<EditStudentController> {
                         selectedBuilder: (_, obj) =>
                             ClassRoomItem(data: obj, isSelected: true),
                         isMultiSelect: true,
-                        labelText: 'Lớp Học',
+                        labelText: 'Lớp học',
                         options: controller.allClassRoom,
                       ),
                       BaseSwitchField(

@@ -353,10 +353,12 @@ class BaseDateField extends StatefulWidget {
 
 class _BaseDateFieldState extends State<BaseDateField> with BaseCommonWidgets {
   TextEditingController controller = TextEditingController();
+  late DateTime selectedTime;
+
   @override
   void initState() {
-    final initTime = widget.initDate ?? DateTime.now();
-    controller.text = initTime.toStringFormat(widget.timeFormat);
+    selectedTime = widget.initDate ?? DateTime.now();
+    controller.text = selectedTime.toStringFormat(widget.timeFormat);
     super.initState();
   }
 
@@ -378,11 +380,13 @@ class _BaseDateFieldState extends State<BaseDateField> with BaseCommonWidgets {
 
   void showPicker() {
     bottomSheet(DatePickerBottomsheet(
+        initDate: selectedTime,
         mode: widget.mode,
         title: widget.labelText,
         onSelected: (date) {
           if (date != null) {
             setState(() {
+              selectedTime = date;
               controller.text = date.toStringFormat(widget.timeFormat);
             });
           }

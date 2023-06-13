@@ -18,12 +18,14 @@ class EditStudentController extends BaseController {
   List<ClassRoom> allClassRoom = [];
   RxBool shouldShowFee = false.obs;
 
+  final formKey = GlobalKey<FormState>();
+
   EditStudentController(this.initData);
 
   @override
   void onInit() {
     studentUseCase = Get.find();
-    data = initData ?? Student.init();
+    data = initData?.copyWith() ?? Student.init();
     super.onInit();
   }
 
@@ -57,6 +59,7 @@ class EditStudentController extends BaseController {
   }
 
   Future<void> onInsertOrUpdate() async {
+    if (!(formKey.currentState?.validate() ?? false)) return;
     if (initData == data) {
       Get.back();
     } else {

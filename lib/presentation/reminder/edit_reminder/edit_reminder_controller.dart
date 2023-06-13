@@ -16,12 +16,14 @@ class EditReminderController extends BaseController {
   List<ClassRoom> allClassRoom = [];
   RxBool shouldShowFee = false.obs;
 
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   EditReminderController(this.initData);
 
   @override
   void onInit() {
     reminderUseCase = Get.find();
-    data = initData ?? Reminder.init();
+    data = initData?.copyWith() ?? Reminder.init();
     nameController.text = data.name;
     super.onInit();
   }
@@ -33,6 +35,7 @@ class EditReminderController extends BaseController {
   }
 
   Future<void> onInsertOrUpdate() async {
+    if (!(formKey.currentState?.validate() ?? false)) return;
     if (initData == data) {
       Get.back();
     } else {

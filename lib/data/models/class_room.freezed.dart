@@ -28,7 +28,13 @@ mixin _$ClassRoom {
   set createDate(DateTime value) => throw _privateConstructorUsedError;
   int get tuition => throw _privateConstructorUsedError;
   set tuition(int value) => throw _privateConstructorUsedError;
+  @ListIntConverter()
+  List<int> get schedulerId => throw _privateConstructorUsedError;
+  @ListIntConverter()
+  set schedulerId(List<int> value) => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool get isOpen => throw _privateConstructorUsedError;
+  @BoolConverter()
   set isOpen(bool value) => throw _privateConstructorUsedError;
   int get softIndex => throw _privateConstructorUsedError;
   set softIndex(int value) => throw _privateConstructorUsedError;
@@ -51,7 +57,8 @@ abstract class $ClassRoomCopyWith<$Res> {
       String name,
       DateTime createDate,
       int tuition,
-      bool isOpen,
+      @ListIntConverter() List<int> schedulerId,
+      @BoolConverter() bool isOpen,
       int softIndex,
       String? image});
 }
@@ -73,6 +80,7 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
     Object? name = null,
     Object? createDate = null,
     Object? tuition = null,
+    Object? schedulerId = null,
     Object? isOpen = null,
     Object? softIndex = null,
     Object? image = freezed,
@@ -94,6 +102,10 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
           ? _value.tuition
           : tuition // ignore: cast_nullable_to_non_nullable
               as int,
+      schedulerId: null == schedulerId
+          ? _value.schedulerId
+          : schedulerId // ignore: cast_nullable_to_non_nullable
+              as List<int>,
       isOpen: null == isOpen
           ? _value.isOpen
           : isOpen // ignore: cast_nullable_to_non_nullable
@@ -122,7 +134,8 @@ abstract class _$$_ClassRoomCopyWith<$Res> implements $ClassRoomCopyWith<$Res> {
       String name,
       DateTime createDate,
       int tuition,
-      bool isOpen,
+      @ListIntConverter() List<int> schedulerId,
+      @BoolConverter() bool isOpen,
       int softIndex,
       String? image});
 }
@@ -142,6 +155,7 @@ class __$$_ClassRoomCopyWithImpl<$Res>
     Object? name = null,
     Object? createDate = null,
     Object? tuition = null,
+    Object? schedulerId = null,
     Object? isOpen = null,
     Object? softIndex = null,
     Object? image = freezed,
@@ -163,6 +177,10 @@ class __$$_ClassRoomCopyWithImpl<$Res>
           ? _value.tuition
           : tuition // ignore: cast_nullable_to_non_nullable
               as int,
+      schedulerId: null == schedulerId
+          ? _value.schedulerId
+          : schedulerId // ignore: cast_nullable_to_non_nullable
+              as List<int>,
       isOpen: null == isOpen
           ? _value.isOpen
           : isOpen // ignore: cast_nullable_to_non_nullable
@@ -187,7 +205,8 @@ class _$_ClassRoom extends _ClassRoom {
       required this.name,
       required this.createDate,
       required this.tuition,
-      required this.isOpen,
+      @ListIntConverter() required this.schedulerId,
+      @BoolConverter() required this.isOpen,
       this.softIndex = -1,
       this.image})
       : super._();
@@ -204,6 +223,10 @@ class _$_ClassRoom extends _ClassRoom {
   @override
   int tuition;
   @override
+  @ListIntConverter()
+  List<int> schedulerId;
+  @override
+  @BoolConverter()
   bool isOpen;
   @override
   @JsonKey()
@@ -213,7 +236,7 @@ class _$_ClassRoom extends _ClassRoom {
 
   @override
   String toString() {
-    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, tuition: $tuition, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
+    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, tuition: $tuition, schedulerId: $schedulerId, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
   }
 
   @JsonKey(ignore: true)
@@ -236,7 +259,8 @@ abstract class _ClassRoom extends ClassRoom {
       required String name,
       required DateTime createDate,
       required int tuition,
-      required bool isOpen,
+      @ListIntConverter() required List<int> schedulerId,
+      @BoolConverter() required bool isOpen,
       int softIndex,
       String? image}) = _$_ClassRoom;
   _ClassRoom._() : super._();
@@ -257,7 +281,14 @@ abstract class _ClassRoom extends ClassRoom {
   int get tuition;
   set tuition(int value);
   @override
+  @ListIntConverter()
+  List<int> get schedulerId;
+  @ListIntConverter()
+  set schedulerId(List<int> value);
+  @override
+  @BoolConverter()
   bool get isOpen;
+  @BoolConverter()
   set isOpen(bool value);
   @override
   int get softIndex;

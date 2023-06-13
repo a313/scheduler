@@ -24,17 +24,25 @@ mixin _$Student {
   set id(int? value) => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   set name(String value) => throw _privateConstructorUsedError;
+  @ListIntConverter()
   List<int> get classId => throw _privateConstructorUsedError;
+  @ListIntConverter()
   set classId(List<int> value) => throw _privateConstructorUsedError;
   DateTime get beginStudy => throw _privateConstructorUsedError;
   set beginStudy(DateTime value) => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool get isFollow => throw _privateConstructorUsedError;
+  @BoolConverter()
   set isFollow(bool value) => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool get isSpecial => throw _privateConstructorUsedError;
+  @BoolConverter()
   set isSpecial(bool value) => throw _privateConstructorUsedError;
   int get fee => throw _privateConstructorUsedError;
   set fee(int value) => throw _privateConstructorUsedError;
+  @ListStringConverter()
   List<String> get phones => throw _privateConstructorUsedError;
+  @ListStringConverter()
   set phones(List<String> value) => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   set image(String? value) => throw _privateConstructorUsedError;
@@ -52,12 +60,12 @@ abstract class $StudentCopyWith<$Res> {
   $Res call(
       {int? id,
       String name,
-      List<int> classId,
+      @ListIntConverter() List<int> classId,
       DateTime beginStudy,
-      bool isFollow,
-      bool isSpecial,
+      @BoolConverter() bool isFollow,
+      @BoolConverter() bool isSpecial,
       int fee,
-      List<String> phones,
+      @ListStringConverter() List<String> phones,
       String? image});
 }
 
@@ -135,12 +143,12 @@ abstract class _$$_StudentCopyWith<$Res> implements $StudentCopyWith<$Res> {
   $Res call(
       {int? id,
       String name,
-      List<int> classId,
+      @ListIntConverter() List<int> classId,
       DateTime beginStudy,
-      bool isFollow,
-      bool isSpecial,
+      @BoolConverter() bool isFollow,
+      @BoolConverter() bool isSpecial,
       int fee,
-      List<String> phones,
+      @ListStringConverter() List<String> phones,
       String? image});
 }
 
@@ -211,12 +219,12 @@ class _$_Student extends _Student {
   _$_Student(
       {this.id,
       required this.name,
-      required this.classId,
+      @ListIntConverter() required this.classId,
       required this.beginStudy,
-      required this.isFollow,
-      required this.isSpecial,
+      @BoolConverter() required this.isFollow,
+      @BoolConverter() required this.isSpecial,
       required this.fee,
-      required this.phones,
+      @ListStringConverter() required this.phones,
       this.image})
       : super._();
 
@@ -228,16 +236,20 @@ class _$_Student extends _Student {
   @override
   String name;
   @override
+  @ListIntConverter()
   List<int> classId;
   @override
   DateTime beginStudy;
   @override
+  @BoolConverter()
   bool isFollow;
   @override
+  @BoolConverter()
   bool isSpecial;
   @override
   int fee;
   @override
+  @ListStringConverter()
   List<String> phones;
   @override
   String? image;
@@ -265,12 +277,12 @@ abstract class _Student extends Student {
   factory _Student(
       {int? id,
       required String name,
-      required List<int> classId,
+      @ListIntConverter() required List<int> classId,
       required DateTime beginStudy,
-      required bool isFollow,
-      required bool isSpecial,
+      @BoolConverter() required bool isFollow,
+      @BoolConverter() required bool isSpecial,
       required int fee,
-      required List<String> phones,
+      @ListStringConverter() required List<String> phones,
       String? image}) = _$_Student;
   _Student._() : super._();
 
@@ -283,22 +295,30 @@ abstract class _Student extends Student {
   String get name;
   set name(String value);
   @override
+  @ListIntConverter()
   List<int> get classId;
+  @ListIntConverter()
   set classId(List<int> value);
   @override
   DateTime get beginStudy;
   set beginStudy(DateTime value);
   @override
+  @BoolConverter()
   bool get isFollow;
+  @BoolConverter()
   set isFollow(bool value);
   @override
+  @BoolConverter()
   bool get isSpecial;
+  @BoolConverter()
   set isSpecial(bool value);
   @override
   int get fee;
   set fee(int value);
   @override
+  @ListStringConverter()
   List<String> get phones;
+  @ListStringConverter()
   set phones(List<String> value);
   @override
   String? get image;

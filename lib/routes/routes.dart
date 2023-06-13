@@ -7,6 +7,7 @@ class Routes {
 
   static const classRoom = "/classRoom";
   static const editClassRoom = "/editClassRoom";
+  static const editTimetable = "/editTimetable";
 
   static const scheduler = "/scheduler";
   static const calendar = "/calendar";

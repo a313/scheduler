@@ -11,7 +11,7 @@ class ReminderRepoImpl extends ReminderRepo {
   ReminderRepoImpl(this.db);
   @override
   Future<DataState<List<Reminder>>> getAllReminder() async {
-    final data = await db.getAllReminder();
+    final data = await db.fetchAll();
     return DataSuccess(Reminder.getListFromDB(data));
   }
 
@@ -27,7 +27,7 @@ class ReminderRepoImpl extends ReminderRepo {
 
   @override
   Future<DataState<Reminder>> insertOrUpdate(Reminder data) async {
-    final id = await db.insertOrUpdate(data.toDB());
+    final id = await db.insertOrUpdate(data.toJson());
     data.id = id;
     if (id == 0) {
       return DataFailure(DB_ERR_CODE, DB_ERR_MSG);

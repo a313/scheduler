@@ -22,17 +22,26 @@ class EditReminderPage extends GetView<EditReminderController> {
               child: SingleChildScrollView(
                 padding: padAll16,
                 child: Form(
+                  key: controller.formKey,
                   child: Column(
                     children: [
                       AvatarPicker(onChangedAvatar: controller.onChangedAvatar),
                       BaseTextField(
-                        labelText: 'Tên Lời Nhắc',
+                        labelText: 'Tên lời nhắc',
                         controller: controller.nameController,
                         textInputAction: TextInputAction.next,
                         onChanged: controller.onChangeName,
+                        autofocus: !isEdit,
+                        validator: (name) {
+                          if (name == null || name.isEmpty) {
+                            return 'Tên không được để trống';
+                          }
+                          return null;
+                        },
                       ),
                       BaseDateField(
-                        labelText: 'Ngày Tạo',
+                        labelText: 'Ngày tạo',
+                        initDate: controller.data.createDate,
                         timeFormat: DateFormater.ddMMYYYY,
                         onSelected: controller.onChangeDateCreate,
                       ),
