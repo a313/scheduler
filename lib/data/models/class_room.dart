@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:scheduler/data/models/timetable.dart';
 
 import '../../core/converters.dart';
 
@@ -13,7 +14,7 @@ class ClassRoom with _$ClassRoom {
       required String name,
       required DateTime createDate,
       required int tuition,
-      @ListIntConverter() required List<int> schedulerId,
+      @Default([]) @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() required bool isOpen,
       @Default(-1) int softIndex,
       String? image}) = _ClassRoom;
@@ -28,7 +29,7 @@ class ClassRoom with _$ClassRoom {
         name: '',
         createDate: DateTime.now(),
         isOpen: true,
-        schedulerId: [],
+        timetables: [],
         tuition: 0,
         softIndex: -1,
       );

@@ -1,7 +1,7 @@
 import 'package:path/path.dart';
 import 'package:scheduler/data/datasource/class_room_db.dart';
 import 'package:scheduler/data/datasource/reminder_db.dart';
-import 'package:scheduler/data/datasource/timetable_db.dart';
+
 import 'package:sqflite/sqflite.dart';
 
 import 'student_db.dart';
@@ -13,7 +13,7 @@ class DBHelper {
     Database database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
       await db.execute(ReminderDB.getCreateSQL());
-      await db.execute(TimetableDB.getCreateSQL());
+
       await db.execute(StudentDB.getCreateSQL());
       await db.execute(ClassRoomDB.getCreateSQL());
     });

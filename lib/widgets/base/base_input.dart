@@ -407,7 +407,8 @@ class BaseSearchField<T> extends StatefulWidget {
       required this.itemBuilder,
       this.onSearchEmpty,
       required this.searchBy,
-      this.selectedBuilder});
+      this.selectedBuilder,
+      required this.valueBuilder});
   final List<T>? initValue;
   final List<T> options;
   final bool isMultiSelect;
@@ -417,6 +418,7 @@ class BaseSearchField<T> extends StatefulWidget {
   final Widget Function(BuildContext context, T obj) itemBuilder;
   final Widget Function(BuildContext context, T obj)? selectedBuilder;
   final Widget Function(BuildContext context)? onSearchEmpty;
+  final String Function(List<T>? values) valueBuilder;
   final bool Function(T element, String value) searchBy;
   @override
   State<BaseSearchField<T>> createState() => _BaseSearchFieldState<T>();
@@ -426,10 +428,7 @@ class _BaseSearchFieldState<T> extends State<BaseSearchField<T>> {
   TextEditingController controller = TextEditingController();
   @override
   void initState() {
-    if (widget.initValue != null && widget.initValue!.isNotEmpty) {
-      final initValue = widget.initValue!.join(',');
-      controller.text = initValue;
-    }
+    controller.text = widget.valueBuilder(widget.initValue);
     super.initState();
   }
 
@@ -454,9 +453,12 @@ class _BaseSearchFieldState<T> extends State<BaseSearchField<T>> {
         isMultiSelect: widget.isMultiSelect,
         title: widget.labelText,
         options: widget.options,
+        selected: widget.initValue,
         itemBuilder: widget.itemBuilder,
         selectedBuilder: widget.selectedBuilder,
         searchBy: widget.searchBy));
+
+    controller.text = widget.valueBuilder(value);
     widget.onSelected(value);
   }
 }

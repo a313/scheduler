@@ -56,7 +56,7 @@ mixin BaseCommonWidgets {
 
   void showSnackBar(String message,
       {String? title,
-      SnackBarType type = SnackBarType.success,
+      SnackBarType type = SnackBarType.error,
       SnackPosition position = SnackPosition.TOP}) {
     Color textColor;
     Color bgColor;

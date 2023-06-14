@@ -17,7 +17,6 @@ class ClassRoomRepoImpl extends ClassRoomRepo {
 
   @override
   Future<DataState<ClassRoom>> getClassRoomById(int id) {
-    // TODO: implement getClassRoomById
     throw UnimplementedError();
   }
 

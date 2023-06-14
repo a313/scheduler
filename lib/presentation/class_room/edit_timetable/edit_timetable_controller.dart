@@ -3,10 +3,7 @@ import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/data/models/timetable.dart';
 
-import '../../../domain/usecases/class_room_usecases.dart';
-
 class EditTimetableController extends BaseController {
-  final ClassRoomUseCases useCases = Get.find();
   final Timetable? initData;
   late Timetable data;
 
@@ -14,32 +11,53 @@ class EditTimetableController extends BaseController {
 
   @override
   void onInit() {
-    data = initData?.copyWith() ??
-        Timetable(
-            classId: -1,
-            begin: const TimeOfDay(hour: 7, minute: 00),
-            end: const TimeOfDay(hour: 9, minute: 00),
-            dayInWeek: 0);
+    data = initData?.copyWith() ?? Timetable.init();
     super.onInit();
   }
 
-  Future<void> onInsertOrUpdate() async {
-    if (initData == data) {
-      Get.back();
-    } else {
-      showLoading();
-
-      // final result = await useCases.insertOrUpdate(data);
-      // dismissLoading();
-      // if (result is DataSuccess<ClassRoom>) {
-      //   Get.back(result: result.data);
-      // } else if (result is DataFailure<ClassRoom>) {
-      //   onDataFailed(result);
-      // }
-    }
+  void onChangedDate(int day) {
+    data.dayInWeek = day;
   }
 
-  void onChangedBegin(DateTime value) {}
+  void onChangedBegin(DateTime value) {
+    data.begin = TimeOfDay.fromDateTime(value);
+  }
 
-  void onChangedEnd(DateTime value) {}
+  void onChangedEnd(DateTime value) {
+    data.end = TimeOfDay.fromDateTime(value);
+  }
+
+  bool validData() {
+    final date = validDate();
+    final time = validTime();
+    if (date && time) return true;
+    if (!date) {
+      showSnackBar('Ngày không hợp lệ');
+    }
+    if (!time) {
+      showSnackBar('Thời gian không hợp lệ');
+    }
+    return false;
+  }
+
+  bool validDate() {
+    if (data.dayInWeek < 1 || data.dayInWeek > 7) {
+      return false;
+    }
+    return true;
+  }
+
+  bool validTime() {
+    if (data.begin.hour < data.end.hour) {
+      return true;
+    } else if (data.begin.hour == data.end.hour &&
+        data.begin.minute <= data.end.minute) {
+      return true;
+    }
+    return false;
+  }
+
+  void onUpdate() {
+    Get.back(result: data);
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../constants/date_format.dart';
@@ -30,5 +31,21 @@ extension DateExtension on DateTime {
 
   bool isBetween(DateTime start, DateTime end) {
     return isAfter(start) && isBefore(end.add(const Duration(seconds: 1)));
+  }
+}
+
+extension TimeOfDayExt on TimeOfDay {
+  String get formated {
+    String addLeadingZeroIfNeeded(int value) {
+      if (value < 10) {
+        return '0$value';
+      }
+      return value.toString();
+    }
+
+    final String hourLabel = addLeadingZeroIfNeeded(hour);
+    final String minuteLabel = addLeadingZeroIfNeeded(minute);
+
+    return '$hourLabel:$minuteLabel';
   }
 }

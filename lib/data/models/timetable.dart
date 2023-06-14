@@ -10,8 +10,6 @@ part 'timetable.g.dart';
 class Timetable with _$Timetable {
   const Timetable._();
   factory Timetable({
-    int? id,
-    int? classId,
     @TimeOfDayConverter() required TimeOfDay begin,
     @TimeOfDayConverter() required TimeOfDay end,
     required int dayInWeek,
@@ -19,9 +17,6 @@ class Timetable with _$Timetable {
 
   factory Timetable.fromJson(Map<String, Object?> json) =>
       _$TimetableFromJson(json);
-
-  static List<Timetable> getListFromDB(List<Map<String, Object?>> data) =>
-      data.map((e) => Timetable.fromJson(e)).toList();
 
   factory Timetable.init() => Timetable(
       begin: const TimeOfDay(hour: 07, minute: 00),

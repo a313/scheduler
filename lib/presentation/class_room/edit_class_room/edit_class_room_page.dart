@@ -3,12 +3,13 @@ import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/presentation/class_room/edit_class_room/edit_class_room_controller.dart';
 import 'package:scheduler/theme/app_fonts.dart';
+import 'package:scheduler/widgets/add_cell.dart';
 import 'package:scheduler/widgets/base/base_input.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 
-import '../../../data/models/timetable.dart';
 import '../../../widgets/avatar_picker.dart';
 import '../../../widgets/base/base_button.dart';
+import '../components/timetable_cell.dart';
 
 class EditClassRoomPage extends GetView<EditClassRoomController> {
   const EditClassRoomPage({Key? key}) : super(key: key);
@@ -59,23 +60,22 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                             style: AppFonts.bMedium
                                 .copyWith(color: context.primaryDark),
                           ),
-                          controller.obx(
-                              (state) => Column(
-                                    children: List.generate(
-                                        state!.length,
-                                        (index) => TimetableCell(
-                                              data: state[index],
-                                              onTapped:
-                                                  controller.onEditTimetable,
-                                            ))
-                                      ..add(
-                                        AddTimetableCell(
-                                            onTapped:
-                                                controller.onAddTimetable),
-                                      ),
-                                  ),
-                              onEmpty: AddTimetableCell(
-                                  onTapped: controller.onAddTimetable)),
+                          GetBuilder<EditClassRoomController>(
+                            builder: (controller) => Column(
+                              children: List.generate(
+                                  controller.data.timetables.length,
+                                  (index) => TimetableCell(
+                                        data: controller.data.timetables[index],
+                                        onTapped: controller.onEditTimetable,
+                                        onRemove: controller.onRemove,
+                                      ))
+                                ..add(
+                                  AddCell(
+                                      title: 'Thêm lịch học',
+                                      onTapped: controller.onAddTimetable),
+                                ),
+                            ),
+                          )
                         ],
                       ),
                     ],
@@ -92,60 +92,5 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
             )
           ],
         ));
-  }
-}
-
-class TimetableCell extends StatelessWidget {
-  const TimetableCell({
-    Key? key,
-    required this.data,
-    this.onTapped,
-  }) : super(key: key);
-
-  final Timetable data;
-  final Function(Timetable data)? onTapped;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => onTapped?.call(data),
-      child: Row(
-        children: [
-          Icon(
-            Icons.remove,
-            color: context.funcRadicalRed,
-          ),
-          sizedBoxW04,
-          Text('${data.begin}-${data.end}'),
-        ],
-      ),
-    );
-  }
-}
-
-class AddTimetableCell extends StatelessWidget {
-  const AddTimetableCell({
-    super.key,
-    required this.onTapped,
-  });
-  final Function() onTapped;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTapped,
-      child: const Padding(
-        padding: padSymHor08Ver06,
-        child: Row(
-          children: [
-            Icon(
-              Icons.add,
-              color: Colors.green,
-            ),
-            sizedBoxW04,
-            Text('Thêm khoảng thời gian'),
-          ],
-        ),
-      ),
-    );
   }
 }

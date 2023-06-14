@@ -1,36 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/local_avatar.dart';
-
-class ClassRoomCell extends StatelessWidget {
-  const ClassRoomCell({
-    super.key,
-    required this.data,
-    this.onTapped,
-    required this.onEdit,
-  });
-  final ClassRoom data;
-
-  final Function(ClassRoom classroom)? onTapped;
-  final Function(ClassRoom classroom) onEdit;
-
-  @override
-  Widget build(BuildContext context) {
-    return SwipeActionCell(
-      key: ObjectKey(data),
-      trailingActions: [
-        SwipeAction(
-          onTap: (handler) => onEdit(data),
-          title: 'Edit',
-        )
-      ],
-      child: ClassRoomItem(data: data),
-    );
-  }
-}
 
 class ClassRoomItem extends StatelessWidget {
   const ClassRoomItem({
@@ -40,6 +12,7 @@ class ClassRoomItem extends StatelessWidget {
   });
 
   final ClassRoom data;
+
   final bool isSelected;
 
   @override
@@ -50,18 +23,23 @@ class ClassRoomItem extends StatelessWidget {
         children: [
           LocalAvatar(path: data.image, size: 32),
           sizedBoxW06,
-          Text(
-            data.name,
-            style: AppFonts.bMedium,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  data.name,
+                  style: AppFonts.bLarge,
+                ),
+                Text(
+                  data.timetables.isEmpty
+                      ? 'Chưa có lịch học'
+                      : 'Lịch học: ${data.timetables.map((e) => e.dayInWeek.getDayOfWeek).join(", ")}',
+                  style: AppFonts.bSmall,
+                )
+              ],
+            ),
           ),
-          // sizedBoxW06,
-          // Expanded(
-          //   child: Text(
-          //     'data.phones.join(",")',
-          //     style: AppFonts.bMedium,
-          //     textAlign: TextAlign.right,
-          //   ),
-          // ),
           if (isSelected) const Icon(Icons.check_circle_rounded)
         ],
       ),

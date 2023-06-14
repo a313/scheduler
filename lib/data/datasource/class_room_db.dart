@@ -8,9 +8,9 @@ abstract class ClassRoomDB extends DBSQLHelper {
   static String getCreateSQL() {
     return '''CREATE TABLE $CLASSROOM_TABLE (
       id INTEGER PRIMARY KEY,
-      name TEXT not null,   
-      schedulerId TEXT,   
-      createDate TEXT,      
+      name TEXT not null,      
+      createDate TEXT,     
+      timetables TEXT, 
       tuition INTEGER,      
       isOpen INTEGER,          
       softIndex INTEGER,

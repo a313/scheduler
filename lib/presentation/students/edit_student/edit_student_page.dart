@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:scheduler/core/utils/formater.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/presentation/class_room/components/class_room_item.dart';
@@ -41,17 +42,54 @@ class EditStudentPage extends GetView<EditStudentController> {
                           return null;
                         },
                       ),
-                      BaseSearchField<ClassRoom>(
-                        onSelected: controller.onSelectedClass,
-                        searchBy: (c, search) =>
-                            c.name.toLowerCase().contains(search.toLowerCase()),
-                        itemBuilder: (_, obj) => ClassRoomItem(data: obj),
-                        selectedBuilder: (_, obj) =>
-                            ClassRoomItem(data: obj, isSelected: true),
-                        isMultiSelect: true,
-                        labelText: 'Lớp học',
-                        options: controller.allClassRoom,
-                      ),
+                      // Column(
+                      //   crossAxisAlignment: CrossAxisAlignment.start,
+                      //   children: [
+                      //     Text(
+                      //       'Lớp học',
+                      //       style: AppFonts.bMedium
+                      //           .copyWith(color: context.primaryDark),
+                      //     ),
+                      //     controller.obx(
+                      //         (state) => Column(
+                      //               children: List.generate(
+                      //                   state!.length,
+                      //                   (index) => ClassRoomItem(
+                      //                         data: state[index],
+                      //                       ))
+                      //                 ..add(
+                      //                   AddCell(
+                      //                     onTapped: controller.onAddClassRoom,
+                      //                     title: 'Thêm lớp',
+                      //                   ),
+                      //                 ),
+                      //             ),
+                      //         onEmpty: AddCell(
+                      //           onTapped: controller.onAddClassRoom,
+                      //           title: 'Thêm lớp',
+                      //         )),
+                      //   ],
+                      // ),
+                      Obx(() => BaseSearchField<ClassRoom>(
+                            key: UniqueKey(),
+                            onSelected: controller.onSelectedClass,
+                            searchBy: (c, search) => c.name
+                                .toLowerCase()
+                                .contains(search.toLowerCase()),
+                            itemBuilder: (_, obj) => ClassRoomItem(data: obj),
+                            selectedBuilder: (_, obj) =>
+                                ClassRoomItem(data: obj, isSelected: true),
+                            isMultiSelect: true,
+                            labelText: 'Lớp học',
+                            options: controller.allClassRoom.value,
+                            initValue: controller.selectedClassRoom.value,
+                            valueBuilder: (values) {
+                              if (values == null || values.isEmpty) {
+                                return "Chưa chọn lớp";
+                              }
+                              return values.map((e) => e.name).join(", ");
+                            },
+                          )),
                       BaseSwitchField(
                         labelText: 'Đang theo học?',
                         initState: controller.data.isFollow,
@@ -67,6 +105,7 @@ class EditStudentPage extends GetView<EditStudentController> {
                           widgetA: (_) => BaseTextField(
                                 controller: controller.feeController,
                                 keyboardType: TextInputType.number,
+                                formaters: [CurrencyInputFormatter()],
                                 labelText: "Học phí",
                                 onChanged: controller.onChangedFee,
                                 textInputAction: TextInputAction.next,

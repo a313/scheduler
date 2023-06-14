@@ -20,10 +20,6 @@ Timetable _$TimetableFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Timetable {
-  int? get id => throw _privateConstructorUsedError;
-  set id(int? value) => throw _privateConstructorUsedError;
-  int? get classId => throw _privateConstructorUsedError;
-  set classId(int? value) => throw _privateConstructorUsedError;
   @TimeOfDayConverter()
   TimeOfDay get begin => throw _privateConstructorUsedError;
   @TimeOfDayConverter()
@@ -47,9 +43,7 @@ abstract class $TimetableCopyWith<$Res> {
       _$TimetableCopyWithImpl<$Res, Timetable>;
   @useResult
   $Res call(
-      {int? id,
-      int? classId,
-      @TimeOfDayConverter() TimeOfDay begin,
+      {@TimeOfDayConverter() TimeOfDay begin,
       @TimeOfDayConverter() TimeOfDay end,
       int dayInWeek});
 }
@@ -67,21 +61,11 @@ class _$TimetableCopyWithImpl<$Res, $Val extends Timetable>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? classId = freezed,
     Object? begin = null,
     Object? end = null,
     Object? dayInWeek = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      classId: freezed == classId
-          ? _value.classId
-          : classId // ignore: cast_nullable_to_non_nullable
-              as int?,
       begin: null == begin
           ? _value.begin
           : begin // ignore: cast_nullable_to_non_nullable
@@ -106,9 +90,7 @@ abstract class _$$_TimetableCopyWith<$Res> implements $TimetableCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? id,
-      int? classId,
-      @TimeOfDayConverter() TimeOfDay begin,
+      {@TimeOfDayConverter() TimeOfDay begin,
       @TimeOfDayConverter() TimeOfDay end,
       int dayInWeek});
 }
@@ -124,21 +106,11 @@ class __$$_TimetableCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? classId = freezed,
     Object? begin = null,
     Object? end = null,
     Object? dayInWeek = null,
   }) {
     return _then(_$_Timetable(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      classId: freezed == classId
-          ? _value.classId
-          : classId // ignore: cast_nullable_to_non_nullable
-              as int?,
       begin: null == begin
           ? _value.begin
           : begin // ignore: cast_nullable_to_non_nullable
@@ -159,9 +131,7 @@ class __$$_TimetableCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Timetable extends _Timetable {
   _$_Timetable(
-      {this.id,
-      this.classId,
-      @TimeOfDayConverter() required this.begin,
+      {@TimeOfDayConverter() required this.begin,
       @TimeOfDayConverter() required this.end,
       required this.dayInWeek})
       : super._();
@@ -169,10 +139,6 @@ class _$_Timetable extends _Timetable {
   factory _$_Timetable.fromJson(Map<String, dynamic> json) =>
       _$$_TimetableFromJson(json);
 
-  @override
-  int? id;
-  @override
-  int? classId;
   @override
   @TimeOfDayConverter()
   TimeOfDay begin;
@@ -184,7 +150,7 @@ class _$_Timetable extends _Timetable {
 
   @override
   String toString() {
-    return 'Timetable(id: $id, classId: $classId, begin: $begin, end: $end, dayInWeek: $dayInWeek)';
+    return 'Timetable(begin: $begin, end: $end, dayInWeek: $dayInWeek)';
   }
 
   @JsonKey(ignore: true)
@@ -203,9 +169,7 @@ class _$_Timetable extends _Timetable {
 
 abstract class _Timetable extends Timetable {
   factory _Timetable(
-      {int? id,
-      int? classId,
-      @TimeOfDayConverter() required TimeOfDay begin,
+      {@TimeOfDayConverter() required TimeOfDay begin,
       @TimeOfDayConverter() required TimeOfDay end,
       required int dayInWeek}) = _$_Timetable;
   _Timetable._() : super._();
@@ -213,12 +177,6 @@ abstract class _Timetable extends Timetable {
   factory _Timetable.fromJson(Map<String, dynamic> json) =
       _$_Timetable.fromJson;
 
-  @override
-  int? get id;
-  set id(int? value);
-  @override
-  int? get classId;
-  set classId(int? value);
   @override
   @TimeOfDayConverter()
   TimeOfDay get begin;

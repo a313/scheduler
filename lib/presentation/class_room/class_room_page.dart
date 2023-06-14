@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
+import 'package:scheduler/presentation/class_room/components/class_room_cell.dart';
 
 import '../../theme/app_fonts.dart';
 import '../../widgets/base/base_scafold_appbar.dart';
@@ -8,7 +9,6 @@ import '../../widgets/custom_divider.dart';
 import '../../widgets/custom_refresher.dart';
 import '../../widgets/shimmer/shimmer_list.dart';
 import 'class_room_controller.dart';
-import 'components/class_room_item.dart';
 
 class ClassRoomPage extends GetView<ClassRoomController> {
   const ClassRoomPage({Key? key}) : super(key: key);

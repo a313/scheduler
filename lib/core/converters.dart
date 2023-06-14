@@ -1,6 +1,28 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:scheduler/core/utils/util.dart';
+import 'package:scheduler/data/models/timetable.dart';
+
+class ListTimetableConverter implements JsonConverter<List<Timetable>, String> {
+  const ListTimetableConverter();
+
+  @override
+  List<Timetable> fromJson(String json) {
+    if (json.isEmpty) return [];
+    return json
+        .split(PATTERN)
+        .map((e) => Timetable.fromJson(jsonDecode(e)))
+        .toList();
+  }
+
+  @override
+  String toJson(List<Timetable> object) {
+    final result = object.map((e) => jsonEncode(e.toJson())).join(PATTERN);
+    return result;
+  }
+}
 
 class TimeOfDayConverter implements JsonConverter<TimeOfDay, String> {
   const TimeOfDayConverter();

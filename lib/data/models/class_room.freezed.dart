@@ -28,10 +28,10 @@ mixin _$ClassRoom {
   set createDate(DateTime value) => throw _privateConstructorUsedError;
   int get tuition => throw _privateConstructorUsedError;
   set tuition(int value) => throw _privateConstructorUsedError;
-  @ListIntConverter()
-  List<int> get schedulerId => throw _privateConstructorUsedError;
-  @ListIntConverter()
-  set schedulerId(List<int> value) => throw _privateConstructorUsedError;
+  @ListTimetableConverter()
+  List<Timetable> get timetables => throw _privateConstructorUsedError;
+  @ListTimetableConverter()
+  set timetables(List<Timetable> value) => throw _privateConstructorUsedError;
   @BoolConverter()
   bool get isOpen => throw _privateConstructorUsedError;
   @BoolConverter()
@@ -57,7 +57,7 @@ abstract class $ClassRoomCopyWith<$Res> {
       String name,
       DateTime createDate,
       int tuition,
-      @ListIntConverter() List<int> schedulerId,
+      @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() bool isOpen,
       int softIndex,
       String? image});
@@ -80,7 +80,7 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
     Object? name = null,
     Object? createDate = null,
     Object? tuition = null,
-    Object? schedulerId = null,
+    Object? timetables = null,
     Object? isOpen = null,
     Object? softIndex = null,
     Object? image = freezed,
@@ -102,10 +102,10 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
           ? _value.tuition
           : tuition // ignore: cast_nullable_to_non_nullable
               as int,
-      schedulerId: null == schedulerId
-          ? _value.schedulerId
-          : schedulerId // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+      timetables: null == timetables
+          ? _value.timetables
+          : timetables // ignore: cast_nullable_to_non_nullable
+              as List<Timetable>,
       isOpen: null == isOpen
           ? _value.isOpen
           : isOpen // ignore: cast_nullable_to_non_nullable
@@ -134,7 +134,7 @@ abstract class _$$_ClassRoomCopyWith<$Res> implements $ClassRoomCopyWith<$Res> {
       String name,
       DateTime createDate,
       int tuition,
-      @ListIntConverter() List<int> schedulerId,
+      @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() bool isOpen,
       int softIndex,
       String? image});
@@ -155,7 +155,7 @@ class __$$_ClassRoomCopyWithImpl<$Res>
     Object? name = null,
     Object? createDate = null,
     Object? tuition = null,
-    Object? schedulerId = null,
+    Object? timetables = null,
     Object? isOpen = null,
     Object? softIndex = null,
     Object? image = freezed,
@@ -177,10 +177,10 @@ class __$$_ClassRoomCopyWithImpl<$Res>
           ? _value.tuition
           : tuition // ignore: cast_nullable_to_non_nullable
               as int,
-      schedulerId: null == schedulerId
-          ? _value.schedulerId
-          : schedulerId // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+      timetables: null == timetables
+          ? _value.timetables
+          : timetables // ignore: cast_nullable_to_non_nullable
+              as List<Timetable>,
       isOpen: null == isOpen
           ? _value.isOpen
           : isOpen // ignore: cast_nullable_to_non_nullable
@@ -205,7 +205,7 @@ class _$_ClassRoom extends _ClassRoom {
       required this.name,
       required this.createDate,
       required this.tuition,
-      @ListIntConverter() required this.schedulerId,
+      @ListTimetableConverter() this.timetables = const [],
       @BoolConverter() required this.isOpen,
       this.softIndex = -1,
       this.image})
@@ -223,8 +223,9 @@ class _$_ClassRoom extends _ClassRoom {
   @override
   int tuition;
   @override
-  @ListIntConverter()
-  List<int> schedulerId;
+  @JsonKey()
+  @ListTimetableConverter()
+  List<Timetable> timetables;
   @override
   @BoolConverter()
   bool isOpen;
@@ -236,7 +237,7 @@ class _$_ClassRoom extends _ClassRoom {
 
   @override
   String toString() {
-    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, tuition: $tuition, schedulerId: $schedulerId, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
+    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, tuition: $tuition, timetables: $timetables, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
   }
 
   @JsonKey(ignore: true)
@@ -259,7 +260,7 @@ abstract class _ClassRoom extends ClassRoom {
       required String name,
       required DateTime createDate,
       required int tuition,
-      @ListIntConverter() required List<int> schedulerId,
+      @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() required bool isOpen,
       int softIndex,
       String? image}) = _$_ClassRoom;
@@ -281,10 +282,10 @@ abstract class _ClassRoom extends ClassRoom {
   int get tuition;
   set tuition(int value);
   @override
-  @ListIntConverter()
-  List<int> get schedulerId;
-  @ListIntConverter()
-  set schedulerId(List<int> value);
+  @ListTimetableConverter()
+  List<Timetable> get timetables;
+  @ListTimetableConverter()
+  set timetables(List<Timetable> value);
   @override
   @BoolConverter()
   bool get isOpen;
