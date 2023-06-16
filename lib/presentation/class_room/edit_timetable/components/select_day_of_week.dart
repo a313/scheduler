@@ -29,7 +29,7 @@ class _SelectDayOfWeekState extends State<SelectDayOfWeek> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Ngày', style: AppFonts.bLarge),
+        const Text('Ngày', style: AppFonts.bLarge),
         sizedBoxH08,
         Wrap(
           runSpacing: 16,

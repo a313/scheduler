@@ -5,11 +5,15 @@ import '../constants/date_format.dart';
 
 extension DateExtension on DateTime {
   String toStringFormat(String format) {
-    return DateFormat(format, "vi").format(toLocal());
+    return DateFormat(format).format(toLocal());
   }
 
   String toUTCFormat() {
     return '${DateFormat(DateFormater.UTC).format(toUtc())}Z';
+  }
+
+  DateTime dateWithoutSecond() {
+    return DateTime.utc(year, month, day, hour, minute);
   }
 
   DateTime dateWithoutTime() {
@@ -31,6 +35,21 @@ extension DateExtension on DateTime {
 
   bool isBetween(DateTime start, DateTime end) {
     return isAfter(start) && isBefore(end.add(const Duration(seconds: 1)));
+  }
+
+  bool isToday() {
+    final now = DateTime.now();
+    return year == now.year && month == now.month && day == now.day;
+  }
+
+  bool isTomorrow() {
+    final now = DateTime.now();
+    return year == now.year && month == now.month && day == now.day + 1;
+  }
+
+  bool isYesterday() {
+    final now = DateTime.now();
+    return year == now.year && month == now.month && day == now.day - 1;
   }
 }
 

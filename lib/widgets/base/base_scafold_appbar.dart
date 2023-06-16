@@ -117,15 +117,14 @@ class BaseScafoldAppBar extends StatelessWidget {
       extendBodyBehindAppBar: extendBodyBehindAppBar,
       body: body,
       appBar: AppBar(
+        backgroundColor: appbarColor,
         elevation: elevation,
         actions: actions,
         automaticallyImplyLeading: showBackBtn,
         systemOverlayStyle: systemOverlayStyle,
         title: titleWidget ??
-            Text(
-              title ?? '',
-              style: AppFonts.h400.copyWith(color: context.neutral1100),
-            ),
+            Text(title ?? '',
+                style: AppFonts.h400.copyWith(color: context.neutral1100)),
       ),
     );
   }

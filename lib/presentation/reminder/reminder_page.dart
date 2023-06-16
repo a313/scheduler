@@ -28,11 +28,9 @@ class ReminderPage extends GetView<ReminderController> {
       actions: [
         TextButton(
           onPressed: controller.onTappedFilter,
-          child: Text(
-            'Filter',
-            style: AppFonts.bSmall.copyWith(
-              color: context.primaryDark,
-            ),
+          child: const Text(
+            'Bộ lọc',
+            style: AppFonts.bSmall,
           ),
         )
       ],
@@ -59,7 +57,7 @@ class ReminderPage extends GetView<ReminderController> {
           onLoading: controller.onRefresh,
           controller: controller.emptyController,
           child: const Center(
-            child: Text("Not exist Student"),
+            child: Text("Không có lời nhắc nào"),
           ),
         ),
       ),

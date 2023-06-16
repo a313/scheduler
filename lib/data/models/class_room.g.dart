@@ -9,8 +9,9 @@ part of 'class_room.dart';
 _$_ClassRoom _$$_ClassRoomFromJson(Map<String, dynamic> json) => _$_ClassRoom(
       id: json['id'] as int?,
       name: json['name'] as String,
-      createDate: DateTime.parse(json['createDate'] as String),
+      createDate: const DateTimeConverter().fromJson(json['createDate'] as int),
       tuition: json['tuition'] as int,
+      location: json['location'] as String?,
       timetables: json['timetables'] == null
           ? const []
           : const ListTimetableConverter()
@@ -24,8 +25,9 @@ Map<String, dynamic> _$$_ClassRoomToJson(_$_ClassRoom instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'createDate': instance.createDate.toIso8601String(),
+      'createDate': const DateTimeConverter().toJson(instance.createDate),
       'tuition': instance.tuition,
+      'location': instance.location,
       'timetables': const ListTimetableConverter().toJson(instance.timetables),
       'isOpen': const BoolConverter().toJson(instance.isOpen),
       'softIndex': instance.softIndex,

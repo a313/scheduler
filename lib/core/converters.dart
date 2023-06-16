@@ -77,3 +77,17 @@ class BoolConverter implements JsonConverter<bool, int> {
     return object ? 1 : 0;
   }
 }
+
+class DateTimeConverter implements JsonConverter<DateTime, int> {
+  const DateTimeConverter();
+
+  @override
+  DateTime fromJson(int json) {
+    return DateTime.fromMillisecondsSinceEpoch(json, isUtc: true);
+  }
+
+  @override
+  int toJson(DateTime object) {
+    return object.millisecondsSinceEpoch;
+  }
+}

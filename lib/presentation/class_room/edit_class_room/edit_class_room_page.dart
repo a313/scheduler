@@ -30,25 +30,25 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                     children: [
                       AvatarPicker(onChangedAvatar: controller.onChangedImage),
                       BaseTextField(
-                        labelText: 'Tên lớp',
+                        labelText: 'Class name',
                         controller: controller.classNameController,
                         textInputAction: TextInputAction.next,
                         onChanged: controller.onChangeClassName,
                         validator: (name) {
                           if (name == null || name.isEmpty) {
-                            return 'Tên không được để trống';
+                            return 'Class name can not be empty';
                           }
                           return null;
                         },
                       ),
                       BaseDateField(
-                        labelText: 'Ngày mở lớp',
+                        labelText: 'Create date',
                         initDate: controller.data.createDate,
                         timeFormat: DateFormater.ddMMYYYY,
                         onSelected: controller.onChangeCreateDate,
                       ),
                       BaseSwitchField(
-                        labelText: 'Đang hoạt động?',
+                        labelText: 'Active?',
                         initState: controller.data.isOpen,
                         onChanged: controller.onChangedOpen,
                       ),
@@ -56,7 +56,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Thời khóa biểu',
+                            'Schedule',
                             style: AppFonts.bMedium
                                 .copyWith(color: context.primaryDark),
                           ),
@@ -71,7 +71,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                                       ))
                                 ..add(
                                   AddCell(
-                                      title: 'Thêm lịch học',
+                                      title: 'Add schedule',
                                       onTapped: controller.onAddTimetable),
                                 ),
                             ),

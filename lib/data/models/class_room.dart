@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/timetable.dart';
 
 import '../../core/converters.dart';
@@ -12,8 +13,9 @@ class ClassRoom with _$ClassRoom {
   factory ClassRoom(
       {int? id,
       required String name,
-      required DateTime createDate,
+      @DateTimeConverter() required DateTime createDate,
       required int tuition,
+      String? location,
       @Default([]) @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() required bool isOpen,
       @Default(-1) int softIndex,
@@ -33,4 +35,12 @@ class ClassRoom with _$ClassRoom {
         tuition: 0,
         softIndex: -1,
       );
+
+  bool get isActive {
+    return isOpen && createDate.dateWithoutTime().isBefore(DateTime.now());
+  }
+
+  bool get hasSchedule {
+    return timetables.isNotEmpty;
+  }
 }

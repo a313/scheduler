@@ -1,92 +1,91 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppFonts {
   ///Heading
 
-  static final h900 = GoogleFonts.montserrat(
+  static const h900 = TextStyle(
     fontSize: 56,
     fontWeight: FontWeight.w700,
   );
 
-  static final h800 = GoogleFonts.montserrat(
+  static const h800 = TextStyle(
     fontSize: 38,
     fontWeight: FontWeight.w600,
   );
 
-  static final h700 = GoogleFonts.montserrat(
+  static const h700 = TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.w600,
   );
 
-  static final h600 = GoogleFonts.montserrat(
+  static const h600 = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w600,
   );
 
-  static final h500 = GoogleFonts.montserrat(
+  static const h500 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );
 
-  static final h400 = GoogleFonts.montserrat(
+  static const h400 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w600,
   );
 
-  static final h300 = GoogleFonts.montserrat(
+  static const h300 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w600,
   );
 
-  static final h200 = GoogleFonts.montserrat(
+  static const h200 = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w600,
   );
 
-  static final h100 = GoogleFonts.montserrat(
+  static const h100 = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.w600,
   );
 
   ///Paragraph
-  static final pLarge = GoogleFonts.montserrat(
+  static const pLarge = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w400,
   );
 
-  static final pMedium = GoogleFonts.montserrat(
+  static const pMedium = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
 
-  static final pSmall = GoogleFonts.montserrat(
+  static const pSmall = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
   );
 
-  static final pSuperSmall = GoogleFonts.montserrat(
+  static const pSuperSmall = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );
 
   ///Baseline
-  static final bLarge = GoogleFonts.montserrat(
+  static const bLarge = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w400,
   );
 
-  static final bMedium = GoogleFonts.montserrat(
+  static const bMedium = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
 
-  static final bSmall = GoogleFonts.montserrat(
+  static const bSmall = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
   );
 
-  static final bSuperSmall = GoogleFonts.montserrat(
+  static const bSuperSmall = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
   );

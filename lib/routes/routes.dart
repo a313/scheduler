@@ -5,17 +5,17 @@ class Routes {
   static const students = "/students";
   static const editStudent = "/editStudent";
 
-  static const classRoom = "/classRoom";
+  static const classRooms = "/classRooms";
   static const editClassRoom = "/editClassRoom";
   static const editTimetable = "/editTimetable";
 
-  static const scheduler = "/scheduler";
-  static const calendar = "/calendar";
+  static const events = "/events";
+  static const editEvent = "/editEvent";
 
-  static const reminder = "/reminder";
+  static const reminders = "/reminders";
   static const editReminder = "/editReminder";
 
-  static const report = "/report";
+  static const reports = "/reports";
 
   static const hexToLink = "/hexToLink";
 }

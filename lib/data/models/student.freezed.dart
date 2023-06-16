@@ -28,7 +28,9 @@ mixin _$Student {
   List<int> get classId => throw _privateConstructorUsedError;
   @ListIntConverter()
   set classId(List<int> value) => throw _privateConstructorUsedError;
+  @DateTimeConverter()
   DateTime get beginStudy => throw _privateConstructorUsedError;
+  @DateTimeConverter()
   set beginStudy(DateTime value) => throw _privateConstructorUsedError;
   @BoolConverter()
   bool get isFollow => throw _privateConstructorUsedError;
@@ -61,7 +63,7 @@ abstract class $StudentCopyWith<$Res> {
       {int? id,
       String name,
       @ListIntConverter() List<int> classId,
-      DateTime beginStudy,
+      @DateTimeConverter() DateTime beginStudy,
       @BoolConverter() bool isFollow,
       @BoolConverter() bool isSpecial,
       int fee,
@@ -144,7 +146,7 @@ abstract class _$$_StudentCopyWith<$Res> implements $StudentCopyWith<$Res> {
       {int? id,
       String name,
       @ListIntConverter() List<int> classId,
-      DateTime beginStudy,
+      @DateTimeConverter() DateTime beginStudy,
       @BoolConverter() bool isFollow,
       @BoolConverter() bool isSpecial,
       int fee,
@@ -220,7 +222,7 @@ class _$_Student extends _Student {
       {this.id,
       required this.name,
       @ListIntConverter() required this.classId,
-      required this.beginStudy,
+      @DateTimeConverter() required this.beginStudy,
       @BoolConverter() required this.isFollow,
       @BoolConverter() required this.isSpecial,
       required this.fee,
@@ -239,6 +241,7 @@ class _$_Student extends _Student {
   @ListIntConverter()
   List<int> classId;
   @override
+  @DateTimeConverter()
   DateTime beginStudy;
   @override
   @BoolConverter()
@@ -278,7 +281,7 @@ abstract class _Student extends Student {
       {int? id,
       required String name,
       @ListIntConverter() required List<int> classId,
-      required DateTime beginStudy,
+      @DateTimeConverter() required DateTime beginStudy,
       @BoolConverter() required bool isFollow,
       @BoolConverter() required bool isSpecial,
       required int fee,
@@ -300,7 +303,9 @@ abstract class _Student extends Student {
   @ListIntConverter()
   set classId(List<int> value);
   @override
+  @DateTimeConverter()
   DateTime get beginStudy;
+  @DateTimeConverter()
   set beginStudy(DateTime value);
   @override
   @BoolConverter()

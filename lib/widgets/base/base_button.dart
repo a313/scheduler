@@ -43,7 +43,7 @@ class BaseButton extends StatelessWidget {
                   onPressed: onPressed,
                   padding: padSymHor24Ver12,
                   textStyle: AppFonts.h400
-                      .copyWith(color: context.primaryOrange, height: 1),
+                      .copyWith(color: context.primaryDark, height: 1),
                 ),
               ),
             ));
@@ -66,7 +66,7 @@ class BaseButton extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                               side: BorderSide(
-                                  width: 2.0, color: context.primaryOrange),
+                                  width: 2.0, color: context.primaryDark),
                               borderRadius: BorderRadius.circular(8.0)),
                           backgroundColor: context.neutral100,
                           padding: padSymHor24Ver12,
@@ -77,7 +77,7 @@ class BaseButton extends StatelessWidget {
                             textScaleFactor: 1,
                             maxLines: 1,
                             style: AppFonts.h400.copyWith(
-                                color: context.primaryOrange, height: 1)),
+                                color: context.primaryDark, height: 1)),
                       ),
                     ),
                   ),
@@ -89,7 +89,7 @@ class BaseButton extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0)),
-                          backgroundColor: context.primaryOrange,
+                          backgroundColor: context.primaryDark,
                           padding: padSymHor24Ver12,
                           elevation: 0,
                         ),
@@ -157,7 +157,7 @@ class BaseButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padSymHor24Ver12,
           textStyle:
-              AppFonts.h400.copyWith(color: context.primaryOrange, height: 1),
+              AppFonts.h400.copyWith(color: context.primaryDark, height: 1),
         ),
       ),
     );
@@ -177,7 +177,7 @@ class BaseButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padSymHor16Ver08,
           textStyle:
-              AppFonts.h300.copyWith(color: context.primaryOrange, height: 1),
+              AppFonts.h300.copyWith(color: context.primaryDark, height: 1),
         ),
       ),
     );
@@ -237,7 +237,7 @@ class PrimaryButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-        backgroundColor: context.primaryOrange,
+        backgroundColor: context.primaryDark,
         padding: padding,
         elevation: 0,
       ),
@@ -265,7 +265,7 @@ class SecondaryButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
-            side: BorderSide(width: 2.0, color: context.primaryOrange),
+            side: BorderSide(width: 2.0, color: context.primaryDark),
             borderRadius: BorderRadius.circular(8.0)),
         backgroundColor: context.neutral100,
         padding: padding,
@@ -295,7 +295,7 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-        backgroundColor: backgroundColor ?? context.primaryOrange,
+        backgroundColor: backgroundColor ?? context.primaryDark,
         padding: padding,
         elevation: 0,
       ),

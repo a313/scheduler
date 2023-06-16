@@ -13,7 +13,7 @@ class Student with _$Student {
       {int? id,
       required String name,
       @ListIntConverter() required List<int> classId,
-      required DateTime beginStudy,
+      @DateTimeConverter() required DateTime beginStudy,
       @BoolConverter() required bool isFollow,
       @BoolConverter() required bool isSpecial,
       required int fee,
@@ -25,30 +25,6 @@ class Student with _$Student {
 
   static List<Student> getListFromDB(List<Map<String, Object?>> data) =>
       data.map((e) => Student.fromJson(e)).toList();
-
-  // static Student fromDB(Map<String, dynamic> json) => Student(
-  //       id: json['id'] as int?,
-  //       name: json['name'] as String,
-  //       classId: (json['classId'] as String).toListInt(PATTERN),
-  //       beginStudy: DateTime.parse(json['beginStudy'] as String),
-  //       isFollow: (json['isFollow'] as int).toBool,
-  //       isSpecial: (json['isSpecial'] as int).toBool,
-  //       fee: json['fee'] as int,
-  //       phones: (json['phones'] as String).toListString(PATTERN),
-  //       image: json['image'] as String?,
-  //     );
-
-  // Map<String, dynamic> toDB() => <String, dynamic>{
-  //       'id': id,
-  //       'name': name,
-  //       'classId': classId.join(PATTERN),
-  //       'beginStudy': beginStudy.toIso8601String(),
-  //       'isFollow': isFollow.toInt,
-  //       'isSpecial': isSpecial.toInt,
-  //       'fee': fee,
-  //       'phones': phones.join(PATTERN),
-  //       'image': image,
-  //     };
 
   static init() => Student(
       name: '',

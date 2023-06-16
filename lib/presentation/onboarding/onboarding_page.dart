@@ -29,44 +29,50 @@ class OnboardingPage extends GetView<OnboardingController> {
               ),
             ),
             Positioned(
-              top: 16,
-              right: 16,
-              child: TextButton(
-                onPressed: controller.onSkip,
-                child: Text('Skip', style: AppFonts.bMedium),
+              top: 0,
+              right: 0,
+              child: SafeArea(
+                minimum: padAll16,
+                child: TextButton(
+                  onPressed: controller.onSkip,
+                  child: const Text('Skip', style: AppFonts.bMedium),
+                ),
               ),
             ),
             Positioned(
-              bottom: 16,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  SizedBox(
-                    width: 60,
-                    height: 60,
-                    child: Obx(() => CircleProgressBar(
-                          backgroundColor: Colors.white,
-                          foregroundColor: context.primaryDark,
-                          value: controller.percent,
-                        )),
-                  ),
-                  Container(
-                    height: 44,
-                    width: 44,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: context.primaryDark.withOpacity(0.5),
+              bottom: 0,
+              child: SafeArea(
+                minimum: padAll16,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SizedBox(
+                      width: 60,
+                      height: 60,
+                      child: Obx(() => CircleProgressBar(
+                            backgroundColor: Colors.white,
+                            foregroundColor: context.primaryDark,
+                            value: controller.percent,
+                          )),
                     ),
-                    child: IconButton(
-                      onPressed: controller.onNext,
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
+                    Container(
+                      height: 44,
+                      width: 44,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: context.primaryDark.withOpacity(0.5),
                       ),
-                      iconSize: 15,
-                    ),
-                  )
-                ],
+                      child: IconButton(
+                        onPressed: controller.onNext,
+                        icon: const Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
+                        ),
+                        iconSize: 15,
+                      ),
+                    )
+                  ],
+                ),
               ),
             )
           ],

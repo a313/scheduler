@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/reminder.dart';
 import 'package:scheduler/domain/usecases/reminder_usecases.dart';
 
@@ -13,7 +12,7 @@ class EditReminderController extends BaseController {
 
   late Reminder data;
   late ReminderUseCases reminderUseCase;
-  List<ClassRoom> allClassRoom = [];
+
   RxBool shouldShowFee = false.obs;
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();

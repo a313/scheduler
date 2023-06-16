@@ -10,7 +10,7 @@ abstract class StudentDB extends DBSQLHelper {
       id INTEGER PRIMARY KEY,
       name TEXT not null,
       classId TEXT not null,
-      beginStudy TEXT,
+      beginStudy INTEGER,
       phones TEXT,
       isSpecial INTEGER,
       fee INTEGER,

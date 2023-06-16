@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
+import 'package:scheduler/core/utils/util.dart';
 
 extension CustomStringExtension on String {
   static const diacriticsReg =
@@ -152,4 +153,10 @@ extension CustomStringExtension on String {
   }
 
   List<String> toListString(String pattern) => split(pattern);
+
+  Color nameToColor() {
+    var hex = Utils.asciiToHex(this);
+    hex = hex.padRight(6, 'F');
+    return Color(hex.hexToInt());
+  }
 }

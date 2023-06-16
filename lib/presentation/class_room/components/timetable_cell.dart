@@ -27,7 +27,7 @@ class TimetableCell extends StatelessWidget {
             color: context.funcRadicalRed,
           ),
           Text(
-              'Ngày ${data.dayInWeek.getDayOfWeek} từ ${data.begin.formated} đến ${data.end.formated}'),
+              'On ${data.dayInWeek.getDayOfWeek} from ${data.begin.formated} to ${data.end.formated}'),
         ],
       ),
     );

@@ -183,7 +183,7 @@ class _Selected extends StatelessWidget {
             height: 40,
             decoration: BoxDecoration(
               borderRadius: borRad16,
-              color: context.primaryOrange,
+              color: context.primaryLight,
             ),
             child: SvgPicture.asset(
               item.svgPath,

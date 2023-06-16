@@ -21,7 +21,7 @@ class AmountHelperComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final max = (amount * multiStep.toInt()).clamp(0, maxAmount);
-    final targetTextStyle = AppFonts.h300;
+    const targetTextStyle = AppFonts.h300;
     int targetTextSize = 14;
     final itemMaxWidth = context.screenSize.width / 3 - 2 - 8.0;
     for (var textSize = targetTextSize; textSize >= 8; textSize--) {

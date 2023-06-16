@@ -73,19 +73,19 @@ extension CustomNumExtension on num {
   String get getDayOfWeek {
     switch (this) {
       case 1:
-        return 'Chủ nhật';
+        return 'Sunday';
       case 2:
-        return 'Thứ 2';
+        return 'Monday';
       case 3:
-        return 'Thứ 3';
+        return 'Tuesday';
       case 4:
-        return 'Thứ 4';
+        return 'Wednesday';
       case 5:
-        return 'Thứ 5';
+        return 'Thursday';
       case 6:
-        return 'Thứ 6';
+        return 'Friday';
       case 7:
-        return 'Thứ 7';
+        return 'Saturday';
       default:
         return 'UNKNOWN';
     }

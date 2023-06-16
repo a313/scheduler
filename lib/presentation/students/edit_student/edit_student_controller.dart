@@ -20,7 +20,7 @@ class EditStudentController extends BaseController
   late Student data;
   final StudentUseCases studentUseCase = Get.find();
   final ClassRoomUseCases classUseCase = Get.find();
-  Rx<List<ClassRoom>> allClassRoom = Rx<List<ClassRoom>>([]);
+
   Rx<List<ClassRoom>> selectedClassRoom = Rx<List<ClassRoom>>([]);
   RxBool shouldShowFee = false.obs;
 
@@ -106,9 +106,9 @@ class EditStudentController extends BaseController
   Future<void> getData() async {
     final result = await classUseCase.getAllClassRoom();
     if (result is DataSuccess<List<ClassRoom>>) {
-      allClassRoom.value = result.data;
+      allClassRoom = result.data;
       selectedClassRoom.value =
-          allClassRoom.value.where((c) => data.classId.contains(c.id)).toList();
+          allClassRoom.where((c) => data.classId.contains(c.id)).toList();
     } else {
       log('err');
     }

@@ -48,11 +48,11 @@ class _ViewMoreWidgetState extends State<ViewMoreWidget> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(isExpand ? "Rút gọn" : "Mở rộng",
-                  style: AppFonts.h300.copyWith(color: context.primaryOrange)),
+                  style: AppFonts.h300.copyWith(color: context.primaryLight)),
               if (isExpand)
-                Icon(Icons.keyboard_arrow_up, color: context.primaryOrange)
+                Icon(Icons.keyboard_arrow_up, color: context.primaryLight)
               else
-                Icon(Icons.keyboard_arrow_down, color: context.primaryOrange)
+                Icon(Icons.keyboard_arrow_down, color: context.primaryLight)
             ],
           ),
         ),

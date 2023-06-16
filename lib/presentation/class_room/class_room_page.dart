@@ -28,12 +28,7 @@ class ClassRoomPage extends GetView<ClassRoomController> {
       actions: [
         TextButton(
           onPressed: controller.onTappedFilter,
-          child: Text(
-            'Filter',
-            style: AppFonts.bSmall.copyWith(
-              color: context.primaryDark,
-            ),
-          ),
+          child: const Text('Bộ lọc', style: AppFonts.bSmall),
         )
       ],
       title: 'Class Room',
@@ -59,7 +54,7 @@ class ClassRoomPage extends GetView<ClassRoomController> {
           onLoading: controller.onRefresh,
           controller: controller.emptyController,
           child: const Center(
-            child: Text("Not exist Class Room"),
+            child: Text("Chưa có lớp học"),
           ),
         ),
       ),

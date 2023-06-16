@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/students/components/student_item.dart';
+import 'package:scheduler/presentation/students/components/student_cell.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'package:scheduler/widgets/custom_divider.dart';
@@ -28,15 +28,13 @@ class StudentsPage extends GetView<StudentsController> {
       actions: [
         TextButton(
           onPressed: controller.onTappedFilter,
-          child: Text(
-            'Filter',
-            style: AppFonts.bSmall.copyWith(
-              color: context.primaryDark,
-            ),
+          child: const Text(
+            'Bộ lọc',
+            style: AppFonts.bSmall,
           ),
         )
       ],
-      title: 'Students',
+      title: 'Học sinh',
       body: controller.obx(
         (state) => CustomRefresher(
           onRefresh: controller.onRefresh,
@@ -46,7 +44,7 @@ class StudentsPage extends GetView<StudentsController> {
               itemCount: state!.length,
               separatorBuilder: (context, index) => const CustomDivider(),
               itemBuilder: (context, index) {
-                return StudentItem(
+                return StudentCell(
                   data: state[index],
                   onEdit: controller.onEditStudent,
                   onTapped: controller.onTappedStudent,
@@ -59,7 +57,7 @@ class StudentsPage extends GetView<StudentsController> {
           onLoading: controller.onRefresh,
           controller: controller.emptyController,
           child: const Center(
-            child: Text("Not exist Student"),
+            child: Text("Chưa có học sinh"),
           ),
         ),
       ),

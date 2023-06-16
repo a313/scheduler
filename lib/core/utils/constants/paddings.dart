@@ -40,6 +40,7 @@ const padSymVer24 = EdgeInsets.symmetric(vertical: 24);
 
 ///
 const padSymHor24Ver12 = EdgeInsets.symmetric(horizontal: 24, vertical: 12);
+const padSymHor14Ver08 = EdgeInsets.symmetric(horizontal: 14, vertical: 08);
 const padSymHor16Ver12 = EdgeInsets.symmetric(horizontal: 16, vertical: 12);
 const padSymHor16Ver08 = EdgeInsets.symmetric(horizontal: 16, vertical: 8);
 const padSymHor16Ver24 = EdgeInsets.symmetric(horizontal: 16, vertical: 24);

@@ -9,7 +9,7 @@ abstract class ClassRoomDB extends DBSQLHelper {
     return '''CREATE TABLE $CLASSROOM_TABLE (
       id INTEGER PRIMARY KEY,
       name TEXT not null,      
-      createDate TEXT,     
+      createDate INTEGER,     
       timetables TEXT, 
       tuition INTEGER,      
       isOpen INTEGER,          

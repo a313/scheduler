@@ -24,10 +24,14 @@ mixin _$ClassRoom {
   set id(int? value) => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   set name(String value) => throw _privateConstructorUsedError;
+  @DateTimeConverter()
   DateTime get createDate => throw _privateConstructorUsedError;
+  @DateTimeConverter()
   set createDate(DateTime value) => throw _privateConstructorUsedError;
   int get tuition => throw _privateConstructorUsedError;
   set tuition(int value) => throw _privateConstructorUsedError;
+  String? get location => throw _privateConstructorUsedError;
+  set location(String? value) => throw _privateConstructorUsedError;
   @ListTimetableConverter()
   List<Timetable> get timetables => throw _privateConstructorUsedError;
   @ListTimetableConverter()
@@ -55,8 +59,9 @@ abstract class $ClassRoomCopyWith<$Res> {
   $Res call(
       {int? id,
       String name,
-      DateTime createDate,
+      @DateTimeConverter() DateTime createDate,
       int tuition,
+      String? location,
       @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() bool isOpen,
       int softIndex,
@@ -80,6 +85,7 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
     Object? name = null,
     Object? createDate = null,
     Object? tuition = null,
+    Object? location = freezed,
     Object? timetables = null,
     Object? isOpen = null,
     Object? softIndex = null,
@@ -102,6 +108,10 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
           ? _value.tuition
           : tuition // ignore: cast_nullable_to_non_nullable
               as int,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
       timetables: null == timetables
           ? _value.timetables
           : timetables // ignore: cast_nullable_to_non_nullable
@@ -132,8 +142,9 @@ abstract class _$$_ClassRoomCopyWith<$Res> implements $ClassRoomCopyWith<$Res> {
   $Res call(
       {int? id,
       String name,
-      DateTime createDate,
+      @DateTimeConverter() DateTime createDate,
       int tuition,
+      String? location,
       @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() bool isOpen,
       int softIndex,
@@ -155,6 +166,7 @@ class __$$_ClassRoomCopyWithImpl<$Res>
     Object? name = null,
     Object? createDate = null,
     Object? tuition = null,
+    Object? location = freezed,
     Object? timetables = null,
     Object? isOpen = null,
     Object? softIndex = null,
@@ -177,6 +189,10 @@ class __$$_ClassRoomCopyWithImpl<$Res>
           ? _value.tuition
           : tuition // ignore: cast_nullable_to_non_nullable
               as int,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
       timetables: null == timetables
           ? _value.timetables
           : timetables // ignore: cast_nullable_to_non_nullable
@@ -203,8 +219,9 @@ class _$_ClassRoom extends _ClassRoom {
   _$_ClassRoom(
       {this.id,
       required this.name,
-      required this.createDate,
+      @DateTimeConverter() required this.createDate,
       required this.tuition,
+      this.location,
       @ListTimetableConverter() this.timetables = const [],
       @BoolConverter() required this.isOpen,
       this.softIndex = -1,
@@ -219,9 +236,12 @@ class _$_ClassRoom extends _ClassRoom {
   @override
   String name;
   @override
+  @DateTimeConverter()
   DateTime createDate;
   @override
   int tuition;
+  @override
+  String? location;
   @override
   @JsonKey()
   @ListTimetableConverter()
@@ -237,7 +257,7 @@ class _$_ClassRoom extends _ClassRoom {
 
   @override
   String toString() {
-    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, tuition: $tuition, timetables: $timetables, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
+    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, tuition: $tuition, location: $location, timetables: $timetables, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
   }
 
   @JsonKey(ignore: true)
@@ -258,8 +278,9 @@ abstract class _ClassRoom extends ClassRoom {
   factory _ClassRoom(
       {int? id,
       required String name,
-      required DateTime createDate,
+      @DateTimeConverter() required DateTime createDate,
       required int tuition,
+      String? location,
       @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() required bool isOpen,
       int softIndex,
@@ -276,11 +297,16 @@ abstract class _ClassRoom extends ClassRoom {
   String get name;
   set name(String value);
   @override
+  @DateTimeConverter()
   DateTime get createDate;
+  @DateTimeConverter()
   set createDate(DateTime value);
   @override
   int get tuition;
   set tuition(int value);
+  @override
+  String? get location;
+  set location(String? value);
   @override
   @ListTimetableConverter()
   List<Timetable> get timetables;

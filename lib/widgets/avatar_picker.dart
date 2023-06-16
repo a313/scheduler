@@ -83,8 +83,8 @@ class _AvatarPickerState extends State<AvatarPicker> with BaseCommonWidgets {
           children: [
             ListTile(
               leading: const Icon(Icons.camera_alt),
-              title: Text(
-                "Camera",
+              title: const Text(
+                "Chụp ảnh",
                 style: AppFonts.h400,
                 textScaleFactor: 1,
               ),
@@ -93,8 +93,8 @@ class _AvatarPickerState extends State<AvatarPicker> with BaseCommonWidgets {
             const SizedBox(height: 5),
             ListTile(
               leading: const Icon(Icons.image),
-              title: Text(
-                "Gallery",
+              title: const Text(
+                "Thư viện",
                 style: AppFonts.h400,
                 textScaleFactor: 1,
               ),

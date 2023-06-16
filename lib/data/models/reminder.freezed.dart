@@ -24,7 +24,9 @@ mixin _$Reminder {
   set id(int? value) => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   set name(String value) => throw _privateConstructorUsedError;
+  @DateTimeConverter()
   DateTime get createDate => throw _privateConstructorUsedError;
+  @DateTimeConverter()
   set createDate(DateTime value) => throw _privateConstructorUsedError;
   int get softIndex => throw _privateConstructorUsedError;
   set softIndex(int value) => throw _privateConstructorUsedError;
@@ -45,7 +47,7 @@ abstract class $ReminderCopyWith<$Res> {
   $Res call(
       {int? id,
       String name,
-      DateTime createDate,
+      @DateTimeConverter() DateTime createDate,
       int softIndex,
       String? image});
 }
@@ -104,7 +106,7 @@ abstract class _$$_ReminderCopyWith<$Res> implements $ReminderCopyWith<$Res> {
   $Res call(
       {int? id,
       String name,
-      DateTime createDate,
+      @DateTimeConverter() DateTime createDate,
       int softIndex,
       String? image});
 }
@@ -157,7 +159,7 @@ class _$_Reminder extends _Reminder {
   _$_Reminder(
       {this.id,
       required this.name,
-      required this.createDate,
+      @DateTimeConverter() required this.createDate,
       this.softIndex = -1,
       this.image})
       : super._();
@@ -170,6 +172,7 @@ class _$_Reminder extends _Reminder {
   @override
   String name;
   @override
+  @DateTimeConverter()
   DateTime createDate;
   @override
   @JsonKey()
@@ -200,7 +203,7 @@ abstract class _Reminder extends Reminder {
   factory _Reminder(
       {int? id,
       required String name,
-      required DateTime createDate,
+      @DateTimeConverter() required DateTime createDate,
       int softIndex,
       String? image}) = _$_Reminder;
   _Reminder._() : super._();
@@ -214,7 +217,9 @@ abstract class _Reminder extends Reminder {
   String get name;
   set name(String value);
   @override
+  @DateTimeConverter()
   DateTime get createDate;
+  @DateTimeConverter()
   set createDate(DateTime value);
   @override
   int get softIndex;

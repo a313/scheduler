@@ -44,3 +44,23 @@ enum FrequencyUnit {
   @JsonValue('DAY')
   day,
 }
+
+enum RepeatType {
+  None,
+  Daily,
+  Weekly,
+  Monthly,
+  Yearly,
+}
+
+enum AlertType {
+  None,
+  AtTime,
+  Before5Min,
+  Before15Min,
+  Before30Min,
+  Before1Hour,
+  Before2Hour,
+  Before1Day,
+  Before1Week
+}

@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:path/path.dart';
 import 'package:scheduler/data/datasource/class_room_db.dart';
+import 'package:scheduler/data/datasource/event_db.dart';
 import 'package:scheduler/data/datasource/reminder_db.dart';
-
 import 'package:sqflite/sqflite.dart';
 
 import 'student_db.dart';
@@ -12,8 +14,8 @@ class DBHelper {
     String path = join(databasesPath, 'app_database.db');
     Database database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
+      await db.execute(EventDB.getCreateSQL());
       await db.execute(ReminderDB.getCreateSQL());
-
       await db.execute(StudentDB.getCreateSQL());
       await db.execute(ClassRoomDB.getCreateSQL());
     });
@@ -28,7 +30,9 @@ abstract class DBSQLHelper {
   DBSQLHelper(this.db);
 
   Future<List<Map<String, dynamic>>> fetchAll() async {
-    return db.query(table);
+    final result = await db.query(table);
+    log('FetchAll $table: ${result.length}', name: 'DATABASE');
+    return result;
   }
 
   Future<int> insertOrUpdate(Map<String, Object?> values) async {
@@ -51,14 +55,17 @@ abstract class DBSQLHelper {
   }
 
   Future<int> insert(Map<String, Object?> values) async {
+    log('INSERT into $table: ${values.toString()}', name: 'DATABASE');
     return await db.insert(table, values);
   }
 
   Future<int> update(int id, Map<String, Object?> values) async {
+    log('UPDATE at $table id:$id: ${values.toString()}', name: 'DATABASE');
     return await db.update(table, values, where: 'id = ?', whereArgs: [id]);
   }
 
   Future<int> delete(int id) async {
+    log('DELETE at $table id:$id', name: 'DATABASE');
     return await db.delete(table, where: 'id = ?', whereArgs: [id]);
   }
 }

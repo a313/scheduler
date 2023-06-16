@@ -13,8 +13,6 @@ class StudentsController extends BaseController with StateMixin<List<Student>> {
   final refreshController = RefreshController();
   final emptyController = RefreshController();
 
-  List<Student> students = [];
-
   @override
   void onReady() {
     getData();
@@ -34,16 +32,16 @@ class StudentsController extends BaseController with StateMixin<List<Student>> {
   void getData() async {
     final result = await useCase.getAllStudent();
     if (result is DataSuccess<List<Student>>) {
-      students = result.data;
+      allStudent = result.data;
     }
     updateUI();
   }
 
   void updateUI() {
-    if (students.isNotEmpty) {
-      change(students, status: RxStatus.success());
+    if (allStudent.isNotEmpty) {
+      change(allStudent, status: RxStatus.success());
     } else {
-      change(students, status: RxStatus.empty());
+      change(allStudent, status: RxStatus.empty());
     }
   }
 

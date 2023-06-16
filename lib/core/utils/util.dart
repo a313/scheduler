@@ -36,6 +36,14 @@ class Utils {
     ).join();
   }
 
+  static String asciiToHex(String source) {
+    var buffer = StringBuffer();
+    for (int i = 0; i < source.length; i++) {
+      buffer.write(source.codeUnitAt(i).toRadixString(16));
+    }
+    return buffer.toString();
+  }
+
   static Future<XFile?> pickImage(
       {required ImageSource source,
       double maxHeight = 300,

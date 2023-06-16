@@ -20,7 +20,7 @@ class FeatureComponent extends GetWidget<HomeController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
+        const Padding(
           padding: padSymHor16,
           child: Text(
             'Features',

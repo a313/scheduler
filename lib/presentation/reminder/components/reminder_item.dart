@@ -37,7 +37,7 @@ class ReminderItem extends StatelessWidget {
               style: AppFonts.bMedium,
             ),
             sizedBoxW06,
-            Expanded(
+            const Expanded(
               child: Text(
                 'data.phones.join(",")',
                 style: AppFonts.bMedium,

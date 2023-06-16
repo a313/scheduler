@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 
 class OnboardPage extends StatefulWidget {
@@ -23,8 +24,9 @@ class OnboardPageState extends State<OnboardPage> {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: Alignment.bottomCenter,
       children: [
-        Center(
+        Positioned.fill(
           child: Image(
             image: AssetImage(
               widget.imageUrl,
@@ -32,11 +34,10 @@ class OnboardPageState extends State<OnboardPage> {
             fit: BoxFit.cover,
           ),
         ),
-        Positioned(
-          left: 16,
-          right: 16,
-          bottom: 16,
+        SafeArea(
+          minimum: padAll16,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -58,6 +59,7 @@ class OnboardPageState extends State<OnboardPage> {
                 overflow: TextOverflow.clip,
                 textAlign: TextAlign.center,
               ),
+              sizedBoxH90,
             ],
           ),
         ),

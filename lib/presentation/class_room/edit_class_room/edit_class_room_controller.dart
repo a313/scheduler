@@ -34,6 +34,8 @@ class EditClassRoomController extends BaseController {
     }
   }
 
+
+
   void onChangedOpen(bool value) {
     data.isOpen = value;
   }

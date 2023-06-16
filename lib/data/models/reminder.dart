@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../core/converters.dart';
+
 part 'reminder.freezed.dart';
 part 'reminder.g.dart';
 
@@ -10,7 +12,7 @@ class Reminder with _$Reminder {
   factory Reminder(
       {int? id,
       required String name,
-      required DateTime createDate,
+      @DateTimeConverter() required DateTime createDate,
       @Default(-1) int softIndex,
       String? image}) = _Reminder;
 

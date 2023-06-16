@@ -42,34 +42,6 @@ class EditStudentPage extends GetView<EditStudentController> {
                           return null;
                         },
                       ),
-                      // Column(
-                      //   crossAxisAlignment: CrossAxisAlignment.start,
-                      //   children: [
-                      //     Text(
-                      //       'Lớp học',
-                      //       style: AppFonts.bMedium
-                      //           .copyWith(color: context.primaryDark),
-                      //     ),
-                      //     controller.obx(
-                      //         (state) => Column(
-                      //               children: List.generate(
-                      //                   state!.length,
-                      //                   (index) => ClassRoomItem(
-                      //                         data: state[index],
-                      //                       ))
-                      //                 ..add(
-                      //                   AddCell(
-                      //                     onTapped: controller.onAddClassRoom,
-                      //                     title: 'Thêm lớp',
-                      //                   ),
-                      //                 ),
-                      //             ),
-                      //         onEmpty: AddCell(
-                      //           onTapped: controller.onAddClassRoom,
-                      //           title: 'Thêm lớp',
-                      //         )),
-                      //   ],
-                      // ),
                       Obx(() => BaseSearchField<ClassRoom>(
                             key: UniqueKey(),
                             onSelected: controller.onSelectedClass,
@@ -81,7 +53,7 @@ class EditStudentPage extends GetView<EditStudentController> {
                                 ClassRoomItem(data: obj, isSelected: true),
                             isMultiSelect: true,
                             labelText: 'Lớp học',
-                            options: controller.allClassRoom.value,
+                            options: controller.allClassRoom,
                             initValue: controller.selectedClassRoom.value,
                             valueBuilder: (values) {
                               if (values == null || values.isEmpty) {

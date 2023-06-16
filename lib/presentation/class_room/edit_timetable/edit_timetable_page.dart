@@ -26,7 +26,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
                   children: [
                     SelectDayOfWeek(onChanged: controller.onChangedDate),
                     sizedBoxH24,
-                    Text('Thời gian', style: AppFonts.bLarge),
+                    const Text('Thời gian', style: AppFonts.bLarge),
                     sizedBoxH16,
                     SizedBox(
                         height: 150,

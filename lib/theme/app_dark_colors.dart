@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppDarkColors {
   static const transparent = Colors.transparent;
-  static const primaryDark = Color(0xFF214099);
-  static const primaryOrange = Color(0xFFF27029);
+  static const primaryDark = Color(0xFF0785e9);
+  static const primaryLight = Color(0xFFe3ab10);
   static const disableColor = Color(0xFFF9F9FC);
 
   static const funcBitterLemon = Color(0xFF4EB84B);

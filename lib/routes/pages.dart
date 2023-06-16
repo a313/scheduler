@@ -6,6 +6,10 @@ import '../presentation/class_room/edit_class_room/edit_class_room_binding.dart'
 import '../presentation/class_room/edit_class_room/edit_class_room_page.dart';
 import '../presentation/class_room/edit_timetable/edit_timetable_binding.dart';
 import '../presentation/class_room/edit_timetable/edit_timetable_page.dart';
+import '../presentation/events/edit_event/edit_event_binding.dart';
+import '../presentation/events/edit_event/edit_event_page.dart';
+import '../presentation/events/events_binding.dart';
+import '../presentation/events/events_page.dart';
 import '../presentation/hex_to_link/hex_to_link_binding.dart';
 import '../presentation/hex_to_link/hex_to_link_page.dart';
 import '../presentation/home/home_binding.dart';
@@ -35,7 +39,17 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: Routes.classRoom,
+      name: Routes.events,
+      page: () => const EventsPage(),
+      binding: EventsBinding(),
+    ),
+    GetPage(
+      name: Routes.editEvent,
+      page: () => const EditEventPage(),
+      binding: EditEventBinding(),
+    ),
+    GetPage(
+      name: Routes.classRooms,
       page: () => const ClassRoomPage(),
       binding: ClassRoomBinding(),
     ),
@@ -60,7 +74,7 @@ class AppPages {
       binding: EditStudentBinding(),
     ),
     GetPage(
-      name: Routes.reminder,
+      name: Routes.reminders,
       page: () => const ReminderPage(),
       binding: ReminderBinding(),
     ),

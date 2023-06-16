@@ -9,7 +9,7 @@ part of 'reminder.dart';
 _$_Reminder _$$_ReminderFromJson(Map<String, dynamic> json) => _$_Reminder(
       id: json['id'] as int?,
       name: json['name'] as String,
-      createDate: DateTime.parse(json['createDate'] as String),
+      createDate: const DateTimeConverter().fromJson(json['createDate'] as int),
       softIndex: json['softIndex'] as int? ?? -1,
       image: json['image'] as String?,
     );
@@ -18,7 +18,7 @@ Map<String, dynamic> _$$_ReminderToJson(_$_Reminder instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'createDate': instance.createDate.toIso8601String(),
+      'createDate': const DateTimeConverter().toJson(instance.createDate),
       'softIndex': instance.softIndex,
       'image': instance.image,
     };

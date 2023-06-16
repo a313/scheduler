@@ -29,6 +29,7 @@ class _MainAppState extends State<MainApp> {
     } else {
       initialRoute = Routes.onboarding;
     }
+    // initialRoute = Routes.onboarding;
     super.initState();
   }
 

@@ -72,7 +72,7 @@ class _DatePickerBottomsheetState extends State<DatePickerBottomsheet> {
                   padding: padAll16,
                   child: Text(
                     'Không có thông tin',
-                    style: AppFonts.h400.copyWith(color: context.primaryOrange),
+                    style: AppFonts.h400.copyWith(color: context.primaryLight),
                   ),
                 ),
               ),
