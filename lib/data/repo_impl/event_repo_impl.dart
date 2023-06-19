@@ -16,6 +16,14 @@ class EventRepoImpl extends EventRepo {
   }
 
   @override
+  Future<DataState<List<Event>>> getEventsFrom(
+      DateTime from, DateTime to) async {
+    final data = await db.getEventsFrom(
+        from.millisecondsSinceEpoch, to.millisecondsSinceEpoch);
+    return DataSuccess(Event.getListFromDB(data));
+  }
+
+  @override
   Future<DataState<Event>> insertOrUpdate(Event data) async {
     final id = await db.insertOrUpdate(data.toJson());
     data.id = id;
@@ -24,5 +32,16 @@ class EventRepoImpl extends EventRepo {
     } else {
       return DataSuccess(data);
     }
+  }
+
+  @override
+  Future<DataState<List<Event>>> getEventByType(EventType type) async {
+    final data = await db.getEventByType(type);
+    return DataSuccess(Event.getListFromDB(data));
+  }
+
+  @override
+  Future<DataState> deleteAllEvent() async {
+    return DataSuccess(await db.truncate());
   }
 }

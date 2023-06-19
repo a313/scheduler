@@ -45,12 +45,14 @@ class EditEventPage extends GetView<EditEventController> {
                       ),
                       BaseDateField(
                         labelText: 'Start Time',
+                        initDate: controller.data.startTime,
                         onSelected: controller.onSelectStartTime,
                         mode: CupertinoDatePickerMode.dateAndTime,
                         timeFormat: DateFormater.MMddyyyyHHmm,
                       ),
                       BaseDateField(
                         labelText: 'End Time',
+                        initDate: controller.data.endTime,
                         onSelected: controller.onSelectEndTime,
                         mode: CupertinoDatePickerMode.dateAndTime,
                         timeFormat: DateFormater.MMddyyyyHHmm,
@@ -175,6 +177,11 @@ class EditEventPage extends GetView<EditEventController> {
                           }
                           return values.map((e) => e.name).join(", ");
                         },
+                      ),
+                      BaseTextField(
+                        labelText: 'Location',
+                        controller: controller.locationController,
+                        onChanged: controller.onChangeLocation,
                       ),
                       BaseTextField(
                         labelText: 'Note',

@@ -157,6 +157,6 @@ extension CustomStringExtension on String {
   Color nameToColor() {
     var hex = Utils.asciiToHex(this);
     hex = hex.padRight(6, 'F');
-    return Color(hex.hexToInt());
+    return Color(hex.substring(0, 6).hexToInt());
   }
 }

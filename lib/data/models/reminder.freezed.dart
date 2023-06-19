@@ -28,6 +28,12 @@ mixin _$Reminder {
   DateTime get createDate => throw _privateConstructorUsedError;
   @DateTimeConverter()
   set createDate(DateTime value) => throw _privateConstructorUsedError;
+  AlertType get alert => throw _privateConstructorUsedError;
+  set alert(AlertType value) => throw _privateConstructorUsedError;
+  @TimeOfDayConverter()
+  TimeOfDay? get alertTime => throw _privateConstructorUsedError;
+  @TimeOfDayConverter()
+  set alertTime(TimeOfDay? value) => throw _privateConstructorUsedError;
   int get softIndex => throw _privateConstructorUsedError;
   set softIndex(int value) => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
@@ -48,6 +54,8 @@ abstract class $ReminderCopyWith<$Res> {
       {int? id,
       String name,
       @DateTimeConverter() DateTime createDate,
+      AlertType alert,
+      @TimeOfDayConverter() TimeOfDay? alertTime,
       int softIndex,
       String? image});
 }
@@ -68,6 +76,8 @@ class _$ReminderCopyWithImpl<$Res, $Val extends Reminder>
     Object? id = freezed,
     Object? name = null,
     Object? createDate = null,
+    Object? alert = null,
+    Object? alertTime = freezed,
     Object? softIndex = null,
     Object? image = freezed,
   }) {
@@ -84,6 +94,14 @@ class _$ReminderCopyWithImpl<$Res, $Val extends Reminder>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      alert: null == alert
+          ? _value.alert
+          : alert // ignore: cast_nullable_to_non_nullable
+              as AlertType,
+      alertTime: freezed == alertTime
+          ? _value.alertTime
+          : alertTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay?,
       softIndex: null == softIndex
           ? _value.softIndex
           : softIndex // ignore: cast_nullable_to_non_nullable
@@ -107,6 +125,8 @@ abstract class _$$_ReminderCopyWith<$Res> implements $ReminderCopyWith<$Res> {
       {int? id,
       String name,
       @DateTimeConverter() DateTime createDate,
+      AlertType alert,
+      @TimeOfDayConverter() TimeOfDay? alertTime,
       int softIndex,
       String? image});
 }
@@ -125,6 +145,8 @@ class __$$_ReminderCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = null,
     Object? createDate = null,
+    Object? alert = null,
+    Object? alertTime = freezed,
     Object? softIndex = null,
     Object? image = freezed,
   }) {
@@ -141,6 +163,14 @@ class __$$_ReminderCopyWithImpl<$Res>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      alert: null == alert
+          ? _value.alert
+          : alert // ignore: cast_nullable_to_non_nullable
+              as AlertType,
+      alertTime: freezed == alertTime
+          ? _value.alertTime
+          : alertTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay?,
       softIndex: null == softIndex
           ? _value.softIndex
           : softIndex // ignore: cast_nullable_to_non_nullable
@@ -160,6 +190,8 @@ class _$_Reminder extends _Reminder {
       {this.id,
       required this.name,
       @DateTimeConverter() required this.createDate,
+      required this.alert,
+      @TimeOfDayConverter() this.alertTime,
       this.softIndex = -1,
       this.image})
       : super._();
@@ -175,6 +207,11 @@ class _$_Reminder extends _Reminder {
   @DateTimeConverter()
   DateTime createDate;
   @override
+  AlertType alert;
+  @override
+  @TimeOfDayConverter()
+  TimeOfDay? alertTime;
+  @override
   @JsonKey()
   int softIndex;
   @override
@@ -182,7 +219,7 @@ class _$_Reminder extends _Reminder {
 
   @override
   String toString() {
-    return 'Reminder(id: $id, name: $name, createDate: $createDate, softIndex: $softIndex, image: $image)';
+    return 'Reminder(id: $id, name: $name, createDate: $createDate, alert: $alert, alertTime: $alertTime, softIndex: $softIndex, image: $image)';
   }
 
   @JsonKey(ignore: true)
@@ -204,6 +241,8 @@ abstract class _Reminder extends Reminder {
       {int? id,
       required String name,
       @DateTimeConverter() required DateTime createDate,
+      required AlertType alert,
+      @TimeOfDayConverter() TimeOfDay? alertTime,
       int softIndex,
       String? image}) = _$_Reminder;
   _Reminder._() : super._();
@@ -221,6 +260,14 @@ abstract class _Reminder extends Reminder {
   DateTime get createDate;
   @DateTimeConverter()
   set createDate(DateTime value);
+  @override
+  AlertType get alert;
+  set alert(AlertType value);
+  @override
+  @TimeOfDayConverter()
+  TimeOfDay? get alertTime;
+  @TimeOfDayConverter()
+  set alertTime(TimeOfDay? value);
   @override
   int get softIndex;
   set softIndex(int value);

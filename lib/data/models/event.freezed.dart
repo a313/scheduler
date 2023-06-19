@@ -22,6 +22,8 @@ Event _$EventFromJson(Map<String, dynamic> json) {
 mixin _$Event {
   int? get id => throw _privateConstructorUsedError;
   set id(int? value) => throw _privateConstructorUsedError;
+  int? get parentId => throw _privateConstructorUsedError;
+  set parentId(int? value) => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   set name(String value) => throw _privateConstructorUsedError;
   @DateTimeConverter()
@@ -32,6 +34,8 @@ mixin _$Event {
   DateTime get endTime => throw _privateConstructorUsedError;
   @DateTimeConverter()
   set endTime(DateTime value) => throw _privateConstructorUsedError;
+  EventType get type => throw _privateConstructorUsedError;
+  set type(EventType value) => throw _privateConstructorUsedError;
   AlertType get alert => throw _privateConstructorUsedError;
   set alert(AlertType value) => throw _privateConstructorUsedError;
   RepeatType get repeat => throw _privateConstructorUsedError;
@@ -50,6 +54,10 @@ mixin _$Event {
   List<int> get joinedIds => throw _privateConstructorUsedError;
   @ListIntConverter()
   set joinedIds(List<int> value) => throw _privateConstructorUsedError;
+  @BoolConverter()
+  bool get isActive => throw _privateConstructorUsedError;
+  @BoolConverter()
+  set isActive(bool value) => throw _privateConstructorUsedError;
   String? get note => throw _privateConstructorUsedError;
   set note(String? value) => throw _privateConstructorUsedError;
   @JsonKey(includeToJson: false, includeFromJson: false)
@@ -73,11 +81,13 @@ abstract class $EventCopyWith<$Res> {
   @useResult
   $Res call(
       {int? id,
+      int? parentId,
       String name,
       @DateTimeConverter()
           DateTime startTime,
       @DateTimeConverter()
           DateTime endTime,
+      EventType type,
       AlertType alert,
       RepeatType repeat,
       String? location,
@@ -87,6 +97,8 @@ abstract class $EventCopyWith<$Res> {
           List<int> invitedIds,
       @ListIntConverter()
           List<int> joinedIds,
+      @BoolConverter()
+          bool isActive,
       String? note,
       @JsonKey(includeToJson: false, includeFromJson: false)
           List<Student> students,
@@ -108,15 +120,18 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
   @override
   $Res call({
     Object? id = freezed,
+    Object? parentId = freezed,
     Object? name = null,
     Object? startTime = null,
     Object? endTime = null,
+    Object? type = null,
     Object? alert = null,
     Object? repeat = null,
     Object? location = freezed,
     Object? classIds = null,
     Object? invitedIds = null,
     Object? joinedIds = null,
+    Object? isActive = null,
     Object? note = freezed,
     Object? students = null,
     Object? classRooms = null,
@@ -125,6 +140,10 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      parentId: freezed == parentId
+          ? _value.parentId
+          : parentId // ignore: cast_nullable_to_non_nullable
               as int?,
       name: null == name
           ? _value.name
@@ -138,6 +157,10 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as EventType,
       alert: null == alert
           ? _value.alert
           : alert // ignore: cast_nullable_to_non_nullable
@@ -162,6 +185,10 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.joinedIds
           : joinedIds // ignore: cast_nullable_to_non_nullable
               as List<int>,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
       note: freezed == note
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -186,11 +213,13 @@ abstract class _$$_EventCopyWith<$Res> implements $EventCopyWith<$Res> {
   @useResult
   $Res call(
       {int? id,
+      int? parentId,
       String name,
       @DateTimeConverter()
           DateTime startTime,
       @DateTimeConverter()
           DateTime endTime,
+      EventType type,
       AlertType alert,
       RepeatType repeat,
       String? location,
@@ -200,6 +229,8 @@ abstract class _$$_EventCopyWith<$Res> implements $EventCopyWith<$Res> {
           List<int> invitedIds,
       @ListIntConverter()
           List<int> joinedIds,
+      @BoolConverter()
+          bool isActive,
       String? note,
       @JsonKey(includeToJson: false, includeFromJson: false)
           List<Student> students,
@@ -217,15 +248,18 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
   @override
   $Res call({
     Object? id = freezed,
+    Object? parentId = freezed,
     Object? name = null,
     Object? startTime = null,
     Object? endTime = null,
+    Object? type = null,
     Object? alert = null,
     Object? repeat = null,
     Object? location = freezed,
     Object? classIds = null,
     Object? invitedIds = null,
     Object? joinedIds = null,
+    Object? isActive = null,
     Object? note = freezed,
     Object? students = null,
     Object? classRooms = null,
@@ -234,6 +268,10 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      parentId: freezed == parentId
+          ? _value.parentId
+          : parentId // ignore: cast_nullable_to_non_nullable
               as int?,
       name: null == name
           ? _value.name
@@ -247,6 +285,10 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as EventType,
       alert: null == alert
           ? _value.alert
           : alert // ignore: cast_nullable_to_non_nullable
@@ -271,6 +313,10 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
           ? _value.joinedIds
           : joinedIds // ignore: cast_nullable_to_non_nullable
               as List<int>,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
       note: freezed == note
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -292,11 +338,13 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
 class _$_Event extends _Event {
   _$_Event(
       {this.id,
+      this.parentId,
       required this.name,
       @DateTimeConverter()
           required this.startTime,
       @DateTimeConverter()
           required this.endTime,
+      required this.type,
       required this.alert,
       required this.repeat,
       this.location,
@@ -306,6 +354,8 @@ class _$_Event extends _Event {
           this.invitedIds = const [],
       @ListIntConverter()
           this.joinedIds = const [],
+      @BoolConverter()
+          this.isActive = true,
       this.note,
       @JsonKey(includeToJson: false, includeFromJson: false)
           this.students = const [],
@@ -319,6 +369,8 @@ class _$_Event extends _Event {
   @override
   int? id;
   @override
+  int? parentId;
+  @override
   String name;
   @override
   @DateTimeConverter()
@@ -326,6 +378,8 @@ class _$_Event extends _Event {
   @override
   @DateTimeConverter()
   DateTime endTime;
+  @override
+  EventType type;
   @override
   AlertType alert;
   @override
@@ -345,6 +399,10 @@ class _$_Event extends _Event {
   @ListIntConverter()
   List<int> joinedIds;
   @override
+  @JsonKey()
+  @BoolConverter()
+  bool isActive;
+  @override
   String? note;
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
@@ -355,7 +413,7 @@ class _$_Event extends _Event {
 
   @override
   String toString() {
-    return 'Event(id: $id, name: $name, startTime: $startTime, endTime: $endTime, alert: $alert, repeat: $repeat, location: $location, classIds: $classIds, invitedIds: $invitedIds, joinedIds: $joinedIds, note: $note, students: $students, classRooms: $classRooms)';
+    return 'Event(id: $id, parentId: $parentId, name: $name, startTime: $startTime, endTime: $endTime, type: $type, alert: $alert, repeat: $repeat, location: $location, classIds: $classIds, invitedIds: $invitedIds, joinedIds: $joinedIds, isActive: $isActive, note: $note, students: $students, classRooms: $classRooms)';
   }
 
   @JsonKey(ignore: true)
@@ -375,11 +433,13 @@ class _$_Event extends _Event {
 abstract class _Event extends Event {
   factory _Event(
       {int? id,
+      int? parentId,
       required String name,
       @DateTimeConverter()
           required DateTime startTime,
       @DateTimeConverter()
           required DateTime endTime,
+      required EventType type,
       required AlertType alert,
       required RepeatType repeat,
       String? location,
@@ -389,6 +449,8 @@ abstract class _Event extends Event {
           List<int> invitedIds,
       @ListIntConverter()
           List<int> joinedIds,
+      @BoolConverter()
+          bool isActive,
       String? note,
       @JsonKey(includeToJson: false, includeFromJson: false)
           List<Student> students,
@@ -402,6 +464,9 @@ abstract class _Event extends Event {
   int? get id;
   set id(int? value);
   @override
+  int? get parentId;
+  set parentId(int? value);
+  @override
   String get name;
   set name(String value);
   @override
@@ -414,6 +479,9 @@ abstract class _Event extends Event {
   DateTime get endTime;
   @DateTimeConverter()
   set endTime(DateTime value);
+  @override
+  EventType get type;
+  set type(EventType value);
   @override
   AlertType get alert;
   set alert(AlertType value);
@@ -438,6 +506,11 @@ abstract class _Event extends Event {
   List<int> get joinedIds;
   @ListIntConverter()
   set joinedIds(List<int> value);
+  @override
+  @BoolConverter()
+  bool get isActive;
+  @BoolConverter()
+  set isActive(bool value);
   @override
   String? get note;
   set note(String? value);

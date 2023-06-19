@@ -52,6 +52,7 @@ class _DatePickerBottomsheetState extends State<DatePickerBottomsheet> {
                   maximumDate: widget.maxDate,
                   minimumDate: widget.minDate,
                   mode: widget.mode,
+                  use24hFormat: true,
                   onDateTimeChanged: onDateTimeChanged,
                 )),
             Padding(

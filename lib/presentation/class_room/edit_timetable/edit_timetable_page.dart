@@ -15,7 +15,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
     return BaseScafoldAppBar(
-        title: isEdit ? "Sửa thông tin" : "Thêm mới",
+        title: isEdit ? "Edit schedule" : "Add schedule",
         body: Column(
           children: [
             Expanded(
@@ -26,7 +26,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
                   children: [
                     SelectDayOfWeek(onChanged: controller.onChangedDate),
                     sizedBoxH24,
-                    const Text('Thời gian', style: AppFonts.bLarge),
+                    const Text('Time', style: AppFonts.bLarge),
                     sizedBoxH16,
                     SizedBox(
                         height: 150,
@@ -45,7 +45,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
                                 onDateTimeChanged: controller.onChangedBegin,
                               ),
                             ),
-                            const Text('đến'),
+                            const Text('to'),
                             Expanded(
                               child: CupertinoDatePicker(
                                 use24hFormat: true,

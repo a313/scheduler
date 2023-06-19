@@ -23,18 +23,28 @@ class EditEventController extends BaseController {
 
   final nameController = TextEditingController();
   final noteController = TextEditingController();
+  final locationController = TextEditingController();
 
   @override
   void onInit() {
     data = initData?.copyWith() ?? Event.init();
     nameController.text = data.name;
-    noteController.text = data.note ?? "";
+    noteController.text = data.note ?? '';
+    locationController.text = data.location ?? '';
     super.onInit();
   }
 
-  void onSelectedClass(List<ClassRoom>? p1) {}
+  void onSelectedClass(List<ClassRoom>? listClass) {
+    if (listClass == null) return;
+    data.classIds = listClass.map((e) => e.id!).toList();
+  }
 
-  void onSelectedStudent(List<Student>? p1) {}
+  void onSelectedStudent(List<Student>? listStudent) {
+    if (listStudent == null) return;
+    final studentIds = listStudent.map((e) => e.id!).toList();
+    data.joinedIds = studentIds;
+    data.invitedIds = studentIds;
+  }
 
   Future<void> onInsertOrUpdate() async {
     if (!(formKey.currentState?.validate() ?? false)) return;
@@ -74,5 +84,9 @@ class EditEventController extends BaseController {
 
   void onChangeNote(String note) {
     data.note = note;
+  }
+
+  void onChangeLocation(String location) {
+    data.location = location;
   }
 }

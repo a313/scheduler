@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:scheduler/core/utils/util.dart';
 
 import '../../core/converters.dart';
 
@@ -13,6 +15,8 @@ class Reminder with _$Reminder {
       {int? id,
       required String name,
       @DateTimeConverter() required DateTime createDate,
+      required AlertType alert,
+      @TimeOfDayConverter() TimeOfDay? alertTime,
       @Default(-1) int softIndex,
       String? image}) = _Reminder;
 
@@ -22,6 +26,10 @@ class Reminder with _$Reminder {
   static List<Reminder> getListFromDB(List<Map<String, Object?>> data) =>
       data.map((e) => Reminder.fromJson(e)).toList();
 
-  static Reminder init() =>
-      Reminder(name: '', createDate: DateTime.now(), softIndex: -1);
+  static Reminder init() => Reminder(
+        name: '',
+        createDate: DateTime.now(),
+        softIndex: -1,
+        alert: AlertType.None,
+      );
 }

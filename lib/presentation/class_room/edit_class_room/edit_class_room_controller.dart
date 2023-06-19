@@ -18,12 +18,15 @@ class EditClassRoomController extends BaseController {
   final classNameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
+  final locationController = TextEditingController();
+
   EditClassRoomController(this.initData);
 
   @override
   void onInit() {
     data = initData?.copyWith() ?? ClassRoom.init();
     classNameController.text = data.name;
+    locationController.text = data.location ?? '';
 
     super.onInit();
   }
@@ -33,8 +36,6 @@ class EditClassRoomController extends BaseController {
       data.createDate = time;
     }
   }
-
-
 
   void onChangedOpen(bool value) {
     data.isOpen = value;
@@ -46,11 +47,6 @@ class EditClassRoomController extends BaseController {
       Get.back();
     } else {
       showLoading();
-      if (data.image != null && initData?.image != data.image) {
-        final file = await Utils.saveFileToLocal(filePath: data.image!);
-        data.image = file.path;
-      }
-
       if (data.image != null && initData?.image != data.image) {
         final file = await Utils.saveFileToLocal(filePath: data.image!);
         data.image = file.path;
@@ -93,5 +89,14 @@ class EditClassRoomController extends BaseController {
   void onRemove(Timetable timetable) {
     data.timetables.remove(timetable);
     update();
+  }
+
+  void onSelectedAlertType(List<AlertType>? alert) {
+    if (alert == null) return;
+    data.alert = alert.first;
+  }
+
+  void onChangeLocation(String location) {
+    data.location = location;
   }
 }

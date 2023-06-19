@@ -14,8 +14,6 @@ class ClassRoomController extends BaseController
   final refreshController = RefreshController();
   final emptyController = RefreshController();
 
-  List<ClassRoom> classRooms = [];
-
   @override
   void onInit() {
     getData();
@@ -48,7 +46,7 @@ class ClassRoomController extends BaseController
   Future<void> getData() async {
     final result = await useCase.getAllClassRoom();
     if (result is DataSuccess<List<ClassRoom>>) {
-      classRooms = result.data;
+      allClassRoom = result.data;
       updateUI();
     } else if (result is DataFailure<List<ClassRoom>>) {
       onDataFailed(result);
@@ -56,10 +54,10 @@ class ClassRoomController extends BaseController
   }
 
   void updateUI() {
-    if (classRooms.isEmpty) {
-      change(classRooms, status: RxStatus.empty());
+    if (allClassRoom.isEmpty) {
+      change(allClassRoom, status: RxStatus.empty());
     } else {
-      change(classRooms, status: RxStatus.success());
+      change(allClassRoom, status: RxStatus.success());
     }
   }
 }

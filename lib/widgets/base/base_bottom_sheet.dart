@@ -17,7 +17,6 @@ class BaseBottomSheet extends StatelessWidget {
     // required this.height,
     required this.child,
     required this.title,
-    this.iconX = true,
     this.subTitle,
     this.bottomButton = false,
   }) : super(key: key);
@@ -25,7 +24,7 @@ class BaseBottomSheet extends StatelessWidget {
   final Widget child;
   final String title;
   final Widget? subTitle;
-  final bool iconX;
+
   final bool bottomButton;
 
   @override
@@ -61,16 +60,6 @@ class BaseBottomSheet extends StatelessWidget {
                         ),
                       ),
                     ),
-                    if (iconX)
-                      IconButton(
-                        icon: Icon(
-                          Icons.close,
-                          color: context.primaryDark,
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
                   ],
                 ),
                 subTitle == null

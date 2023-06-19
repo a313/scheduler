@@ -5,6 +5,7 @@ import 'package:scheduler/presentation/events/components/calenar_component.dart'
 import 'package:scheduler/presentation/events/components/events_component.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 
+import '../../widgets/custom_refresher.dart';
 import 'events_controller.dart';
 
 class EventsPage extends GetView<EventsController> {
@@ -32,8 +33,12 @@ class EventsPage extends GetView<EventsController> {
                   onDaySelected: controller.onDaySelected,
                 )),
             Expanded(
-              child: controller.obx(
-                (state) => CustomScrollView(
+                child: controller.obx(
+              (state) => CustomRefresher(
+                onRefresh: controller.onRefresh,
+                onLoading: controller.onLoading,
+                controller: controller.refreshController,
+                child: CustomScrollView(
                   slivers: List.generate(state!.length, (index) {
                     final key = state.keys.elementAt(index);
                     final events = state[key]!;
@@ -41,11 +46,12 @@ class EventsPage extends GetView<EventsController> {
                       time: key,
                       data: events,
                       onTapped: controller.onTappedEvent,
+                      onTappedInvite: controller.onTappedInvite,
                     );
                   }),
                 ),
               ),
-            ),
+            )),
           ],
         ));
   }

@@ -14,19 +14,22 @@ class EventsComponent extends StatelessWidget {
     required this.time,
     required this.data,
     this.onTapped,
-    this.headerKey,
+    this.onTappedInvite,
+    // this.headerKey,
   });
   final DateTime time;
   final List<Event> data;
-  final dynamic headerKey;
+  // final dynamic headerKey;
   final Function(Event event)? onTapped;
+  final Function(Event event)? onTappedInvite;
 
   @override
   Widget build(BuildContext context) {
     final length = data.length;
     if (length == 0) {
       return SliverStickyHeader.builder(
-        builder: (context, state) => EventHeader(key: headerKey, time: time),
+        controller: StickyHeaderController(),
+        builder: (context, state) => EventHeader(time: time),
         sliver: SliverToBoxAdapter(
           child: Padding(
             padding: padSymHor14Ver08,
@@ -39,11 +42,16 @@ class EventsComponent extends StatelessWidget {
       );
     } else {
       return SliverStickyHeader.builder(
-        builder: (context, state) => EventHeader(key: headerKey, time: time),
+        builder: (context, state) => EventHeader(time: time),
         sliver: SliverList.separated(
-            itemBuilder: (context, index) => EventItem(data: data[index]),
-            separatorBuilder: (context, index) => const CustomDivider(),
-            itemCount: length),
+          itemCount: length,
+          itemBuilder: (context, index) => EventItem(
+            data: data[index],
+            onTapped: onTapped,
+            onTappedInvite: onTappedInvite,
+          ),
+          separatorBuilder: (context, index) => const CustomDivider(),
+        ),
       );
     }
   }

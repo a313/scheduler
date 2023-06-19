@@ -33,14 +33,17 @@ class LocalAvatar extends StatelessWidget {
         height: size,
         width: size,
         child: Container(
+          padding: const EdgeInsets.all(2),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: name!.nameToColor(),
+            color: context.primaryDark,
           ),
-          child: AutoSizeText(
-            name!.substring(0, 1).toUpperCase(),
-            style: AppFonts.h700,
-            minFontSize: 5,
+          child: Center(
+            child: AutoSizeText(
+              name!.substring(0, 1).toUpperCase(),
+              style: AppFonts.h700.copyWith(color: context.neutral100),
+              minFontSize: 5,
+            ),
           ),
         ),
       );

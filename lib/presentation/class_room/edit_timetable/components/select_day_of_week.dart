@@ -29,12 +29,18 @@ class _SelectDayOfWeekState extends State<SelectDayOfWeek> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Ngày', style: AppFonts.bLarge),
+        const Text('Date', style: AppFonts.bLarge),
         sizedBoxH08,
         Wrap(
           runSpacing: 16,
           spacing: 8,
           children: [
+            RatioField<int>(
+              title: 1.getDayOfWeek,
+              value: 1,
+              groupValue: selected,
+              onChanged: onChanged,
+            ),
             RatioField<int>(
               title: 2.getDayOfWeek,
               value: 2,
@@ -68,12 +74,6 @@ class _SelectDayOfWeekState extends State<SelectDayOfWeek> {
             RatioField<int>(
               title: 7.getDayOfWeek,
               value: 7,
-              groupValue: selected,
-              onChanged: onChanged,
-            ),
-            RatioField<int>(
-              title: 1.getDayOfWeek,
-              value: 1,
               groupValue: selected,
               onChanged: onChanged,
             ),

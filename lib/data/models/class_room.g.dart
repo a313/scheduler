@@ -11,6 +11,8 @@ _$_ClassRoom _$$_ClassRoomFromJson(Map<String, dynamic> json) => _$_ClassRoom(
       name: json['name'] as String,
       createDate: const DateTimeConverter().fromJson(json['createDate'] as int),
       tuition: json['tuition'] as int,
+      alert: $enumDecodeNullable(_$AlertTypeEnumMap, json['alert']) ??
+          AlertType.None,
       location: json['location'] as String?,
       timetables: json['timetables'] == null
           ? const []
@@ -27,9 +29,22 @@ Map<String, dynamic> _$$_ClassRoomToJson(_$_ClassRoom instance) =>
       'name': instance.name,
       'createDate': const DateTimeConverter().toJson(instance.createDate),
       'tuition': instance.tuition,
+      'alert': _$AlertTypeEnumMap[instance.alert]!,
       'location': instance.location,
       'timetables': const ListTimetableConverter().toJson(instance.timetables),
       'isOpen': const BoolConverter().toJson(instance.isOpen),
       'softIndex': instance.softIndex,
       'image': instance.image,
     };
+
+const _$AlertTypeEnumMap = {
+  AlertType.None: 'None',
+  AlertType.AtTime: 'AtTime',
+  AlertType.Before5Min: 'Before5Min',
+  AlertType.Before15Min: 'Before15Min',
+  AlertType.Before30Min: 'Before30Min',
+  AlertType.Before1Hour: 'Before1Hour',
+  AlertType.Before2Hour: 'Before2Hour',
+  AlertType.Before1Day: 'Before1Day',
+  AlertType.Before1Week: 'Before1Week',
+};

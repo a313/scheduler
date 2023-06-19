@@ -19,4 +19,12 @@ class LocalUseCases {
   String? getLastRoute() {
     return _.getLastRoute();
   }
+
+  DateTime? getLastGenerateTime() {
+    return _.getLastGenerateTime();
+  }
+
+  void savedLastGenerateTime(DateTime time) {
+    return _.savedLastGenerateTime(time);
+  }
 }

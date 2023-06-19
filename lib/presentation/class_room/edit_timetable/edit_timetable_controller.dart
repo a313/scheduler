@@ -32,10 +32,10 @@ class EditTimetableController extends BaseController {
     final time = validTime();
     if (date && time) return true;
     if (!date) {
-      showSnackBar('Ngày không hợp lệ');
+      showSnackBar('Not valid date');
     }
     if (!time) {
-      showSnackBar('Thời gian không hợp lệ');
+      showSnackBar('Not valid time');
     }
     return false;
   }

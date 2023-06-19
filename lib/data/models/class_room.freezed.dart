@@ -30,6 +30,8 @@ mixin _$ClassRoom {
   set createDate(DateTime value) => throw _privateConstructorUsedError;
   int get tuition => throw _privateConstructorUsedError;
   set tuition(int value) => throw _privateConstructorUsedError;
+  AlertType get alert => throw _privateConstructorUsedError;
+  set alert(AlertType value) => throw _privateConstructorUsedError;
   String? get location => throw _privateConstructorUsedError;
   set location(String? value) => throw _privateConstructorUsedError;
   @ListTimetableConverter()
@@ -61,6 +63,7 @@ abstract class $ClassRoomCopyWith<$Res> {
       String name,
       @DateTimeConverter() DateTime createDate,
       int tuition,
+      AlertType alert,
       String? location,
       @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() bool isOpen,
@@ -85,6 +88,7 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
     Object? name = null,
     Object? createDate = null,
     Object? tuition = null,
+    Object? alert = null,
     Object? location = freezed,
     Object? timetables = null,
     Object? isOpen = null,
@@ -108,6 +112,10 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
           ? _value.tuition
           : tuition // ignore: cast_nullable_to_non_nullable
               as int,
+      alert: null == alert
+          ? _value.alert
+          : alert // ignore: cast_nullable_to_non_nullable
+              as AlertType,
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -144,6 +152,7 @@ abstract class _$$_ClassRoomCopyWith<$Res> implements $ClassRoomCopyWith<$Res> {
       String name,
       @DateTimeConverter() DateTime createDate,
       int tuition,
+      AlertType alert,
       String? location,
       @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() bool isOpen,
@@ -166,6 +175,7 @@ class __$$_ClassRoomCopyWithImpl<$Res>
     Object? name = null,
     Object? createDate = null,
     Object? tuition = null,
+    Object? alert = null,
     Object? location = freezed,
     Object? timetables = null,
     Object? isOpen = null,
@@ -189,6 +199,10 @@ class __$$_ClassRoomCopyWithImpl<$Res>
           ? _value.tuition
           : tuition // ignore: cast_nullable_to_non_nullable
               as int,
+      alert: null == alert
+          ? _value.alert
+          : alert // ignore: cast_nullable_to_non_nullable
+              as AlertType,
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -221,6 +235,7 @@ class _$_ClassRoom extends _ClassRoom {
       required this.name,
       @DateTimeConverter() required this.createDate,
       required this.tuition,
+      this.alert = AlertType.None,
       this.location,
       @ListTimetableConverter() this.timetables = const [],
       @BoolConverter() required this.isOpen,
@@ -241,6 +256,9 @@ class _$_ClassRoom extends _ClassRoom {
   @override
   int tuition;
   @override
+  @JsonKey()
+  AlertType alert;
+  @override
   String? location;
   @override
   @JsonKey()
@@ -257,7 +275,7 @@ class _$_ClassRoom extends _ClassRoom {
 
   @override
   String toString() {
-    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, tuition: $tuition, location: $location, timetables: $timetables, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
+    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, tuition: $tuition, alert: $alert, location: $location, timetables: $timetables, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
   }
 
   @JsonKey(ignore: true)
@@ -280,6 +298,7 @@ abstract class _ClassRoom extends ClassRoom {
       required String name,
       @DateTimeConverter() required DateTime createDate,
       required int tuition,
+      AlertType alert,
       String? location,
       @ListTimetableConverter() List<Timetable> timetables,
       @BoolConverter() required bool isOpen,
@@ -304,6 +323,9 @@ abstract class _ClassRoom extends ClassRoom {
   @override
   int get tuition;
   set tuition(int value);
+  @override
+  AlertType get alert;
+  set alert(AlertType value);
   @override
   String? get location;
   set location(String? value);

@@ -6,6 +6,7 @@ import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/add_cell.dart';
 import 'package:scheduler/widgets/base/base_input.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
+import 'package:scheduler/widgets/base/base_select_field.dart';
 
 import '../../../widgets/avatar_picker.dart';
 import '../../../widgets/base/base_button.dart';
@@ -39,6 +40,53 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                             return 'Class name can not be empty';
                           }
                           return null;
+                        },
+                      ),
+                      BaseTextField(
+                        labelText: 'Location',
+                        controller: controller.locationController,
+                        textInputAction: TextInputAction.next,
+                        onChanged: controller.onChangeLocation,
+                      ),
+                      BaseSelectField<AlertType>(
+                        key: UniqueKey(),
+                        onSelected: controller.onSelectedAlertType,
+                        itemBuilder: (_, obj) => Padding(
+                          padding: padAll16,
+                          child: Text(
+                            obj.name,
+                            style: AppFonts.bMedium
+                                .copyWith(color: context.neutral800),
+                          ),
+                        ),
+                        selectedBuilder: (_, obj) => Padding(
+                          padding: padAll16,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  obj.name,
+                                  style: AppFonts.bMedium
+                                      .copyWith(color: context.neutral1100),
+                                ),
+                              ),
+                              Icon(
+                                Icons.check,
+                                color: context.primaryDark,
+                                size: 16,
+                              )
+                            ],
+                          ),
+                        ),
+                        isMultiSelect: false,
+                        labelText: 'Remind Me',
+                        options: AlertType.values,
+                        initValue: [controller.data.alert],
+                        valueBuilder: (values) {
+                          if (values == null || values.isEmpty) {
+                            return "";
+                          }
+                          return values.map((e) => e.name).join(", ");
                         },
                       ),
                       BaseDateField(

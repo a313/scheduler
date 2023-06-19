@@ -13,6 +13,7 @@ Future<void> main() async {
     await DependencyInjection.injection();
     runApp(const MainApp());
   }, (error, stackTrace) {
+    debugPrint(stackTrace.toString());
     // DebugHelper.addException(ExceptionData(error: error, stack: stackTrace));
     // FirebaseCrashlytics.instance.recordError(error, stackTrace);
   });

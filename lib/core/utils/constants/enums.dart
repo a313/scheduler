@@ -45,6 +45,13 @@ enum FrequencyUnit {
   day,
 }
 
+enum EventType {
+  Origin,
+  Modified,
+  GeneradeClass,
+  GeneradeReminder,
+}
+
 enum RepeatType {
   None,
   Daily,

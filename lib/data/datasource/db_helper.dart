@@ -68,4 +68,9 @@ abstract class DBSQLHelper {
     log('DELETE at $table id:$id', name: 'DATABASE');
     return await db.delete(table, where: 'id = ?', whereArgs: [id]);
   }
+
+  Future<int> truncate() async {
+    log('DELETE ALL $table', name: 'DATABASE');
+    return await db.delete(table);
+  }
 }

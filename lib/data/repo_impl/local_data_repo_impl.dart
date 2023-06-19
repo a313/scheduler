@@ -24,4 +24,16 @@ class LocalDataImpl extends LocalDataRepo {
   Future<void> savedLastRoute(String route) {
     return _.write(LAST_ROUTE, route);
   }
+
+  @override
+  DateTime? getLastGenerateTime() {
+    final millisecondsSinceEpoch = _.read<int>(LAST_GEN_TIME);
+    if (millisecondsSinceEpoch == null) return null;
+    return DateTime.fromMillisecondsSinceEpoch(millisecondsSinceEpoch);
+  }
+
+  @override
+  Future<void> savedLastGenerateTime(DateTime time) {
+    return _.write(LAST_GEN_TIME, time.millisecondsSinceEpoch);
+  }
 }

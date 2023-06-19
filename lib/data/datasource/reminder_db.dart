@@ -9,7 +9,9 @@ abstract class ReminderDB extends DBSQLHelper {
     return '''CREATE TABLE $REMINDER_TABLE (
       id INTEGER PRIMARY KEY,
       name TEXT not null,      
-      createDate INTEGER,              
+      createDate INTEGER,     
+      alert TEXT,
+      alertTime TEXT,         
       softIndex INTEGER,
       image TEXT      
       )''';
