@@ -26,6 +26,7 @@ class EventItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: () => onTapped?.call(data),
       child: Padding(
         padding: padSymVer08,

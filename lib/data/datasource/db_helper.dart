@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:path/path.dart';
+import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/datasource/class_room_db.dart';
 import 'package:scheduler/data/datasource/event_db.dart';
 import 'package:scheduler/data/datasource/reminder_db.dart';
@@ -18,6 +19,7 @@ class DBHelper {
       await db.execute(ReminderDB.getCreateSQL());
       await db.execute(StudentDB.getCreateSQL());
       await db.execute(ClassRoomDB.getCreateSQL());
+      Utils().cloneDb();
     });
     return database;
   }

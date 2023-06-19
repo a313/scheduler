@@ -7,8 +7,10 @@ import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/event.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
+import 'package:scheduler/presentation/students/components/student_item.dart';
 import 'package:scheduler/routes/routes.dart';
 import 'package:scheduler/widgets/base/base_bottom_sheet.dart';
+import 'package:scheduler/widgets/custom_divider.dart';
 
 class EventsController extends BaseController
     with StateMixin<Map<DateTime, List<Event>>> {
@@ -116,12 +118,24 @@ class EventsController extends BaseController
   }
 
   Future<void> onTappedInvite(Event event) async {
+    final joined =
+        allStudent.where((e) => event.joinedIds.contains(e.id)).toList();
+    final invited =
+        allStudent.where((e) => event.invitedIds.contains(e.id)).toList();
     bottomSheet(BaseBottomSheet(
-        title: 'Event State',
-        child: Container(
-          color: Colors.green,
-          height: 800,
-          width: double.infinity,
+        title: '${event.name} State',
+        // subTitle: const Text('Disable'),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.separated(
+                itemCount: invited.length,
+                itemBuilder: (context, index) =>
+                    StudentItem(data: invited[index]),
+                separatorBuilder: (context, index) => const CustomDivider(),
+              ),
+            ),
+          ],
         )));
   }
 

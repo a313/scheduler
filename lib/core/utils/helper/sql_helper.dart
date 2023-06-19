@@ -8,7 +8,7 @@ import 'package:sqflite/sqflite.dart';
 const dbName = 'db.db';
 
 class DbHelper {
-  Future<void> openAssertDB() async {
+  Future<Database> openAssertDB() async {
     String path = await getDbPath();
 
     Database? db;
@@ -31,7 +31,7 @@ class DbHelper {
       log('Opening existing database');
     }
 
-    await db.close();
+    return db;
   }
 
   Future<String> getDbPath() async {

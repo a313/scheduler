@@ -4,6 +4,16 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:scheduler/core/utils/constants/enums.dart';
+import 'package:scheduler/data/models/class_room.dart';
+import 'package:scheduler/data/models/reminder.dart';
+import 'package:scheduler/data/models/student.dart';
+import 'package:scheduler/domain/usecases/class_room_usecases.dart';
+import 'package:scheduler/domain/usecases/reminder_usecases.dart';
+import 'package:scheduler/domain/usecases/student_usecases.dart';
+import 'package:sqflite_common/sqlite_api.dart';
+
+import 'helper/sql_helper.dart';
 
 export 'constants/borders.dart';
 export 'constants/date_format.dart';
@@ -68,5 +78,66 @@ class Utils {
     final fileName = name ?? basename(filePath);
     final saved = await file.copy('${appDir.path}/$fileName');
     return saved;
+  }
+
+  Future<void> cloneDb() async {
+    final db = await DbHelper().openAssertDB();
+    await cloneStudent(db);
+    await cloneClass(db);
+    await cloneReminder(db);
+  }
+
+  Future<void> cloneStudent(Database db) async {
+    final students = await db.query('students');
+    final uc = Get.find<StudentUseCases>();
+    for (var s in students) {
+      final name = s['name'] as String;
+      final begin = DateTime.parse(s['beginStudy'] as String);
+      final isSpecial = (s['isSpecial'] as int) == 1;
+      final isFollow = (s['isFollow'] as int) == 1;
+      final fee = s['fee'] as int;
+      final obj = Student(
+          name: name,
+          classId: [],
+          phones: [],
+          beginStudy: begin,
+          isSpecial: isSpecial,
+          isFollow: isFollow,
+          fee: fee);
+      uc.insertOrUpdate(obj);
+    }
+  }
+
+  Future<void> cloneClass(Database db) async {
+    final classRooms = await db.query('classRooms');
+    final uc = Get.find<ClassRoomUseCases>();
+    for (var data in classRooms) {
+      final name = data['className'] as String;
+      final begin = DateTime.parse(data['createDate'] as String);
+      final fee = data['tuition'] as int;
+      final obj = ClassRoom(
+        name: name,
+        createDate: begin,
+        isOpen: true,
+        tuition: fee,
+      );
+      uc.insertOrUpdate(obj);
+    }
+  }
+
+  Future<void> cloneReminder(Database db) async {
+    final rs = await db.query('reminders');
+    final uc = Get.find<ReminderUseCases>();
+    for (var data in rs) {
+      final name = data['label'] as String;
+      final begin = DateTime.parse(data['createDate'] as String);
+
+      final obj = Reminder(
+        alert: AlertType.None,
+        name: name,
+        createDate: begin,
+      );
+      uc.insertOrUpdate(obj);
+    }
   }
 }
