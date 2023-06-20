@@ -198,7 +198,7 @@ class EditEventPage extends GetView<EditEventController> {
             Padding(
               padding: padAll16,
               child: BaseButton.largePrimary(
-                title: isEdit ? "Cập nhật" : "Thêm mới",
+                title: isEdit ? "Update" : "Add",
                 onPressed: controller.onInsertOrUpdate,
               ),
             )

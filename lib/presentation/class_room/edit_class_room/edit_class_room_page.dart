@@ -19,7 +19,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
     return BaseScafoldAppBar(
-        title: isEdit ? "Sửa thông tin" : "Thêm mới",
+        title: isEdit ? "Edit class" : "Add class",
         body: Column(
           children: [
             Expanded(
@@ -134,7 +134,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
             Padding(
               padding: padAll16,
               child: BaseButton.largePrimary(
-                title: isEdit ? "Cập nhật" : "Thêm mới",
+                title: isEdit ? "Update" : "Add",
                 onPressed: controller.onInsertOrUpdate,
               ),
             )

@@ -59,7 +59,7 @@ class _DatePickerBottomsheetState extends State<DatePickerBottomsheet> {
               padding: padSymHor16,
               child: BaseButton.largePrimary(
                   width: double.infinity,
-                  title: 'Cập nhật',
+                  title: 'Update',
                   onPressed: () {
                     Get.back();
                     widget.onSelected(selectedDate);

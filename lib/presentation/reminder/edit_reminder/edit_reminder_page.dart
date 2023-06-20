@@ -15,7 +15,7 @@ class EditReminderPage extends GetView<EditReminderController> {
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
     return BaseScafoldAppBar(
-        title: isEdit ? "Sửa thông tin" : "Thêm mới",
+        title: isEdit ? "Edit reminder" : "Add reminder",
         body: Column(
           children: [
             Expanded(
@@ -53,7 +53,7 @@ class EditReminderPage extends GetView<EditReminderController> {
             Padding(
               padding: padAll16,
               child: BaseButton.largePrimary(
-                title: isEdit ? "Cập nhật" : "Thêm mới",
+                title: isEdit ? "Update" : "Add",
                 onPressed: controller.onInsertOrUpdate,
               ),
             )

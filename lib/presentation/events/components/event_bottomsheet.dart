@@ -78,7 +78,7 @@ class _EventBottomSheetState extends State<EventBottomSheet> {
               ),
             ),
             BaseButton.fixBottom(
-                title: 'Cập nhật',
+                title: 'Update',
                 onPressed: () {
                   Get.back(result: event);
                 })

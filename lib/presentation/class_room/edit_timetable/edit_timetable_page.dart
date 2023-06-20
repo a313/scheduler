@@ -68,7 +68,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
             Padding(
               padding: padAll16,
               child: BaseButton.largePrimary(
-                title: isEdit ? "Cập nhật" : "Thêm mới",
+                title: isEdit ? "Update" : "Add",
                 onPressed: controller.onUpdate,
               ),
             )

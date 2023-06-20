@@ -19,7 +19,7 @@ class EditStudentPage extends GetView<EditStudentController> {
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
     return BaseScafoldAppBar(
-        title: isEdit ? "Sửa thông tin" : "Thêm mới",
+        title: isEdit ? "Edit student" : "Add student",
         body: Column(
           children: [
             Expanded(
@@ -31,13 +31,13 @@ class EditStudentPage extends GetView<EditStudentController> {
                     children: [
                       AvatarPicker(onChangedAvatar: controller.onChangedAvatar),
                       BaseTextField(
-                        labelText: 'Tên học sinh',
+                        labelText: 'Name',
                         controller: controller.nameController,
                         textInputAction: TextInputAction.next,
                         onChanged: controller.onChangeName,
                         validator: (name) {
                           if (name == null || name.isEmpty) {
-                            return 'Tên không được để trống';
+                            return 'Name can not be empty';
                           }
                           return null;
                         },
@@ -52,23 +52,23 @@ class EditStudentPage extends GetView<EditStudentController> {
                             selectedBuilder: (_, obj) =>
                                 ClassRoomItem(data: obj, isSelected: true),
                             isMultiSelect: true,
-                            labelText: 'Lớp học',
+                            labelText: 'Class Room',
                             options: controller.allClassRoom,
                             initValue: controller.selectedClassRoom.value,
                             valueBuilder: (values) {
                               if (values == null || values.isEmpty) {
-                                return "Chưa chọn lớp";
+                                return "Not in class";
                               }
                               return values.map((e) => e.name).join(", ");
                             },
                           )),
                       BaseSwitchField(
-                        labelText: 'Đang theo học?',
+                        labelText: 'Attendance?',
                         initState: controller.data.isFollow,
                         onChanged: controller.onChangeAttendance,
                       ),
                       BaseSwitchField(
-                        labelText: 'Học phí riêng?',
+                        labelText: 'Special case?',
                         initState: controller.data.isSpecial,
                         onChanged: controller.onChangeIsSpecial,
                       ),
@@ -78,17 +78,17 @@ class EditStudentPage extends GetView<EditStudentController> {
                                 controller: controller.feeController,
                                 keyboardType: TextInputType.number,
                                 formaters: [CurrencyInputFormatter()],
-                                labelText: "Học phí",
+                                labelText: "Fee",
                                 onChanged: controller.onChangedFee,
                                 textInputAction: TextInputAction.next,
                               ))),
                       BaseDateField(
-                        labelText: 'Ngày đăng ký',
+                        labelText: 'Register date',
                         timeFormat: DateFormater.ddMMYYYY,
                         onSelected: controller.onChangeBeginStudy,
                       ),
                       BaseTextField(
-                        labelText: 'Số điện thoại',
+                        labelText: 'Phone',
                         keyboardType: TextInputType.phone,
                         controller: controller.phoneController,
                         textInputAction: TextInputAction.next,
@@ -102,7 +102,7 @@ class EditStudentPage extends GetView<EditStudentController> {
             Padding(
               padding: padAll16,
               child: BaseButton.largePrimary(
-                title: isEdit ? "Cập nhật" : "Thêm mới",
+                title: isEdit ? "Update" : "Add",
                 onPressed: controller.onInsertOrUpdate,
               ),
             )
