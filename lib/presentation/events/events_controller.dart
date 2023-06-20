@@ -130,8 +130,10 @@ class EventsController extends BaseController
             Expanded(
               child: ListView.separated(
                 itemCount: invited.length,
-                itemBuilder: (context, index) =>
-                    StudentItem(data: invited[index]),
+                itemBuilder: (context, index) => StudentItem(
+                  data: invited[index],
+                  isSelected: true,
+                ),
                 separatorBuilder: (context, index) => const CustomDivider(),
               ),
             ),
