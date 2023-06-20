@@ -3,8 +3,8 @@ import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
 import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/presentation/students/components/student_item.dart';
 
-class StudentCell extends StatelessWidget {
-  const StudentCell({
+class SwipeStudentCell extends StatelessWidget {
+  const SwipeStudentCell({
     super.key,
     required this.data,
     this.onTapped,
@@ -12,7 +12,7 @@ class StudentCell extends StatelessWidget {
   });
   final Student data;
   final Function(Student student)? onTapped;
-  final Function(Student student) onEdit;
+  final Function(Student student)? onEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class StudentCell extends StatelessWidget {
         key: ObjectKey(data),
         trailingActions: [
           SwipeAction(
-            onTap: (handler) => onEdit(data),
+            onTap: (handler) => onEdit?.call(data),
             title: 'Edit',
           )
         ],
