@@ -14,17 +14,15 @@ const BOTTOMSHEET_TITLE_HEIGHT = 64.0;
 class BaseBottomSheet extends StatelessWidget {
   const BaseBottomSheet({
     Key? key,
-    // required this.height,
     required this.child,
     required this.title,
     this.subTitle,
     this.bottomButton = false,
   }) : super(key: key);
-  // final double height;
+
   final Widget child;
   final String title;
   final Widget? subTitle;
-
   final bool bottomButton;
 
   @override
@@ -60,15 +58,9 @@ class BaseBottomSheet extends StatelessWidget {
                         ),
                       ),
                     ),
+                    subTitle ?? const SizedBox(),
                   ],
                 ),
-                subTitle == null
-                    ? const SizedBox()
-                    : Padding(
-                        padding:
-                            const EdgeInsets.fromLTRB(16.0, 0.0, 0.0, 16.0),
-                        child: subTitle,
-                      ),
                 const CustomDivider(),
                 ConstrainedBox(
                     constraints:

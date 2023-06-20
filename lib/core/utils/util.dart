@@ -11,7 +11,7 @@ import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/reminder_usecases.dart';
 import 'package:scheduler/domain/usecases/student_usecases.dart';
-import 'package:sqflite_common/sqlite_api.dart';
+import 'package:sqflite/sqflite.dart';
 
 import 'helper/sql_helper.dart';
 
@@ -96,9 +96,16 @@ class Utils {
       final isSpecial = (s['isSpecial'] as int) == 1;
       final isFollow = (s['isFollow'] as int) == 1;
       final fee = s['fee'] as int;
+      final classId = s['classId'] as int;
+      //3->1
+      //7->2
+      var ids = <int>[];
+      if (classId == 3) ids = [1];
+      if (classId == 7) ids = [2];
+
       final obj = Student(
           name: name,
-          classId: [],
+          classId: ids,
           phones: [],
           beginStudy: begin,
           isSpecial: isSpecial,
@@ -120,6 +127,7 @@ class Utils {
         createDate: begin,
         isOpen: true,
         tuition: fee,
+        location: 'Home',
       );
       uc.insertOrUpdate(obj);
     }

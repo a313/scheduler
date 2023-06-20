@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
 
 extension CustomStringExtension on String {
   static const diacriticsReg =
@@ -155,8 +154,32 @@ extension CustomStringExtension on String {
   List<String> toListString(String pattern) => split(pattern);
 
   Color nameToColor() {
-    var hex = Utils.asciiToHex(this);
-    hex = hex.padRight(6, 'F');
-    return Color(hex.substring(0, 6).hexToInt());
+    final colors = [
+      const Color.fromARGB(255, 255, 115, 157),
+      const Color.fromARGB(255, 250, 188, 0),
+      const Color.fromARGB(255, 244, 107, 148),
+      const Color.fromARGB(255, 48, 161, 236),
+      const Color.fromARGB(255, 112, 205, 75),
+      const Color.fromARGB(255, 255, 139, 86),
+      const Color.fromARGB(255, 245, 116, 155),
+      const Color.fromARGB(255, 7, 180, 215),
+      const Color.fromARGB(255, 255, 167, 56),
+      const Color.fromARGB(255, 167, 130, 249),
+      const Color.fromARGB(255, 32, 63, 88),
+    ];
+    final index =
+        codeUnits.reduce((value, element) => value + element) % (colors.length);
+
+    return colors[index];
+  }
+
+  String avatarName() {
+    final list = trim().split(' ');
+    if (list.length > 1) {
+      return list.first.substring(0, 1).toUpperCase() +
+          list.last.substring(0, 1).toUpperCase();
+    } else {
+      return list.first.substring(0, 1).toUpperCase();
+    }
   }
 }

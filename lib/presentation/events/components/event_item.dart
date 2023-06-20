@@ -16,51 +16,66 @@ class EventItem extends StatelessWidget {
     super.key,
     required this.data,
     this.onTapped,
-    this.onTappedInvite,
+    this.onTappedEdit,
   });
 
   final Event data;
   final Function(Event data)? onTapped;
-  final Function(Event data)? onTappedInvite;
+  final Function(Event data)? onTappedEdit;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () => onTapped?.call(data),
-      child: Padding(
-        padding: padSymVer08,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TimeConstComponent(data: data),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    data.name,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppFonts.bMedium,
-                  ),
-                  sizedBoxH04,
-                  const CustomDivider(),
-                  Padding(
-                    padding: padSymVer08,
-                    child: ABWidget(
-                      isShowA: data.students.isNotEmpty,
-                      widgetA: (c) {
-                        final w = min(context.width, context.height) - 110;
-                        final count = w ~/ 28;
-                        final more = data.students.length - count;
-                        List<Widget> child = List.generate(
-                            min(data.students.length, count), (index) {
-                          final obj = data.students[index];
-                          final isJoin = data.joinedIds.contains(obj.id);
-                          return GestureDetector(
-                            onTap: () => onTappedInvite?.call(data),
-                            child: Stack(
+      child: Opacity(
+        opacity: data.isActive ? 1 : 0.7,
+        child: Padding(
+          padding: padSymVer08,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TimeConstComponent(data: data),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            data.name,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: AppFonts.bMedium,
+                          ),
+                        ),
+                        sizedBoxW08,
+                        GestureDetector(
+                          onTap: () => onTappedEdit?.call(data),
+                          child: SvgPicture.asset(
+                            'assets/svg/Regular/PencilSimpleLine.svg',
+                            width: 24,
+                            height: 24,
+                          ),
+                        )
+                      ],
+                    ),
+                    sizedBoxH04,
+                    const CustomDivider(),
+                    Padding(
+                      padding: padSymVer08,
+                      child: ABWidget(
+                        isShowA: data.students.isNotEmpty,
+                        widgetA: (c) {
+                          final w = min(context.width, context.height) - 140;
+                          final count = w ~/ 28;
+                          final more = data.students.length - count;
+                          List<Widget> child = List.generate(
+                              min(data.students.length, count), (index) {
+                            final obj = data.students[index];
+                            final isJoin = data.joinedIds.contains(obj.id);
+                            return Stack(
                               alignment: Alignment.bottomRight,
                               children: [
                                 Padding(
@@ -72,105 +87,101 @@ class EventItem extends StatelessWidget {
                                     size: 24,
                                   ),
                                 ),
-                                Container(
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white,
+                                if (data.isActive)
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.white,
+                                    ),
+                                    child: isJoin
+                                        ? const Icon(Icons.check_circle,
+                                            color: Colors.green, size: 12)
+                                        : const Icon(Icons.cancel,
+                                            color: Colors.red, size: 12),
+                                  )
+                              ],
+                            );
+                          });
+                          if (more > 0) {
+                            child.add(Container(
+                              width: 24,
+                              height: 24,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: context.neutral400,
+                                    spreadRadius: 1,
+                                    blurRadius: 1,
+                                    offset: const Offset(0.5, 0.5),
                                   ),
-                                  child: isJoin
-                                      ? const Icon(Icons.check_circle,
-                                          color: Colors.green, size: 12)
-                                      : const Icon(Icons.cancel,
-                                          color: Colors.red, size: 12),
-                                )
-                              ],
+                                ],
+                                color: Colors.white,
+                              ),
+                              child: Center(
+                                  child: Text(
+                                '+$more',
+                                style: AppFonts.h200
+                                    .copyWith(color: context.neutral700),
+                              )),
+                            ));
+                          }
+
+                          return Row(children: child);
+                        },
+                        widgetB: (c) => Text(
+                          'No student included',
+                          style: AppFonts.bSmall
+                              .copyWith(color: context.neutral600),
+                        ),
+                      ),
+                    ),
+                    if (data.location.hasText)
+                      Padding(
+                        padding: padSymVer04,
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              'assets/svg/Regular/MapPin.svg',
+                              width: 16,
+                              height: 16,
+                              colorFilter: context.neutral900.filterSrcIn,
                             ),
-                          );
-                        });
-                        if (more > 0) {
-                          child.add(Container(
-                            width: 24,
-                            height: 24,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: context.neutral400,
-                                  spreadRadius: 1,
-                                  blurRadius: 1,
-                                  offset: const Offset(0.5, 0.5),
-                                ),
-                              ],
-                              color: Colors.white,
+                            sizedBoxW02,
+                            Text(
+                              data.location!,
+                              style: AppFonts.bSmall
+                                  .copyWith(color: context.neutral900),
                             ),
-                            child: Center(
-                                child: Text(
-                              '+$more',
-                              style: AppFonts.h200
-                                  .copyWith(color: context.neutral700),
-                            )),
-                          ));
-                        }
-                        child.add(const Spacer());
-                        child.add(SvgPicture.asset(
-                          'assets/svg/Regular/PencilSimpleLine.svg',
-                          width: 24,
-                          height: 24,
-                        ));
-                        return Row(children: child);
-                      },
-                      widgetB: (c) => Text(
-                        'No student included',
-                        style:
-                            AppFonts.bSmall.copyWith(color: context.neutral600),
+                          ],
+                        ),
                       ),
-                    ),
-                  ),
-                  if (data.location.hasText)
-                    Padding(
-                      padding: padSymVer04,
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/svg/Regular/MapPin.svg',
-                            width: 16,
-                            height: 16,
-                            colorFilter: context.neutral900.filterSrcIn,
-                          ),
-                          sizedBoxW02,
-                          Text(
-                            data.location!,
-                            style: AppFonts.bSmall
-                                .copyWith(color: context.neutral900),
-                          ),
-                        ],
+                    if (data.note.hasText)
+                      Padding(
+                        padding: padSymVer04,
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              'assets/svg/Regular/ChatTeardropDots.svg',
+                              width: 16,
+                              height: 16,
+                              colorFilter: context.neutral900.filterSrcIn,
+                            ),
+                            sizedBoxW02,
+                            Text(
+                              data.note!,
+                              style: AppFonts.bSmall
+                                  .copyWith(color: context.neutral900),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  if (data.note.hasText)
-                    Padding(
-                      padding: padSymVer04,
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/svg/Regular/ChatTeardropDots.svg',
-                            width: 16,
-                            height: 16,
-                            colorFilter: context.neutral900.filterSrcIn,
-                          ),
-                          sizedBoxW02,
-                          Text(
-                            data.note!,
-                            style: AppFonts.bSmall
-                                .copyWith(color: context.neutral900),
-                          ),
-                        ],
-                      ),
-                    ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            sizedBoxW14,
-          ],
+              sizedBoxW14,
+            ],
+          ),
         ),
       ),
     );
@@ -212,16 +223,20 @@ class TimeConstComponent extends StatelessWidget {
                 data.startTime.toStringFormat(DateFormater.HHmm),
                 style: AppFonts.bSmall.copyWith(
                   color: isGoingOn ? context.primaryDark : context.neutral1100,
+                  decoration: data.isActive ? null : TextDecoration.lineThrough,
                 ),
               ),
             ],
           ),
           sizedBoxH08,
-          //TODO
           Padding(
             padding: padSymHor14,
             child: Text(
-                data.endTime.difference(data.startTime).formatInDuration()),
+              data.endTime.difference(data.startTime).formatInDuration(),
+              style: AppFonts.bSmall.copyWith(
+                  decoration:
+                      data.isActive ? null : TextDecoration.lineThrough),
+            ),
           ),
         ],
       ),

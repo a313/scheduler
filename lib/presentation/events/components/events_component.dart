@@ -14,14 +14,14 @@ class EventsComponent extends StatelessWidget {
     required this.time,
     required this.data,
     this.onTapped,
-    this.onTappedInvite,
+    this.onTappedEdit,
     // this.headerKey,
   });
   final DateTime time;
   final List<Event> data;
   // final dynamic headerKey;
   final Function(Event event)? onTapped;
-  final Function(Event event)? onTappedInvite;
+  final Function(Event event)? onTappedEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +46,10 @@ class EventsComponent extends StatelessWidget {
         sliver: SliverList.separated(
           itemCount: length,
           itemBuilder: (context, index) => EventItem(
+            key: ValueKey(data[index]),
             data: data[index],
             onTapped: onTapped,
-            onTappedInvite: onTappedInvite,
+            onTappedEdit: onTappedEdit,
           ),
           separatorBuilder: (context, index) => const CustomDivider(),
         ),

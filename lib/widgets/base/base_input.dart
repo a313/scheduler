@@ -457,7 +457,7 @@ class _BaseSearchFieldState<T> extends State<BaseSearchField<T>> {
         itemBuilder: widget.itemBuilder,
         selectedBuilder: widget.selectedBuilder,
         searchBy: widget.searchBy));
-
+    if (value == null) return;
     controller.text = widget.valueBuilder(value);
     widget.onSelected(value);
   }

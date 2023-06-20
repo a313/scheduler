@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/presentation/students/components/student_item.dart';
+import 'package:scheduler/presentation/students/components/multi_select_student_cell.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/base/base_button.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
@@ -71,31 +71,31 @@ class EditEventPage extends GetView<EditEventController> {
                             options: controller.allClassRoom,
                             initValue: controller.selectedClassRoom.value,
                             valueBuilder: (values) {
+                              if (values == null || values.isEmpty) return "";
+                              return values.map((e) => e.name).join(", ");
+                            },
+                          )),
+                      Obx(() => BaseSearchField<Student>(
+                            key: UniqueKey(),
+                            onSelected: controller.onSelectedStudent,
+                            searchBy: (c, search) => c.name
+                                .toLowerCase()
+                                .contains(search.toLowerCase()),
+                            itemBuilder: (_, obj) => MultiSelectStudentCell(
+                                data: obj, didSelect: false),
+                            selectedBuilder: (_, obj) => MultiSelectStudentCell(
+                                data: obj, didSelect: true),
+                            isMultiSelect: true,
+                            labelText: 'Students',
+                            options: controller.allStudent,
+                            initValue: controller.selectedStudent.value,
+                            valueBuilder: (values) {
                               if (values == null || values.isEmpty) {
                                 return "";
                               }
                               return values.map((e) => e.name).join(", ");
                             },
                           )),
-                      BaseSearchField<Student>(
-                        key: UniqueKey(),
-                        onSelected: controller.onSelectedStudent,
-                        searchBy: (c, search) =>
-                            c.name.toLowerCase().contains(search.toLowerCase()),
-                        itemBuilder: (_, obj) => StudentItem(data: obj),
-                        selectedBuilder: (_, obj) =>
-                            StudentItem(data: obj, isSelected: true),
-                        isMultiSelect: true,
-                        labelText: 'Students',
-                        options: controller.allStudent,
-                        initValue: controller.selectedStudent.value,
-                        valueBuilder: (values) {
-                          if (values == null || values.isEmpty) {
-                            return "";
-                          }
-                          return values.map((e) => e.name).join(", ");
-                        },
-                      ),
                       BaseSelectField<AlertType>(
                         key: UniqueKey(),
                         onSelected: controller.onSelectedAlertType,

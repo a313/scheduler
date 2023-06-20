@@ -42,7 +42,7 @@ class OnboardingController extends BaseController {
 
   void doneOnboarding() {
     local.setPassIntro(true);
-    Get.toNamed(Routes.home);
+    Get.offNamed(Routes.home);
   }
 
   void onPageChanged(int value) {

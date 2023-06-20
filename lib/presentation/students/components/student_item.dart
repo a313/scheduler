@@ -8,10 +8,8 @@ class StudentItem extends StatelessWidget {
   const StudentItem({
     super.key,
     required this.data,
-    this.isSelected = false,
   });
   final Student data;
-  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +17,12 @@ class StudentItem extends StatelessWidget {
       padding: padAll12,
       child: Row(
         children: [
-          LocalAvatar(path: data.image, size: 32),
-          sizedBoxW06,
+          LocalAvatar(
+            path: data.image,
+            size: 32,
+            name: data.name,
+          ),
+          sizedBoxW12,
           Text(
             data.name,
             style: AppFonts.bMedium,
@@ -33,7 +35,6 @@ class StudentItem extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
           ),
-          if (isSelected) const Icon(Icons.check_circle_rounded)
         ],
       ),
     );

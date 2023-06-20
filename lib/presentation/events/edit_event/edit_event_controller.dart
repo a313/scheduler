@@ -31,12 +31,31 @@ class EditEventController extends BaseController {
     nameController.text = data.name;
     noteController.text = data.note ?? '';
     locationController.text = data.location ?? '';
+    selectedClassRoom.value = allClassRoom
+        .where((element) => data.classIds.contains(element.id))
+        .toList();
+    selectedStudent.value = allStudent
+        .where((element) => data.invitedIds.contains(element.id))
+        .toList();
     super.onInit();
   }
 
   void onSelectedClass(List<ClassRoom>? listClass) {
     if (listClass == null) return;
     data.classIds = listClass.map((e) => e.id!).toList();
+    selectedClassRoom.value = listClass;
+    selectedStudent.value.clear();
+    for (var c in listClass) {
+      for (var s in allStudent) {
+        if (s.classId.contains(c.id)) {
+          selectedStudent.value.addIf(!selectedStudent.value.contains(s), s);
+        }
+      }
+    }
+    selectedStudent.refresh();
+    final studentIds = selectedStudent.value.map((e) => e.id!).toList();
+    data.joinedIds = studentIds;
+    data.invitedIds = studentIds;
   }
 
   void onSelectedStudent(List<Student>? listStudent) {

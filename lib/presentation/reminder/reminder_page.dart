@@ -19,7 +19,7 @@ class ReminderPage extends GetView<ReminderController> {
       fab: FloatingActionButton(
         mini: true,
         onPressed: controller.addReminder,
-        backgroundColor: context.funcBitterLemon,
+        backgroundColor: context.primaryDark,
         child: Icon(
           Icons.add,
           color: context.neutral100,
@@ -29,12 +29,12 @@ class ReminderPage extends GetView<ReminderController> {
         TextButton(
           onPressed: controller.onTappedFilter,
           child: const Text(
-            'Bộ lọc',
+            'Filter',
             style: AppFonts.bSmall,
           ),
         )
       ],
-      title: 'Lời nhắc',
+      title: 'Reminders',
       body: controller.obx(
         (state) => CustomRefresher(
           onRefresh: controller.onRefresh,

@@ -29,6 +29,8 @@ class LocalAvatar extends StatelessWidget {
         ),
       );
     } else if (name != null && name!.isNotEmpty) {
+      final p = name!.avatarName();
+      final code = p.nameToColor();
       return SizedBox(
         height: size,
         width: size,
@@ -36,12 +38,15 @@ class LocalAvatar extends StatelessWidget {
           padding: const EdgeInsets.all(2),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: context.primaryDark,
+            color: code,
           ),
           child: Center(
             child: AutoSizeText(
-              name!.substring(0, 1).toUpperCase(),
-              style: AppFonts.h700.copyWith(color: context.neutral100),
+              p,
+              style: AppFonts.h700.copyWith(
+                color: context.neutral100,
+                fontSize: 28 * size / 56,
+              ),
               minFontSize: 5,
             ),
           ),

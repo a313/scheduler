@@ -2,30 +2,30 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
+import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/domain/usecases/student_usecases.dart';
 
 import '../../routes/routes.dart';
 
-class StudentsController extends BaseController with StateMixin<List<Student>> {
+class StudentsController extends BaseController
+    with StateMixin<Map<ClassRoom?, List<Student>>> {
   final StudentUseCases useCase = Get.find();
 
   final refreshController = RefreshController();
   final emptyController = RefreshController();
-
+  Map<ClassRoom?, List<Student>> formatedData = {};
   @override
   void onReady() {
     getData();
     super.onReady();
   }
 
-  void onRefresh() {}
-
-  void onLoading() {}
-
   void onTappedStudent(Student student) {
     Get.toNamed(Routes.editStudent, arguments: student);
   }
+
+  void onTappedEdit(Student student) {}
 
   void onTappedFilter() {}
 
@@ -39,9 +39,9 @@ class StudentsController extends BaseController with StateMixin<List<Student>> {
 
   void updateUI() {
     if (allStudent.isNotEmpty) {
-      change(allStudent, status: RxStatus.success());
+      change(formatData(allStudent), status: RxStatus.success());
     } else {
-      change(allStudent, status: RxStatus.empty());
+      change({}, status: RxStatus.empty());
     }
   }
 
@@ -58,6 +58,27 @@ class StudentsController extends BaseController with StateMixin<List<Student>> {
     if (result != null) {
       //Need reload;
       getData();
+    }
+  }
+
+  Map<ClassRoom?, List<Student>> formatData(List<Student> allStudent) {
+    for (var student in allStudent) {
+      if (student.classId.isEmpty) {
+        addToGroup(null, student);
+      } else {
+        allClassRoom
+            .where((e) => student.classId.contains(e.id))
+            .forEach((cl) => addToGroup(cl, student));
+      }
+    }
+    return formatedData;
+  }
+
+  void addToGroup(ClassRoom? key, Student student) {
+    if (formatedData.containsKey(key)) {
+      formatedData[key]!.add(student);
+    } else {
+      formatedData[key] = [student];
     }
   }
 }

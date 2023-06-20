@@ -1,31 +1,23 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/student_usecases.dart';
 
-import '../../routes/routes.dart';
-
-class HomeController extends BaseController {
-  late List<Feature> features;
+class HomeController extends BaseController
+    with GetSingleTickerProviderStateMixin {
   StudentUseCases studentUseCases = Get.find();
   ClassRoomUseCases classRoomUseCases = Get.find();
 
+  late TabController tabController;
+
   @override
   void onInit() {
+    tabController = TabController(length: 5, vsync: this);
     super.onInit();
-    features = [
-      Feature('Event', 'assets/png/home/calendar.png', goToEvent),
-      Feature('Class Room', 'assets/png/home/classroom.png', goToClassRoom),
-      Feature('Students', 'assets/png/home/student.png', goToStudents),
-      Feature('Report', 'assets/png/home/report.png', goToReport),
-      Feature('Reminder', 'assets/png/home/reminder.png', goToReminder),
-      Feature('HexToLink', 'assets/png/home/decode.png', goToHexToLink),
-    ];
-
     getData();
   }
 
@@ -48,27 +40,8 @@ class HomeController extends BaseController {
     }
   }
 
-  void goToHexToLink() {
-    Get.toNamed(Routes.hexToLink);
-  }
-
-  void goToStudents() {
-    Get.toNamed(Routes.students);
-  }
-
-  void goToClassRoom() {
-    Get.toNamed(Routes.classRooms);
-  }
-
-  void goToEvent() {
-    Get.toNamed(Routes.events);
-  }
-
-  void goToReminder() {
-    Get.toNamed(Routes.reminders);
-  }
-
-  void goToReport() {
-    Get.toNamed(Routes.reports);
+  void onChangedTab(int p1) {
+    tabController.animateTo(p1);
+    update();
   }
 }

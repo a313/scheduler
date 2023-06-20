@@ -128,8 +128,8 @@ mixin BaseCommonWidgets {
     Get.showSnackbar(bar);
   }
 
-  void bottomSheet(Widget bottomSheet) {
-    Get.bottomSheet(
+  Future<T?> bottomSheet<T>(Widget bottomSheet) {
+    return Get.bottomSheet(
       bottomSheet,
       useRootNavigator: true,
       isScrollControlled: true,

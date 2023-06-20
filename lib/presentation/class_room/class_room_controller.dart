@@ -41,7 +41,13 @@ class ClassRoomController extends BaseController
     }
   }
 
-  void onTappedClassRoom(ClassRoom classroom) {}
+  Future<void> onTappedClassRoom(ClassRoom classroom) async {
+    final result =
+        await Get.toNamed(Routes.editClassRoom, arguments: classroom);
+    if (result != null) {
+      getData();
+    }
+  }
 
   Future<void> getData() async {
     final result = await useCase.getAllClassRoom();

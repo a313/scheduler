@@ -26,7 +26,11 @@ class ClassRoomCell extends StatelessWidget {
           title: 'Edit',
         )
       ],
-      child: ClassRoomItem(data: data),
+      child: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: () => onTapped?.call(data),
+        child: ClassRoomItem(data: data),
+      ),
     );
   }
 }

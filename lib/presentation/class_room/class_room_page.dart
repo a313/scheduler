@@ -31,7 +31,7 @@ class ClassRoomPage extends GetView<ClassRoomController> {
           child: const Text('Bộ lọc', style: AppFonts.bSmall),
         )
       ],
-      title: 'Class Room',
+      title: 'Class Rooms',
       body: controller.obx(
         (state) => CustomRefresher(
           onRefresh: controller.onRefresh,

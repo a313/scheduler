@@ -30,19 +30,26 @@ class ReminderItem extends StatelessWidget {
         padding: padAll12,
         child: Row(
           children: [
-            LocalAvatar(path: data.image, size: 32),
-            sizedBoxW06,
-            Text(
-              data.name,
-              style: AppFonts.bMedium,
+            LocalAvatar(
+              path: data.image,
+              size: 32,
+              name: data.name,
             ),
-            sizedBoxW06,
-            const Expanded(
-              child: Text(
-                'data.phones.join(",")',
-                style: AppFonts.bMedium,
-                textAlign: TextAlign.right,
-              ),
+            sizedBoxW12,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  data.name,
+                  style: AppFonts.h500,
+                ),
+                sizedBoxH06,
+                Text(
+                  data.createDate.getPassedTime(),
+                  style: AppFonts.bSmall.copyWith(color: context.neutral900),
+                  textAlign: TextAlign.right,
+                ),
+              ],
             ),
           ],
         ),

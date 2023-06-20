@@ -21,21 +21,26 @@ class ClassRoomItem extends StatelessWidget {
       padding: padAll12,
       child: Row(
         children: [
-          LocalAvatar(path: data.image, size: 32),
-          sizedBoxW06,
+          LocalAvatar(
+            path: data.image,
+            size: 32,
+            name: data.name,
+          ),
+          sizedBoxW12,
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   data.name,
-                  style: AppFonts.bLarge,
+                  style: AppFonts.h500,
                 ),
+                sizedBoxH04,
                 Text(
                   data.timetables.isEmpty
-                      ? 'Chưa có lịch học'
-                      : 'Lịch học: ${data.timetables.map((e) => e.dayInWeek.getDayOfWeek).join(", ")}',
-                  style: AppFonts.bSmall,
+                      ? 'Not exist schedule'
+                      : 'Schedule: ${data.timetables.map((e) => e.dayInWeek.getDayOfWeek).join(", ")}',
+                  style: AppFonts.bSmall.copyWith(color: context.neutral900),
                 )
               ],
             ),

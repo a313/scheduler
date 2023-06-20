@@ -51,6 +51,26 @@ extension DateExtension on DateTime {
     final now = DateTime.now();
     return year == now.year && month == now.month && day == now.day - 1;
   }
+
+  String getPassedTime() {
+    final now = DateTime.now();
+    var result = '';
+    final y = now.year - year;
+    final m = now.month - month;
+    final d = now.day - day;
+    if (y > 0) {
+      result += "$y years ";
+    }
+    if (m > 0) {
+      result += "$m months ";
+    }
+    if (d > 0) {
+      result += "$d days";
+    }
+
+    if (result.isEmpty) return "Just created";
+    return result;
+  }
 }
 
 extension TimeOfDayExt on TimeOfDay {

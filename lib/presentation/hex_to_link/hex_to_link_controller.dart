@@ -14,12 +14,6 @@ class HexToLinkController extends BaseController {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    getString();
-    super.onReady();
-  }
-
   Future<void> getString() async {
     if (await Clipboard.hasStrings()) {
       final data = await Clipboard.getData(Clipboard.kTextPlain);

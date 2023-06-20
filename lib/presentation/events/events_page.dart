@@ -13,10 +13,7 @@ class EventsPage extends GetView<EventsController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
-        title: 'Events',
-        backgroundColor: context.neutral200,
-        elevation: 0,
+    return BaseScafold(
         fab: FloatingActionButton(
           mini: true,
           onPressed: controller.addEvent,
@@ -33,25 +30,29 @@ class EventsPage extends GetView<EventsController> {
                   onDaySelected: controller.onDaySelected,
                 )),
             Expanded(
-                child: controller.obx(
-              (state) => CustomRefresher(
-                onRefresh: controller.onRefresh,
-                onLoading: controller.onLoading,
-                controller: controller.refreshController,
-                child: CustomScrollView(
-                  slivers: List.generate(state!.length, (index) {
-                    final key = state.keys.elementAt(index);
-                    final events = state[key]!;
-                    return EventsComponent(
-                      time: key,
-                      data: events,
-                      onTapped: controller.onTappedEvent,
-                      onTappedInvite: controller.onTappedInvite,
-                    );
-                  }),
-                ),
+              child: GetBuilder<EventsController>(
+                builder: (_) {
+                  final data = controller.formatedData;
+                  return CustomRefresher(
+                    onRefresh: controller.onRefresh,
+                    onLoading: controller.onLoading,
+                    controller: controller.refreshController,
+                    child: CustomScrollView(
+                      slivers: List.generate(data.length, (index) {
+                        final key = data.keys.elementAt(index);
+                        final events = data[key]!;
+                        return EventsComponent(
+                          time: key,
+                          data: events,
+                          onTapped: controller.onTappedEvent,
+                          onTappedEdit: controller.onTappedEdit,
+                        );
+                      }),
+                    ),
+                  );
+                },
               ),
-            )),
+            ),
           ],
         ));
   }

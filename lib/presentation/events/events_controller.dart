@@ -7,13 +7,10 @@ import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/event.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
-import 'package:scheduler/presentation/students/components/student_item.dart';
+import 'package:scheduler/presentation/events/components/event_bottomsheet.dart';
 import 'package:scheduler/routes/routes.dart';
-import 'package:scheduler/widgets/base/base_bottom_sheet.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
 
-class EventsController extends BaseController
-    with StateMixin<Map<DateTime, List<Event>>> {
+class EventsController extends BaseController {
   EventUseCases useCases = Get.find();
   ClassRoomUseCases classRoomUseCases = Get.find();
 
@@ -37,30 +34,30 @@ class EventsController extends BaseController
   Future<void> onReady() async {
     super.onReady();
 
-    await useCases.deleteAllEvent();
-    await generateEvent();
+    await generateEvent(lastDay);
     await loadEvent(firstDay, lastDay);
     updateUI();
   }
 
-  Future<void> generateEvent() async {
-    final classEvents = generateClassRoomEvent();
+  Future<void> generateEvent(DateTime to) async {
+    final classEvents = generateClassRoomEvent(to);
     for (var c in classEvents) {
       useCases.insertOrUpdate(c);
     }
+    local.savedLastGenerateTime(to);
   }
 
-  List<Event> generateClassRoomEvent() {
-    final lastGenerate = DateTime.now().dateWithoutTime();
-    // final lastGenerate = (local.getLastGenerateTime() ?? DateTime.now()).dateWithoutTime();
-    final diff = lastDay.difference(lastGenerate).inDays;
+  List<Event> generateClassRoomEvent(DateTime to) {
+    // final lastGenerate = DateTime.now().dateWithoutTime();
+    final lastGenerate =
+        (local.getLastGenerateTime() ?? DateTime.now()).dateWithoutTime();
+    final diff = to.difference(lastGenerate).inDays;
     if (diff <= 0) return [];
     final from = lastGenerate;
     List<Event> result = [];
     for (var obj in allClassRoom) {
       if (obj.isActive && obj.hasSchedule) {
-        final events =
-            classRoomUseCases.generateEvent(obj, from: from, to: lastDay);
+        final events = classRoomUseCases.generateEvent(obj, from: from, to: to);
         for (var e in events) {
           final studensOfClass =
               allStudent.where((e) => e.classId.contains(obj.id)).toList();
@@ -71,7 +68,7 @@ class EventsController extends BaseController
         }
       }
     }
-    local.savedLastGenerateTime(lastDay);
+
     return result;
   }
 
@@ -110,42 +107,29 @@ class EventsController extends BaseController
   }
 
   Future<void> onTappedEvent(Event event) async {
-    final result = await Get.toNamed(Routes.editEvent, arguments: event);
-    if (result != null) {
-      //???
-      loadEvent(firstDay, lastDay);
+    final data = await bottomSheet(
+        EventBottomSheet(event: event, allStudent: allStudent));
+    if (data != null) {
+      await useCases.insertOrUpdate(data);
+      updateUI();
     }
   }
 
-  Future<void> onTappedInvite(Event event) async {
-    final joined =
-        allStudent.where((e) => event.joinedIds.contains(e.id)).toList();
-    final invited =
-        allStudent.where((e) => event.invitedIds.contains(e.id)).toList();
-    bottomSheet(BaseBottomSheet(
-        title: '${event.name} State',
-        // subTitle: const Text('Disable'),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.separated(
-                itemCount: invited.length,
-                itemBuilder: (context, index) => StudentItem(
-                  data: invited[index],
-                  isSelected: true,
-                ),
-                separatorBuilder: (context, index) => const CustomDivider(),
-              ),
-            ),
-          ],
-        )));
+  Future<void> onTappedEdit(Event event) async {
+    final result = await Get.toNamed(Routes.editEvent, arguments: event);
+    if (result != null) {
+      //???
+      await loadEvent(firstDay, lastDay);
+      updateUI();
+    }
   }
 
   Future<void> addEvent() async {
     final result = await Get.toNamed(Routes.editEvent);
     if (result != null) {
       //???
-      loadEvent(firstDay, lastDay);
+      await loadEvent(firstDay, lastDay);
+      updateUI();
     }
   }
 
@@ -157,7 +141,6 @@ class EventsController extends BaseController
       if (formatedData.containsKey(key)) continue;
       formatedData[key] = [];
     }
-    print(formatedData.keys.length);
   }
 
   void addToGroup(DateTime key, Event event) {
@@ -172,12 +155,8 @@ class EventsController extends BaseController
     firstDay = selectedDay;
     await loadEvent(firstDay, lastDay);
     updateUI();
-
     this.selectedDay.value = selectedDay;
-    scrollToItem(selectedDay);
   }
-
-  void scrollToItem(DateTime time) {}
 
   void fillData(Event event) {
     event.students =
@@ -194,11 +173,14 @@ class EventsController extends BaseController
   }
 
   Future<void> onLoading() async {
-    await 1.delay();
+    lastDay = lastDay.add(const Duration(days: 7));
+    await generateEvent(lastDay);
+    await loadEvent(firstDay, lastDay);
+    updateUI();
     refreshController.loadComplete();
   }
 
   void updateUI() {
-    change(formatedData, status: RxStatus.success());
+    update();
   }
 }

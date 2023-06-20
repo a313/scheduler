@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/students/components/student_cell.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
-import 'package:scheduler/widgets/custom_refresher.dart';
 import 'package:scheduler/widgets/shimmer/shimmer_list.dart';
 
+import 'components/student_component.dart';
 import 'students_controller.dart';
 
 class StudentsPage extends GetView<StudentsController> {
@@ -19,7 +17,7 @@ class StudentsPage extends GetView<StudentsController> {
       fab: FloatingActionButton(
         mini: true,
         onPressed: controller.addStudent,
-        backgroundColor: context.funcBitterLemon,
+        backgroundColor: context.primaryDark,
         child: Icon(
           Icons.add,
           color: context.neutral100,
@@ -29,36 +27,37 @@ class StudentsPage extends GetView<StudentsController> {
         TextButton(
           onPressed: controller.onTappedFilter,
           child: const Text(
-            'Bộ lọc',
+            'Grouping',
             style: AppFonts.bSmall,
           ),
         )
       ],
-      title: 'Học sinh',
+      title: 'Students',
       body: controller.obx(
-        (state) => CustomRefresher(
-          onRefresh: controller.onRefresh,
-          onLoading: controller.onLoading,
-          controller: controller.refreshController,
-          child: ListView.separated(
-              itemCount: state!.length,
-              separatorBuilder: (context, index) => const CustomDivider(),
-              itemBuilder: (context, index) {
-                return StudentCell(
-                  data: state[index],
-                  onEdit: controller.onEditStudent,
-                  onTapped: controller.onTappedStudent,
-                );
-              }),
-        ),
+        (state) => CustomScrollView(
+            slivers: List.generate(state!.keys.length, (index) {
+          final key = state.keys.elementAt(index);
+          final students = state[key]!;
+          return StudentComponent(
+            classRoom: key,
+            data: students,
+            onTapped: controller.onTappedStudent,
+            onTappedEdit: controller.onTappedEdit,
+          );
+        })),
+        // ListView.separated(
+        //     itemCount: state!.length,
+        //     separatorBuilder: (context, index) => const CustomDivider(),
+        //     itemBuilder: (context, index) {
+        //       return SwipeStudentCell(
+        //         data: state[index],
+        //         onEdit: controller.onEditStudent,
+        //         onTapped: controller.onTappedStudent,
+        //       );
+        //     }),
         onLoading: const Padding(padding: padAll16, child: ShimmerListWidget()),
-        onEmpty: CustomRefresher(
-          onRefresh: controller.onRefresh,
-          onLoading: controller.onRefresh,
-          controller: controller.emptyController,
-          child: const Center(
-            child: Text("Chưa có học sinh"),
-          ),
+        onEmpty: const Center(
+          child: Text("Not exist student"),
         ),
       ),
     );
