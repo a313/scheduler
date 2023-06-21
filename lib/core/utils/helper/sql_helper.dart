@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-const dbName = 'db.db';
+const dbName = 'db.database';
 
 class DbHelper {
   Future<Database> openAssertDB() async {

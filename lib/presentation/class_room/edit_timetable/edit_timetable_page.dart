@@ -26,7 +26,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
                   children: [
                     SelectDayOfWeek(onChanged: controller.onChangedDate),
                     sizedBoxH24,
-                    const Text('Time', style: AppFonts.bLarge),
+                    const Text('Or select time', style: AppFonts.bLarge),
                     sizedBoxH16,
                     SizedBox(
                         height: 150,
@@ -65,12 +65,9 @@ class EditTimetablePage extends GetView<EditTimetableController> {
                 ),
               ),
             ),
-            Padding(
-              padding: padAll16,
-              child: BaseButton.largePrimary(
-                title: isEdit ? "Update" : "Add",
-                onPressed: controller.onUpdate,
-              ),
+            BaseButton.fixBottom(
+              title: isEdit ? "Update" : "Add",
+              onPressed: controller.onUpdate,
             )
           ],
         ));

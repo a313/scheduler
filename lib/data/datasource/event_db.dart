@@ -28,6 +28,13 @@ abstract class EventDB extends DBSQLHelper {
   Future<List<Map<String, dynamic>>> getEventByType(EventType type);
 
   Future<List<Map<String, dynamic>>> getEventsFrom(int from, int to);
+
+  Future<int> removeEvents({
+    required int parentId,
+    required EventType type,
+    required int from,
+    required int to,
+  });
 }
 
 class EventDbImpl extends EventDB {
@@ -38,7 +45,8 @@ class EventDbImpl extends EventDB {
 
   @override
   Future<List<Map<String, dynamic>>> getEventByType(EventType type) async {
-    final result = await db.query(table, where: 'type = ?', whereArgs: [type]);
+    final result =
+        await db.query(table, where: 'type = ?', whereArgs: [type.name]);
     return result;
   }
 
@@ -46,6 +54,19 @@ class EventDbImpl extends EventDB {
   Future<List<Map<String, dynamic>>> getEventsFrom(int from, int to) async {
     final result = await db.query(table,
         where: 'startTime BETWEEN ? and ?', whereArgs: [from, to]);
+    return result;
+  }
+
+  @override
+  Future<int> removeEvents({
+    required int parentId,
+    required EventType type,
+    required int from,
+    required int to,
+  }) async {
+    final result = await db.delete(table,
+        where: 'parentId = ? AND type = ? AND startTime BETWEEN ? and ?',
+        whereArgs: [parentId, type.name, from, to]);
     return result;
   }
 }

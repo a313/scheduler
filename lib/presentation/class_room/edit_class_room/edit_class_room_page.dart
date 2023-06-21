@@ -131,13 +131,10 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                 ),
               ),
             ),
-            Padding(
-              padding: padAll16,
-              child: BaseButton.largePrimary(
-                title: isEdit ? "Update" : "Add",
-                onPressed: controller.onInsertOrUpdate,
-              ),
-            )
+            BaseButton.fixBottom(
+              title: isEdit ? "Update" : "Add",
+              onPressed: controller.onInsertOrUpdate,
+            ),
           ],
         ));
   }

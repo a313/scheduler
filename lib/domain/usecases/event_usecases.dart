@@ -12,6 +12,10 @@ class EventUseCases {
     return await _.getAllEvent();
   }
 
+  Future<DataState<int>> insertAll(List<Event> data) async {
+    return await _.insertAll(data);
+  }
+
   Future<DataState<Event>> insertOrUpdate(Event data) async {
     return await _.insertOrUpdate(data);
   }
@@ -27,5 +31,19 @@ class EventUseCases {
   Future<DataState<List<Event>>> getEventsFrom(
       DateTime from, DateTime to) async {
     return await _.getEventsFrom(from, to);
+  }
+
+  Future<DataState> removeEvents({
+    required int parentId,
+    required EventType type,
+    required DateTime from,
+    required DateTime to,
+  }) async {
+    return await _.removeEvents(
+      parentId: parentId,
+      type: type,
+      from: from,
+      to: to,
+    );
   }
 }

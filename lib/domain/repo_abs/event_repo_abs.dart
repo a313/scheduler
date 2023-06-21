@@ -8,5 +8,13 @@ abstract class EventRepo {
   Future<DataState<List<Event>>> getEventByType(EventType type);
   Future<DataState<List<Event>>> getEventsFrom(DateTime from, DateTime to);
   Future<DataState<Event>> insertOrUpdate(Event data);
+  Future<DataState<int>> insertAll(List<Event> data);
   Future<DataState> deleteAllEvent();
+
+  Future<DataState> removeEvents({
+    required int parentId,
+    required EventType type,
+    required DateTime from,
+    required DateTime to,
+  });
 }

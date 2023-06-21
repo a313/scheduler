@@ -45,4 +45,16 @@ class ClassRoom with _$ClassRoom {
   bool get hasSchedule {
     return timetables.isNotEmpty;
   }
+
+  bool isSameSchedule(ClassRoom other) {
+    if (timetables.length != other.timetables.length) {
+      return true;
+    }
+    for (int i = 0; i < other.timetables.length; i++) {
+      if (timetables[i] != other.timetables[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
 }

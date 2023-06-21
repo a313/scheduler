@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
@@ -7,6 +8,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:scheduler/core/utils/constants/enums.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/reminder.dart';
+import 'package:scheduler/data/models/schedule.dart';
 import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/reminder_usecases.dart';
@@ -76,8 +78,8 @@ class Utils {
     final file = File(filePath);
     final appDir = await getApplicationDocumentsDirectory();
     final fileName = name ?? basename(filePath);
-    final saved = await file.copy('${appDir.path}/$fileName');
-    return saved;
+    final amved = await file.copy('${appDir.path}/$fileName');
+    return amved;
   }
 
   Future<void> cloneDb() async {
@@ -147,5 +149,46 @@ class Utils {
       );
       uc.insertOrUpdate(obj);
     }
+  }
+
+  static Iterable<Map<String, dynamic>> addExampleSchdule() {
+    return [
+      Schedule(
+          name: 'AM Lesson 1',
+          begin: const TimeOfDay(hour: 7, minute: 30),
+          end: const TimeOfDay(hour: 8, minute: 15)),
+      Schedule(
+          name: 'AM Lesson 2',
+          begin: const TimeOfDay(hour: 7, minute: 30),
+          end: const TimeOfDay(hour: 8, minute: 15)),
+      Schedule(
+          name: 'AM Lesson 3',
+          begin: const TimeOfDay(hour: 8, minute: 20),
+          end: const TimeOfDay(hour: 9, minute: 05)),
+      Schedule(
+          name: 'AM Lesson 4',
+          begin: const TimeOfDay(hour: 10, minute: 10),
+          end: const TimeOfDay(hour: 10, minute: 55)),
+      Schedule(
+          name: 'AM Lesson 5',
+          begin: const TimeOfDay(hour: 11, minute: 00),
+          end: const TimeOfDay(hour: 11, minute: 45)),
+      Schedule(
+          name: 'PM Lesson 1',
+          begin: const TimeOfDay(hour: 14, minute: 00),
+          end: const TimeOfDay(hour: 14, minute: 45)),
+      Schedule(
+          name: 'PM Lesson 2',
+          begin: const TimeOfDay(hour: 14, minute: 50),
+          end: const TimeOfDay(hour: 15, minute: 35)),
+      Schedule(
+          name: 'PM Lesson 3',
+          begin: const TimeOfDay(hour: 15, minute: 45),
+          end: const TimeOfDay(hour: 16, minute: 30)),
+      Schedule(
+          name: 'PM Lesson 4',
+          begin: const TimeOfDay(hour: 16, minute: 35),
+          end: const TimeOfDay(hour: 17, minute: 20)),
+    ].map((e) => e.toJson());
   }
 }

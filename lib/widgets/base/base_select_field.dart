@@ -52,16 +52,21 @@ class _BaseSelectFieldState<T> extends State<BaseSelectField<T>> {
   }
 
   Future<void> openBottomSheet() async {
-    final value = await Get.bottomSheet<List<T>?>(SelectBottomSheet(
-      initValue: widget.initValue,
-      options: widget.options,
-      itemBuilder: widget.itemBuilder,
-      selectedBuilder: widget.selectedBuilder,
-      title: widget.labelText,
-      isMultiSelect: widget.isMultiSelect,
-    ));
-
-    controller.text = widget.valueBuilder(value);
-    widget.onSelected(value);
+    final value = await Get.bottomSheet<List<T>?>(
+      SelectBottomSheet(
+        initValue: widget.initValue,
+        options: widget.options,
+        itemBuilder: widget.itemBuilder,
+        selectedBuilder: widget.selectedBuilder,
+        title: widget.labelText,
+        isMultiSelect: widget.isMultiSelect,
+      ),
+      useRootNavigator: true,
+      isScrollControlled: true,
+    );
+    if (value != null) {
+      controller.text = widget.valueBuilder(value);
+      widget.onSelected(value);
+    }
   }
 }

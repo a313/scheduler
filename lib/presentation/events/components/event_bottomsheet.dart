@@ -53,29 +53,28 @@ class _EventBottomSheetState extends State<EventBottomSheet> {
           },
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Expanded(
-              child: ListView.separated(
-                shrinkWrap: true,
-                itemCount: invited.length,
-                itemBuilder: (context, index) => SwitchStudentCell(
-                  enable: event.isActive,
-                  data: invited[index],
-                  switchValue: joined.contains(invited[index]),
-                  onChanged: (value) {
-                    setState(() {
-                      if (value) {
-                        joined.add(invited[index]);
-                        event.joinedIds.add(invited[index].id!);
-                      } else {
-                        joined.remove(invited[index]);
-                        event.joinedIds.remove(invited[index].id!);
-                      }
-                    });
-                  },
-                ),
-                separatorBuilder: (context, index) => const CustomDivider(),
+            ListView.separated(
+              shrinkWrap: true,
+              itemCount: invited.length,
+              itemBuilder: (context, index) => SwitchStudentCell(
+                enable: event.isActive,
+                data: invited[index],
+                switchValue: joined.contains(invited[index]),
+                onChanged: (value) {
+                  setState(() {
+                    if (value) {
+                      joined.add(invited[index]);
+                      event.joinedIds.add(invited[index].id!);
+                    } else {
+                      joined.remove(invited[index]);
+                      event.joinedIds.remove(invited[index].id!);
+                    }
+                  });
+                },
               ),
+              separatorBuilder: (context, index) => const CustomDivider(),
             ),
             BaseButton.fixBottom(
                 title: 'Update',

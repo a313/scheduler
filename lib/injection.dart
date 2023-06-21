@@ -30,5 +30,7 @@ class DependencyInjection {
     Get.put(ClassRoomUseCases(ClassRoomRepoImpl(ClassRoomDBImpl(db))));
 
     Get.put(ReminderUseCases(ReminderRepoImpl(ReminderDBImpl(db))));
+
+    Get.put(ReminderUseCases(ReminderRepoImpl(ReminderDBImpl(db))));
   }
 }

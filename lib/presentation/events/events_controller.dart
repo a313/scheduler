@@ -33,17 +33,20 @@ class EventsController extends BaseController {
   @override
   Future<void> onReady() async {
     super.onReady();
-
     await generateEvent(lastDay);
+    await loadEvent(firstDay, lastDay);
+    updateUI();
+  }
+
+  Future<void> onReloadData() async {
     await loadEvent(firstDay, lastDay);
     updateUI();
   }
 
   Future<void> generateEvent(DateTime to) async {
     final classEvents = generateClassRoomEvent(to);
-    for (var c in classEvents) {
-      useCases.insertOrUpdate(c);
-    }
+    List<Event> events = List.from(classEvents);
+    await useCases.insertAll(events);
     local.savedLastGenerateTime(to);
   }
 
@@ -57,15 +60,13 @@ class EventsController extends BaseController {
     List<Event> result = [];
     for (var obj in allClassRoom) {
       if (obj.isActive && obj.hasSchedule) {
-        final events = classRoomUseCases.generateEvent(obj, from: from, to: to);
-        for (var e in events) {
-          final studensOfClass =
-              allStudent.where((e) => e.classId.contains(obj.id)).toList();
-          final listIds = studensOfClass.map((e) => e.id!).toList();
-          e.invitedIds = listIds;
-          e.joinedIds = listIds;
-          result.add(e);
-        }
+        final events = classRoomUseCases.generateEvent(
+          classRoom: obj,
+          students: allStudent,
+          from: from,
+          to: to,
+        );
+        result.addAll(events);
       }
     }
 

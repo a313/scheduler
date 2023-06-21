@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
@@ -5,12 +7,15 @@ import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/timetable.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
+import 'package:scheduler/domain/usecases/event_usecases.dart';
+import 'package:scheduler/presentation/events/events_controller.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../routes/routes.dart';
 
 class EditClassRoomController extends BaseController {
   final ClassRoomUseCases useCases = Get.find();
+  final EventUseCases eventUseCases = Get.find();
 
   final ClassRoom? initData;
   late ClassRoom data;
@@ -53,6 +58,9 @@ class EditClassRoomController extends BaseController {
       }
 
       final result = await useCases.insertOrUpdate(data);
+      if (initData == null || data.isSameSchedule(initData!)) {
+        reGeneraEvent(data);
+      }
       dismissLoading();
       if (result is DataSuccess<ClassRoom>) {
         Get.back(result: result.data);
@@ -82,6 +90,8 @@ class EditClassRoomController extends BaseController {
     final result = await Get.toNamed(Routes.editTimetable);
     if (result != null) {
       data.timetables.add(result);
+      data.timetables
+          .sort((obj1, obj2) => obj1.dayInWeek.compareTo(obj2.dayInWeek));
       update();
     }
   }
@@ -98,5 +108,25 @@ class EditClassRoomController extends BaseController {
 
   void onChangeLocation(String location) {
     data.location = location;
+  }
+
+  Future<void> reGeneraEvent(ClassRoom data) async {
+    log('reGeneraEvent for Class :${data.name}');
+    final from = DateTime.now().dateWithoutTime();
+    final to =
+        local.getLastGenerateTime() ?? from.add(const Duration(days: 15));
+    await eventUseCases.removeEvents(
+        parentId: data.id!, from: from, to: to, type: EventType.GeneradeClass);
+    final events = useCases.generateEvent(
+      classRoom: data,
+      students: allStudent,
+      from: from,
+      to: to,
+    );
+
+    await eventUseCases.insertAll(events);
+    if (Get.isRegistered<EventsController>()) {
+      Get.find<EventsController>().onReloadData();
+    }
   }
 }
