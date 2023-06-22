@@ -28,39 +28,41 @@ class ReminderUseCases {
       required DateTime to}) {
     List<Event> result = [];
     final alertAt = reminder.alertTime;
-    final createDate = reminder.createDate;
+    final remindDate = reminder.remindDate;
     if (reminder.repeat == RepeatType.None ||
         alertAt == null ||
-        createDate.isBefore(from)) {
+        reminder.createDate.isBefore(from)) {
       return result;
     }
     for (var date = from;
         date.isBefore(to);
         date = date.add(const Duration(days: 1))) {
-      var diff = date.difference(createDate);
+      var diff = date.difference(remindDate);
       final inDays = diff.inDays;
       final interval = reminder.interval;
       final startTime =
           date.copyWith(hour: alertAt.hour, minute: alertAt.minute);
       if (reminder.repeat == RepeatType.Daily) {
         if (inDays % interval != 0) {
-          print(
-              'Skiped ${createDate.toString()} - ${date.toString()} inDays:$inDays');
           continue;
         }
       } else if (reminder.repeat == RepeatType.Weekly) {
-        if ((inDays % interval) % 7 != 0) {
-          print(
-              'Skiped ${createDate.toString()} - ${date.toString()} inDays:$inDays');
+        if (inDays % 7 != 0 || ((inDays / 7) % interval) != 0) {
           continue;
         }
       } else if (reminder.repeat == RepeatType.Monthly) {
-        continue;
+        final inMonth = date.month - remindDate.month;
+        if (remindDate.day != date.day || inMonth % interval != 0) {
+          continue;
+        }
       } else if (reminder.repeat == RepeatType.Yearly) {
-        continue;
+        final inYear = date.year - remindDate.year;
+        if (remindDate.month != date.month ||
+            remindDate.day != date.day ||
+            inYear % interval != 0) {
+          continue;
+        }
       }
-      print(
-          'ADDED ${createDate.toString()} - ${date.toString()} inDays:$inDays');
       result.add(Event(
           name: reminder.name,
           startTime: startTime,

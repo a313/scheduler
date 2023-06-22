@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:scheduler/core/utils/constants/enums.dart';
+import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/reminder.dart';
 import 'package:scheduler/data/models/schedule.dart';
@@ -146,7 +146,8 @@ class Utils {
         repeat: RepeatType.None,
         interval: 1,
         name: name,
-        createDate: begin,
+        remindDate: begin,
+        createDate: DateTime.now().dateWithoutTime(),
       );
       uc.insertOrUpdate(obj);
     }

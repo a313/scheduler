@@ -46,10 +46,10 @@ class EditReminderPage extends GetView<EditReminderController> {
                           },
                         ),
                         BaseDateField(
-                          labelText: 'Create Date',
-                          initDate: data.createDate,
+                          labelText: 'Remind Date',
+                          initDate: data.remindDate,
                           timeFormat: DateFormater.ddMMYYYY,
-                          onSelected: controller.onChangeDateCreate,
+                          onSelected: controller.onChangeRemindDate,
                         ),
                         BaseSelectField<RepeatType>(
                           key: UniqueKey(),
@@ -150,12 +150,9 @@ class EditReminderPage extends GetView<EditReminderController> {
                 ),
               ),
             ),
-            Padding(
-              padding: padAll16,
-              child: BaseButton.largePrimary(
-                title: isEdit ? "Update" : "Add",
-                onPressed: controller.onInsertOrUpdate,
-              ),
+            BaseButton.fixBottom(
+              title: isEdit ? "Update" : "Add",
+              onPressed: controller.onInsertOrUpdate,
             )
           ],
         ));

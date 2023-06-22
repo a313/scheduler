@@ -15,6 +15,7 @@ class Reminder with _$Reminder {
       {int? id,
       required String name,
       @DateTimeConverter() required DateTime createDate,
+      @DateTimeConverter() required DateTime remindDate,
       required RepeatType repeat,
       @Default(1) int interval,
       @TimeOfDayConverter() TimeOfDay? alertTime,
@@ -30,6 +31,7 @@ class Reminder with _$Reminder {
   static Reminder init() => Reminder(
         name: '',
         createDate: DateTime.now().dateWithoutTime(),
+        remindDate: DateTime.now().dateWithoutTime(),
         softIndex: -1,
         interval: 1,
         alertTime: TimeOfDay.now(),

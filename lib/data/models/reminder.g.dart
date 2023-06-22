@@ -10,6 +10,7 @@ _$_Reminder _$$_ReminderFromJson(Map<String, dynamic> json) => _$_Reminder(
       id: json['id'] as int?,
       name: json['name'] as String,
       createDate: const DateTimeConverter().fromJson(json['createDate'] as int),
+      remindDate: const DateTimeConverter().fromJson(json['remindDate'] as int),
       repeat: $enumDecode(_$RepeatTypeEnumMap, json['repeat']),
       interval: json['interval'] as int? ?? 1,
       alertTime: _$JsonConverterFromJson<String, TimeOfDay>(
@@ -23,6 +24,7 @@ Map<String, dynamic> _$$_ReminderToJson(_$_Reminder instance) =>
       'id': instance.id,
       'name': instance.name,
       'createDate': const DateTimeConverter().toJson(instance.createDate),
+      'remindDate': const DateTimeConverter().toJson(instance.remindDate),
       'repeat': _$RepeatTypeEnumMap[instance.repeat]!,
       'interval': instance.interval,
       'alertTime': _$JsonConverterToJson<String, TimeOfDay>(

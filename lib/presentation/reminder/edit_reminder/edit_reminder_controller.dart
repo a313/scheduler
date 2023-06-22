@@ -27,9 +27,9 @@ class EditReminderController extends BaseController {
     super.onInit();
   }
 
-  void onChangeDateCreate(DateTime? time) {
+  void onChangeRemindDate(DateTime? time) {
     if (time != null) {
-      data.createDate = time.dateWithoutTime();
+      data.remindDate = time.dateWithoutTime();
     }
   }
 

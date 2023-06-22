@@ -28,6 +28,10 @@ mixin _$Reminder {
   DateTime get createDate => throw _privateConstructorUsedError;
   @DateTimeConverter()
   set createDate(DateTime value) => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  DateTime get remindDate => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  set remindDate(DateTime value) => throw _privateConstructorUsedError;
   RepeatType get repeat => throw _privateConstructorUsedError;
   set repeat(RepeatType value) => throw _privateConstructorUsedError;
   int get interval => throw _privateConstructorUsedError;
@@ -56,6 +60,7 @@ abstract class $ReminderCopyWith<$Res> {
       {int? id,
       String name,
       @DateTimeConverter() DateTime createDate,
+      @DateTimeConverter() DateTime remindDate,
       RepeatType repeat,
       int interval,
       @TimeOfDayConverter() TimeOfDay? alertTime,
@@ -79,6 +84,7 @@ class _$ReminderCopyWithImpl<$Res, $Val extends Reminder>
     Object? id = freezed,
     Object? name = null,
     Object? createDate = null,
+    Object? remindDate = null,
     Object? repeat = null,
     Object? interval = null,
     Object? alertTime = freezed,
@@ -97,6 +103,10 @@ class _$ReminderCopyWithImpl<$Res, $Val extends Reminder>
       createDate: null == createDate
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      remindDate: null == remindDate
+          ? _value.remindDate
+          : remindDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       repeat: null == repeat
           ? _value.repeat
@@ -133,6 +143,7 @@ abstract class _$$_ReminderCopyWith<$Res> implements $ReminderCopyWith<$Res> {
       {int? id,
       String name,
       @DateTimeConverter() DateTime createDate,
+      @DateTimeConverter() DateTime remindDate,
       RepeatType repeat,
       int interval,
       @TimeOfDayConverter() TimeOfDay? alertTime,
@@ -154,6 +165,7 @@ class __$$_ReminderCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = null,
     Object? createDate = null,
+    Object? remindDate = null,
     Object? repeat = null,
     Object? interval = null,
     Object? alertTime = freezed,
@@ -172,6 +184,10 @@ class __$$_ReminderCopyWithImpl<$Res>
       createDate: null == createDate
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      remindDate: null == remindDate
+          ? _value.remindDate
+          : remindDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       repeat: null == repeat
           ? _value.repeat
@@ -204,6 +220,7 @@ class _$_Reminder extends _Reminder {
       {this.id,
       required this.name,
       @DateTimeConverter() required this.createDate,
+      @DateTimeConverter() required this.remindDate,
       required this.repeat,
       this.interval = 1,
       @TimeOfDayConverter() this.alertTime,
@@ -222,6 +239,9 @@ class _$_Reminder extends _Reminder {
   @DateTimeConverter()
   DateTime createDate;
   @override
+  @DateTimeConverter()
+  DateTime remindDate;
+  @override
   RepeatType repeat;
   @override
   @JsonKey()
@@ -237,7 +257,7 @@ class _$_Reminder extends _Reminder {
 
   @override
   String toString() {
-    return 'Reminder(id: $id, name: $name, createDate: $createDate, repeat: $repeat, interval: $interval, alertTime: $alertTime, softIndex: $softIndex, image: $image)';
+    return 'Reminder(id: $id, name: $name, createDate: $createDate, remindDate: $remindDate, repeat: $repeat, interval: $interval, alertTime: $alertTime, softIndex: $softIndex, image: $image)';
   }
 
   @JsonKey(ignore: true)
@@ -259,6 +279,7 @@ abstract class _Reminder extends Reminder {
       {int? id,
       required String name,
       @DateTimeConverter() required DateTime createDate,
+      @DateTimeConverter() required DateTime remindDate,
       required RepeatType repeat,
       int interval,
       @TimeOfDayConverter() TimeOfDay? alertTime,
@@ -279,6 +300,11 @@ abstract class _Reminder extends Reminder {
   DateTime get createDate;
   @DateTimeConverter()
   set createDate(DateTime value);
+  @override
+  @DateTimeConverter()
+  DateTime get remindDate;
+  @DateTimeConverter()
+  set remindDate(DateTime value);
   @override
   RepeatType get repeat;
   set repeat(RepeatType value);

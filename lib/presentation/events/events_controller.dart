@@ -33,7 +33,7 @@ class EventsController extends BaseController {
   void onInit() {
     final d = selectedDay.value;
     firstDay = d.copyWith();
-    lastDay = d.copyWith(day: d.day + 31);
+    lastDay = d.copyWith(day: d.day + 15);
     super.onInit();
   }
 
@@ -181,6 +181,8 @@ class EventsController extends BaseController {
   }
 
   Future<void> addEvent() async {
+    generateEvent(lastDay);
+    return;
     final result = await Get.toNamed(Routes.editEvent);
     if (result != null) {
       //???
