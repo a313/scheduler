@@ -10,8 +10,9 @@ abstract class ReminderDB extends DBSQLHelper {
       id INTEGER PRIMARY KEY,
       name TEXT not null,      
       createDate INTEGER,     
-      alert TEXT,
-      alertTime TEXT,         
+      alertTime TEXT,
+      repeat TEXT,
+      interval INTEGER,
       softIndex INTEGER,
       image TEXT      
       )''';

@@ -143,7 +143,8 @@ class Utils {
       final begin = DateTime.parse(data['createDate'] as String);
 
       final obj = Reminder(
-        alert: AlertType.None,
+        repeat: RepeatType.None,
+        interval: 1,
         name: name,
         createDate: begin,
       );

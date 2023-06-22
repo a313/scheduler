@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
@@ -29,7 +29,7 @@ class EditReminderController extends BaseController {
 
   void onChangeDateCreate(DateTime? time) {
     if (time != null) {
-      data.createDate = time;
+      data.createDate = time.dateWithoutTime();
     }
   }
 
@@ -60,5 +60,48 @@ class EditReminderController extends BaseController {
 
   void onChangeName(String name) {
     data.name = name;
+  }
+
+  void onSelectedRepeatType(List<RepeatType>? p1) {
+    if (p1 == null) return;
+    data.repeat = p1.first;
+    data.alertTime ??= TimeOfDay.now();
+    update();
+  }
+
+  void onSelectInterval(List<int>? p1) {
+    if (p1 == null) return;
+    data.interval = p1.first;
+    update();
+  }
+
+  String getIntervelName(int e) {
+    String getSuffix() {
+      switch (data.repeat) {
+        case RepeatType.Daily:
+          return "day";
+        case RepeatType.Weekly:
+          return "week";
+        case RepeatType.Monthly:
+          return "month";
+        case RepeatType.Yearly:
+          return "year";
+        default:
+          return 'none';
+      }
+    }
+
+    return '$e ${getSuffix()}${e > 1 ? 's' : ''}';
+  }
+
+  DateTime getAlertTime() {
+    final time = data.alertTime ?? TimeOfDay.now();
+    return DateTime.now().copyWith(hour: time.hour, minute: time.minute);
+  }
+
+  void onSelectedAlertTime(DateTime? p1) {
+    if (p1 == null) return;
+    data.alertTime = TimeOfDay.fromDateTime(p1);
+    update();
   }
 }

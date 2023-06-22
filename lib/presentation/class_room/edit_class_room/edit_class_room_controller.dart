@@ -82,16 +82,24 @@ class EditClassRoomController extends BaseController {
     final result =
         await Get.toNamed(Routes.editTimetable, arguments: timetable);
     if (result != null) {
+      data.timetables.remove(timetable);
+      data.timetables.add(result);
+      sortTimetable();
       update();
     }
+  }
+
+  void sortTimetable() {
+    data.timetables
+        .sort((obj1, obj2) => obj1.dayInWeek.compareTo(obj2.dayInWeek));
+    update();
   }
 
   Future<void> onAddTimetable() async {
     final result = await Get.toNamed(Routes.editTimetable);
     if (result != null) {
       data.timetables.add(result);
-      data.timetables
-          .sort((obj1, obj2) => obj1.dayInWeek.compareTo(obj2.dayInWeek));
+      sortTimetable();
       update();
     }
   }

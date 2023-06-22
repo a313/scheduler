@@ -65,11 +65,12 @@ class _SelectBottomSheetState<T> extends State<SelectBottomSheet<T>> {
                 );
               },
             ),
-            BaseButton.fixBottom(
-                title: 'Done',
-                onPressed: () {
-                  Get.back(result: selected);
-                })
+            if (widget.isMultiSelect)
+              BaseButton.fixBottom(
+                  title: 'Done',
+                  onPressed: () {
+                    Get.back(result: selected);
+                  })
           ],
         ));
   }
@@ -81,9 +82,10 @@ class _SelectBottomSheetState<T> extends State<SelectBottomSheet<T>> {
       } else {
         selected.add(obj);
       }
+      setState(() {});
     } else {
       selected = [obj];
+      Get.back(result: selected);
     }
-    setState(() {});
   }
 }

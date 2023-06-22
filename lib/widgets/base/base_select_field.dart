@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -65,8 +66,9 @@ class _BaseSelectFieldState<T> extends State<BaseSelectField<T>> {
       isScrollControlled: true,
     );
     if (value != null) {
-      controller.text = widget.valueBuilder(value);
-      widget.onSelected(value);
+      if (widget.initValue == null || !value.equals(widget.initValue!)) {
+        widget.onSelected(value);
+      }
     }
   }
 }

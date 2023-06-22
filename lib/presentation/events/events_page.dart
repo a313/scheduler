@@ -4,6 +4,7 @@ import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/presentation/events/components/calenar_component.dart';
 import 'package:scheduler/presentation/events/components/events_component.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
+import 'package:scheduler/widgets/shimmer/shimmer_list.dart';
 
 import '../../widgets/custom_refresher.dart';
 import 'events_controller.dart';
@@ -33,6 +34,7 @@ class EventsPage extends GetView<EventsController> {
               child: GetBuilder<EventsController>(
                 builder: (_) {
                   final data = controller.formatedData;
+                  if (data.isEmpty) return const ShimmerListWidget();
                   return CustomRefresher(
                     onRefresh: controller.onRefresh,
                     onLoading: controller.onLoading,

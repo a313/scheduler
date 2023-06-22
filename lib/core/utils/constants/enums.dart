@@ -71,3 +71,33 @@ enum AlertType {
   Before1Day,
   Before1Week
 }
+
+extension AlertTypeExt on AlertType {
+  String get nameFormated {
+    switch (this) {
+      case AlertType.None:
+        return 'None';
+      case AlertType.AtTime:
+        return 'At Time';
+      case AlertType.Before5Min:
+        return 'Before 5 Min';
+      case AlertType.Before15Min:
+        return 'Before 15 Min';
+      case AlertType.Before30Min:
+        return 'Before 30 Min';
+      case AlertType.Before1Hour:
+        return 'Before 1 Hour';
+      case AlertType.Before2Hour:
+        return 'Before 2 Hour';
+      case AlertType.Before1Day:
+        return 'Before 1 Day';
+      case AlertType.Before1Week:
+        return 'Before 1 Week';
+    }
+  }
+}
+
+enum OrderType {
+  ASC,
+  DESC,
+}

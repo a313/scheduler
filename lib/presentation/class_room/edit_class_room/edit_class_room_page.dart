@@ -54,7 +54,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                         itemBuilder: (_, obj) => Padding(
                           padding: padAll16,
                           child: Text(
-                            obj.name,
+                            obj.nameFormated,
                             style: AppFonts.bMedium
                                 .copyWith(color: context.neutral800),
                           ),
@@ -65,7 +65,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                             children: [
                               Expanded(
                                 child: Text(
-                                  obj.name,
+                                  obj.nameFormated,
                                   style: AppFonts.bMedium
                                       .copyWith(color: context.neutral1100),
                                 ),
@@ -86,7 +86,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                           if (values == null || values.isEmpty) {
                             return "";
                           }
-                          return values.map((e) => e.name).join(", ");
+                          return values.map((e) => e.nameFormated).join(", ");
                         },
                       ),
                       BaseDateField(

@@ -8,8 +8,9 @@ class SelectDayOfWeek extends StatefulWidget {
   const SelectDayOfWeek({
     super.key,
     required this.onChanged,
+    this.initDate,
   });
-
+  final int? initDate;
   final Function(int day) onChanged;
 
   @override
@@ -20,7 +21,7 @@ class _SelectDayOfWeekState extends State<SelectDayOfWeek> {
   late int? selected;
   @override
   void initState() {
-    selected = -1;
+    selected = widget.initDate ?? -1;
     super.initState();
   }
 

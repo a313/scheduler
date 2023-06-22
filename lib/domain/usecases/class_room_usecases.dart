@@ -26,6 +26,7 @@ class ClassRoomUseCases {
     required DateTime to,
   }) {
     List<Event> result = [];
+    if (!classRoom.isActive && !classRoom.hasSchedule) return [];
     for (var date = from;
         date.isBefore(to);
         date = date.add(const Duration(days: 1))) {

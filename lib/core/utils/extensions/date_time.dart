@@ -34,7 +34,9 @@ extension DateExtension on DateTime {
   }
 
   bool isBetween(DateTime start, DateTime end) {
-    return isAfter(start) && isBefore(end.add(const Duration(seconds: 1)));
+    final after = isAfter(start);
+    final befor = isBefore(end.add(const Duration(seconds: 1)));
+    return after && befor;
   }
 
   bool isToday() {
@@ -53,7 +55,7 @@ extension DateExtension on DateTime {
   }
 
   String getPassedTime() {
-    final now = DateTime.now();
+    final now = DateTime.now().dateWithoutTime();
     var result = '';
     final y = now.year - year;
     final m = now.month - month;

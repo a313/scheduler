@@ -7,14 +7,21 @@ import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/event.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
+import 'package:scheduler/domain/usecases/reminder_usecases.dart';
+import 'package:scheduler/domain/usecases/student_usecases.dart';
 import 'package:scheduler/presentation/events/components/event_bottomsheet.dart';
 import 'package:scheduler/routes/routes.dart';
+
+import '../../data/models/class_room.dart';
+import '../../data/models/reminder.dart';
+import '../../data/models/student.dart';
 
 class EventsController extends BaseController {
   EventUseCases useCases = Get.find();
   ClassRoomUseCases classRoomUseCases = Get.find();
-
-  Rx<DateTime> selectedDay = DateTime.now().obs;
+  ReminderUseCases reminderUseCases = Get.find();
+  StudentUseCases studentUseCases = Get.find();
+  Rx<DateTime> selectedDay = DateTime.now().dateWithoutTime().obs;
   late DateTime firstDay, lastDay;
   Map<DateTime, List<Event>> formatedData = {};
 
@@ -26,16 +33,50 @@ class EventsController extends BaseController {
   void onInit() {
     final d = selectedDay.value;
     firstDay = d.copyWith();
-    lastDay = d.copyWith(day: d.day + 15);
+    lastDay = d.copyWith(day: d.day + 31);
     super.onInit();
   }
 
   @override
   Future<void> onReady() async {
     super.onReady();
+    await getData();
+
+    await useCases.deleteAllEvent();
+
     await generateEvent(lastDay);
     await loadEvent(firstDay, lastDay);
+
     updateUI();
+  }
+
+  Future<void> getData() {
+    return Future.wait([
+      getStudents(),
+      getClassRooms(),
+      getReminders(),
+    ]);
+  }
+
+  Future<void> getClassRooms() async {
+    final value = await classRoomUseCases.getAllClassRoom();
+    if (value is DataSuccess<List<ClassRoom>>) {
+      allClassRoom = value.data;
+    }
+  }
+
+  Future<void> getStudents() async {
+    final value = await studentUseCases.getAllStudent();
+    if (value is DataSuccess<List<Student>>) {
+      allStudent = value.data;
+    }
+  }
+
+  Future<void> getReminders() async {
+    final value = await reminderUseCases.getAllReminder();
+    if (value is DataSuccess<List<Reminder>>) {
+      allReminder = value.data;
+    }
   }
 
   Future<void> onReloadData() async {
@@ -44,32 +85,46 @@ class EventsController extends BaseController {
   }
 
   Future<void> generateEvent(DateTime to) async {
-    final classEvents = generateClassRoomEvent(to);
-    List<Event> events = List.from(classEvents);
+    // final lastGenerate =
+    //     (local.getLastGenerateTime() ?? DateTime.now()).dateWithoutTime();
+    final lastGenerate = DateTime.now().dateWithoutTime();
+
+    final diff = to.difference(lastGenerate).inDays;
+    if (diff <= 0) return;
+    List<Event> events = [];
+    final from = lastGenerate;
+    final classEvents = generateClassRoomEvent(from, to);
+    final reminderEvents = generateReminderEvent(from, to);
+    events.addAll(classEvents);
+    events.addAll(reminderEvents);
     await useCases.insertAll(events);
-    local.savedLastGenerateTime(to);
+    // local.savedLastGenerateTime(to);
   }
 
-  List<Event> generateClassRoomEvent(DateTime to) {
-    // final lastGenerate = DateTime.now().dateWithoutTime();
-    final lastGenerate =
-        (local.getLastGenerateTime() ?? DateTime.now()).dateWithoutTime();
-    final diff = to.difference(lastGenerate).inDays;
-    if (diff <= 0) return [];
-    final from = lastGenerate;
+  List<Event> generateClassRoomEvent(DateTime from, DateTime to) {
     List<Event> result = [];
     for (var obj in allClassRoom) {
-      if (obj.isActive && obj.hasSchedule) {
-        final events = classRoomUseCases.generateEvent(
-          classRoom: obj,
-          students: allStudent,
-          from: from,
-          to: to,
-        );
-        result.addAll(events);
-      }
+      final events = classRoomUseCases.generateEvent(
+        classRoom: obj,
+        students: allStudent,
+        from: from,
+        to: to,
+      );
+      result.addAll(events);
     }
+    return result;
+  }
 
+  List<Event> generateReminderEvent(DateTime from, DateTime to) {
+    List<Event> result = [];
+    for (var obj in allReminder) {
+      final events = reminderUseCases.generateEvent(
+        reminder: obj,
+        from: from,
+        to: to,
+      );
+      result.addAll(events);
+    }
     return result;
   }
 

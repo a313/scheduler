@@ -15,7 +15,8 @@ class Reminder with _$Reminder {
       {int? id,
       required String name,
       @DateTimeConverter() required DateTime createDate,
-      required AlertType alert,
+      required RepeatType repeat,
+      @Default(1) int interval,
       @TimeOfDayConverter() TimeOfDay? alertTime,
       @Default(-1) int softIndex,
       String? image}) = _Reminder;
@@ -28,8 +29,10 @@ class Reminder with _$Reminder {
 
   static Reminder init() => Reminder(
         name: '',
-        createDate: DateTime.now(),
+        createDate: DateTime.now().dateWithoutTime(),
         softIndex: -1,
-        alert: AlertType.None,
+        interval: 1,
+        alertTime: TimeOfDay.now(),
+        repeat: RepeatType.None,
       );
 }

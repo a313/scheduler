@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/datasource/db_helper.dart';
 
@@ -25,9 +27,12 @@ abstract class EventDB extends DBSQLHelper {
       )''';
   }
 
+  Future<List<Map<String, dynamic>>> getAllEvent(OrderType order);
+
   Future<List<Map<String, dynamic>>> getEventByType(EventType type);
 
-  Future<List<Map<String, dynamic>>> getEventsFrom(int from, int to);
+  Future<List<Map<String, dynamic>>> getEventsFrom(
+      int from, int to, OrderType type);
 
   Future<int> removeEvents({
     required int parentId,
@@ -51,9 +56,12 @@ class EventDbImpl extends EventDB {
   }
 
   @override
-  Future<List<Map<String, dynamic>>> getEventsFrom(int from, int to) async {
+  Future<List<Map<String, dynamic>>> getEventsFrom(
+      int from, int to, OrderType type) async {
     final result = await db.query(table,
-        where: 'startTime BETWEEN ? and ?', whereArgs: [from, to]);
+        where: 'startTime BETWEEN ? and ?',
+        whereArgs: [from, to],
+        orderBy: 'startTime ${type.name}');
     return result;
   }
 
@@ -67,6 +75,13 @@ class EventDbImpl extends EventDB {
     final result = await db.delete(table,
         where: 'parentId = ? AND type = ? AND startTime BETWEEN ? and ?',
         whereArgs: [parentId, type.name, from, to]);
+    return result;
+  }
+
+  @override
+  Future<List<Map<String, dynamic>>> getAllEvent(OrderType order) async {
+    final result = await db.query(table, orderBy: 'startTime ${order.name}');
+    log('getAllEvent $table: ${result.length}', name: 'DATABASE');
     return result;
   }
 }

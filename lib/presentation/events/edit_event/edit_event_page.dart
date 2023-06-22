@@ -102,7 +102,7 @@ class EditEventPage extends GetView<EditEventController> {
                         itemBuilder: (_, obj) => Padding(
                           padding: padAll16,
                           child: Text(
-                            obj.name,
+                            obj.nameFormated,
                             style: AppFonts.bMedium
                                 .copyWith(color: context.neutral800),
                           ),
@@ -113,7 +113,7 @@ class EditEventPage extends GetView<EditEventController> {
                             children: [
                               Expanded(
                                 child: Text(
-                                  obj.name,
+                                  obj.nameFormated,
                                   style: AppFonts.bMedium
                                       .copyWith(color: context.neutral1100),
                                 ),
@@ -134,7 +134,7 @@ class EditEventPage extends GetView<EditEventController> {
                           if (values == null || values.isEmpty) {
                             return "";
                           }
-                          return values.map((e) => e.name).join(", ");
+                          return values.map((e) => e.nameFormated).join(", ");
                         },
                       ),
                       BaseSelectField<RepeatType>(

@@ -11,7 +11,8 @@ extension DurationExtension on Duration {
   String formatInDuration() {
     if (inDays > 0) return '${inDays}d';
     if (inHours > 0) return '${inHours}h';
-    if (inMinutes > 0) return '${inMinutes}h';
+    if (inMinutes > 0) return '${inMinutes}m';
+    if (inSeconds > 0) return '${inSeconds}s';
     return '';
   }
 }
