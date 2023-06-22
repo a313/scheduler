@@ -1,17 +1,23 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/reminder.dart';
+import 'package:scheduler/domain/usecases/event_usecases.dart';
 import 'package:scheduler/domain/usecases/reminder_usecases.dart';
+
+import '../../events/events_controller.dart';
 
 class EditReminderController extends BaseController {
   final Reminder? initData;
   final nameController = TextEditingController();
 
   late Reminder data;
-  late ReminderUseCases reminderUseCase;
+  ReminderUseCases useCases = Get.find();
+  EventUseCases eventUseCases = Get.find();
 
   RxBool shouldShowFee = false.obs;
 
@@ -21,7 +27,6 @@ class EditReminderController extends BaseController {
 
   @override
   void onInit() {
-    reminderUseCase = Get.find();
     data = initData?.copyWith() ?? Reminder.init();
     nameController.text = data.name;
     super.onInit();
@@ -44,7 +49,10 @@ class EditReminderController extends BaseController {
         data.image = file.path;
       }
 
-      final result = await reminderUseCase.insertOrUpdate(data);
+      final result = await useCases.insertOrUpdate(data);
+      if (initData == null || data != initData!) {
+        reGeneraEvent(data);
+      }
       dismissLoading();
       if (result is DataSuccess<Reminder>) {
         Get.back(result: result.data);
@@ -103,5 +111,27 @@ class EditReminderController extends BaseController {
     if (p1 == null) return;
     data.alertTime = TimeOfDay.fromDateTime(p1);
     update();
+  }
+
+  Future<void> reGeneraEvent(Reminder data) async {
+    log('reGeneraEvent for Reminder :${data.name}');
+    final from = DateTime.now().dateWithoutTime();
+    final to =
+        local.getLastGenerateTime() ?? from.add(const Duration(days: 15));
+    await eventUseCases.removeEvents(
+        parentId: data.id!,
+        type: EventType.GeneradeReminder,
+        from: from,
+        to: to);
+    final events = useCases.generateEvent(
+      reminder: data,
+      from: from,
+      to: to,
+    );
+
+    await eventUseCases.insertAll(events);
+    if (Get.isRegistered<EventsController>()) {
+      Get.find<EventsController>().onReloadData();
+    }
   }
 }

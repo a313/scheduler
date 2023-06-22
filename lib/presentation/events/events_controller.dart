@@ -42,7 +42,7 @@ class EventsController extends BaseController {
     super.onReady();
     await getData();
 
-    await useCases.deleteAllEvent();
+    // await useCases.deleteAllEvent();
 
     await generateEvent(lastDay);
     await loadEvent(firstDay, lastDay);
@@ -85,9 +85,9 @@ class EventsController extends BaseController {
   }
 
   Future<void> generateEvent(DateTime to) async {
-    // final lastGenerate =
-    //     (local.getLastGenerateTime() ?? DateTime.now()).dateWithoutTime();
-    final lastGenerate = DateTime.now().dateWithoutTime();
+    final lastGenerate =
+        (local.getLastGenerateTime() ?? DateTime.now()).dateWithoutTime();
+    // final lastGenerate = DateTime.now().dateWithoutTime();
 
     final diff = to.difference(lastGenerate).inDays;
     if (diff <= 0) return;
@@ -98,7 +98,7 @@ class EventsController extends BaseController {
     events.addAll(classEvents);
     events.addAll(reminderEvents);
     await useCases.insertAll(events);
-    // local.savedLastGenerateTime(to);
+    local.savedLastGenerateTime(to);
   }
 
   List<Event> generateClassRoomEvent(DateTime from, DateTime to) {
@@ -181,7 +181,8 @@ class EventsController extends BaseController {
   }
 
   Future<void> addEvent() async {
-    generateEvent(lastDay);
+    // generateEvent(lastDay);
+    useCases.deleteAllEvent();
     return;
     final result = await Get.toNamed(Routes.editEvent);
     if (result != null) {

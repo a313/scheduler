@@ -28,6 +28,10 @@ mixin _$ClassRoom {
   DateTime get createDate => throw _privateConstructorUsedError;
   @DateTimeConverter()
   set createDate(DateTime value) => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  DateTime get openDate => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  set openDate(DateTime value) => throw _privateConstructorUsedError;
   int get tuition => throw _privateConstructorUsedError;
   set tuition(int value) => throw _privateConstructorUsedError;
   AlertType get alert => throw _privateConstructorUsedError;
@@ -62,6 +66,7 @@ abstract class $ClassRoomCopyWith<$Res> {
       {int? id,
       String name,
       @DateTimeConverter() DateTime createDate,
+      @DateTimeConverter() DateTime openDate,
       int tuition,
       AlertType alert,
       String? location,
@@ -87,6 +92,7 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
     Object? id = freezed,
     Object? name = null,
     Object? createDate = null,
+    Object? openDate = null,
     Object? tuition = null,
     Object? alert = null,
     Object? location = freezed,
@@ -107,6 +113,10 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
       createDate: null == createDate
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      openDate: null == openDate
+          ? _value.openDate
+          : openDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       tuition: null == tuition
           ? _value.tuition
@@ -151,6 +161,7 @@ abstract class _$$_ClassRoomCopyWith<$Res> implements $ClassRoomCopyWith<$Res> {
       {int? id,
       String name,
       @DateTimeConverter() DateTime createDate,
+      @DateTimeConverter() DateTime openDate,
       int tuition,
       AlertType alert,
       String? location,
@@ -174,6 +185,7 @@ class __$$_ClassRoomCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = null,
     Object? createDate = null,
+    Object? openDate = null,
     Object? tuition = null,
     Object? alert = null,
     Object? location = freezed,
@@ -194,6 +206,10 @@ class __$$_ClassRoomCopyWithImpl<$Res>
       createDate: null == createDate
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      openDate: null == openDate
+          ? _value.openDate
+          : openDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       tuition: null == tuition
           ? _value.tuition
@@ -229,11 +245,12 @@ class __$$_ClassRoomCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ClassRoom extends _ClassRoom {
+class _$_ClassRoom extends _ClassRoom with DiagnosticableTreeMixin {
   _$_ClassRoom(
       {this.id,
       required this.name,
       @DateTimeConverter() required this.createDate,
+      @DateTimeConverter() required this.openDate,
       required this.tuition,
       this.alert = AlertType.None,
       this.location,
@@ -253,6 +270,9 @@ class _$_ClassRoom extends _ClassRoom {
   @override
   @DateTimeConverter()
   DateTime createDate;
+  @override
+  @DateTimeConverter()
+  DateTime openDate;
   @override
   int tuition;
   @override
@@ -274,8 +294,26 @@ class _$_ClassRoom extends _ClassRoom {
   String? image;
 
   @override
-  String toString() {
-    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, tuition: $tuition, alert: $alert, location: $location, timetables: $timetables, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, openDate: $openDate, tuition: $tuition, alert: $alert, location: $location, timetables: $timetables, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ClassRoom'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('createDate', createDate))
+      ..add(DiagnosticsProperty('openDate', openDate))
+      ..add(DiagnosticsProperty('tuition', tuition))
+      ..add(DiagnosticsProperty('alert', alert))
+      ..add(DiagnosticsProperty('location', location))
+      ..add(DiagnosticsProperty('timetables', timetables))
+      ..add(DiagnosticsProperty('isOpen', isOpen))
+      ..add(DiagnosticsProperty('softIndex', softIndex))
+      ..add(DiagnosticsProperty('image', image));
   }
 
   @JsonKey(ignore: true)
@@ -297,6 +335,7 @@ abstract class _ClassRoom extends ClassRoom {
       {int? id,
       required String name,
       @DateTimeConverter() required DateTime createDate,
+      @DateTimeConverter() required DateTime openDate,
       required int tuition,
       AlertType alert,
       String? location,
@@ -320,6 +359,11 @@ abstract class _ClassRoom extends ClassRoom {
   DateTime get createDate;
   @DateTimeConverter()
   set createDate(DateTime value);
+  @override
+  @DateTimeConverter()
+  DateTime get openDate;
+  @DateTimeConverter()
+  set openDate(DateTime value);
   @override
   int get tuition;
   set tuition(int value);

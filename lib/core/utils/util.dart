@@ -126,7 +126,8 @@ class Utils {
       final fee = data['tuition'] as int;
       final obj = ClassRoom(
         name: name,
-        createDate: begin,
+        createDate: DateTime.now().dateWithoutTime(),
+        openDate: begin.dateWithoutTime(),
         isOpen: true,
         tuition: fee,
         location: 'Home',

@@ -10,6 +10,7 @@ abstract class ClassRoomDB extends DBSQLHelper {
       id INTEGER PRIMARY KEY,
       name TEXT not null,      
       createDate INTEGER,     
+      openDate INTEGER,     
       timetables TEXT,
       alert TEXT,
       location TEXT,

@@ -58,7 +58,7 @@ class EditClassRoomController extends BaseController {
       }
 
       final result = await useCases.insertOrUpdate(data);
-      if (initData == null || data.isSameSchedule(initData!)) {
+      if (initData == null || data != initData!) {
         reGeneraEvent(data);
       }
       dismissLoading();

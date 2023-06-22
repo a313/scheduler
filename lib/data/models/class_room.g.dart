@@ -10,6 +10,7 @@ _$_ClassRoom _$$_ClassRoomFromJson(Map<String, dynamic> json) => _$_ClassRoom(
       id: json['id'] as int?,
       name: json['name'] as String,
       createDate: const DateTimeConverter().fromJson(json['createDate'] as int),
+      openDate: const DateTimeConverter().fromJson(json['openDate'] as int),
       tuition: json['tuition'] as int,
       alert: $enumDecodeNullable(_$AlertTypeEnumMap, json['alert']) ??
           AlertType.None,
@@ -28,6 +29,7 @@ Map<String, dynamic> _$$_ClassRoomToJson(_$_ClassRoom instance) =>
       'id': instance.id,
       'name': instance.name,
       'createDate': const DateTimeConverter().toJson(instance.createDate),
+      'openDate': const DateTimeConverter().toJson(instance.openDate),
       'tuition': instance.tuition,
       'alert': _$AlertTypeEnumMap[instance.alert]!,
       'location': instance.location,

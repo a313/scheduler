@@ -37,4 +37,10 @@ class Reminder with _$Reminder {
         alertTime: TimeOfDay.now(),
         repeat: RepeatType.None,
       );
+
+  bool isUnequalRepeatTime(Reminder reminder) {
+    return repeat != reminder.repeat ||
+        interval != reminder.interval ||
+        alertTime != reminder.alertTime;
+  }
 }

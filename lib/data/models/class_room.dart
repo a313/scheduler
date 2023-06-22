@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/timetable.dart';
@@ -14,6 +15,7 @@ class ClassRoom with _$ClassRoom {
       {int? id,
       required String name,
       @DateTimeConverter() required DateTime createDate,
+      @DateTimeConverter() required DateTime openDate,
       required int tuition,
       @Default(AlertType.None) AlertType alert,
       String? location,
@@ -30,7 +32,8 @@ class ClassRoom with _$ClassRoom {
 
   static init() => ClassRoom(
         name: '',
-        createDate: DateTime.now(),
+        createDate: DateTime.now().dateWithoutTime(),
+        openDate: DateTime.now().dateWithoutTime(),
         isOpen: true,
         alert: AlertType.None,
         timetables: [],
@@ -46,15 +49,29 @@ class ClassRoom with _$ClassRoom {
     return timetables.isNotEmpty;
   }
 
-  bool isSameSchedule(ClassRoom other) {
-    if (timetables.length != other.timetables.length) {
-      return true;
-    }
-    for (int i = 0; i < other.timetables.length; i++) {
-      if (timetables[i] != other.timetables[i]) {
-        return false;
-      }
-    }
-    return true;
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is ClassRoom &&
+        other.name == name &&
+        other.createDate == createDate &&
+        other.openDate == openDate &&
+        other.alert == alert &&
+        other.tuition == tuition &&
+        other.location == location &&
+        listEquals(other.timetables, timetables) &&
+        other.isOpen == isOpen;
+  }
+
+  @override
+  int get hashCode {
+    return name.hashCode ^
+        createDate.hashCode ^
+        openDate.hashCode ^
+        tuition.hashCode ^
+        location.hashCode ^
+        timetables.hashCode ^
+        isOpen.hashCode;
   }
 }

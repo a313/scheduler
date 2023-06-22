@@ -64,6 +64,7 @@ class ReminderUseCases {
         }
       }
       result.add(Event(
+          parentId: reminder.id,
           name: reminder.name,
           startTime: startTime,
           endTime: startTime,

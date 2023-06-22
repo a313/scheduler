@@ -137,47 +137,47 @@ class EditEventPage extends GetView<EditEventController> {
                           return values.map((e) => e.nameFormated).join(", ");
                         },
                       ),
-                      BaseSelectField<RepeatType>(
-                        key: UniqueKey(),
-                        onSelected: controller.onSelectedRepeatType,
-                        itemBuilder: (_, obj) => Padding(
-                          padding: padAll16,
-                          child: Text(
-                            obj.name,
-                            style: AppFonts.bMedium
-                                .copyWith(color: context.neutral800),
-                          ),
-                        ),
-                        selectedBuilder: (_, obj) => Padding(
-                          padding: padAll16,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  obj.name,
-                                  style: AppFonts.bMedium
-                                      .copyWith(color: context.neutral1100),
-                                ),
-                              ),
-                              Icon(
-                                Icons.check,
-                                color: context.primaryDark,
-                                size: 16,
-                              )
-                            ],
-                          ),
-                        ),
-                        isMultiSelect: false,
-                        labelText: 'Repeat',
-                        options: RepeatType.values,
-                        initValue: [controller.data.repeat],
-                        valueBuilder: (values) {
-                          if (values == null || values.isEmpty) {
-                            return "";
-                          }
-                          return values.map((e) => e.name).join(", ");
-                        },
-                      ),
+                      // BaseSelectField<RepeatType>(
+                      //   key: UniqueKey(),
+                      //   onSelected: controller.onSelectedRepeatType,
+                      //   itemBuilder: (_, obj) => Padding(
+                      //     padding: padAll16,
+                      //     child: Text(
+                      //       obj.name,
+                      //       style: AppFonts.bMedium
+                      //           .copyWith(color: context.neutral800),
+                      //     ),
+                      //   ),
+                      //   selectedBuilder: (_, obj) => Padding(
+                      //     padding: padAll16,
+                      //     child: Row(
+                      //       children: [
+                      //         Expanded(
+                      //           child: Text(
+                      //             obj.name,
+                      //             style: AppFonts.bMedium
+                      //                 .copyWith(color: context.neutral1100),
+                      //           ),
+                      //         ),
+                      //         Icon(
+                      //           Icons.check,
+                      //           color: context.primaryDark,
+                      //           size: 16,
+                      //         )
+                      //       ],
+                      //     ),
+                      //   ),
+                      //   isMultiSelect: false,
+                      //   labelText: 'Repeat',
+                      //   options: RepeatType.values,
+                      //   initValue: [controller.data.repeat],
+                      //   valueBuilder: (values) {
+                      //     if (values == null || values.isEmpty) {
+                      //       return "";
+                      //     }
+                      //     return values.map((e) => e.name).join(", ");
+                      //   },
+                      // ),
                       BaseTextField(
                         labelText: 'Location',
                         controller: controller.locationController,
