@@ -42,7 +42,7 @@ class EventsController extends BaseController {
     super.onReady();
     await getData();
 
-    // await useCases.deleteAllEvent();
+    await useCases.deleteAllEvent();
 
     await generateEvent(lastDay);
     await loadEvent(firstDay, lastDay);
@@ -181,9 +181,6 @@ class EventsController extends BaseController {
   }
 
   Future<void> addEvent() async {
-    // generateEvent(lastDay);
-    useCases.deleteAllEvent();
-    return;
     final result = await Get.toNamed(Routes.editEvent);
     if (result != null) {
       //???

@@ -40,7 +40,7 @@ class Event with _$Event {
       data.map((e) => Event.fromJson(e)).toList();
 
   static init() {
-    final now = DateTime.now().copyWith(minute: 0, second: 0);
+    final now = DateTime.now().dateWithoutMinute();
     return Event(
         name: '',
         startTime: now,

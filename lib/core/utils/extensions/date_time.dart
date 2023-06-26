@@ -8,20 +8,20 @@ extension DateExtension on DateTime {
     return DateFormat(format).format(toLocal());
   }
 
-  String toUTCFormat() {
-    return '${DateFormat(DateFormater.UTC).format(toUtc())}Z';
-  }
-
   DateTime dateWithoutSecond() {
-    return DateTime.utc(year, month, day, hour, minute);
+    return DateTime(year, month, day, hour, minute);
   }
 
   DateTime dateWithoutTime() {
-    return DateTime.utc(year, month, day);
+    return DateTime(year, month, day);
+  }
+
+  DateTime dateWithoutMinute() {
+    return DateTime(year, month, day, hour);
   }
 
   DateTime dateWithoutDay() {
-    return DateTime.utc(year, month);
+    return DateTime(year, month);
   }
 
   /// 13:00 ngày 21
