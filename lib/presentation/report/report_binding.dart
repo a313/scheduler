@@ -5,6 +5,6 @@ import 'report_controller.dart';
 class ReportBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ReportController>(() => ReportController());
+    Get.lazyPut<ReportController>(() => ReportController(), fenix: true);
   }
 }

@@ -27,4 +27,12 @@ class LocalUseCases {
   void savedLastGenerateTime(DateTime time) {
     return _.savedLastGenerateTime(time);
   }
+
+  List<String>? getRecentPage() {
+    return _.getRecentPage();
+  }
+
+  void savedRecentPage(List<String> pages) {
+    return _.savedRecentPage(pages);
+  }
 }

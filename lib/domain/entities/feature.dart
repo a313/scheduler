@@ -1,7 +1,8 @@
-class Feature {
-  final String title;
-  final String image;
-  final Function() onTap;
+import 'package:flutter/material.dart';
 
-  Feature(this.title, this.image, this.onTap);
+class Feature {
+  final Widget page;
+  final BottomNavigationBarItem item;
+
+  Feature(this.page, this.item);
 }

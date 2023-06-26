@@ -36,4 +36,14 @@ class LocalDataImpl extends LocalDataRepo {
   Future<void> savedLastGenerateTime(DateTime time) {
     return _.write(LAST_GEN_TIME, time.millisecondsSinceEpoch);
   }
+
+  @override
+  List<String>? getRecentPage() {
+    return List<String>.from(_.read(RECENT_PAGE));
+  }
+
+  @override
+  Future<void> savedRecentPage(List<String> pages) {
+    return _.write(RECENT_PAGE, pages);
+  }
 }
