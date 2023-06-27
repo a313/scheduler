@@ -95,6 +95,29 @@ extension AlertTypeExt on AlertType {
         return 'Before 1 Week';
     }
   }
+
+  Duration get toDuration {
+    switch (this) {
+      case AlertType.None:
+        return Duration.zero;
+      case AlertType.AtTime:
+        return Duration.zero;
+      case AlertType.Before5Min:
+        return const Duration(minutes: 5);
+      case AlertType.Before15Min:
+        return const Duration(minutes: 15);
+      case AlertType.Before30Min:
+        return const Duration(minutes: 30);
+      case AlertType.Before1Hour:
+        return const Duration(hours: 1);
+      case AlertType.Before2Hour:
+        return const Duration(hours: 2);
+      case AlertType.Before1Day:
+        return const Duration(days: 1);
+      case AlertType.Before1Week:
+        return const Duration(days: 7);
+    }
+  }
 }
 
 enum OrderType {

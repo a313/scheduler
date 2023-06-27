@@ -69,7 +69,7 @@ class ReminderUseCases {
           startTime: startTime,
           endTime: startTime,
           type: EventType.GeneradeReminder,
-          alert: AlertType.None,
+          alert: AlertType.AtTime,
           repeat: RepeatType.None));
     }
     return result;

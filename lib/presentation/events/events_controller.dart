@@ -7,6 +7,7 @@ import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/event.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
+import 'package:scheduler/domain/usecases/notification_usecases.dart';
 import 'package:scheduler/domain/usecases/reminder_usecases.dart';
 import 'package:scheduler/domain/usecases/student_usecases.dart';
 import 'package:scheduler/presentation/events/components/event_bottomsheet.dart';
@@ -18,6 +19,7 @@ import '../../data/models/student.dart';
 
 class EventsController extends BaseController {
   EventUseCases useCases = Get.find();
+  NotificationUseCases notiUseCases = Get.find();
   ClassRoomUseCases classRoomUseCases = Get.find();
   ReminderUseCases reminderUseCases = Get.find();
   StudentUseCases studentUseCases = Get.find();
@@ -42,12 +44,13 @@ class EventsController extends BaseController {
     super.onReady();
     await getData();
 
-    await useCases.deleteAllEvent();
+    // await useCases.deleteAllEvent();
 
     await generateEvent(lastDay);
     await loadEvent(firstDay, lastDay);
 
     updateUI();
+    generateNotificaion();
   }
 
   Future<void> getData() {
@@ -82,6 +85,7 @@ class EventsController extends BaseController {
   Future<void> onReloadData() async {
     await loadEvent(firstDay, lastDay);
     updateUI();
+    generateNotificaion();
   }
 
   Future<void> generateEvent(DateTime to) async {
@@ -164,28 +168,30 @@ class EventsController extends BaseController {
 
   Future<void> onTappedEvent(Event event) async {
     final data = await bottomSheet(
-        EventBottomSheet(event: event, allStudent: allStudent));
+        EventBottomSheet(event: event, allStudent: allStudent)) as Event?;
     if (data != null) {
       await useCases.insertOrUpdate(data);
       updateUI();
+      if (data.alert != AlertType.None) generateNotificaion();
     }
   }
 
   Future<void> onTappedEdit(Event event) async {
-    final result = await Get.toNamed(Routes.editEvent, arguments: event);
-    if (result != null) {
-      //???
+    final data =
+        await Get.toNamed(Routes.editEvent, arguments: event) as Event?;
+    if (data != null) {
       await loadEvent(firstDay, lastDay);
       updateUI();
+      if (data.alert != AlertType.None) generateNotificaion();
     }
   }
 
   Future<void> addEvent() async {
-    final result = await Get.toNamed(Routes.editEvent);
-    if (result != null) {
-      //???
+    final data = await Get.toNamed(Routes.editEvent) as Event?;
+    if (data != null) {
       await loadEvent(firstDay, lastDay);
       updateUI();
+      if (data.alert != AlertType.None) generateNotificaion();
     }
   }
 
