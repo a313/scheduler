@@ -51,3 +51,4 @@ Gemfile.lock
 .fvm
 fastlane/constant
 fastlane/metadata
+*.g.dart
