@@ -99,8 +99,9 @@ class _ReorderFeatureBottomSheetState extends State<ReorderFeatureBottomSheet> {
             }
             if (oldIndex >= pinCount && newIndex <= pinCount) {
               log('Swap Unpin -> Pin');
-              if (pinCount > 3) return;
-              pinCount += 1;
+              if (pinCount < 4) {
+                pinCount += 1;
+              }
             } else if (oldIndex < pinCount && newIndex >= pinCount) {
               pinCount -= 1;
               newIndex -= 1;
