@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/data/models/class_room.dart';
@@ -11,9 +10,6 @@ class ClassRoomController extends BaseController
     with StateMixin<List<ClassRoom>> {
   final ClassRoomUseCases useCase = Get.find();
 
-  final refreshController = RefreshController();
-  final emptyController = RefreshController();
-
   @override
   void onInit() {
     getData();
@@ -21,10 +17,6 @@ class ClassRoomController extends BaseController
   }
 
   void onTappedFilter() {}
-
-  void onRefresh() {}
-
-  void onLoading() {}
 
   Future<void> addClassRoom() async {
     final result = await Get.toNamed(Routes.editClassRoom);

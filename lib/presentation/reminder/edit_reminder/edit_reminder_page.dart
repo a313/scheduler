@@ -140,10 +140,53 @@ class EditReminderPage extends GetView<EditReminderController> {
                           BaseDateField(
                             mode: CupertinoDatePickerMode.time,
                             initDate: controller.getAlertTime(),
-                            labelText: 'Remind At',
+                            labelText: 'Remind Time',
                             onSelected: controller.onSelectedAlertTime,
                             timeFormat: DateFormater.HHmm,
-                          )
+                          ),
+                        if (data.repeat != RepeatType.None)
+                          BaseSelectField<AlertType>(
+                            onSelected: controller.onSelectedAlertType,
+                            itemBuilder: (_, obj) => Padding(
+                              padding: padAll16,
+                              child: Text(
+                                obj.nameFormated,
+                                style: AppFonts.bMedium
+                                    .copyWith(color: context.neutral800),
+                              ),
+                            ),
+                            selectedBuilder: (_, obj) => Padding(
+                              padding: padAll16,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      obj.nameFormated,
+                                      style: AppFonts.bMedium
+                                          .copyWith(color: context.neutral1100),
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.check,
+                                    color: context.primaryDark,
+                                    size: 16,
+                                  )
+                                ],
+                              ),
+                            ),
+                            isMultiSelect: false,
+                            labelText: 'Remind Me',
+                            options: AlertType.values,
+                            initValue: [controller.data.alert],
+                            valueBuilder: (values) {
+                              if (values == null || values.isEmpty) {
+                                return "";
+                              }
+                              return values
+                                  .map((e) => e.nameFormated)
+                                  .join(", ");
+                            },
+                          ),
                       ],
                     );
                   }),

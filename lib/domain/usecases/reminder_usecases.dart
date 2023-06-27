@@ -27,7 +27,7 @@ class ReminderUseCases {
       required DateTime from,
       required DateTime to}) {
     List<Event> result = [];
-    final alertAt = reminder.alertTime;
+    final alertAt = reminder.time;
     final remindDate = reminder.remindDate;
     if (reminder.repeat == RepeatType.None ||
         alertAt == null ||
@@ -69,7 +69,7 @@ class ReminderUseCases {
           startTime: startTime,
           endTime: startTime,
           type: EventType.GeneradeReminder,
-          alert: AlertType.AtTime,
+          alert: reminder.alert,
           repeat: RepeatType.None));
     }
     return result;

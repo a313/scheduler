@@ -35,7 +35,7 @@ class MoreFeatureBottomSheet extends StatelessWidget {
         BaseBottomSheet(
           subTitle:
               TextButton(onPressed: reOrder, child: const Text('Reorder')),
-          title: '',
+          title: 'Features',
           child: Padding(
             padding: padAll16,
             child: SizedBox(

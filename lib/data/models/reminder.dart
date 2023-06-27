@@ -16,9 +16,10 @@ class Reminder with _$Reminder {
       required String name,
       @DateTimeConverter() required DateTime createDate,
       @DateTimeConverter() required DateTime remindDate,
+      required AlertType alert,
       required RepeatType repeat,
       @Default(1) int interval,
-      @TimeOfDayConverter() TimeOfDay? alertTime,
+      @TimeOfDayConverter() TimeOfDay? time,
       @Default(-1) int softIndex,
       String? image}) = _Reminder;
 
@@ -34,13 +35,15 @@ class Reminder with _$Reminder {
         remindDate: DateTime.now().dateWithoutTime(),
         softIndex: -1,
         interval: 1,
-        alertTime: TimeOfDay.now(),
+        time: TimeOfDay.now(),
         repeat: RepeatType.None,
+        alert: AlertType.None,
       );
 
   bool isUnequalRepeatTime(Reminder reminder) {
     return repeat != reminder.repeat ||
         interval != reminder.interval ||
-        alertTime != reminder.alertTime;
+        time != reminder.time ||
+        alert != reminder.alert;
   }
 }

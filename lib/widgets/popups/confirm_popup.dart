@@ -20,12 +20,12 @@ class ConfirmPopup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasePopup(
-      title: title ?? 'Thất bại',
+      title: title ?? 'Oops! Something wrong',
       desc: desc,
       actions: [
         BaseButton.largePrimary(
           width: double.infinity,
-          title: btnTitle ?? 'Đóng',
+          title: btnTitle ?? 'Close',
           onPressed: onConfirm != null ? onConfirm! : Get.back,
         )
       ],

@@ -73,7 +73,7 @@ class EditReminderController extends BaseController {
   void onSelectedRepeatType(List<RepeatType>? p1) {
     if (p1 == null) return;
     data.repeat = p1.first;
-    data.alertTime ??= TimeOfDay.now();
+    data.time ??= TimeOfDay.now();
     update();
   }
 
@@ -103,14 +103,18 @@ class EditReminderController extends BaseController {
   }
 
   DateTime getAlertTime() {
-    final time = data.alertTime ?? TimeOfDay.now();
+    final time = data.time ?? TimeOfDay.now();
     return DateTime.now().copyWith(hour: time.hour, minute: time.minute);
   }
 
-  void onSelectedAlertTime(DateTime? p1) {
-    if (p1 == null) return;
-    data.alertTime = TimeOfDay.fromDateTime(p1);
-    update();
+  void onSelectedAlertTime(DateTime? time) {
+    if (time == null) return;
+    data.time = TimeOfDay.fromDateTime(time);
+  }
+
+  void onSelectedAlertType(List<AlertType>? alerts) {
+    if (alerts == null) return;
+    data.alert = alerts.first;
   }
 
   Future<void> reGeneraEvent(Reminder data) async {

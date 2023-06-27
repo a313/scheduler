@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/presentation/reminder/components/swipe_reminder_cell.dart';
@@ -41,7 +42,11 @@ class ReminderPage extends GetView<ReminderController> {
             itemBuilder: (context, index) {
               return SwipeReminderCell(
                 data: state[index],
-                onEdit: controller.onEditReminder,
+                actions: [
+                  SwipeAction(
+                      title: 'Delete',
+                      onTap: (b) => controller.deleteReminder(state[index], b))
+                ],
                 onTapped: controller.onTappedReminder,
               );
             }),

@@ -6,7 +6,6 @@ import 'package:scheduler/presentation/class_room/components/class_room_cell.dar
 import '../../theme/app_fonts.dart';
 import '../../widgets/base/base_scafold_appbar.dart';
 import '../../widgets/custom_divider.dart';
-import '../../widgets/custom_refresher.dart';
 import '../../widgets/shimmer/shimmer_list.dart';
 import 'class_room_controller.dart';
 
@@ -33,29 +32,19 @@ class ClassRoomPage extends GetView<ClassRoomController> {
       ],
       title: 'Class Rooms',
       body: controller.obx(
-        (state) => CustomRefresher(
-          onRefresh: controller.onRefresh,
-          onLoading: controller.onLoading,
-          controller: controller.refreshController,
-          child: ListView.separated(
-              itemCount: state!.length,
-              separatorBuilder: (context, index) => const CustomDivider(),
-              itemBuilder: (context, index) {
-                return ClassRoomCell(
-                  data: state[index],
-                  onEdit: controller.onEditClassRoom,
-                  onTapped: controller.onTappedClassRoom,
-                );
-              }),
-        ),
+        (state) => ListView.separated(
+            itemCount: state!.length,
+            separatorBuilder: (context, index) => const CustomDivider(),
+            itemBuilder: (context, index) {
+              return ClassRoomCell(
+                data: state[index],
+                onEdit: controller.onEditClassRoom,
+                onTapped: controller.onTappedClassRoom,
+              );
+            }),
         onLoading: const Padding(padding: padAll16, child: ShimmerListWidget()),
-        onEmpty: CustomRefresher(
-          onRefresh: controller.onRefresh,
-          onLoading: controller.onRefresh,
-          controller: controller.emptyController,
-          child: const Center(
-            child: Text("Chưa có lớp học"),
-          ),
+        onEmpty: const Center(
+          child: Text("Chưa có lớp học"),
         ),
       ),
     );

@@ -49,7 +49,6 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                         onChanged: controller.onChangeLocation,
                       ),
                       BaseSelectField<AlertType>(
-                        key: UniqueKey(),
                         onSelected: controller.onSelectedAlertType,
                         itemBuilder: (_, obj) => Padding(
                           padding: padAll16,

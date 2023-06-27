@@ -145,6 +145,7 @@ class Utils {
 
       final obj = Reminder(
         repeat: RepeatType.None,
+        alert: AlertType.None,
         interval: 1,
         name: name,
         remindDate: begin,

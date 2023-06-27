@@ -32,14 +32,16 @@ mixin _$Reminder {
   DateTime get remindDate => throw _privateConstructorUsedError;
   @DateTimeConverter()
   set remindDate(DateTime value) => throw _privateConstructorUsedError;
+  AlertType get alert => throw _privateConstructorUsedError;
+  set alert(AlertType value) => throw _privateConstructorUsedError;
   RepeatType get repeat => throw _privateConstructorUsedError;
   set repeat(RepeatType value) => throw _privateConstructorUsedError;
   int get interval => throw _privateConstructorUsedError;
   set interval(int value) => throw _privateConstructorUsedError;
   @TimeOfDayConverter()
-  TimeOfDay? get alertTime => throw _privateConstructorUsedError;
+  TimeOfDay? get time => throw _privateConstructorUsedError;
   @TimeOfDayConverter()
-  set alertTime(TimeOfDay? value) => throw _privateConstructorUsedError;
+  set time(TimeOfDay? value) => throw _privateConstructorUsedError;
   int get softIndex => throw _privateConstructorUsedError;
   set softIndex(int value) => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
@@ -61,9 +63,10 @@ abstract class $ReminderCopyWith<$Res> {
       String name,
       @DateTimeConverter() DateTime createDate,
       @DateTimeConverter() DateTime remindDate,
+      AlertType alert,
       RepeatType repeat,
       int interval,
-      @TimeOfDayConverter() TimeOfDay? alertTime,
+      @TimeOfDayConverter() TimeOfDay? time,
       int softIndex,
       String? image});
 }
@@ -85,9 +88,10 @@ class _$ReminderCopyWithImpl<$Res, $Val extends Reminder>
     Object? name = null,
     Object? createDate = null,
     Object? remindDate = null,
+    Object? alert = null,
     Object? repeat = null,
     Object? interval = null,
-    Object? alertTime = freezed,
+    Object? time = freezed,
     Object? softIndex = null,
     Object? image = freezed,
   }) {
@@ -108,6 +112,10 @@ class _$ReminderCopyWithImpl<$Res, $Val extends Reminder>
           ? _value.remindDate
           : remindDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      alert: null == alert
+          ? _value.alert
+          : alert // ignore: cast_nullable_to_non_nullable
+              as AlertType,
       repeat: null == repeat
           ? _value.repeat
           : repeat // ignore: cast_nullable_to_non_nullable
@@ -116,9 +124,9 @@ class _$ReminderCopyWithImpl<$Res, $Val extends Reminder>
           ? _value.interval
           : interval // ignore: cast_nullable_to_non_nullable
               as int,
-      alertTime: freezed == alertTime
-          ? _value.alertTime
-          : alertTime // ignore: cast_nullable_to_non_nullable
+      time: freezed == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as TimeOfDay?,
       softIndex: null == softIndex
           ? _value.softIndex
@@ -144,9 +152,10 @@ abstract class _$$_ReminderCopyWith<$Res> implements $ReminderCopyWith<$Res> {
       String name,
       @DateTimeConverter() DateTime createDate,
       @DateTimeConverter() DateTime remindDate,
+      AlertType alert,
       RepeatType repeat,
       int interval,
-      @TimeOfDayConverter() TimeOfDay? alertTime,
+      @TimeOfDayConverter() TimeOfDay? time,
       int softIndex,
       String? image});
 }
@@ -166,9 +175,10 @@ class __$$_ReminderCopyWithImpl<$Res>
     Object? name = null,
     Object? createDate = null,
     Object? remindDate = null,
+    Object? alert = null,
     Object? repeat = null,
     Object? interval = null,
-    Object? alertTime = freezed,
+    Object? time = freezed,
     Object? softIndex = null,
     Object? image = freezed,
   }) {
@@ -189,6 +199,10 @@ class __$$_ReminderCopyWithImpl<$Res>
           ? _value.remindDate
           : remindDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      alert: null == alert
+          ? _value.alert
+          : alert // ignore: cast_nullable_to_non_nullable
+              as AlertType,
       repeat: null == repeat
           ? _value.repeat
           : repeat // ignore: cast_nullable_to_non_nullable
@@ -197,9 +211,9 @@ class __$$_ReminderCopyWithImpl<$Res>
           ? _value.interval
           : interval // ignore: cast_nullable_to_non_nullable
               as int,
-      alertTime: freezed == alertTime
-          ? _value.alertTime
-          : alertTime // ignore: cast_nullable_to_non_nullable
+      time: freezed == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as TimeOfDay?,
       softIndex: null == softIndex
           ? _value.softIndex
@@ -221,9 +235,10 @@ class _$_Reminder extends _Reminder {
       required this.name,
       @DateTimeConverter() required this.createDate,
       @DateTimeConverter() required this.remindDate,
+      required this.alert,
       required this.repeat,
       this.interval = 1,
-      @TimeOfDayConverter() this.alertTime,
+      @TimeOfDayConverter() this.time,
       this.softIndex = -1,
       this.image})
       : super._();
@@ -242,13 +257,15 @@ class _$_Reminder extends _Reminder {
   @DateTimeConverter()
   DateTime remindDate;
   @override
+  AlertType alert;
+  @override
   RepeatType repeat;
   @override
   @JsonKey()
   int interval;
   @override
   @TimeOfDayConverter()
-  TimeOfDay? alertTime;
+  TimeOfDay? time;
   @override
   @JsonKey()
   int softIndex;
@@ -257,7 +274,7 @@ class _$_Reminder extends _Reminder {
 
   @override
   String toString() {
-    return 'Reminder(id: $id, name: $name, createDate: $createDate, remindDate: $remindDate, repeat: $repeat, interval: $interval, alertTime: $alertTime, softIndex: $softIndex, image: $image)';
+    return 'Reminder(id: $id, name: $name, createDate: $createDate, remindDate: $remindDate, alert: $alert, repeat: $repeat, interval: $interval, time: $time, softIndex: $softIndex, image: $image)';
   }
 
   @JsonKey(ignore: true)
@@ -280,9 +297,10 @@ abstract class _Reminder extends Reminder {
       required String name,
       @DateTimeConverter() required DateTime createDate,
       @DateTimeConverter() required DateTime remindDate,
+      required AlertType alert,
       required RepeatType repeat,
       int interval,
-      @TimeOfDayConverter() TimeOfDay? alertTime,
+      @TimeOfDayConverter() TimeOfDay? time,
       int softIndex,
       String? image}) = _$_Reminder;
   _Reminder._() : super._();
@@ -306,6 +324,9 @@ abstract class _Reminder extends Reminder {
   @DateTimeConverter()
   set remindDate(DateTime value);
   @override
+  AlertType get alert;
+  set alert(AlertType value);
+  @override
   RepeatType get repeat;
   set repeat(RepeatType value);
   @override
@@ -313,9 +334,9 @@ abstract class _Reminder extends Reminder {
   set interval(int value);
   @override
   @TimeOfDayConverter()
-  TimeOfDay? get alertTime;
+  TimeOfDay? get time;
   @TimeOfDayConverter()
-  set alertTime(TimeOfDay? value);
+  set time(TimeOfDay? value);
   @override
   int get softIndex;
   set softIndex(int value);

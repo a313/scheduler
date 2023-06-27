@@ -8,22 +8,17 @@ class SwipeReminderCell extends StatelessWidget {
     super.key,
     required this.data,
     this.onTapped,
-    required this.onEdit,
+    this.actions,
   });
   final Reminder data;
   final Function(Reminder reminder)? onTapped;
-  final Function(Reminder reminder) onEdit;
+  final List<SwipeAction>? actions;
 
   @override
   Widget build(BuildContext context) {
     return SwipeActionCell(
       key: ObjectKey(data),
-      trailingActions: [
-        SwipeAction(
-          onTap: (handler) => onEdit(data),
-          title: 'Edit',
-        )
-      ],
+      trailingActions: actions,
       child: ReminderItem(
         data: data,
         onTapped: onTapped,

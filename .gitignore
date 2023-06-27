@@ -52,3 +52,4 @@ Gemfile.lock
 fastlane/constant
 fastlane/metadata
 *.g.dart
+*.freezed.dart

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app_dark_colors.dart';
 import 'app_light_colors.dart';
 
 class AppTheme {
   final lightTheme = ThemeData.light().copyWith(
+    textTheme: GoogleFonts.manropeTextTheme(),
     scaffoldBackgroundColor: AppLightColors.neutral100,
     primaryColor: AppLightColors.primaryLight,
     colorScheme: const ColorScheme.light(

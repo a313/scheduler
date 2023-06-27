@@ -31,9 +31,11 @@ class BaseSelectField<T> extends StatefulWidget {
 
 class _BaseSelectFieldState<T> extends State<BaseSelectField<T>> {
   TextEditingController controller = TextEditingController();
+  late List<T>? initValue;
   @override
   void initState() {
-    controller.text = widget.valueBuilder(widget.initValue);
+    initValue = widget.initValue;
+    controller.text = widget.valueBuilder(initValue);
     super.initState();
   }
 
@@ -55,7 +57,7 @@ class _BaseSelectFieldState<T> extends State<BaseSelectField<T>> {
   Future<void> openBottomSheet() async {
     final value = await Get.bottomSheet<List<T>?>(
       SelectBottomSheet(
-        initValue: widget.initValue,
+        initValue: initValue,
         options: widget.options,
         itemBuilder: widget.itemBuilder,
         selectedBuilder: widget.selectedBuilder,
@@ -66,8 +68,12 @@ class _BaseSelectFieldState<T> extends State<BaseSelectField<T>> {
       isScrollControlled: true,
     );
     if (value != null) {
-      if (widget.initValue == null || !value.equals(widget.initValue!)) {
+      if (initValue == null || !value.equals(initValue!)) {
         widget.onSelected(value);
+        controller.text = widget.valueBuilder(value);
+        setState(() {
+          initValue = value;
+        });
       }
     }
   }
