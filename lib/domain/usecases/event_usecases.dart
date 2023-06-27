@@ -29,6 +29,11 @@ class EventUseCases {
     return await _.getEventsFrom(from, to, type);
   }
 
+  Future<DataState<List<Event>>> getClassEventsFrom(DateTime from, DateTime to,
+      {OrderType type = OrderType.ASC}) async {
+    return await _.getClassEventsFrom(from, to, type);
+  }
+
   Future<DataState> removeEvents({
     required int parentId,
     required EventType type,

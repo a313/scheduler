@@ -40,6 +40,9 @@ abstract class EventDB extends DBSQLHelper {
     required int from,
     required int to,
   });
+
+  Future<List<Map<String, dynamic>>> getClassEventsFrom(
+      int from, int to, OrderType type);
 }
 
 class EventDbImpl extends EventDB {
@@ -82,6 +85,16 @@ class EventDbImpl extends EventDB {
   Future<List<Map<String, dynamic>>> getAllEvent(OrderType order) async {
     final result = await db.query(table, orderBy: 'startTime ${order.name}');
     log('getAllEvent $table: ${result.length}', name: 'DATABASE');
+    return result;
+  }
+
+  @override
+  Future<List<Map<String, dynamic>>> getClassEventsFrom(
+      int from, int to, OrderType type) async {
+    final result = await db.query(table,
+        where: 'startTime BETWEEN ? and ? AND classIds IS NOT NULL',
+        whereArgs: [from, to],
+        orderBy: 'startTime ${type.name}');
     return result;
   }
 }

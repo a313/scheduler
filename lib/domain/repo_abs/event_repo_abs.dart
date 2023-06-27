@@ -17,4 +17,7 @@ abstract class EventRepo {
     required DateTime from,
     required DateTime to,
   });
+
+  Future<DataState<List<Event>>> getClassEventsFrom(
+      DateTime from, DateTime to, OrderType type);
 }

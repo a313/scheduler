@@ -63,4 +63,12 @@ class EventRepoImpl extends EventRepo {
       to: to.millisecondsSinceEpoch,
     ));
   }
+
+  @override
+  Future<DataState<List<Event>>> getClassEventsFrom(
+      DateTime from, DateTime to, OrderType type) async {
+    final data = await db.getClassEventsFrom(
+        from.millisecondsSinceEpoch, to.millisecondsSinceEpoch, type);
+    return DataSuccess(Event.getListFromDB(data));
+  }
 }
