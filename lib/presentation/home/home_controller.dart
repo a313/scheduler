@@ -175,7 +175,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
 
   Future<void> onTappedFeature(Feature feature) async {
     Get.back();
-    await Get.to(feature.page);
+    await Get.to(() => feature.page);
     update();
   }
 

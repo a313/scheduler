@@ -78,6 +78,7 @@ class EventDbImpl extends EventDB {
     final result = await db.delete(table,
         where: 'parentId = ? AND type = ? AND startTime BETWEEN ? and ?',
         whereArgs: [parentId, type.name, from, to]);
+    print('DELETED $result');
     return result;
   }
 

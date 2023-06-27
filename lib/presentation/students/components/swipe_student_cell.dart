@@ -8,22 +8,17 @@ class SwipeStudentCell extends StatelessWidget {
     super.key,
     required this.data,
     this.onTapped,
-    required this.onEdit,
+    this.actions,
   });
   final Student data;
   final Function(Student student)? onTapped;
-  final Function(Student student)? onEdit;
+  final List<SwipeAction>? actions;
 
   @override
   Widget build(BuildContext context) {
     return SwipeActionCell(
         key: ObjectKey(data),
-        trailingActions: [
-          SwipeAction(
-            onTap: (handler) => onEdit?.call(data),
-            title: 'Edit',
-          )
-        ],
+        trailingActions: actions,
         child: StudentItem(data: data));
   }
 }

@@ -15,6 +15,7 @@ class ClassRoomPage extends GetView<ClassRoomController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
+      title: 'Class Rooms',
       fab: FloatingActionButton(
         mini: true,
         onPressed: controller.addClassRoom,
@@ -27,10 +28,9 @@ class ClassRoomPage extends GetView<ClassRoomController> {
       actions: [
         TextButton(
           onPressed: controller.onTappedFilter,
-          child: const Text('Bộ lọc', style: AppFonts.bSmall),
+          child: const Text('Filter', style: AppFonts.bSmall),
         )
       ],
-      title: 'Class Rooms',
       body: controller.obx(
         (state) => ListView.separated(
             itemCount: state!.length,

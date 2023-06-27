@@ -29,7 +29,10 @@ class EditClassRoomController extends BaseController {
 
   @override
   void onInit() {
-    data = initData?.copyWith() ?? ClassRoom.init();
+    data =
+        initData?.copyWith(timetables: List.from(initData?.timetables ?? [])) ??
+            ClassRoom.init();
+
     classNameController.text = data.name;
     locationController.text = data.location ?? '';
 
@@ -99,6 +102,7 @@ class EditClassRoomController extends BaseController {
     final result = await Get.toNamed(Routes.editTimetable);
     if (result != null) {
       data.timetables.add(result);
+
       sortTimetable();
       update();
     }

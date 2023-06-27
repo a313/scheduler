@@ -46,7 +46,6 @@ class EventsComponent extends StatelessWidget {
         sliver: SliverList.separated(
           itemCount: length,
           itemBuilder: (context, index) => EventItem(
-            key: ValueKey(data[index]),
             data: data[index],
             onTapped: onTapped,
             onTappedEdit: onTappedEdit,

@@ -30,10 +30,8 @@ class StudentComponent extends StatelessWidget {
       sliver: SliverList.separated(
         itemCount: length,
         itemBuilder: (context, index) => SwipeStudentCell(
-          key: ValueKey(data[index]),
           data: data[index],
           onTapped: onTapped,
-          onEdit: onTappedEdit,
         ),
         separatorBuilder: (context, index) => const CustomDivider(),
       ),
