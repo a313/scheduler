@@ -38,12 +38,26 @@ class LocalDataImpl extends LocalDataRepo {
   }
 
   @override
-  List<String>? getRecentPage() {
-    return List<String>.from(_.read(RECENT_PAGE));
+  List<String>? getPinFeatures() {
+    final t = _.read(PINNED_FEATURES);
+    if (t == null) return null;
+    return List<String>.from(t);
   }
 
   @override
-  Future<void> savedRecentPage(List<String> pages) {
-    return _.write(RECENT_PAGE, pages);
+  Future<void> savedPinFeatures(List<String> keys) {
+    return _.write(PINNED_FEATURES, keys);
+  }
+
+  @override
+  List<String>? getOtherFeatures() {
+    final t = _.read(OTHER_FEATURES);
+    if (t == null) return null;
+    return List<String>.from(t);
+  }
+
+  @override
+  Future<void> savedOtherFeatures(List<String> keys) {
+    return _.write(OTHER_FEATURES, keys);
   }
 }

@@ -1,5 +1,7 @@
 import 'package:scheduler/domain/repo_abs/local_data_repo_abs.dart';
 
+import '../entities/feature.dart';
+
 class LocalUseCases {
   final LocalDataRepo _;
 
@@ -28,11 +30,19 @@ class LocalUseCases {
     return _.savedLastGenerateTime(time);
   }
 
-  List<String>? getRecentPage() {
-    return _.getRecentPage();
+  List<String> getPinFeatures() {
+    return _.getPinFeatures() ?? [eventPage, reminderPage, reportPage];
   }
 
-  void savedRecentPage(List<String> pages) {
-    return _.savedRecentPage(pages);
+  void savedPinFeatures(List<String> keys) {
+    return _.savedPinFeatures(keys);
+  }
+
+  List<String> getOtherFeatures() {
+    return _.getOtherFeatures() ?? [classPage, studentPage, hexPage];
+  }
+
+  void savedOtherFeatures(List<String> keys) {
+    return _.savedOtherFeatures(keys);
   }
 }

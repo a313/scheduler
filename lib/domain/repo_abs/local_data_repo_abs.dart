@@ -1,7 +1,8 @@
 const PASS_INTRO = "_pass_intro";
 const LAST_ROUTE = "_last_route";
 const LAST_GEN_TIME = "_last_gen_time";
-const RECENT_PAGE = "_recent_page";
+const PINNED_FEATURES = "_pinned";
+const OTHER_FEATURES = "_other";
 
 abstract class LocalDataRepo {
   void setPassIntro(bool value);
@@ -14,7 +15,11 @@ abstract class LocalDataRepo {
   DateTime? getLastGenerateTime();
   void savedLastGenerateTime(DateTime time);
 
-  List<String>? getRecentPage();
+  List<String>? getPinFeatures();
 
-  void savedRecentPage(List<String> pages);
+  void savedPinFeatures(List<String> keys);
+
+  List<String>? getOtherFeatures();
+
+  void savedOtherFeatures(List<String> keys);
 }
