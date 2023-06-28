@@ -56,9 +56,7 @@ class _ReportComponentState extends State<ReportComponent> {
               },
               separatorBuilder: (context, index) => const CustomDivider(),
             )
-          : const SliverToBoxAdapter(
-              child: CustomDivider(),
-            ),
+          : const SliverToBoxAdapter(),
     );
   }
 }

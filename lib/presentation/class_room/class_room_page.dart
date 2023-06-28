@@ -31,19 +31,22 @@ class ClassRoomPage extends GetView<ClassRoomController> {
           child: const Text('Filter', style: AppFonts.bSmall),
         )
       ],
-      body: controller.obx(
-        (state) => ListView.separated(
-            itemCount: state!.length,
-            separatorBuilder: (context, index) => const CustomDivider(),
-            itemBuilder: (context, index) {
-              return ClassRoomCell(
-                data: state[index],
-                onTapped: controller.onTappedClassRoom,
-              );
-            }),
-        onLoading: const Padding(padding: padAll16, child: ShimmerListWidget()),
-        onEmpty: const Center(
-          child: Text("Chưa có lớp học"),
+      body: SafeArea(
+        child: controller.obx(
+          (state) => ListView.separated(
+              itemCount: state!.length,
+              separatorBuilder: (context, index) => const CustomDivider(),
+              itemBuilder: (context, index) {
+                return ClassRoomCell(
+                  data: state[index],
+                  onTapped: controller.onTappedClassRoom,
+                );
+              }),
+          onLoading:
+              const Padding(padding: padAll16, child: ShimmerListWidget()),
+          onEmpty: const Center(
+            child: Text("Chưa có lớp học"),
+          ),
         ),
       ),
     );

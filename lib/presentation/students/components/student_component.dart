@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
+import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/presentation/students/components/swipe_student_cell.dart';
@@ -13,13 +14,13 @@ class StudentComponent extends StatelessWidget {
     required this.classRoom,
     required this.data,
     this.onTapped,
-    this.onTappedEdit,
+    this.actions,
     // this.headerKey,
   });
   final ClassRoom classRoom;
   final List<Student> data;
   final Function(Student student)? onTapped;
-  final Function(Student student)? onTappedEdit;
+  final List<SwipeAction>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,7 @@ class StudentComponent extends StatelessWidget {
         itemBuilder: (context, index) => SwipeStudentCell(
           data: data[index],
           onTapped: onTapped,
+          actions: actions,
         ),
         separatorBuilder: (context, index) => const CustomDivider(),
       ),

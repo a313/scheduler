@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
@@ -33,21 +34,24 @@ class StudentsPage extends GetView<StudentsController> {
         )
       ],
       title: 'Students',
-      body: controller.obx(
-        (state) => CustomScrollView(
-            slivers: List.generate(state!.keys.length, (index) {
-          final key = state.keys.elementAt(index);
-          final students = state[key]!;
-          return StudentComponent(
-            classRoom: key,
-            data: students,
-            onTapped: controller.onTappedStudent,
-            onTappedEdit: controller.onTappedEdit,
-          );
-        })),
-        onLoading: const Padding(padding: padAll16, child: ShimmerListWidget()),
-        onEmpty: const Center(
-          child: Text("Not exist student"),
+      body: SafeArea(
+        child: controller.obx(
+          (state) => CustomScrollView(
+              slivers: List.generate(state!.keys.length, (index) {
+            final keys = state.keys.sorted((a, b) => a.id!.compareTo(b.id!));
+            final key = keys.elementAt(index);
+            final students = state[key]!;
+            return StudentComponent(
+              classRoom: key,
+              data: students,
+              onTapped: controller.onTappedStudent,
+            );
+          })),
+          onLoading:
+              const Padding(padding: padAll16, child: ShimmerListWidget()),
+          onEmpty: const Center(
+            child: Text("Not exist student"),
+          ),
         ),
       ),
     );

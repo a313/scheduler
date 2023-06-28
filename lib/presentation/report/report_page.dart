@@ -15,47 +15,49 @@ class ReportPage extends GetView<ReportController> {
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
         title: 'Report',
-        body: Column(
-          children: [
-            Padding(
-              padding: padSymHor16,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: BaseDateField(
-                        labelText: 'Start',
-                        initDate: controller.startDate,
-                        onSelected: controller.onChangeStart,
-                        timeFormat: DateFormater.ddMMYYYY),
-                  ),
-                  sizedBoxW12,
-                  Expanded(
-                    child: BaseDateField(
-                        labelText: 'End',
-                        initDate: controller.endDate,
-                        onSelected: controller.onChangeEnd,
-                        timeFormat: DateFormater.ddMMYYYY),
-                  ),
-                ],
+        body: SafeArea(
+          child: Column(
+            children: [
+              Padding(
+                padding: padSymHor16,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: BaseDateField(
+                          labelText: 'Start',
+                          initDate: controller.startDate,
+                          onSelected: controller.onChangeStart,
+                          timeFormat: DateFormater.ddMMYYYY),
+                    ),
+                    sizedBoxW12,
+                    Expanded(
+                      child: BaseDateField(
+                          labelText: 'End',
+                          initDate: controller.endDate,
+                          onSelected: controller.onChangeEnd,
+                          timeFormat: DateFormater.ddMMYYYY),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-                child: controller.obx(
-              (state) => CustomScrollView(
-                slivers: List.generate(state!.length, (index) {
-                  final report = state.elementAt(index);
-                  return ReportComponent(
-                    data: report,
-                  );
-                }),
-              ),
-              onLoading:
-                  const Padding(padding: padAll16, child: ShimmerListWidget()),
-              onEmpty: const Center(
-                child: Text("Not exist schedule"),
-              ),
-            ))
-          ],
+              Expanded(
+                  child: controller.obx(
+                (state) => CustomScrollView(
+                  slivers: List.generate(state!.length, (index) {
+                    final report = state.elementAt(index);
+                    return ReportComponent(
+                      data: report,
+                    );
+                  }),
+                ),
+                onLoading: const Padding(
+                    padding: padAll16, child: ShimmerListWidget()),
+                onEmpty: const Center(
+                  child: Text("Not exist data"),
+                ),
+              ))
+            ],
+          ),
         ));
   }
 }

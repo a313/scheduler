@@ -24,8 +24,10 @@ class ReportHeader extends StatelessWidget {
       behavior: HitTestBehavior.translucent,
       onTap: () => onTapped?.call(data),
       child: Container(
-        color: context.neutral200,
         padding: padSymHor12,
+        decoration: BoxDecoration(
+            border: Border(bottom: BorderSide(color: context.neutral500)),
+            color: context.neutral100),
         child: Row(
           children: [
             LocalAvatar(

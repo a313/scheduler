@@ -31,7 +31,8 @@ class LocalUseCases {
   }
 
   List<String> getPinFeatures() {
-    return _.getPinFeatures() ?? [eventPage, reminderPage, reportPage];
+    return _.getPinFeatures() ??
+        [eventPage, timeTablePage, reminderPage, reportPage];
   }
 
   void savedPinFeatures(List<String> keys) {

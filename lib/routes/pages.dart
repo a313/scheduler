@@ -5,6 +5,7 @@ import 'package:scheduler/presentation/hex_to_link/hex_to_link_binding.dart';
 import 'package:scheduler/presentation/reminder/reminder_binding.dart';
 import 'package:scheduler/presentation/report/report_binding.dart';
 import 'package:scheduler/presentation/students/students_binding.dart';
+import 'package:scheduler/presentation/timetables/timetables_binding.dart';
 
 import '../presentation/class_room/edit_class_room/edit_class_room_binding.dart';
 import '../presentation/class_room/edit_class_room/edit_class_room_page.dart';
@@ -40,6 +41,7 @@ class AppPages {
         ClassRoomBinding(),
         HexToLinkBinding(),
         StudentsBinding(),
+        TimetablesBinding(),
       ],
     ),
     // GetPage(

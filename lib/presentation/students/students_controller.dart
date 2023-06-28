@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/data/models/class_room.dart';
@@ -12,8 +11,6 @@ class StudentsController extends BaseController
     with StateMixin<Map<ClassRoom, List<Student>>> {
   final StudentUseCases useCase = Get.find();
 
-  final refreshController = RefreshController();
-  final emptyController = RefreshController();
   Map<ClassRoom, List<Student>> formatedData = {};
   @override
   void onReady() {
@@ -21,11 +18,13 @@ class StudentsController extends BaseController
     super.onReady();
   }
 
-  void onTappedStudent(Student student) {
-    Get.toNamed(Routes.editStudent, arguments: student);
+  Future<void> onTappedStudent(Student student) async {
+    final result = await Get.toNamed(Routes.editStudent, arguments: student);
+    if (result != null) {
+      //Need reload;
+      getData();
+    }
   }
-
-  void onTappedEdit(Student student) {}
 
   void onTappedFilter() {}
 
@@ -33,6 +32,7 @@ class StudentsController extends BaseController
     final result = await useCase.getAllStudent();
     if (result is DataSuccess<List<Student>>) {
       allStudent = result.data;
+      formatData(allStudent);
     }
     updateUI();
   }
@@ -53,17 +53,9 @@ class StudentsController extends BaseController
     }
   }
 
-  Future<void> onEditStudent(Student student) async {
-    final result = await Get.toNamed(Routes.editStudent, arguments: student);
-    if (result != null) {
-      //Need reload;
-      getData();
-    }
-  }
-
   void formatData(List<Student> allStudent) {
-    final unFollowClass = ClassRoom.init(name: 'Unfollow');
-    final emptyClass = ClassRoom.init(name: 'Not in any class');
+    final unFollowClass = ClassRoom.init(name: 'Unfollow')..id = 9999;
+    final emptyClass = ClassRoom.init(name: 'Not in any class')..id = 9998;
     for (var student in allStudent) {
       if (!student.isFollow) {
         addToGroup(unFollowClass, student);

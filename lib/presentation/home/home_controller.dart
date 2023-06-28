@@ -8,6 +8,7 @@ import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:scheduler/presentation/home/components/more_feature.dart';
 import 'package:scheduler/presentation/home/components/reorder_feature.dart';
+import 'package:scheduler/presentation/timetables/timetables_page.dart';
 
 import '../class_room/class_room_page.dart';
 import '../events/events_page.dart';
@@ -106,10 +107,22 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               colorFilter: activeColor,
             ),
             label: 'Decode'),
-      )
+      ),
+      Feature(
+        key: timeTablePage,
+        page: const TimetablesPage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/ChalkboardTeacher.svg',
+                colorFilter: normalColor),
+            activeIcon: BarIcon(
+              path: 'assets/svg/Regular/ChalkboardTeacher.svg',
+              colorFilter: activeColor,
+            ),
+            label: 'Timetable'),
+      ),
     ];
-    getFeature(
-        pinKeys: local.getPinFeatures(), otherKeys: local.getOtherFeatures());
+    getFeature(pinKeys: local.getPinFeatures());
 
     updateHome();
     super.onInit();
@@ -183,12 +196,10 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
     this.pin = pin;
     this.other = other;
     local.savedPinFeatures(pin.map((e) => e.key).toList());
-    local.savedOtherFeatures(other.map((e) => e.key).toList());
   }
 
-  void getFeature(
-      {required List<String> pinKeys, required List<String> otherKeys}) {
+  void getFeature({required List<String> pinKeys}) {
     pin = allFeature.where((e) => pinKeys.contains(e.key)).toList();
-    other = allFeature.where((e) => otherKeys.contains(e.key)).toList();
+    other = allFeature.where((e) => !pin.contains(e)).toList();
   }
 }
