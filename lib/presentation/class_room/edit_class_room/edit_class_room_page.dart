@@ -7,6 +7,7 @@ import 'package:scheduler/widgets/add_cell.dart';
 import 'package:scheduler/widgets/base/base_input.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'package:scheduler/widgets/base/base_select_field.dart';
+import 'package:scheduler/widgets/text_field_formater/numberic_formater.dart';
 
 import '../../../widgets/avatar_picker.dart';
 import '../../../widgets/base/base_button.dart';
@@ -47,6 +48,14 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                         controller: controller.locationController,
                         textInputAction: TextInputAction.next,
                         onChanged: controller.onChangeLocation,
+                      ),
+                      BaseTextField(
+                        labelText: 'Tuition',
+                        keyboardType: TextInputType.number,
+                        controller: controller.tuitionController,
+                        textInputAction: TextInputAction.next,
+                        onChanged: controller.onChangeTuition,
+                        formaters: [NumbericInputFormatter()],
                       ),
                       BaseSelectField<AlertType>(
                         onSelected: controller.onSelectedAlertType,

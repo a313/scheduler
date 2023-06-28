@@ -22,13 +22,14 @@ class StudentRepoImpl extends StudentRepo {
   }
 
   @override
-  Future<DataState<Student>> insertOrUpdate(Student student) async {
-    final id = await db.insertOrUpdate(student.toJson());
-    student.id = id;
+  Future<DataState<Student>> insertOrUpdate(Student data) async {
+    final id = await db.insertOrUpdate(data.toJson());
+
     if (id == 0) {
       return DataFailure(DB_ERR_CODE, DB_ERR_MSG);
     } else {
-      return DataSuccess(student);
+      data.id ??= id;
+      return DataSuccess(data);
     }
   }
 }

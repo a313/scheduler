@@ -7,8 +7,9 @@ abstract class ReminderDB extends DBSQLHelper {
 
   static String getCreateSQL() {
     return '''CREATE TABLE $REMINDER_TABLE (
-      id INTEGER PRIMARY KEY,
-      name TEXT not null,   remindDate INTEGER,          
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,   
+      remindDate INTEGER,          
       createDate INTEGER,     
       alert TEXT,
       time TEXT,

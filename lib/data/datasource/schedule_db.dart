@@ -7,10 +7,10 @@ abstract class ScheduleDB extends DBSQLHelper {
 
   static String getCreateSQL() {
     return '''CREATE TABLE $SCHEDULE_TABLE (
-      id INTEGER PRIMARY KEY,
-      name TEXT not null,
-      begin TEXT not null,
-      end TEXT not null
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      begin TEXT NOT NULL,
+      end TEXT NOT NULL
       )''';
   }
 }

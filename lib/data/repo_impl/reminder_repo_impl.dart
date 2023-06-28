@@ -28,10 +28,11 @@ class ReminderRepoImpl extends ReminderRepo {
   @override
   Future<DataState<Reminder>> insertOrUpdate(Reminder data) async {
     final id = await db.insertOrUpdate(data.toJson());
-    data.id = id;
+
     if (id == 0) {
       return DataFailure(DB_ERR_CODE, DB_ERR_MSG);
     } else {
+      data.id ??= id;
       return DataSuccess(data);
     }
   }

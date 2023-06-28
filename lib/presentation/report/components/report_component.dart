@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
+import 'package:get/get.dart';
+import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/event.dart';
-import 'package:scheduler/presentation/events/components/event_item.dart';
+import 'package:scheduler/data/models/student.dart';
+import 'package:scheduler/presentation/report/components/class_header.dart';
 import 'package:scheduler/widgets/custom_divider.dart';
 
+import '../../../data/models/event.dart';
+import '../../../data/models/report.dart';
 import 'report_header.dart';
+import 'report_item.dart';
 
 class ReportComponent extends StatefulWidget {
   const ReportComponent({
     super.key,
-    required this.classRoom,
     required this.data,
+    this.onTapped,
   });
-  final ClassRoom classRoom;
-  final List<Event> data;
+  final Report data;
+  final Function(Report data)? onTapped;
 
   @override
   State<ReportComponent> createState() => _ReportComponentState();
@@ -29,10 +34,10 @@ class _ReportComponentState extends State<ReportComponent> {
 
   @override
   Widget build(BuildContext context) {
-    final length = widget.data.length;
+    final data = widget.data;
     return SliverStickyHeader.builder(
       builder: (context, state) => ReportHeader(
-        data: widget.classRoom,
+        data: data,
         isShowChildren: isShowChildren,
         onToggle: (isShow) {
           setState(() {
@@ -40,11 +45,45 @@ class _ReportComponentState extends State<ReportComponent> {
           });
         },
       ),
-      sliver: SliverList.separated(
-        itemCount: isShowChildren ? length : 0,
-        itemBuilder: (context, index) => EventItem(data: widget.data[index]),
-        separatorBuilder: (context, index) => const CustomDivider(),
-      ),
+      sliver: isShowChildren
+          ? SliverList.separated(
+              itemCount: data.data.keys.length,
+              itemBuilder: (context, index) {
+                final key = data.data.keys.elementAt(index);
+                final events = data.data[key]!;
+                return ReportClassComponent(
+                    student: data.student, classRoom: key, data: events);
+              },
+              separatorBuilder: (context, index) => const CustomDivider(),
+            )
+          : const SliverToBoxAdapter(
+              child: CustomDivider(),
+            ),
     );
+  }
+}
+
+class ReportClassComponent extends StatelessWidget {
+  const ReportClassComponent({
+    super.key,
+    required this.classRoom,
+    required this.data,
+    required this.student,
+  });
+  final Student student;
+  final ClassRoom classRoom;
+  final List<Event> data;
+
+  @override
+  Widget build(BuildContext context) {
+    final children = List<Widget>.generate(
+        data.length,
+        (index) => ReportItem(
+            student: student, classRoom: classRoom, data: data[index]))
+      ..addSeparated(
+          separated: (index) => const CustomDivider().paddingOnly(left: 80))
+      ..insert(0, ClassHeader(data: classRoom, events: data));
+
+    return Column(children: children);
   }
 }

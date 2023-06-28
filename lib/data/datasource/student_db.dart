@@ -7,9 +7,9 @@ abstract class StudentDB extends DBSQLHelper {
 
   static String getCreateSQL() {
     return '''CREATE TABLE $STUDENT_TABLE (
-      id INTEGER PRIMARY KEY,
-      name TEXT not null,
-      classId TEXT not null,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      classId TEXT NOT NULL,
       beginStudy INTEGER,
       phones TEXT,
       isSpecial INTEGER,

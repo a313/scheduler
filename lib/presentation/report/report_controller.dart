@@ -4,14 +4,16 @@ import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/event.dart';
+import 'package:scheduler/data/models/report.dart';
+import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
 
-class ReportController extends BaseController {
+class ReportController extends BaseController with StateMixin<List<Report>> {
   final eventUsecase = Get.find<EventUseCases>();
   late DateTime startDate;
   late DateTime endDate;
 
-  Map<ClassRoom, List<Event>> formatedData = {};
+  Map<Student, List<Event>> formatedData = {};
 
   @override
   void onInit() {
@@ -28,7 +30,7 @@ class ReportController extends BaseController {
     final result = await eventUsecase.getClassEventsFrom(from, to);
     if (result is DataSuccess<List<Event>>) {
       formatData(result.data);
-      update();
+      createReport();
     }
   }
 
@@ -51,21 +53,36 @@ class ReportController extends BaseController {
         allClassRoom.where((e) => event.classIds.contains(e.id)).toList();
   }
 
-  Map<ClassRoom?, List<Event>> formatData(List<Event> events) {
+  void formatData(List<Event> events) {
+    formatedData.clear();
     for (var event in events) {
       fillData(event);
-      for (var key in event.classRooms) {
+      for (var key in event.students) {
         addToGroup(key, event);
       }
     }
-    return formatedData;
   }
 
-  void addToGroup(ClassRoom key, Event event) {
+  void addToGroup(Student key, Event event) {
     if (formatedData.containsKey(key)) {
       formatedData[key]!.add(event);
     } else {
       formatedData[key] = [event];
     }
+  }
+
+  void createReport() {
+    List<Report> data = [];
+    formatedData.forEach((student, events) {
+      Map<ClassRoom, List<Event>> map = {};
+      for (var classId in student.classId) {
+        final classRoom = allClassRoom.firstWhere((e) => e.id == classId);
+        final es = events.where((e) => e.classIds.contains(classId)).toList();
+        map[classRoom] = es;
+      }
+      data.add(
+          Report(start: startDate, end: endDate, student: student, data: map));
+    });
+    change(data, status: data.isEmpty ? RxStatus.empty() : RxStatus.success());
   }
 }

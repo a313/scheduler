@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/datasource/db_helper.dart';
 
@@ -10,9 +8,9 @@ abstract class EventDB extends DBSQLHelper {
 
   static String getCreateSQL() {
     return '''CREATE TABLE $EVENT_TABLE (
-      id INTEGER PRIMARY KEY,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       parentId INTEGER,
-      name TEXT not null,
+      name TEXT NOT NULL,
       startTime INTEGER,
       endTime INTEGER,
       isActive INTEGER,
@@ -78,14 +76,12 @@ class EventDbImpl extends EventDB {
     final result = await db.delete(table,
         where: 'parentId = ? AND type = ? AND startTime BETWEEN ? and ?',
         whereArgs: [parentId, type.name, from, to]);
-    print('DELETED $result');
     return result;
   }
 
   @override
   Future<List<Map<String, dynamic>>> getAllEvent(OrderType order) async {
     final result = await db.query(table, orderBy: 'startTime ${order.name}');
-    log('getAllEvent $table: ${result.length}', name: 'DATABASE');
     return result;
   }
 
@@ -93,7 +89,7 @@ class EventDbImpl extends EventDB {
   Future<List<Map<String, dynamic>>> getClassEventsFrom(
       int from, int to, OrderType type) async {
     final result = await db.query(table,
-        where: 'startTime BETWEEN ? and ? AND classIds IS NOT NULL',
+        where: 'classIds IS NOT NULL AND startTime BETWEEN ? and ?  ',
         whereArgs: [from, to],
         orderBy: 'startTime ${type.name}');
     return result;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/data/models/class_room.dart';
+import 'package:scheduler/data/models/report.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../theme/app_fonts.dart';
@@ -11,35 +11,46 @@ class ReportHeader extends StatelessWidget {
     required this.data,
     required this.isShowChildren,
     required this.onToggle,
+    this.onTapped,
   });
-  final ClassRoom data;
+  final Report data;
   final bool isShowChildren;
   final Function(bool isShow) onToggle;
+  final Function(Report data)? onTapped;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: context.neutral200,
-      child: Row(
-        children: [
-          LocalAvatar(
-            path: data.image,
-            size: 32,
-            name: data.name,
-          ),
-          sizedBoxW12,
-          Expanded(
-            child: Text(
-              data.name,
-              style: AppFonts.h500,
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () => onTapped?.call(data),
+      child: Container(
+        color: context.neutral200,
+        padding: padSymHor12,
+        child: Row(
+          children: [
+            LocalAvatar(
+              path: data.student.image,
+              size: 32,
+              name: data.student.name,
             ),
-          ),
-          IconButton(
-              onPressed: () => onToggle(!isShowChildren),
-              icon: isShowChildren
-                  ? const Icon(Icons.keyboard_double_arrow_up)
-                  : const Icon(Icons.keyboard_double_arrow_down)),
-        ],
+            sizedBoxW12,
+            Expanded(
+              child: Text(
+                data.student.name,
+                style: AppFonts.h500,
+              ),
+            ),
+            Text(
+              data.getFormula,
+              style: AppFonts.bMedium,
+            ),
+            IconButton(
+                onPressed: () => onToggle(!isShowChildren),
+                icon: isShowChildren
+                    ? const Icon(Icons.keyboard_double_arrow_up)
+                    : const Icon(Icons.keyboard_double_arrow_down)),
+          ],
+        ),
       ),
     );
   }

@@ -16,9 +16,12 @@ class SwipeStudentCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SwipeActionCell(
-        key: ObjectKey(data),
-        trailingActions: actions,
-        child: StudentItem(data: data));
+    return GestureDetector(
+      onTap: () => onTapped?.call(data),
+      child: SwipeActionCell(
+          key: ObjectKey(data),
+          trailingActions: actions,
+          child: StudentItem(data: data)),
+    );
   }
 }

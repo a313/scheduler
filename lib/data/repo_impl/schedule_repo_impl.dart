@@ -28,10 +28,11 @@ class ScheduleRepoImpl extends ScheduleRepo {
   @override
   Future<DataState<Schedule>> insertOrUpdate(Schedule data) async {
     final id = await db.insertOrUpdate(data.toJson());
-    data.id = id;
+
     if (id == 0) {
       return DataFailure(DB_ERR_CODE, DB_ERR_MSG);
     } else {
+      data.id ??= id;
       return DataSuccess(data);
     }
   }

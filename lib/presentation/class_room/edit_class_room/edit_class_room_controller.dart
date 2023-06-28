@@ -20,10 +20,11 @@ class EditClassRoomController extends BaseController {
   final ClassRoom? initData;
   late ClassRoom data;
 
-  final classNameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
+  final classNameController = TextEditingController();
   final locationController = TextEditingController();
+  final tuitionController = TextEditingController();
 
   EditClassRoomController(this.initData);
 
@@ -33,9 +34,10 @@ class EditClassRoomController extends BaseController {
         initData?.copyWith(timetables: List.from(initData?.timetables ?? [])) ??
             ClassRoom.init();
 
+    log('onInit :${data.id}', name: runtimeType.toString());
     classNameController.text = data.name;
     locationController.text = data.location ?? '';
-
+    tuitionController.text = data.tuition.toCurrency(symbol: '');
     super.onInit();
   }
 
@@ -123,7 +125,7 @@ class EditClassRoomController extends BaseController {
   }
 
   Future<void> reGeneraEvent(ClassRoom data) async {
-    log('reGeneraEvent for Class :${data.name}');
+    log('reGeneraEvent for Class :${data.id}', name: runtimeType.toString());
     final from = DateTime.now().dateWithoutTime();
     final to =
         local.getLastGenerateTime() ?? from.add(const Duration(days: 15));
@@ -140,5 +142,9 @@ class EditClassRoomController extends BaseController {
     if (Get.isRegistered<EventsController>()) {
       Get.find<EventsController>().onReloadData();
     }
+  }
+
+  void onChangeTuition(String p1) {
+    data.tuition = int.parse(p1.onlyNumberic);
   }
 }
