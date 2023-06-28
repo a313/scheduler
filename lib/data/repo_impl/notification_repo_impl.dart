@@ -29,8 +29,15 @@ class NotificationRepoImpl extends NotificationRepo {
   @override
   void createNoti(int id, String title, String desc, DateTime time) {
     log('CreateNoti $title - $desc At:${time.toIso8601String()}');
-    _.zonedSchedule(id, title, desc, TZDateTime.from(time.toUtc(), UTC),
-        const NotificationDetails(),
+    const detail = NotificationDetails(
+      iOS: DarwinNotificationDetails(sound: 'sound/meoi.caf'),
+      android: AndroidNotificationDetails(
+        'android_id',
+        'android_name',
+        sound: RawResourceAndroidNotificationSound('assets/sound/meoi.mp4'),
+      ),
+    );
+    _.zonedSchedule(id, title, desc, TZDateTime.from(time.toUtc(), UTC), detail,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime);
   }
