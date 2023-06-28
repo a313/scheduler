@@ -45,16 +45,6 @@ class StudentsPage extends GetView<StudentsController> {
             onTappedEdit: controller.onTappedEdit,
           );
         })),
-        // ListView.separated(
-        //     itemCount: state!.length,
-        //     separatorBuilder: (context, index) => const CustomDivider(),
-        //     itemBuilder: (context, index) {
-        //       return SwipeStudentCell(
-        //         data: state[index],
-        //         onEdit: controller.onEditStudent,
-        //         onTapped: controller.onTappedStudent,
-        //       );
-        //     }),
         onLoading: const Padding(padding: padAll16, child: ShimmerListWidget()),
         onEmpty: const Center(
           child: Text("Not exist student"),

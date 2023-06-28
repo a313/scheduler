@@ -9,12 +9,12 @@ import 'package:scheduler/domain/usecases/student_usecases.dart';
 import '../../routes/routes.dart';
 
 class StudentsController extends BaseController
-    with StateMixin<Map<ClassRoom?, List<Student>>> {
+    with StateMixin<Map<ClassRoom, List<Student>>> {
   final StudentUseCases useCase = Get.find();
 
   final refreshController = RefreshController();
   final emptyController = RefreshController();
-  Map<ClassRoom?, List<Student>> formatedData = {};
+  Map<ClassRoom, List<Student>> formatedData = {};
   @override
   void onReady() {
     getData();
@@ -39,7 +39,7 @@ class StudentsController extends BaseController
 
   void updateUI() {
     if (allStudent.isNotEmpty) {
-      change(formatData(allStudent), status: RxStatus.success());
+      change(formatedData, status: RxStatus.success());
     } else {
       change({}, status: RxStatus.empty());
     }
@@ -61,20 +61,23 @@ class StudentsController extends BaseController
     }
   }
 
-  Map<ClassRoom?, List<Student>> formatData(List<Student> allStudent) {
+  void formatData(List<Student> allStudent) {
+    final unFollowClass = ClassRoom.init(name: 'Unfollow');
+    final emptyClass = ClassRoom.init(name: 'Not in any class');
     for (var student in allStudent) {
-      if (student.classId.isEmpty) {
-        addToGroup(null, student);
+      if (!student.isFollow) {
+        addToGroup(unFollowClass, student);
+      } else if (student.classId.isEmpty) {
+        addToGroup(emptyClass, student);
       } else {
         allClassRoom
             .where((e) => student.classId.contains(e.id))
             .forEach((cl) => addToGroup(cl, student));
       }
     }
-    return formatedData;
   }
 
-  void addToGroup(ClassRoom? key, Student student) {
+  void addToGroup(ClassRoom key, Student student) {
     if (formatedData.containsKey(key)) {
       formatedData[key]!.add(student);
     } else {

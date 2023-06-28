@@ -13,29 +13,32 @@ class StudentItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: padAll12,
-      child: Row(
-        children: [
-          LocalAvatar(
-            path: data.image,
-            size: 32,
-            name: data.name,
-          ),
-          sizedBoxW12,
-          Text(
-            data.name,
-            style: AppFonts.bMedium,
-          ),
-          sizedBoxW06,
-          Expanded(
-            child: Text(
-              data.phones.join(","),
-              style: AppFonts.bMedium,
-              textAlign: TextAlign.right,
+    return Opacity(
+      opacity: data.isFollow ? 1 : 0.3,
+      child: Padding(
+        padding: padAll12,
+        child: Row(
+          children: [
+            LocalAvatar(
+              path: data.image,
+              size: 32,
+              name: data.name,
             ),
-          ),
-        ],
+            sizedBoxW12,
+            Text(
+              data.name,
+              style: AppFonts.bMedium,
+            ),
+            sizedBoxW06,
+            Expanded(
+              child: Text(
+                data.phones.join(","),
+                style: AppFonts.bMedium,
+                textAlign: TextAlign.right,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

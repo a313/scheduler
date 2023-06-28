@@ -16,7 +16,7 @@ class StudentComponent extends StatelessWidget {
     this.onTappedEdit,
     // this.headerKey,
   });
-  final ClassRoom? classRoom;
+  final ClassRoom classRoom;
   final List<Student> data;
   final Function(Student student)? onTapped;
   final Function(Student student)? onTappedEdit;

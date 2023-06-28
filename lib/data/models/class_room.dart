@@ -30,8 +30,8 @@ class ClassRoom with _$ClassRoom {
   static List<ClassRoom> getListFromDB(List<Map<String, Object?>> data) =>
       data.map((e) => ClassRoom.fromJson(e)).toList();
 
-  static init() => ClassRoom(
-        name: '',
+  static init({String name = ''}) => ClassRoom(
+        name: name,
         createDate: DateTime.now().dateWithoutTime(),
         openDate: DateTime.now().dateWithoutTime(),
         isOpen: true,

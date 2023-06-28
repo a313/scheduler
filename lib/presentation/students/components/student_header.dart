@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
+import 'package:scheduler/theme/app_fonts.dart';
 
 class StudentHeader extends StatelessWidget {
   const StudentHeader({super.key, required this.classRoom});
-  final ClassRoom? classRoom;
+  final ClassRoom classRoom;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class StudentHeader extends StatelessWidget {
         ),
       ),
       child: Row(
-        children: [sizedBoxW14, Text(classRoom?.name ?? 'Not in any class')],
+        children: [sizedBoxW14, Text(classRoom.name, style: AppFonts.bMedium)],
       ),
     );
   }
