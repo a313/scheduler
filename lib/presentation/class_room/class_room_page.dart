@@ -38,7 +38,6 @@ class ClassRoomPage extends GetView<ClassRoomController> {
             itemBuilder: (context, index) {
               return ClassRoomCell(
                 data: state[index],
-                onEdit: controller.onEditClassRoom,
                 onTapped: controller.onTappedClassRoom,
               );
             }),
