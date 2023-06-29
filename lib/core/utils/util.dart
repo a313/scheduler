@@ -188,12 +188,12 @@ class Utils {
           end: const TimeOfDay(hour: 8, minute: 15)),
       Schedule(
           name: 'AM Lesson 2',
-          begin: const TimeOfDay(hour: 7, minute: 30),
-          end: const TimeOfDay(hour: 8, minute: 15)),
-      Schedule(
-          name: 'AM Lesson 3',
           begin: const TimeOfDay(hour: 8, minute: 20),
           end: const TimeOfDay(hour: 9, minute: 05)),
+      Schedule(
+          name: 'AM Lesson 3',
+          begin: const TimeOfDay(hour: 9, minute: 20),
+          end: const TimeOfDay(hour: 10, minute: 05)),
       Schedule(
           name: 'AM Lesson 4',
           begin: const TimeOfDay(hour: 10, minute: 10),

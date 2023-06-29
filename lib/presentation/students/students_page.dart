@@ -16,7 +16,6 @@ class StudentsPage extends GetView<StudentsController> {
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
       fab: FloatingActionButton(
-        mini: true,
         onPressed: controller.addStudent,
         backgroundColor: context.primaryDark,
         child: Icon(

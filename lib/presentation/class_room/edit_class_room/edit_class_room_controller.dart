@@ -8,7 +8,6 @@ import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/timetable.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
-import 'package:scheduler/presentation/events/events_controller.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../routes/routes.dart';
@@ -139,9 +138,7 @@ class EditClassRoomController extends BaseController {
     );
 
     await eventUseCases.insertAll(events);
-    if (Get.isRegistered<EventsController>()) {
-      Get.find<EventsController>().onReloadData();
-    }
+    reloadData();
   }
 
   void onChangeTuition(String p1) {

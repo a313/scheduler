@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:get/get.dart';
+import 'package:scheduler/core/utils/util.dart';
+import 'package:scheduler/presentation/schedules/components/swipe_schedule_cell.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'package:scheduler/widgets/custom_divider.dart';
 
@@ -12,6 +15,14 @@ class SchedulesPage extends GetView<SchedulesController> {
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
         title: 'Schedules',
+        fab: FloatingActionButton(
+          onPressed: controller.addSchedule,
+          backgroundColor: context.primaryDark,
+          child: Icon(
+            Icons.add,
+            color: context.neutral100,
+          ),
+        ),
         body: GetBuilder<SchedulesController>(
           builder: (controller) {
             final data = controller.data;
@@ -25,8 +36,14 @@ class SchedulesPage extends GetView<SchedulesController> {
               separatorBuilder: (_, __) => const CustomDivider(),
               itemBuilder: (context, index) {
                 final schedule = data[index];
-                return ListTile(
-                  title: Text(schedule.name),
+                return SwipeScheduleCell(
+                  data: schedule,
+                  actions: [
+                    SwipeAction(
+                        title: 'Delete',
+                        onTap: (b) => controller.deleteSchedule(data[index], b))
+                  ],
+                  onTapped: controller.onTappedSchedule,
                 );
               },
             );

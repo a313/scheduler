@@ -61,7 +61,7 @@ class _SelectBottomSheetState<T> extends State<SelectBottomSheet<T>> {
                 return GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: () => onSelect(obj),
-                  child: child,
+                  child: AbsorbPointer(child: child),
                 );
               },
             ),

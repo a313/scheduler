@@ -8,6 +8,7 @@ import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/base/base_button.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'package:scheduler/widgets/base/base_select_field.dart';
+import 'package:scheduler/widgets/shimmer/shimmer_table.dart';
 
 import 'components/select_day_of_week.dart';
 
@@ -18,26 +19,27 @@ class EditTimetablePage extends GetView<EditTimetableController> {
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
     return BaseScafoldAppBar(
-        title: isEdit ? "Edit schedule" : "Add schedule",
+        title: isEdit ? "Edit Timetable" : "Add Timetable",
         body: Column(children: [
           Expanded(
               child: SingleChildScrollView(
                   padding: padAll16,
-                  child: GetBuilder<EditTimetableController>(builder: (_) {
-                    final data = _.data;
+                  child: controller.obx((state) {
+                    final data = controller.data;
                     return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SelectDayOfWeek(
                               initDate: data.dayInWeek,
-                              onChanged: _.onChangedDate),
+                              onChanged: controller.onChangedDate),
                           sizedBoxH24,
                           BaseSelectField<Schedule>(
+                            key: UniqueKey(),
                             isMultiSelect: false,
-                            onSelected: _.onSelected,
+                            onSelected: controller.onSelected,
                             labelText: 'Pick Schedule',
-                            options: _.listSchedule,
-                            initValue: _.initSchedule,
+                            options: state!,
+                            initValue: controller.initSchedule,
                             itemBuilder: (context, data) =>
                                 SelectableStudentCell(
                                     data: data, didSelect: false),
@@ -82,7 +84,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
                             ),
                           ),
                         ]);
-                  }))),
+                  }, onLoading: const ShimmerTable()))),
           BaseButton.fixBottom(
             title: isEdit ? "Update" : "Add",
             onPressed: controller.onUpdate,

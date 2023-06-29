@@ -51,7 +51,7 @@ class TimeConstComponent extends StatelessWidget {
           Padding(
             padding: padSymHor14,
             child: Text(
-              data.endTime.difference(data.startTime).formatInDuration(),
+              data.duration.formatInDuration(),
               style: AppFonts.bSmall.copyWith(
                   decoration:
                       data.isActive ? null : TextDecoration.lineThrough),

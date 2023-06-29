@@ -54,7 +54,7 @@ class _CalendarComponentState extends State<CalendarComponent> {
               todayTextStyle: AppFonts.bSmall,
               todayDecoration: BoxDecoration(
                   color: context.neutral300, shape: BoxShape.circle)),
-        ).debugColor(color: context.neutral100),
+        ).coloredBox(color: context.neutral100),
         GestureDetector(
             onTap: changeCalenderFormat,
             child: Container(

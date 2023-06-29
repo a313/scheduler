@@ -1,9 +1,14 @@
+import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:get/get.dart';
+import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/data/models/schedule.dart';
 import 'package:scheduler/domain/usecases/schedule_usecases.dart';
+import 'package:scheduler/routes/routes.dart';
 
-class SchedulesController extends GetxController {
+import '../../widgets/popups/yes_no_popup.dart';
+
+class SchedulesController extends BaseController {
   final useCase = Get.find<ScheduleUseCases>();
   List<Schedule> data = [];
   @override
@@ -17,6 +22,38 @@ class SchedulesController extends GetxController {
     if (result is DataSuccess<List<Schedule>>) {
       data = result.data;
       update();
+    }
+  }
+
+  Future<void> addSchedule() async {
+    final result = await Get.toNamed(Routes.editSchedule);
+    if (result != null) {
+      getData();
+    }
+  }
+
+  void deleteSchedule(Schedule data, CompletionHandler handler) {
+    showPopup(
+      YesNoPopup(
+        desc: 'Are your sure to delete ${data.name}?',
+        onOk: () async {
+          Get.back();
+          await handler(true);
+          await useCase.delete(data.id!);
+          getData();
+        },
+        onCancel: () async {
+          Get.back();
+          await handler(false);
+        },
+      ),
+    );
+  }
+
+  Future<void> onTappedSchedule(Schedule data) async {
+    final result = await Get.toNamed(Routes.editSchedule, arguments: data);
+    if (result != null) {
+      getData();
     }
   }
 }

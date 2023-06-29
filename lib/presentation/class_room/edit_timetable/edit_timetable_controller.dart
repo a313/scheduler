@@ -6,11 +6,11 @@ import 'package:scheduler/data/models/schedule.dart';
 import 'package:scheduler/data/models/timetable.dart';
 import 'package:scheduler/domain/usecases/schedule_usecases.dart';
 
-class EditTimetableController extends BaseController {
+class EditTimetableController extends BaseController
+    with StateMixin<List<Schedule>> {
   final Timetable? initData;
   late Timetable data;
 
-  List<Schedule> listSchedule = <Schedule>[];
   List<Schedule> initSchedule = [];
 
   EditTimetableController(this.initData);
@@ -18,13 +18,8 @@ class EditTimetableController extends BaseController {
   @override
   void onInit() {
     data = initData?.copyWith() ?? Timetable.init();
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
     getData();
-    super.onReady();
+    super.onInit();
   }
 
   void onChangedDate(int day) {
@@ -41,7 +36,7 @@ class EditTimetableController extends BaseController {
 
   bool validData() {
     final date = validDate();
-    final time = validTime();
+    final time = data.isValid;
     if (date && time) return true;
     if (!date) {
       showSnackBar('Not valid date');
@@ -86,13 +81,15 @@ class EditTimetableController extends BaseController {
   Future<void> getData() async {
     final result = await Get.find<ScheduleUseCases>().getAllSchedule();
     if (result is DataSuccess<List<Schedule>>) {
-      listSchedule = result.data;
+      final listSchedule = result.data;
       for (var schedule in listSchedule) {
         if (schedule.begin == data.begin && schedule.end == data.end) {
           initSchedule.add(schedule);
         }
       }
+      change(listSchedule, status: RxStatus.success());
+    } else {
+      change([], status: RxStatus.success());
     }
-    update();
   }
 }

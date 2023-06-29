@@ -16,7 +16,6 @@ class EventsPage extends GetView<EventsController> {
   Widget build(BuildContext context) {
     return BaseScafold(
         fab: FloatingActionButton(
-          mini: true,
           onPressed: controller.addEvent,
           backgroundColor: context.primaryDark,
           child: Icon(

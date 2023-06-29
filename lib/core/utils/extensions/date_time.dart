@@ -73,6 +73,18 @@ extension DateExtension on DateTime {
     if (result.isEmpty) return "Just created";
     return result;
   }
+
+  DateTime getStartOfWeek() {
+    final difference = weekday - DateTime.monday;
+    final startOfWeek = subtract(Duration(days: difference));
+    return startOfWeek;
+  }
+
+  DateTime getEndOfWeek() {
+    final difference = DateTime.sunday - weekday;
+    final endOfWeek = add(Duration(days: difference));
+    return endOfWeek;
+  }
 }
 
 extension TimeOfDayExt on TimeOfDay {
@@ -88,5 +100,17 @@ extension TimeOfDayExt on TimeOfDay {
     final String minuteLabel = addLeadingZeroIfNeeded(minute);
 
     return '$hourLabel:$minuteLabel';
+  }
+
+  bool isAfter(TimeOfDay obj) {
+    if (hour < obj.hour) return true;
+    if (hour == obj.hour && minute <= obj.minute) return true;
+    return false;
+  }
+
+  bool isBefore(TimeOfDay obj) {
+    if (hour > obj.hour) return true;
+    if (hour == obj.hour && minute >= obj.minute) return true;
+    return false;
   }
 }

@@ -49,4 +49,6 @@ class Event with _$Event {
         alert: AlertType.Before15Min,
         repeat: RepeatType.None);
   }
+
+  Duration get duration => endTime.difference(startTime);
 }

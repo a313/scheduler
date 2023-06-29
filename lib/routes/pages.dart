@@ -4,6 +4,11 @@ import 'package:scheduler/presentation/events/events_binding.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_binding.dart';
 import 'package:scheduler/presentation/reminder/reminder_binding.dart';
 import 'package:scheduler/presentation/report/report_binding.dart';
+import 'package:scheduler/presentation/schedules/edit_schedule/edit_schedule_binding.dart';
+import 'package:scheduler/presentation/schedules/edit_schedule/edit_schedule_page.dart';
+import 'package:scheduler/presentation/schedules/schedules_binding.dart';
+import 'package:scheduler/presentation/schedules/schedules_page.dart';
+import 'package:scheduler/presentation/setting/setting_binding.dart';
 import 'package:scheduler/presentation/students/students_binding.dart';
 import 'package:scheduler/presentation/timetables/timetables_binding.dart';
 
@@ -42,6 +47,7 @@ class AppPages {
         HexToLinkBinding(),
         StudentsBinding(),
         TimetablesBinding(),
+        SettingBinding(),
       ],
     ),
     // GetPage(
@@ -89,10 +95,15 @@ class AppPages {
       page: () => const EditReminderPage(),
       binding: EditReminderBinding(),
     ),
-    // GetPage(
-    //   name: Routes.hexToLink,
-    //   page: () => const HexToLinkPage(),
-    //   binding: HexToLinkBinding(),
-    // ),
+    GetPage(
+      name: Routes.schedule,
+      page: () => const SchedulesPage(),
+      binding: SchedulesBinding(),
+    ),
+    GetPage(
+      name: Routes.editSchedule,
+      page: () => const EditSchedulePage(),
+      binding: EditScheduleBinding(),
+    ),
   ];
 }

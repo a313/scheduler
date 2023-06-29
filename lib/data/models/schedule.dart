@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:scheduler/core/utils/util.dart';
 
 import '../../core/converters.dart';
 
@@ -21,4 +22,11 @@ class Schedule with _$Schedule {
 
   static List<Schedule> getListFromDB(List<Map<String, Object?>> data) =>
       data.map((e) => Schedule.fromJson(e)).toList();
+
+  static init() => Schedule(
+      name: '',
+      begin: const TimeOfDay(hour: 9, minute: 30),
+      end: const TimeOfDay(hour: 10, minute: 30));
+
+  bool get isValid => begin.isAfter(end);
 }

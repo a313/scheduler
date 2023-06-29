@@ -4,10 +4,12 @@ import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
 import 'package:scheduler/domain/usecases/local_usecase.dart';
 import 'package:scheduler/domain/usecases/notification_usecases.dart';
+import 'package:scheduler/presentation/timetables/timetables_controller.dart';
 
 import '../../data/models/class_room.dart';
 import '../../data/models/event.dart';
 import '../../global.dart';
+import '../../presentation/events/events_controller.dart';
 import '../usecase/data_state.dart';
 import 'base_common_widget.dart';
 
@@ -32,6 +34,16 @@ class BaseController extends GetxController with BaseCommonWidgets {
     );
     if (result is DataSuccess<List<Event>>) {
       Get.find<NotificationUseCases>().createNotiFor(result.data);
+    }
+  }
+
+  void reloadData() {
+    if (Get.isRegistered<EventsController>()) {
+      Get.find<EventsController>().onReloadData();
+    }
+
+    if (Get.isRegistered<TimetablesController>()) {
+      Get.find<TimetablesController>().onReloadData();
     }
   }
 }

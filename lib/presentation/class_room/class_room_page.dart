@@ -17,7 +17,6 @@ class ClassRoomPage extends GetView<ClassRoomController> {
     return BaseScafoldAppBar(
       title: 'Class Rooms',
       fab: FloatingActionButton(
-        mini: true,
         onPressed: controller.addClassRoom,
         backgroundColor: context.funcBitterLemon,
         child: Icon(

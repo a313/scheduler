@@ -8,6 +8,8 @@ import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:scheduler/presentation/home/components/more_feature.dart';
 import 'package:scheduler/presentation/home/components/reorder_feature.dart';
+import 'package:scheduler/presentation/qrcode/qrcode_page.dart';
+import 'package:scheduler/presentation/setting/setting_page.dart';
 import 'package:scheduler/presentation/timetables/timetables_page.dart';
 
 import '../class_room/class_room_page.dart';
@@ -120,6 +122,31 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               colorFilter: activeColor,
             ),
             label: 'Timetable'),
+      ),
+      Feature(
+        key: qrPage,
+        page: const QrcodePage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/QrCode.svg',
+                colorFilter: normalColor),
+            activeIcon: BarIcon(
+              path: 'assets/svg/Regular/QrCode.svg',
+              colorFilter: activeColor,
+            ),
+            label: 'QrCode'),
+      ),
+      Feature(
+        key: settingPage,
+        page: const SettingPage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/Gear.svg', colorFilter: normalColor),
+            activeIcon: BarIcon(
+              path: 'assets/svg/Regular/Gear.svg',
+              colorFilter: activeColor,
+            ),
+            label: 'Setting'),
       ),
     ];
     getFeature(pinKeys: local.getPinFeatures());

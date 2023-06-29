@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/schedule.dart';
 import 'package:scheduler/presentation/schedules/components/schedule_item.dart';
 
@@ -11,15 +12,9 @@ class SelectableStudentCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(child: ScheduleItem(data: data)),
-        if (didSelect)
-          const Padding(
-            padding: EdgeInsets.only(right: 12),
-            child: Icon(Icons.check_circle_sharp, color: Colors.green),
-          ),
-      ],
-    );
+    return ScheduleItem(
+        data: data,
+        suffix: Icon(Icons.check_circle_sharp,
+            color: didSelect ? context.primaryDark : context.transparent));
   }
 }

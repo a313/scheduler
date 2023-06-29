@@ -9,8 +9,6 @@ import 'package:scheduler/data/models/reminder.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
 import 'package:scheduler/domain/usecases/reminder_usecases.dart';
 
-import '../../events/events_controller.dart';
-
 class EditReminderController extends BaseController {
   final Reminder? initData;
   final nameController = TextEditingController();
@@ -134,8 +132,6 @@ class EditReminderController extends BaseController {
     );
 
     await eventUseCases.insertAll(events);
-    if (Get.isRegistered<EventsController>()) {
-      Get.find<EventsController>().onReloadData();
-    }
+    reloadData();
   }
 }

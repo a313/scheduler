@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:scheduler/core/utils/util.dart';
 
 import '../../core/converters.dart';
 
@@ -22,4 +23,6 @@ class Timetable with _$Timetable {
       begin: const TimeOfDay(hour: 07, minute: 00),
       end: const TimeOfDay(hour: 09, minute: 00),
       dayInWeek: -1);
+
+  bool get isValid => begin.isAfter(end);
 }
