@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/event.dart';
 import 'package:scheduler/theme/app_fonts.dart';
+import 'package:scheduler/widgets/base/base_state_widget.dart';
 
 class EventChart extends StatelessWidget {
   const EventChart({
     super.key,
     required this.events,
+    this.onTapped,
   });
   final List<Event> events;
+  final Function(Event event)? onTapped;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,11 @@ class EventChart extends StatelessWidget {
           top: x,
           width: itemW,
           height: itemH,
-          child: _EventItem(event),
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => onTapped?.call(event),
+            child: _EventItem(event),
+          ),
         );
       });
       return Stack(children: children);
@@ -50,52 +57,53 @@ class _EventItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool dotStyle = false;
-    if (event.duration.inMinutes < 15) {
-      dotStyle = true;
-    }
     final color = getColor(context, getState(event));
-    return dotStyle
-        ? Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                  width: 4,
-                  height: 4,
-                  margin: const EdgeInsets.only(top: 6),
-                  decoration:
-                      BoxDecoration(shape: BoxShape.circle, color: color)),
-              sizedBoxW04,
-              Expanded(
-                child: Text(
-                  event.name * 10,
-                  maxLines: 2,
-                  style: AppFonts.bSuperSmall,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              )
-            ],
-          )
-        : DottedBorder(
-            color: color,
-            radius: const Radius.circular(4),
-            padding: padZero,
-            borderType: BorderType.RRect,
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: borRad02,
-                  color: event.name.nameToColor().withOpacity(0.2)),
-              padding: const EdgeInsets.all(4),
+    return Opacity(
+      opacity: event.isActive ? 1 : 0.2,
+      child: ABWidget(
+        isShowA: event.duration.inMinutes < 15,
+        widgetA: (context) => Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                width: 4,
+                height: 4,
+                margin: const EdgeInsets.only(top: 6),
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: color)),
+            sizedBoxW04,
+            Expanded(
               child: Text(
-                event.name,
+                event.name * 10,
                 maxLines: 2,
                 style: AppFonts.bSuperSmall,
                 overflow: TextOverflow.ellipsis,
               ),
+            )
+          ],
+        ),
+        widgetB: (context) => DottedBorder(
+          color: color,
+          radius: const Radius.circular(4),
+          padding: padZero,
+          borderType: BorderType.RRect,
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: borRad02,
+                color: event.name.nameToColor().withOpacity(0.2)),
+            padding: const EdgeInsets.all(4),
+            child: Text(
+              event.name,
+              maxLines: 2,
+              style: AppFonts.bSuperSmall,
+              overflow: TextOverflow.ellipsis,
             ),
-          );
+          ),
+        ),
+      ),
+    );
   }
 
   int getState(Event event) {

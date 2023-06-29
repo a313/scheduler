@@ -16,6 +16,38 @@ class TimetablesPage extends GetView<TimetablesController> {
     controller.autoScroll();
     return BaseScafoldAppBar(
         title: 'Timetable',
+        fab: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FloatingActionButton(
+              onPressed: controller.prevWeek,
+              mini: true,
+              backgroundColor: context.funcIcterine,
+              child: Icon(
+                Icons.keyboard_arrow_left,
+                color: context.neutral100,
+              ),
+            ),
+            FloatingActionButton(
+              onPressed: controller.curWeek,
+              mini: true,
+              backgroundColor: context.primaryDark,
+              child: Icon(
+                Icons.find_replace,
+                color: context.neutral100,
+              ),
+            ),
+            FloatingActionButton(
+              onPressed: controller.nextWeek,
+              mini: true,
+              backgroundColor: context.funcCornflowerBlue,
+              child: Icon(
+                Icons.keyboard_arrow_right,
+                color: context.neutral100,
+              ),
+            ),
+          ],
+        ),
         body: Column(
           children: [
             const Header(),
@@ -31,7 +63,10 @@ class TimetablesPage extends GetView<TimetablesController> {
                           top: R1H / 2,
                           left: C1W,
                           child: controller.obx(
-                              (state) => EventChart(events: state!),
+                              (state) => EventChart(
+                                    events: state!,
+                                    onTapped: controller.onTappedEvent,
+                                  ),
                               onLoading: const SizedBox(),
                               onEmpty: const Center(child: Text('No data')))),
                     ],

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/event.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
 
+import '../events/components/event_bottomsheet.dart';
+
 class TimetablesController extends BaseController with StateMixin<List<Event>> {
   final useCase = Get.find<EventUseCases>();
 
-  final refreshController = RefreshController();
-
   final scrollController = ScrollController();
+
+  final currentTime = DateTime.now().obs;
 
   @override
   void onInit() {
@@ -26,10 +27,9 @@ class TimetablesController extends BaseController with StateMixin<List<Event>> {
   }
 
   Future<void> getData() async {
-    final now = DateTime.now().add(const Duration(days: 7));
-    final weekBegin = now.getStartOfWeek().dateWithoutTime();
-    final weekEnd =
-        now.getEndOfWeek().dateWithoutTime().add(const Duration(days: 1));
+    final time = currentTime.value;
+    final weekBegin = time.getStartOfWeek().dateWithoutTime();
+    final weekEnd = time.getEndOfWeek().endOfDay();
     final result = await useCase.getEventsFrom(weekBegin, weekEnd);
     if (result is DataSuccess<List<Event>>) {
       final data = result.data;
@@ -38,11 +38,6 @@ class TimetablesController extends BaseController with StateMixin<List<Event>> {
     } else {
       change([], status: RxStatus.error());
     }
-  }
-
-  Future<void> onRefresh() async {
-    await getData();
-    refreshController.refreshCompleted();
   }
 
   void autoScroll() {
@@ -55,5 +50,30 @@ class TimetablesController extends BaseController with StateMixin<List<Event>> {
         scrollController.jumpTo(hour * R1H);
       }
     });
+  }
+
+  Future<void> onTappedEvent(Event event) async {
+    final data = await bottomSheet(
+        EventBottomSheet(event: event, allStudent: allStudent)) as Event?;
+    if (data != null) {
+      await useCase.insertOrUpdate(data);
+      await getData();
+      if (data.alert != AlertType.None) generateNotificaion();
+    }
+  }
+
+  Future<void> nextWeek() async {
+    currentTime.value = currentTime.value.add(const Duration(days: 7));
+    await getData();
+  }
+
+  Future<void> prevWeek() async {
+    currentTime.value = currentTime.value.subtract(const Duration(days: 7));
+    await getData();
+  }
+
+  Future<void> curWeek() async {
+    currentTime.value = DateTime.now();
+    await getData();
   }
 }

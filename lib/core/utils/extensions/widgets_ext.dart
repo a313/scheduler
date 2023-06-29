@@ -15,4 +15,14 @@ extension WidgetExt on Widget {
   SizedBox size({double? w, double? h}) {
     return SizedBox(width: w, height: h, child: this);
   }
+
+  Widget disable({bool isDisable = true}) {
+    if (isDisable) {
+      return ColorFiltered(
+          colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.color),
+          child: this);
+    } else {
+      return this;
+    }
+  }
 }
