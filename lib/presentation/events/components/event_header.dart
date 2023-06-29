@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 
@@ -40,19 +41,19 @@ class _Prefix extends StatelessWidget {
   Widget build(BuildContext context) {
     if (time.isToday()) {
       return const Text(
-        'Today  ',
+        'Today',
         style: AppFonts.h300,
-      );
+      ).paddingOnly(right: 8);
     } else if (time.isTomorrow()) {
       return const Text(
-        'Tomorrow  ',
+        'Tomorrow',
         style: AppFonts.h300,
-      );
+      ).paddingOnly(right: 8);
     } else if (time.isYesterday()) {
       return const Text(
-        'Yesterday  ',
+        'Yesterday',
         style: AppFonts.h300,
-      );
+      ).paddingOnly(right: 8);
     }
     return const SizedBox();
   }

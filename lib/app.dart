@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/usecases/local_usecase.dart';
+import 'package:scheduler/lang/languages.dart';
 import 'package:scheduler/routes/pages.dart';
 import 'package:scheduler/routes/routes.dart';
 import 'package:scheduler/theme/app_theme.dart';
@@ -16,6 +17,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   late String initialRoute;
+  Locale? locale;
   @override
   void initState() {
     LocalUseCases useCases = Get.find();
@@ -29,15 +31,22 @@ class _MainAppState extends State<MainApp> {
     } else {
       initialRoute = Routes.onboarding;
     }
-    // initialRoute = Routes.onboarding;
+    final lang = useCases.getLanguage();
+    if (lang == null) {
+      locale = Get.deviceLocale;
+    } else {
+      locale = Locale(lang);
+    }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      locale: const Locale('vi', 'VI'),
-      supportedLocales: const [Locale('vi', 'VI')],
+      locale: locale,
+      translations: Languages(),
+      supportedLocales: const [Locale('vi', 'VI'), Locale('en', 'US')],
+      fallbackLocale: const Locale('en', 'US'),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

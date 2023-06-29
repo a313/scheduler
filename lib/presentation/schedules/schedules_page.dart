@@ -14,7 +14,7 @@ class SchedulesPage extends GetView<SchedulesController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
-        title: 'Schedules',
+        title: 'Schedules'.tr,
         fab: FloatingActionButton(
           onPressed: controller.addSchedule,
           backgroundColor: context.primaryDark,
@@ -27,8 +27,8 @@ class SchedulesPage extends GetView<SchedulesController> {
           builder: (controller) {
             final data = controller.data;
             if (data.isEmpty) {
-              return const Center(
-                child: Text('Not exist schedule'),
+              return Center(
+                child: Text('Not exist schedule'.tr),
               );
             }
             return ListView.separated(
@@ -40,7 +40,7 @@ class SchedulesPage extends GetView<SchedulesController> {
                   data: schedule,
                   actions: [
                     SwipeAction(
-                        title: 'Delete',
+                        title: 'Delete'.tr,
                         onTap: (b) => controller.deleteSchedule(data[index], b))
                   ],
                   onTapped: controller.onTappedSchedule,

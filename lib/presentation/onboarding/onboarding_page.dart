@@ -35,7 +35,7 @@ class OnboardingPage extends GetView<OnboardingController> {
                 minimum: padAll16,
                 child: TextButton(
                   onPressed: controller.onSkip,
-                  child: const Text('Skip', style: AppFonts.bMedium),
+                  child: Text('Skip'.tr, style: AppFonts.bMedium),
                 ),
               ),
             ),

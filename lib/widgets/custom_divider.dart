@@ -7,17 +7,24 @@ class CustomDivider extends StatelessWidget {
     Key? key,
     this.color,
     this.height = 1,
+    this.indent = 0.0,
+    this.endIndent = 0.0,
   }) : super(key: key);
   final Color? color;
   final double height;
+  final double indent;
+  final double endIndent;
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: color ?? context.neutral300,
-      child: SizedBox(
-        width: double.infinity,
-        height: height,
+    return Padding(
+      padding: EdgeInsetsDirectional.only(start: indent, end: endIndent),
+      child: ColoredBox(
+        color: color ?? context.neutral300,
+        child: SizedBox(
+          width: double.infinity,
+          height: height,
+        ),
       ),
     );
   }

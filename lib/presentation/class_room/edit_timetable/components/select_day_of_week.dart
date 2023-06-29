@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/widgets/ratio_field.dart';
 
@@ -30,7 +31,7 @@ class _SelectDayOfWeekState extends State<SelectDayOfWeek> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Date', style: AppFonts.bLarge),
+        Text('Date'.tr, style: AppFonts.bLarge),
         sizedBoxH08,
         Wrap(
           runSpacing: 16,

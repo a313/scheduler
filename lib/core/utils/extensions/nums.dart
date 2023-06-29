@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 extension CustomNumExtension on num {
@@ -73,19 +74,19 @@ extension CustomNumExtension on num {
   String get getDayOfWeek {
     switch (this) {
       case 1:
-        return 'Mon';
+        return 'Mon'.tr;
       case 2:
-        return 'Tue';
+        return 'Tue'.tr;
       case 3:
-        return 'Wed';
+        return 'Wed'.tr;
       case 4:
-        return 'Thu';
+        return 'Thu'.tr;
       case 5:
-        return 'Fri';
+        return 'Fri'.tr;
       case 6:
-        return 'Sat';
+        return 'Sat'.tr;
       case 7:
-        return 'Sun';
+        return 'Sun'.tr;
       default:
         return 'UNKNOWN';
     }

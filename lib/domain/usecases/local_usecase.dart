@@ -46,4 +46,12 @@ class LocalUseCases {
   void savedOtherFeatures(List<String> keys) {
     return _.savedOtherFeatures(keys);
   }
+
+  String? getLanguage() {
+    return _.getLanguage();
+  }
+
+  void savedLanguage(String? lang) {
+    return _.savedLanguage(lang);
+  }
 }

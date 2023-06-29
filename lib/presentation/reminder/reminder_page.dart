@@ -27,13 +27,13 @@ class ReminderPage extends GetView<ReminderController> {
       actions: [
         TextButton(
           onPressed: controller.onTappedFilter,
-          child: const Text(
-            'Filter',
+          child: Text(
+            'Filter'.tr,
             style: AppFonts.bSmall,
           ),
         )
       ],
-      title: 'Reminders',
+      title: 'Reminders'.tr,
       body: controller.obx(
         (state) => ListView.separated(
             itemCount: state!.length,
@@ -43,15 +43,15 @@ class ReminderPage extends GetView<ReminderController> {
                 data: state[index],
                 actions: [
                   SwipeAction(
-                      title: 'Delete',
+                      title: 'Delete'.tr,
                       onTap: (b) => controller.deleteReminder(state[index], b))
                 ],
                 onTapped: controller.onTappedReminder,
               );
             }),
         onLoading: const Padding(padding: padAll16, child: ShimmerListWidget()),
-        onEmpty: const Center(
-          child: Text("Not exist reminder"),
+        onEmpty: Center(
+          child: Text('Not exist reminder'.tr),
         ),
       ),
     );
