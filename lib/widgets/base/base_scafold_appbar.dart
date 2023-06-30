@@ -82,6 +82,7 @@ class BaseScafoldAppBar extends StatelessWidget {
     this.onTappedScene,
     this.systemOverlayStyle,
     this.extendBodyBehindAppBar = false,
+    this.centerTitle,
   }) : super(key: key);
   final String? title;
   final Widget? titleWidget;
@@ -100,6 +101,7 @@ class BaseScafoldAppBar extends StatelessWidget {
   final SystemUiOverlayStyle? systemOverlayStyle;
   final Future<bool> Function()? onWillPop;
   final bool extendBodyBehindAppBar;
+  final bool? centerTitle;
   final Function()? onTappedScene;
 
   @override
@@ -118,6 +120,7 @@ class BaseScafoldAppBar extends StatelessWidget {
         backgroundColor: appbarColor,
         elevation: elevation,
         actions: actions,
+        centerTitle: centerTitle,
         automaticallyImplyLeading: showBackBtn,
         systemOverlayStyle: systemOverlayStyle,
         title: titleWidget ?? Text(title ?? ''),

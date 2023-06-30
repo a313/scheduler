@@ -40,18 +40,18 @@ class _Prefix extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (time.isToday()) {
-      return const Text(
-        'Today',
+      return Text(
+        'Today'.tr,
         style: AppFonts.h300,
       ).paddingOnly(right: 8);
     } else if (time.isTomorrow()) {
-      return const Text(
-        'Tomorrow',
+      return Text(
+        'Tomorrow'.tr,
         style: AppFonts.h300,
       ).paddingOnly(right: 8);
     } else if (time.isYesterday()) {
-      return const Text(
-        'Yesterday',
+      return Text(
+        'Yesterday'.tr,
         style: AppFonts.h300,
       ).paddingOnly(right: 8);
     }

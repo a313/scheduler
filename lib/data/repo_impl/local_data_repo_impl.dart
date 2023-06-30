@@ -1,3 +1,4 @@
+import 'package:flutter/src/material/app.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:scheduler/domain/repo_abs/local_data_repo_abs.dart';
 
@@ -69,5 +70,18 @@ class LocalDataImpl extends LocalDataRepo {
   @override
   Future<void> savedLanguage(String? lang) {
     return _.write(LANGUAGE, lang);
+  }
+
+  @override
+  ThemeMode getThemeMode() {
+    final key = _.read(THEME);
+    if (key == 'light') return ThemeMode.light;
+    if (key == 'dark') return ThemeMode.dark;
+    return ThemeMode.system;
+  }
+
+  @override
+  Future<void> savedThemeMode(String name) {
+    return _.write(THEME, name);
   }
 }

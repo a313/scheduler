@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 
 import '../../core/utils/util.dart';
-import '../events/components/calenar_component.dart';
 import 'components/background.dart';
 import 'components/event_chart.dart';
+import 'components/header.dart';
 import 'timetables_controller.dart';
 
 class TimetablesPage extends GetView<TimetablesController> {
@@ -15,46 +16,47 @@ class TimetablesPage extends GetView<TimetablesController> {
   Widget build(BuildContext context) {
     controller.autoScroll();
     return BaseScafoldAppBar(
-        title: 'Timetable'.tr,
+        titleWidget:
+            Text(controller.currentTime.value.toStringFormat('LLLL yyyy')),
+        centerTitle: false,
         fab: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            FloatingActionButton(
-              onPressed: controller.prevWeek,
-              mini: true,
-              backgroundColor: context.funcIcterine,
-              child: Icon(
-                Icons.keyboard_arrow_left,
-                color: context.neutral100,
+            SizedBox(
+              width: 30,
+              height: 30,
+              child: _Button(
+                onPressed: controller.prevWeek,
+                backgroundColor: context.primaryDark,
+                child: const Icon(Icons.keyboard_arrow_left),
               ),
             ),
-            FloatingActionButton(
-              onPressed: controller.curWeek,
-              mini: true,
-              backgroundColor: context.primaryDark,
-              child: Icon(
-                Icons.find_replace,
-                color: context.neutral100,
-              ),
+            sizedBoxW02,
+            SizedBox(
+              height: 30,
+              child: _Button(
+                  onPressed: controller.curWeek,
+                  backgroundColor: context.primaryDark,
+                  child: Text(
+                    'Today'.tr,
+                    style: AppFonts.h300,
+                  ).paddingSymmetric(horizontal: 4)),
             ),
-            FloatingActionButton(
-              onPressed: controller.nextWeek,
-              mini: true,
-              backgroundColor: context.funcCornflowerBlue,
-              child: Icon(
-                Icons.keyboard_arrow_right,
-                color: context.neutral100,
+            sizedBoxW02,
+            SizedBox(
+              width: 30,
+              height: 30,
+              child: _Button(
+                onPressed: controller.nextWeek,
+                backgroundColor: context.primaryDark,
+                child: const Icon(Icons.keyboard_arrow_right),
               ),
             ),
           ],
         ),
         body: Column(
           children: [
-            // const Header(),
-            CalendarComponent(
-              focusedDay: DateTime.now(),
-              onDaySelected: (selectedDay, focusedDay) {},
-            ),
+            Obx(() => Header(time: controller.currentTime.value)),
             Expanded(
               child: SingleChildScrollView(
                 controller: controller.scrollController,
@@ -80,5 +82,28 @@ class TimetablesPage extends GetView<TimetablesController> {
             ),
           ],
         ));
+  }
+}
+
+class _Button extends StatelessWidget {
+  const _Button(
+      {required this.child,
+      required this.onPressed,
+      required this.backgroundColor});
+  final Widget child;
+  final void Function() onPressed;
+  final Color backgroundColor;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        backgroundColor: backgroundColor,
+        padding: const EdgeInsets.all(2),
+        elevation: 0,
+      ),
+      onPressed: onPressed,
+      child: child,
+    );
   }
 }

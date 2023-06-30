@@ -15,6 +15,9 @@ class EventsPage extends GetView<EventsController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
+        centerTitle: false,
+        titleWidget: Obx(() =>
+            Text(controller.selectedDay.value.toStringFormat('LLLL yyyy'))),
         fab: FloatingActionButton(
           onPressed: controller.addEvent,
           backgroundColor: context.primaryDark,
@@ -25,6 +28,7 @@ class EventsPage extends GetView<EventsController> {
         ),
         body: Column(
           children: [
+            sizedBoxH04,
             Obx(() => CalendarComponent(
                   focusedDay: controller.selectedDay.value,
                   onDaySelected: controller.onDaySelected,

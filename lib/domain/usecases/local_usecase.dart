@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:scheduler/domain/repo_abs/local_data_repo_abs.dart';
 
 import '../entities/feature.dart';
@@ -53,5 +54,13 @@ class LocalUseCases {
 
   void savedLanguage(String? lang) {
     return _.savedLanguage(lang);
+  }
+
+  ThemeMode getThemeMode() {
+    return _.getThemeMode();
+  }
+
+  void savedThemeMode(ThemeMode mode) {
+    return _.savedThemeMode(mode.name);
   }
 }

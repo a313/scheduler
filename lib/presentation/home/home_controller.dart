@@ -43,10 +43,10 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
       Feature(
         key: eventPage,
         page: const EventsPage(),
-        item: const BottomNavigationBarItem(
-            icon: CalendarIcon(isActive: false),
-            activeIcon: CalendarIcon(isActive: true),
-            label: 'Calendar'),
+        item: BottomNavigationBarItem(
+            icon: const CalendarIcon(isActive: false),
+            activeIcon: const CalendarIcon(isActive: true),
+            label: 'Calendar'.tr),
       ),
       Feature(
         key: reminderPage,
@@ -56,7 +56,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
                 path: 'assets/svg/Regular/Gift.svg', colorFilter: normalColor),
             activeIcon: BarIcon(
                 path: 'assets/svg/Regular/Gift.svg', colorFilter: activeColor),
-            label: 'Reminder'),
+            label: 'Reminder'.tr),
       ),
       Feature(
         key: reportPage,
@@ -69,7 +69,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               path: 'assets/svg/Regular/CurrencyCircleDollar.svg',
               colorFilter: activeColor,
             ),
-            label: 'Report'),
+            label: 'Report'.tr),
       ),
       Feature(
         key: classPage,
@@ -82,7 +82,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               path: 'assets/svg/Regular/Chalkboard.svg',
               colorFilter: activeColor,
             ),
-            label: 'Class'),
+            label: 'Class'.tr),
       ),
       Feature(
         key: studentPage,
@@ -95,7 +95,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               path: 'assets/svg/Regular/Student.svg',
               colorFilter: activeColor,
             ),
-            label: 'Student'),
+            label: 'Student'.tr),
       ),
       Feature(
         key: hexPage,
@@ -108,7 +108,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               path: 'assets/svg/Regular/TerminalWindow.svg',
               colorFilter: activeColor,
             ),
-            label: 'Decode'),
+            label: 'Decode'.tr),
       ),
       Feature(
         key: timeTablePage,
@@ -121,7 +121,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               path: 'assets/svg/Regular/ChalkboardTeacher.svg',
               colorFilter: activeColor,
             ),
-            label: 'Timetable'),
+            label: 'Timetable'.tr),
       ),
       Feature(
         key: qrPage,
@@ -134,7 +134,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               path: 'assets/svg/Regular/QrCode.svg',
               colorFilter: activeColor,
             ),
-            label: 'QrCode'),
+            label: 'QrCode'.tr),
       ),
       Feature(
         key: settingPage,
@@ -146,7 +146,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               path: 'assets/svg/Regular/Gear.svg',
               colorFilter: activeColor,
             ),
-            label: 'Setting'),
+            label: 'Setting'.tr),
       ),
     ];
     getFeature(pinKeys: local.getPinFeatures());
@@ -178,7 +178,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
         activeIcon: BarIcon(
             path: 'assets/svg/Regular/DotsThreeOutline.svg',
             colorFilter: activeColor),
-        label: 'More');
+        label: 'More'.tr);
     barItems.add(more);
 
     update();

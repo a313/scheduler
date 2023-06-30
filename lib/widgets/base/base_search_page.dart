@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/widgets/base/base_button.dart';
 
@@ -94,7 +95,7 @@ class _BaseSearchPageState<T> extends State<BaseSearchPage<T>> {
             )),
             if (widget.isMultiSelect)
               BaseButton.fixBottom(
-                  title: 'Done',
+                  title: 'Done'.tr,
                   onPressed: () => Navigator.of(context).pop(selected))
           ],
         ));

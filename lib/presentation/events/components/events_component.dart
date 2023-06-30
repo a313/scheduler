@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
+import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/presentation/events/components/event_header.dart';
 import 'package:scheduler/presentation/events/components/event_item.dart';
@@ -34,7 +35,7 @@ class EventsComponent extends StatelessWidget {
           child: Padding(
             padding: padSymHor14Ver08,
             child: Text(
-              'No events',
+              'No events'.tr,
               style: AppFonts.bSmall.copyWith(color: context.neutral800),
             ),
           ),

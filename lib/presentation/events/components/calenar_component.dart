@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -27,9 +28,11 @@ class _CalendarComponentState extends State<CalendarComponent> {
     return Column(
       children: [
         TableCalendar(
+          locale: Get.locale?.toString(),
           focusedDay: widget.focusedDay,
           firstDay: firstDay,
           lastDay: lastDay,
+          startingDayOfWeek: StartingDayOfWeek.monday,
           calendarFormat: _calendarFormat,
           currentDay: DateTime.now(),
           selectedDayPredicate: (day) => isSameDay(widget.focusedDay, day),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/theme/app_fonts.dart';
@@ -38,8 +39,8 @@ class ClassRoomItem extends StatelessWidget {
                 sizedBoxH04,
                 Text(
                   data.timetables.isEmpty
-                      ? 'Not exist schedule'
-                      : 'Schedule: ${data.timetables.map((e) => e.dayInWeek.getDayOfWeek).join(", ")}',
+                      ? 'Not exist schedule'.tr
+                      : '${'Schedule'.tr}: ${data.timetables.map((e) => e.dayInWeek.getDayOfWeek).join(", ")}',
                   style: AppFonts.bSmall.copyWith(color: context.neutral900),
                 )
               ],

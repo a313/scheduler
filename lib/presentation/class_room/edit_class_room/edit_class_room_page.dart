@@ -20,7 +20,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
     return BaseScafoldAppBar(
-        title: isEdit ? "Edit class" : "Add class",
+        title: isEdit ? 'Edit class'.tr : 'Add class'.tr,
         body: Column(
           children: [
             Expanded(
@@ -32,25 +32,25 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                     children: [
                       AvatarPicker(onChangedAvatar: controller.onChangedImage),
                       BaseTextField(
-                        labelText: 'Class name',
+                        labelText: 'Class name'.tr,
                         controller: controller.classNameController,
                         textInputAction: TextInputAction.next,
                         onChanged: controller.onChangeClassName,
                         validator: (name) {
                           if (name == null || name.isEmpty) {
-                            return 'Class name can not be empty';
+                            return 'Class name can not be empty'.tr;
                           }
                           return null;
                         },
                       ),
                       BaseTextField(
-                        labelText: 'Location',
+                        labelText: 'Location'.tr,
                         controller: controller.locationController,
                         textInputAction: TextInputAction.next,
                         onChanged: controller.onChangeLocation,
                       ),
                       BaseTextField(
-                        labelText: 'Tuition',
+                        labelText: 'Tuition'.tr,
                         keyboardType: TextInputType.number,
                         controller: controller.tuitionController,
                         textInputAction: TextInputAction.next,
@@ -87,7 +87,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                           ),
                         ),
                         isMultiSelect: false,
-                        labelText: 'Remind Me',
+                        labelText: 'Remind me'.tr,
                         options: AlertType.values,
                         initValue: [controller.data.alert],
                         valueBuilder: (values) {
@@ -98,13 +98,13 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                         },
                       ),
                       BaseDateField(
-                        labelText: 'Create date',
+                        labelText: 'Create date'.tr,
                         initDate: controller.data.createDate,
                         timeFormat: DateFormater.ddMMYYYY,
                         onSelected: controller.onChangeCreateDate,
                       ),
                       BaseSwitchField(
-                        labelText: 'Active?',
+                        labelText: 'Active?'.tr,
                         initState: controller.data.isOpen,
                         onChanged: controller.onChangedOpen,
                       ),
@@ -112,7 +112,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Schedule',
+                            'Schedule'.tr,
                             style: AppFonts.bMedium
                                 .copyWith(color: context.primaryDark),
                           ),
@@ -127,7 +127,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                                       ))
                                 ..add(
                                   AddCell(
-                                      title: 'Add schedule',
+                                      title: 'Add schedule'.tr,
                                       onTapped: controller.onAddTimetable),
                                 ),
                             ),
@@ -140,7 +140,7 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
               ),
             ),
             BaseButton.fixBottom(
-              title: isEdit ? "Update" : "Add",
+              title: isEdit ? 'Update'.tr : 'Add'.tr,
               onPressed: controller.onInsertOrUpdate,
             ),
           ],

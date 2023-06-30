@@ -53,6 +53,8 @@ class _MainAppState extends State<MainApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       theme: AppTheme().lightTheme,
+      darkTheme: AppTheme().darkTheme,
+      themeMode: ThemeMode.system,
       getPages: AppPages.pages,
       initialRoute: initialRoute,
     );

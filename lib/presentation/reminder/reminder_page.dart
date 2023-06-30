@@ -17,6 +17,7 @@ class ReminderPage extends GetView<ReminderController> {
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
       fab: FloatingActionButton(
+        heroTag: runtimeType,
         onPressed: controller.addReminder,
         backgroundColor: context.primaryDark,
         child: Icon(

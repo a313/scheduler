@@ -15,8 +15,9 @@ class StudentsPage extends GetView<StudentsController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
-      title: 'Students'.tr,
+      title: 'Student'.tr,
       fab: FloatingActionButton(
+        heroTag: runtimeType,
         onPressed: controller.addStudent,
         backgroundColor: context.primaryDark,
         child: Icon(

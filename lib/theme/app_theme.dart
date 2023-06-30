@@ -46,13 +46,13 @@ class AppTheme {
   );
 
   final darkTheme = ThemeData.dark().copyWith(
-    scaffoldBackgroundColor: AppDarkColors.neutral100,
-    primaryColor: AppDarkColors.primaryLight,
+    scaffoldBackgroundColor: AppDarkColors.neutral200,
+    primaryColor: AppDarkColors.primaryDark,
     colorScheme: const ColorScheme.light(
         background: AppDarkColors.neutral100,
         error: AppDarkColors.funcRadicalRed),
 
-    disabledColor: AppDarkColors.neutral1100.withOpacity(0.24),
+    disabledColor: AppDarkColors.neutral100.withOpacity(0.24),
     cardColor: AppDarkColors.neutral100,
     secondaryHeaderColor: AppDarkColors.primaryLight,
     hintColor: AppDarkColors.primaryDark,
@@ -72,7 +72,7 @@ class AppTheme {
       color: AppDarkColors.neutral100,
       centerTitle: true,
       elevation: 0.5,
-      iconTheme: const IconThemeData(color: AppDarkColors.primaryDark),
+      iconTheme: const IconThemeData(color: AppDarkColors.neutral1100),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: AppDarkColors.primaryDark,

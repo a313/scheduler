@@ -42,7 +42,7 @@ class _EventBottomSheetState extends State<EventBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return BaseBottomSheet(
-        title: '${widget.event.name} State',
+        title: widget.event.name,
         subTitle: CupertinoSwitch(
           activeColor: context.primaryDark,
           value: event.isActive,

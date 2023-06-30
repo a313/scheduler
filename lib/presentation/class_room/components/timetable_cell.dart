@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 
 import '../../../data/models/timetable.dart';
@@ -27,7 +28,7 @@ class TimetableCell extends StatelessWidget {
             color: context.funcRadicalRed,
           ),
           Text(
-              'On ${data.dayInWeek.getDayOfWeek} from ${data.begin.formated} to ${data.end.formated}'),
+              '${'On'.tr} ${data.dayInWeek.getDayOfWeek} ${'from'.tr} ${data.begin.formated} ${'to'.tr} ${data.end.formated}'),
         ],
       ),
     );

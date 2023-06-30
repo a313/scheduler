@@ -52,7 +52,7 @@ class EditStudentPage extends GetView<EditStudentController> {
                             selectedBuilder: (_, obj) =>
                                 ClassRoomItem(data: obj, isSelected: true),
                             isMultiSelect: true,
-                            labelText: 'Class Room',
+                            labelText: 'Class room',
                             options: controller.allClassRoom,
                             initValue: controller.selectedClassRoom.value,
                             valueBuilder: (values) {

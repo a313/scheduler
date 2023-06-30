@@ -15,7 +15,7 @@ class SettingPage extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
-        title: 'Setting',
+        title: 'Setting'.tr,
         backgroundColor: context.neutral200,
         body: GetBuilder<SettingController>(
           builder: (_) {
@@ -34,10 +34,10 @@ class SettingPage extends GetView<SettingController> {
                         ),
                         const CustomDivider(indent: 48),
                         SettingCell(
-                          prefix:
-                              SvgPicture.asset('assets/svg/Regular/Timer.svg'),
+                          prefix: const Icon(Icons.dark_mode),
                           label: 'Appearance'.tr,
-                          onTap: controller.onTapSchedule,
+                          content: controller.theme.tr,
+                          onTap: controller.onTapAppearance,
                         )
                       ],
                     ),

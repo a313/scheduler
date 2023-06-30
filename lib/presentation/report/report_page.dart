@@ -14,7 +14,7 @@ class ReportPage extends GetView<ReportController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
-        title: 'Report',
+        title: 'Report'.tr,
         body: SafeArea(
           child: Column(
             children: [
@@ -24,7 +24,7 @@ class ReportPage extends GetView<ReportController> {
                   children: [
                     Expanded(
                       child: BaseDateField(
-                          labelText: 'Start',
+                          labelText: 'Start'.tr,
                           initDate: controller.startDate,
                           onSelected: controller.onChangeStart,
                           timeFormat: DateFormater.ddMMYYYY),
@@ -32,7 +32,7 @@ class ReportPage extends GetView<ReportController> {
                     sizedBoxW12,
                     Expanded(
                       child: BaseDateField(
-                          labelText: 'End',
+                          labelText: 'End'.tr,
                           initDate: controller.endDate,
                           onSelected: controller.onChangeEnd,
                           timeFormat: DateFormater.ddMMYYYY),

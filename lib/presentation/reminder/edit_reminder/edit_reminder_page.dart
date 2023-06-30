@@ -46,7 +46,7 @@ class EditReminderPage extends GetView<EditReminderController> {
                           },
                         ),
                         BaseDateField(
-                          labelText: 'Remind Date',
+                          labelText: 'Remind date',
                           initDate: data.remindDate,
                           timeFormat: DateFormater.ddMMYYYY,
                           onSelected: controller.onChangeRemindDate,
@@ -96,7 +96,7 @@ class EditReminderPage extends GetView<EditReminderController> {
                           BaseSelectField<int>(
                             key: UniqueKey(),
                             isMultiSelect: false,
-                            labelText: 'Repeat Interval',
+                            labelText: 'Repeat interval',
                             options: const [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                             initValue: [data.interval],
                             onSelected: controller.onSelectInterval,
@@ -140,7 +140,7 @@ class EditReminderPage extends GetView<EditReminderController> {
                           BaseDateField(
                             mode: CupertinoDatePickerMode.time,
                             initDate: controller.getAlertTime(),
-                            labelText: 'Remind Time',
+                            labelText: 'Remind time',
                             onSelected: controller.onSelectedAlertTime,
                             timeFormat: DateFormater.HHmm,
                           ),
@@ -175,7 +175,7 @@ class EditReminderPage extends GetView<EditReminderController> {
                               ),
                             ),
                             isMultiSelect: false,
-                            labelText: 'Remind Me'.tr,
+                            labelText: 'Remind me'.tr,
                             options: AlertType.values,
                             initValue: [controller.data.alert],
                             valueBuilder: (values) {

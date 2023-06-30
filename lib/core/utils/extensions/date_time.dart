@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../constants/date_format.dart';
 
 extension DateExtension on DateTime {
   String toStringFormat(String format) {
-    return DateFormat(format).format(toLocal());
+    return DateFormat(format, (Get.locale ?? Get.fallbackLocale)!.toString())
+        .format(toLocal());
   }
 
   DateTime dateWithoutSecond() {
@@ -30,7 +32,7 @@ extension DateExtension on DateTime {
 
   /// 13:00 ngày 21
   String toEdString() {
-    return "${DateFormat("HH:mm").format(this)} ngày ${DateFormat("dd").format(this)}";
+    return '${DateFormat('HH:mm').format(this)} ngày ${DateFormat('dd').format(this)}';
   }
 
   String toTimeDateString() {
@@ -49,13 +51,13 @@ extension DateExtension on DateTime {
   }
 
   bool isTomorrow() {
-    final now = DateTime.now();
-    return year == now.year && month == now.month && day == now.day + 1;
+    final tmp = subtract(const Duration(days: 1));
+    return tmp.isToday();
   }
 
   bool isYesterday() {
-    final now = DateTime.now();
-    return year == now.year && month == now.month && day == now.day - 1;
+    final tmp = add(const Duration(days: 1));
+    return tmp.isToday();
   }
 
   String getPassedTime() {
@@ -65,16 +67,16 @@ extension DateExtension on DateTime {
     final m = now.month - month;
     final d = now.day - day;
     if (y > 0) {
-      result += "$y years ";
+      result += '$y ${'years'.tr} ';
     }
     if (m > 0) {
-      result += "$m months ";
+      result += '$m ${'months'.tr} ';
     }
     if (d > 0) {
-      result += "$d days";
+      result += '$d ${'days'.tr} ';
     }
 
-    if (result.isEmpty) return "Just created";
+    if (result.isEmpty) return 'Just created'.tr;
     return result;
   }
 

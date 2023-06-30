@@ -15,10 +15,10 @@ class ClassRoomPage extends GetView<ClassRoomController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
-      title: 'Class Rooms',
+      title: 'Class room'.tr,
       fab: FloatingActionButton(
+        backgroundColor: context.primaryDark,
         onPressed: controller.addClassRoom,
-        backgroundColor: context.funcBitterLemon,
         child: Icon(
           Icons.add,
           color: context.neutral100,

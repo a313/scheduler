@@ -21,7 +21,7 @@ class EditEventPage extends GetView<EditEventController> {
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
     return BaseScafoldAppBar(
-        title: isEdit ? "Edit Event" : "New Event",
+        title: isEdit ? 'Edit event'.tr : 'New event'.tr,
         body: Column(
           children: [
             Expanded(
@@ -32,26 +32,26 @@ class EditEventPage extends GetView<EditEventController> {
                   child: Column(
                     children: [
                       BaseTextField(
-                        labelText: 'Tittle',
+                        labelText: 'Tittle'.tr,
                         controller: controller.nameController,
                         textInputAction: TextInputAction.next,
                         onChanged: controller.onChangeTitle,
                         validator: (name) {
                           if (name == null || name.isEmpty) {
-                            return 'Title cannot be empty';
+                            return 'Title cannot be empty'.tr;
                           }
                           return null;
                         },
                       ),
                       BaseDateField(
-                        labelText: 'Start Time',
+                        labelText: 'Start time'.tr,
                         initDate: controller.data.startTime,
                         onSelected: controller.onSelectStartTime,
                         mode: CupertinoDatePickerMode.dateAndTime,
                         timeFormat: DateFormater.MMddyyyyHHmm,
                       ),
                       BaseDateField(
-                        labelText: 'End Time',
+                        labelText: 'End time'.tr,
                         initDate: controller.data.endTime,
                         onSelected: controller.onSelectEndTime,
                         mode: CupertinoDatePickerMode.dateAndTime,
@@ -67,7 +67,7 @@ class EditEventPage extends GetView<EditEventController> {
                             selectedBuilder: (_, obj) =>
                                 ClassRoomItem(data: obj, isSelected: true),
                             isMultiSelect: true,
-                            labelText: 'Class Room',
+                            labelText: 'Class room'.tr,
                             options: controller.allClassRoom,
                             initValue: controller.selectedClassRoom.value,
                             valueBuilder: (values) {
@@ -86,7 +86,7 @@ class EditEventPage extends GetView<EditEventController> {
                             selectedBuilder: (_, obj) => MultiSelectStudentCell(
                                 data: obj, didSelect: true),
                             isMultiSelect: true,
-                            labelText: 'Students',
+                            labelText: 'Student'.tr,
                             options: controller.allStudent,
                             initValue: controller.selectedStudent.value,
                             valueBuilder: (values) {
@@ -127,7 +127,7 @@ class EditEventPage extends GetView<EditEventController> {
                           ),
                         ),
                         isMultiSelect: false,
-                        labelText: 'Remind Me',
+                        labelText: 'Remind me'.tr,
                         options: AlertType.values,
                         initValue: [controller.data.alert],
                         valueBuilder: (values) {
@@ -179,12 +179,12 @@ class EditEventPage extends GetView<EditEventController> {
                       //   },
                       // ),
                       BaseTextField(
-                        labelText: 'Location',
+                        labelText: 'Location'.tr,
                         controller: controller.locationController,
                         onChanged: controller.onChangeLocation,
                       ),
                       BaseTextField(
-                        labelText: 'Note',
+                        labelText: 'Note'.tr,
                         controller: controller.noteController,
                         textInputAction: TextInputAction.done,
                         onChanged: controller.onChangeNote,
@@ -196,7 +196,7 @@ class EditEventPage extends GetView<EditEventController> {
               ),
             ),
             BaseButton.fixBottom(
-              title: isEdit ? "Update" : "Add",
+              title: isEdit ? 'Update'.tr : 'Add'.tr,
               onPressed: controller.onInsertOrUpdate,
             )
           ],

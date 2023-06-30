@@ -81,36 +81,10 @@ class BaseTextField extends StatelessWidget {
         prefixIcon: prefix,
         suffixIcon: suffix,
         labelText: labelText,
-        // filled: true,
         fillColor: enabled ? context.neutral100 : context.neutral300,
         labelStyle: (textStyle ?? AppFonts.pMedium).copyWith(height: 1),
         hintStyle: (textStyle ?? AppFonts.pMedium)
             .copyWith(color: context.neutral600, height: 1),
-        // border: OutlineInputBorder(
-        //   borderSide: BorderSide(color: context.neutral300, width: 2.0),
-        //   borderRadius: borRad08,
-        // ),
-        // enabledBorder: OutlineInputBorder(
-        //   borderSide: BorderSide(color: context.neutral300, width: 2.0),
-        //   borderRadius: borRad08,
-        // ),
-        // focusedBorder: OutlineInputBorder(
-        //   borderSide: BorderSide(color: context.primaryDark, width: 2.0),
-        //   borderRadius: borRad08,
-        // ),
-        // focusedErrorBorder: OutlineInputBorder(
-        //   borderSide: BorderSide(color: context.funcRadicalRed, width: 2.0),
-        //   borderRadius: borRad08,
-        // ),
-        // errorBorder: OutlineInputBorder(
-        //   borderSide: BorderSide(color: context.funcRadicalRed, width: 2.0),
-        //   borderRadius: borRad08,
-        // ),
-        // disabledBorder: OutlineInputBorder(
-        //   borderSide: BorderSide(color: context.neutral300, width: 2.0),
-        //   borderRadius: borRad08,
-        // ),
-
         helperMaxLines: 1,
         counter: const SizedBox(),
         helperText: helperText,

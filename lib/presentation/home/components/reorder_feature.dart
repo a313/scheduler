@@ -1,7 +1,7 @@
-import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/widgets/base/base_bottom_sheet.dart';
@@ -60,7 +60,7 @@ class _ReorderFeatureBottomSheetState extends State<ReorderFeatureBottomSheet> {
     }
 
     return BaseBottomSheet(
-      title: 'Reorder Features',
+      title: 'Reorder Features'.tr,
       child: ReorderableListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         header: const _Header(),
@@ -86,7 +86,6 @@ class _ReorderFeatureBottomSheetState extends State<ReorderFeatureBottomSheet> {
         },
         itemCount: items.length + 1,
         onReorder: (int oldIndex, int newIndex) {
-          log('old:$oldIndex - new:$newIndex - pinCount: $pinCount');
           setState(() {
             if (oldIndex < newIndex) {
               newIndex -= 1;
@@ -98,17 +97,13 @@ class _ReorderFeatureBottomSheetState extends State<ReorderFeatureBottomSheet> {
               oldIndex -= 1;
             }
             if (oldIndex >= pinCount && newIndex <= pinCount) {
-              log('Swap Unpin -> Pin');
               if (pinCount < 4) {
                 pinCount += 1;
               }
             } else if (oldIndex < pinCount && newIndex >= pinCount) {
               pinCount -= 1;
               newIndex -= 1;
-              log('Swap Pin -> Unpin');
             }
-
-            log('old2:$oldIndex - new2:$newIndex - pinCount: $pinCount');
 
             final item = items.removeAt(oldIndex);
             items.insert(newIndex, item);
@@ -262,10 +257,9 @@ class _MoreDivider extends StatelessWidget {
       ignoring: true,
       child: Container(
         color: context.neutral200,
-        height: 40,
         padding: padAll12,
         child: Text(
-          'More features',
+          'More features'.tr,
           style: AppFonts.bSmall.copyWith(color: context.neutral900),
         ),
       ),
@@ -281,9 +275,8 @@ class _Header extends StatelessWidget {
     return Container(
       color: context.neutral200,
       padding: padAll12,
-      height: 40,
       child: Text(
-        'Pin to the bottom',
+        'Pin to the bottom'.tr,
         style: AppFonts.bSmall.copyWith(color: context.neutral900),
       ),
     );

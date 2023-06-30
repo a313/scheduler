@@ -16,6 +16,7 @@ class SchedulesPage extends GetView<SchedulesController> {
     return BaseScafoldAppBar(
         title: 'Schedules'.tr,
         fab: FloatingActionButton(
+          heroTag: runtimeType,
           onPressed: controller.addSchedule,
           backgroundColor: context.primaryDark,
           child: Icon(

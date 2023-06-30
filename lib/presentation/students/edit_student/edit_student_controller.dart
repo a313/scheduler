@@ -113,16 +113,4 @@ class EditStudentController extends BaseController
       log('err');
     }
   }
-
-  // Future<void> onAddClassRoom() async {
-  //   final value = await Get.to(BaseSearchPage<ClassRoom>(
-  //     isMultiSelect: true,
-  //     title: 'Chọn lớp học',
-  //     searchBy: (c, search) =>
-  //         c.name.toLowerCase().contains(search.toLowerCase()),
-  //     itemBuilder: (_, obj) => ClassRoomItem(data: obj),
-  //     selectedBuilder: (_, obj) => ClassRoomItem(data: obj, isSelected: true),
-  //     options: allClassRoom,
-  //   ));
-  // }
 }

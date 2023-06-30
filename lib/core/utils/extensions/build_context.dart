@@ -30,27 +30,27 @@ extension BuildContextExtension on BuildContext {
       : AppDarkColors.funcRadicalRed;
 
   Color get neutral100 =>
-      isLightMode ? AppLightColors.neutral100 : AppDarkColors.neutral1100;
+      isLightMode ? AppLightColors.neutral100 : AppDarkColors.neutral100;
   Color get neutral200 =>
-      isLightMode ? AppLightColors.neutral200 : AppDarkColors.neutral1000;
+      isLightMode ? AppLightColors.neutral200 : AppDarkColors.neutral200;
   Color get neutral300 =>
-      isLightMode ? AppLightColors.neutral300 : AppDarkColors.neutral900;
+      isLightMode ? AppLightColors.neutral300 : AppDarkColors.neutral300;
   Color get neutral400 =>
-      isLightMode ? AppLightColors.neutral400 : AppDarkColors.neutral800;
+      isLightMode ? AppLightColors.neutral400 : AppDarkColors.neutral400;
   Color get neutral500 =>
-      isLightMode ? AppLightColors.neutral500 : AppDarkColors.neutral700;
+      isLightMode ? AppLightColors.neutral500 : AppDarkColors.neutral500;
   Color get neutral600 =>
       isLightMode ? AppLightColors.neutral600 : AppDarkColors.neutral600;
   Color get neutral700 =>
-      isLightMode ? AppLightColors.neutral700 : AppDarkColors.neutral500;
+      isLightMode ? AppLightColors.neutral700 : AppDarkColors.neutral700;
   Color get neutral800 =>
-      isLightMode ? AppLightColors.neutral800 : AppDarkColors.neutral400;
+      isLightMode ? AppLightColors.neutral800 : AppDarkColors.neutral800;
   Color get neutral900 =>
-      isLightMode ? AppLightColors.neutral900 : AppDarkColors.neutral300;
+      isLightMode ? AppLightColors.neutral900 : AppDarkColors.neutral900;
   Color get neutral1000 =>
-      isLightMode ? AppLightColors.neutral1000 : AppDarkColors.neutral200;
+      isLightMode ? AppLightColors.neutral1000 : AppDarkColors.neutral1000;
   Color get neutral1100 =>
-      isLightMode ? AppLightColors.neutral1100 : AppDarkColors.neutral100;
+      isLightMode ? AppLightColors.neutral1100 : AppDarkColors.neutral1100;
   Color get bgColor =>
       isLightMode ? AppLightColors.bgColor : AppDarkColors.bgColor;
 
