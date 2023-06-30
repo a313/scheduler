@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/presentation/timetables/components/header.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 
 import '../../core/utils/util.dart';
+import '../events/components/calenar_component.dart';
 import 'components/background.dart';
 import 'components/event_chart.dart';
 import 'timetables_controller.dart';
@@ -50,7 +50,11 @@ class TimetablesPage extends GetView<TimetablesController> {
         ),
         body: Column(
           children: [
-            const Header(),
+            // const Header(),
+            CalendarComponent(
+              focusedDay: DateTime.now(),
+              onDaySelected: (selectedDay, focusedDay) {},
+            ),
             Expanded(
               child: SingleChildScrollView(
                 controller: controller.scrollController,
