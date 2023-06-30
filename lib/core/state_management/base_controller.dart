@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:get/get.dart';
 import 'package:scheduler/data/models/reminder.dart';
 import 'package:scheduler/data/models/student.dart';
@@ -26,6 +28,10 @@ class BaseController extends GetxController with BaseCommonWidgets {
 
   set allReminder(List<Reminder> newValue) => global.allReminder = newValue;
   List<Reminder> get allReminder => global.allReminder;
+
+  void updateLocale(Locale newLocale) {
+    Get.updateLocale(newLocale);
+  }
 
   void generateNotificaion() async {
     final result = await Get.find<EventUseCases>().getEventsFrom(

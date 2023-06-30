@@ -7,11 +7,13 @@ import 'app_light_colors.dart';
 class AppTheme {
   final lightTheme = ThemeData.light().copyWith(
     textTheme: GoogleFonts.manropeTextTheme(),
+    iconTheme: const IconThemeData(color: AppLightColors.iconColor, size: 28),
     scaffoldBackgroundColor: AppLightColors.neutral100,
     primaryColor: AppLightColors.primaryLight,
     colorScheme: const ColorScheme.light(
-        background: AppLightColors.neutral100,
-        error: AppLightColors.funcRadicalRed),
+      background: AppLightColors.neutral100,
+      error: AppLightColors.funcRadicalRed,
+    ),
 
     disabledColor: AppLightColors.neutral1100.withOpacity(0.24),
     cardColor: AppLightColors.neutral100,
@@ -29,12 +31,14 @@ class AppTheme {
     ),
     // inputDecorationTheme: const InputDecorationTheme(),
     appBarTheme: const AppBarTheme().copyWith(
-      shadowColor: AppLightColors.neutral200,
-      color: AppLightColors.neutral100,
-      centerTitle: true,
-      elevation: 0.5,
-      iconTheme: const IconThemeData(color: AppLightColors.primaryDark),
-    ),
+        shadowColor: AppLightColors.neutral300,
+        color: AppLightColors.funcCornflowerBlue,
+        centerTitle: true,
+        elevation: 0.5,
+        foregroundColor: AppLightColors.neutral100,
+        iconTheme: const IconThemeData(color: AppLightColors.neutral100),
+        actionsIconTheme:
+            const IconThemeData(color: AppLightColors.neutral800)),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: AppLightColors.primaryDark,
     ),

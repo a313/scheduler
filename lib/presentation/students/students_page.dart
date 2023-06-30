@@ -15,6 +15,7 @@ class StudentsPage extends GetView<StudentsController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
+      title: 'Students'.tr,
       fab: FloatingActionButton(
         onPressed: controller.addStudent,
         backgroundColor: context.primaryDark,
@@ -26,13 +27,12 @@ class StudentsPage extends GetView<StudentsController> {
       actions: [
         TextButton(
           onPressed: controller.onTappedFilter,
-          child: const Text(
-            'Grouping',
+          child: Text(
+            'Grouping'.tr,
             style: AppFonts.bSmall,
           ),
         )
       ],
-      title: 'Students',
       body: SafeArea(
         child: controller.obx(
           (state) => CustomScrollView(
@@ -48,8 +48,8 @@ class StudentsPage extends GetView<StudentsController> {
           })),
           onLoading:
               const Padding(padding: padAll16, child: ShimmerListWidget()),
-          onEmpty: const Center(
-            child: Text("Not exist student"),
+          onEmpty: Center(
+            child: Text('Not exist student'.tr),
           ),
         ),
       ),

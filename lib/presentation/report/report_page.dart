@@ -52,8 +52,8 @@ class ReportPage extends GetView<ReportController> {
                 ),
                 onLoading: const Padding(
                     padding: padAll16, child: ShimmerListWidget()),
-                onEmpty: const Center(
-                  child: Text("Not exist data"),
+                onEmpty: Center(
+                  child: Text('Not exist data'.tr),
                 ),
               ))
             ],

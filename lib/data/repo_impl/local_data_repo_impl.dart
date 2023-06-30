@@ -60,4 +60,14 @@ class LocalDataImpl extends LocalDataRepo {
   Future<void> savedOtherFeatures(List<String> keys) {
     return _.write(OTHER_FEATURES, keys);
   }
+
+  @override
+  String? getLanguage() {
+    return _.read(LANGUAGE);
+  }
+
+  @override
+  Future<void> savedLanguage(String? lang) {
+    return _.write(LANGUAGE, lang);
+  }
 }

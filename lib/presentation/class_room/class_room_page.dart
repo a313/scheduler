@@ -27,7 +27,7 @@ class ClassRoomPage extends GetView<ClassRoomController> {
       actions: [
         TextButton(
           onPressed: controller.onTappedFilter,
-          child: const Text('Filter', style: AppFonts.bSmall),
+          child: Text('Filter'.tr, style: AppFonts.bSmall),
         )
       ],
       body: SafeArea(
@@ -43,8 +43,8 @@ class ClassRoomPage extends GetView<ClassRoomController> {
               }),
           onLoading:
               const Padding(padding: padAll16, child: ShimmerListWidget()),
-          onEmpty: const Center(
-            child: Text("Chưa có lớp học"),
+          onEmpty: Center(
+            child: Text('Not exist class room'.tr),
           ),
         ),
       ),

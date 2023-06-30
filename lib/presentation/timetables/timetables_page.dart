@@ -15,7 +15,7 @@ class TimetablesPage extends GetView<TimetablesController> {
   Widget build(BuildContext context) {
     controller.autoScroll();
     return BaseScafoldAppBar(
-        title: 'Timetable',
+        title: 'Timetable'.tr,
         fab: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -72,7 +72,7 @@ class TimetablesPage extends GetView<TimetablesController> {
                                     onTapped: controller.onTappedEvent,
                                   ),
                               onLoading: const SizedBox(),
-                              onEmpty: const Center(child: Text('No data')))),
+                              onEmpty: Center(child: Text('No data'.tr)))),
                     ],
                   ),
                 ),

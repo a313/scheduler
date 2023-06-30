@@ -16,7 +16,7 @@ class EditSchedulePage extends GetView<EditScheduleController> {
     final isEdit = controller.initData != null;
     final data = controller.data;
     return BaseScafoldAppBar(
-        title: isEdit ? "Edit Schedule" : "Add Schedule",
+        title: isEdit ? 'Edit Schedule'.tr : 'Add Schedule'.tr,
         body: Column(children: [
           Expanded(
             child: Padding(
@@ -27,19 +27,19 @@ class EditSchedulePage extends GetView<EditScheduleController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BaseTextField(
-                      labelText: 'Schedule name',
+                      labelText: 'Schedule name'.tr,
                       autofocus: true,
                       controller: controller.nameController,
                       textInputAction: TextInputAction.next,
                       onChanged: controller.onChangeName,
                       validator: (name) {
                         if (name == null || name.isEmpty) {
-                          return 'Schedule name can not be empty';
+                          return 'Schedule name can not be empty'.tr;
                         }
                         return null;
                       },
                     ),
-                    const Text('Time Range', style: AppFonts.bLarge),
+                    Text('Time Range'.tr, style: AppFonts.bLarge),
                     sizedBoxH16,
                     SizedBox(
                       key: UniqueKey(),
@@ -55,7 +55,7 @@ class EditSchedulePage extends GetView<EditScheduleController> {
                               onDateTimeChanged: controller.onChangedBegin,
                             ),
                           ),
-                          const Text('to'),
+                          Text('to'.tr),
                           Expanded(
                             child: CupertinoDatePicker(
                               use24hFormat: true,
@@ -74,7 +74,7 @@ class EditSchedulePage extends GetView<EditScheduleController> {
             ),
           ),
           BaseButton.fixBottom(
-            title: isEdit ? "Update" : "Add",
+            title: isEdit ? "Update".tr : "Add".tr,
             onPressed: controller.onInsertOrUpdate,
           )
         ]));

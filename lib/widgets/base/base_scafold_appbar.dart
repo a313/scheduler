@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
 
 class BaseScafold extends StatelessWidget {
   const BaseScafold({
@@ -122,9 +120,7 @@ class BaseScafoldAppBar extends StatelessWidget {
         actions: actions,
         automaticallyImplyLeading: showBackBtn,
         systemOverlayStyle: systemOverlayStyle,
-        title: titleWidget ??
-            Text(title ?? '',
-                style: AppFonts.h400.copyWith(color: context.neutral1100)),
+        title: titleWidget ?? Text(title ?? ''),
       ),
     );
   }

@@ -175,7 +175,7 @@ class EditReminderPage extends GetView<EditReminderController> {
                               ),
                             ),
                             isMultiSelect: false,
-                            labelText: 'Remind Me',
+                            labelText: 'Remind Me'.tr,
                             options: AlertType.values,
                             initValue: [controller.data.alert],
                             valueBuilder: (values) {
@@ -194,7 +194,7 @@ class EditReminderPage extends GetView<EditReminderController> {
               ),
             ),
             BaseButton.fixBottom(
-              title: isEdit ? "Update" : "Add",
+              title: isEdit ? "Update".tr : "Add".tr,
               onPressed: controller.onInsertOrUpdate,
             )
           ],

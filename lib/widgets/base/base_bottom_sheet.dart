@@ -1,7 +1,5 @@
 // ignore_for_file: constant_identifier_names
 
-import 'dart:io';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:scheduler/core/utils/util.dart';
@@ -15,18 +13,19 @@ class BaseBottomSheet extends StatelessWidget {
   const BaseBottomSheet({
     Key? key,
     required this.child,
-    required this.title,
+    this.title,
     this.subTitle,
     this.bottomButton = false,
   }) : super(key: key);
 
   final Widget child;
-  final String title;
+  final String? title;
   final Widget? subTitle;
   final bool bottomButton;
 
   @override
   Widget build(BuildContext context) {
+    final hasHeader = title != null || subTitle != null;
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: Column(
@@ -43,33 +42,30 @@ class BaseBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.fromLTRB(16.0, 16.0, 0.0, 16.0),
-                        child: AutoSizeText(
-                          title,
-                          maxLines: 1,
-                          minFontSize: 6,
-                          style: AppFonts.h400
-                              .copyWith(color: context.neutral1100),
+                if (hasHeader)
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding:
+                              const EdgeInsets.fromLTRB(16.0, 16.0, 0.0, 16.0),
+                          child: AutoSizeText(
+                            title ?? '',
+                            maxLines: 1,
+                            minFontSize: 6,
+                            style: AppFonts.h400
+                                .copyWith(color: context.neutral1100),
+                          ),
                         ),
                       ),
-                    ),
-                    subTitle ?? const SizedBox(),
-                  ],
-                ),
-                const CustomDivider(),
+                      subTitle ?? const SizedBox(),
+                    ],
+                  ),
+                if (hasHeader) const CustomDivider(),
                 ConstrainedBox(
                     constraints:
                         BoxConstraints(maxHeight: context.screenHeight * 0.8),
-                    child: child),
-                SizedBox(
-                  height: 8.0 +
-                      (Platform.isAndroid ? context.viewPadding.bottom : 0.0),
-                )
+                    child: SafeArea(child: child)),
               ],
             ),
           ),

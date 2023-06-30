@@ -37,7 +37,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
                             key: UniqueKey(),
                             isMultiSelect: false,
                             onSelected: controller.onSelected,
-                            labelText: 'Pick Schedule',
+                            labelText: 'Pick Schedule'.tr,
                             options: state!,
                             initValue: controller.initSchedule,
                             itemBuilder: (context, data) =>
@@ -53,7 +53,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
                               return values.map((e) => e.name).join(", ");
                             },
                           ),
-                          const Text('Time Range', style: AppFonts.bLarge),
+                          Text('Time Range'.tr, style: AppFonts.bLarge),
                           sizedBoxH16,
                           SizedBox(
                             key: UniqueKey(),
@@ -70,7 +70,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
                                         controller.onChangedBegin,
                                   ),
                                 ),
-                                const Text('to'),
+                                Text('to'.tr),
                                 Expanded(
                                   child: CupertinoDatePicker(
                                     use24hFormat: true,
@@ -86,7 +86,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
                         ]);
                   }, onLoading: const ShimmerTable()))),
           BaseButton.fixBottom(
-            title: isEdit ? "Update" : "Add",
+            title: isEdit ? 'Update'.tr : 'Add'.tr,
             onPressed: controller.onUpdate,
           )
         ]));

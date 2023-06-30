@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppLightColors {
   static const transparent = Colors.transparent;
+  static const iconColor = Color(0xFF49536E);
   static const primaryDark = Color(0xFF214099);
   static const primaryLight = Color(0xFFF27029);
   static const disableColor = Color(0x80080C0C);
