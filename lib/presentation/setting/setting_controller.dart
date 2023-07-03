@@ -70,28 +70,19 @@ class SettingController extends BaseController {
       children: [
         SelectableCell(
           label: 'System',
-          // onTap: () => Get.back(result: ThemeMode.system),
-          onTap: () {
-            changeAppIcon('icon1');
-          },
+          onTap: () => Get.back(result: ThemeMode.system),
           isSelected: currentMode == ThemeMode.system,
         ),
         const CustomDivider(),
         SelectableCell(
           label: 'Light theme',
-          // onTap: () => Get.back(result: ThemeMode.light),
-          onTap: () {
-            changeAppIcon("icon2");
-          },
+          onTap: () => Get.back(result: ThemeMode.light),
           isSelected: currentMode == ThemeMode.light,
         ),
         const CustomDivider(),
         SelectableCell(
           label: 'Dark theme',
-          // onTap: () => Get.back(result: ThemeMode.dark),
-          onTap: () {
-            changeAppIcon("icon3");
-          },
+          onTap: () => Get.back(result: ThemeMode.dark),
           isSelected: currentMode == ThemeMode.dark,
         ),
       ],

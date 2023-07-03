@@ -47,7 +47,7 @@ dev_dependencies:
   json_serializable: any
 
 icons_launcher:
-  image_path: "assets/app_icon3.jpeg"
+  image_path: "assets/app_icon.jpg"
   platforms:
     android:
       enable: true
