@@ -60,7 +60,7 @@ class LocalUseCases {
     return _.getThemeMode();
   }
 
-  void savedThemeMode(ThemeMode mode) {
+  Future<void> savedThemeMode(ThemeMode mode) {
     return _.savedThemeMode(mode.name);
   }
 }

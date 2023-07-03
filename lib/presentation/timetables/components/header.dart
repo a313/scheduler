@@ -48,13 +48,13 @@ class _Date extends StatelessWidget {
               BoxDecoration(borderRadius: borRad16, color: context.primaryDark),
           child: Text(
             '${(incr + 1).getDayOfWeek}, ${r.day}',
-            style: AppFonts.h300.copyWith(color: context.neutral100),
+            style: AppFonts.h200.copyWith(color: context.neutral100),
             textAlign: TextAlign.center,
           ));
     }
     return Text(
       '${(incr + 1).getDayOfWeek}, ${r.day}',
-      style: AppFonts.h300,
+      style: AppFonts.h200,
       textAlign: TextAlign.center,
     );
   }

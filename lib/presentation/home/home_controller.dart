@@ -150,8 +150,8 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
       ),
     ];
     getFeature(pinKeys: local.getPinFeatures());
-
     updateHome();
+
     super.onInit();
   }
 
@@ -169,6 +169,11 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
 
   void updateHome() {
     tabController = TabController(length: pin.length, vsync: this);
+    tabController.addListener(() {
+      currentIndex = tabController.index;
+      update();
+    });
+
     barPages = pin.map((k) => k.page).toList();
     barItems = pin.map((k) => k.item).toList();
     final more = BottomNavigationBarItem(
@@ -180,7 +185,6 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
             colorFilter: activeColor),
         label: 'More'.tr);
     barItems.add(more);
-
     update();
   }
 

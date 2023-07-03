@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppDarkColors {
   static const transparent = Colors.transparent;
-  static const primaryDark = Color.fromRGBO(0, 134, 243, 255);
+  static const iconColor = Color(0xFF49536E);
+  static const primaryDark = Color.fromRGBO(25, 107, 250, 1);
   static const primaryLight = Color(0xFFe3ab10);
   static const disableColor = Color(0xFFF9F9FC);
 
@@ -20,9 +21,9 @@ class AppDarkColors {
   static const neutral600 = Color(0xFF84AEAE);
   static const neutral500 = Color(0xFF619494);
   static const neutral400 = Color(0xFF496F6F);
-  static const neutral300 = Color.fromRGBO(41, 41, 41, 255);
-  static const neutral200 = Color.fromRGBO(34, 34, 34, 255);
-  static const neutral100 = Color.fromRGBO(0, 0, 0, 255);
+  static const neutral300 = Color.fromRGBO(44, 44, 44, 1);
+  static const neutral100 = Color.fromRGBO(36, 36, 36, 1);
+  static const neutral200 = Color.fromRGBO(0, 0, 0, 1);
 
   static const bgColor = Color(0xFFFEF1EA);
 }

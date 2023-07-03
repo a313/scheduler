@@ -50,21 +50,11 @@ class AppPages {
         SettingBinding(),
       ],
     ),
-    // GetPage(
-    //   name: Routes.events,
-    //   page: () => const EventsPage(),
-    //   binding: EventsBinding(),
-    // ),
     GetPage(
       name: Routes.editEvent,
       page: () => const EditEventPage(),
       binding: EditEventBinding(),
     ),
-    // GetPage(
-    //   name: Routes.classRooms,
-    //   page: () => const ClassRoomPage(),
-    //   binding: ClassRoomBinding(),
-    // ),
     GetPage(
       name: Routes.editClassRoom,
       page: () => const EditClassRoomPage(),
@@ -75,21 +65,11 @@ class AppPages {
       page: () => const EditTimetablePage(),
       binding: EditTimetableBinding(),
     ),
-    // GetPage(
-    //   name: Routes.students,
-    //   page: () => const StudentsPage(),
-    //   binding: StudentsBinding(),
-    // ),
     GetPage(
       name: Routes.editStudent,
       page: () => const EditStudentPage(),
       binding: EditStudentBinding(),
     ),
-    // GetPage(
-    //   name: Routes.reminders,
-    //   page: () => const ReminderPage(),
-    //   binding: ReminderBinding(),
-    // ),
     GetPage(
       name: Routes.editReminder,
       page: () => const EditReminderPage(),

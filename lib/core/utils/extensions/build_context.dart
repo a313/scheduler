@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../theme/app_dark_colors.dart';
 import '../../../theme/app_light_colors.dart';
 
 extension BuildContextExtension on BuildContext {
-  bool get isLightMode => true;
+  bool get isLightMode => !Get.isDarkMode;
 
   Color get transparent => Colors.transparent;
 

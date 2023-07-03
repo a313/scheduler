@@ -97,7 +97,7 @@ class _ReorderFeatureBottomSheetState extends State<ReorderFeatureBottomSheet> {
               oldIndex -= 1;
             }
             if (oldIndex >= pinCount && newIndex <= pinCount) {
-              if (pinCount < 4) {
+              if (pinCount < 6) {
                 pinCount += 1;
               }
             } else if (oldIndex < pinCount && newIndex >= pinCount) {

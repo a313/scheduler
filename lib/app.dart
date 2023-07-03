@@ -17,10 +17,10 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   late String initialRoute;
+  LocalUseCases useCases = Get.find();
   Locale? locale;
   @override
   void initState() {
-    LocalUseCases useCases = Get.find();
     if (useCases.didPassIntro()) {
       final lastRoute = useCases.getLastRoute();
       if (lastRoute.hasText) {
@@ -54,7 +54,7 @@ class _MainAppState extends State<MainApp> {
       ],
       theme: AppTheme().lightTheme,
       darkTheme: AppTheme().darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: useCases.getThemeMode(),
       getPages: AppPages.pages,
       initialRoute: initialRoute,
     );

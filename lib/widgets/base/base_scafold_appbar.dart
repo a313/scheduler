@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -51,7 +49,7 @@ class BaseScafold extends StatelessWidget {
             onTap: onTappedScene,
             child: SafeArea(
               top: safeAreaTop,
-              bottom: safeAreaBottom ?? (Platform.isAndroid ? true : false),
+              bottom: true,
               child: body,
             ),
           ),

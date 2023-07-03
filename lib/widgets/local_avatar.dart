@@ -35,7 +35,7 @@ class LocalAvatar extends StatelessWidget {
         height: size,
         width: size,
         child: Container(
-          padding: const EdgeInsets.all(2),
+          padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: code,
@@ -43,10 +43,8 @@ class LocalAvatar extends StatelessWidget {
           child: Center(
             child: AutoSizeText(
               p,
-              style: AppFonts.h700.copyWith(
-                color: context.neutral100,
-                fontSize: 28 * size / 56,
-              ),
+              style: AppFonts.h700
+                  .copyWith(fontSize: 28 * size / 56, color: Colors.white),
               minFontSize: 5,
             ),
           ),

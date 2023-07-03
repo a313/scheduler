@@ -14,14 +14,13 @@ class AppTheme {
       background: AppLightColors.neutral100,
       error: AppLightColors.funcRadicalRed,
     ),
-
+    highlightColor: Colors.transparent,
+    splashColor: Colors.transparent,
+    hoverColor: Colors.transparent,
     disabledColor: AppLightColors.neutral1100.withOpacity(0.24),
     cardColor: AppLightColors.neutral100,
     secondaryHeaderColor: AppLightColors.primaryLight,
     hintColor: AppLightColors.primaryDark,
-    splashColor: AppLightColors.transparent,
-
-    highlightColor: AppLightColors.neutral300,
     buttonTheme: const ButtonThemeData(
       height: 48,
       buttonColor: AppLightColors.primaryLight,
@@ -31,11 +30,8 @@ class AppTheme {
     ),
     // inputDecorationTheme: const InputDecorationTheme(),
     appBarTheme: const AppBarTheme().copyWith(
-        shadowColor: AppLightColors.neutral300,
-        color: AppLightColors.funcCornflowerBlue,
+        color: AppLightColors.primaryDark,
         centerTitle: true,
-        elevation: 0.5,
-        foregroundColor: AppLightColors.neutral100,
         iconTheme: const IconThemeData(color: AppLightColors.neutral100),
         actionsIconTheme:
             const IconThemeData(color: AppLightColors.neutral800)),
@@ -45,20 +41,22 @@ class AppTheme {
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 
-  final darkTheme = ThemeData.dark().copyWith(
+  final darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    iconTheme: const IconThemeData(color: AppDarkColors.iconColor, size: 28),
     scaffoldBackgroundColor: AppDarkColors.neutral200,
-    primaryColor: AppDarkColors.primaryDark,
-    colorScheme: const ColorScheme.light(
-        background: AppDarkColors.neutral100,
-        error: AppDarkColors.funcRadicalRed),
-
+    primaryColor: AppDarkColors.neutral1100,
+    colorScheme: const ColorScheme.dark(
+      background: AppDarkColors.neutral100,
+      error: AppDarkColors.funcRadicalRed,
+    ),
+    highlightColor: Colors.transparent,
+    splashColor: Colors.transparent,
+    hoverColor: Colors.transparent,
     disabledColor: AppDarkColors.neutral100.withOpacity(0.24),
     cardColor: AppDarkColors.neutral100,
     secondaryHeaderColor: AppDarkColors.primaryLight,
     hintColor: AppDarkColors.primaryDark,
-    splashColor: AppDarkColors.transparent,
-
-    highlightColor: AppDarkColors.neutral300,
     buttonTheme: const ButtonThemeData(
       height: 48,
       buttonColor: AppDarkColors.primaryLight,
@@ -66,17 +64,14 @@ class AppTheme {
       hoverColor: AppDarkColors.primaryLight,
       highlightColor: AppDarkColors.primaryLight,
     ),
-    // inputDecorationTheme: const InputDecorationTheme(),
-    appBarTheme: const AppBarTheme().copyWith(
-      shadowColor: AppDarkColors.neutral200,
+    appBarTheme: const AppBarTheme(
       color: AppDarkColors.neutral100,
       centerTitle: true,
-      elevation: 0.5,
-      iconTheme: const IconThemeData(color: AppDarkColors.neutral1100),
+      elevation: 0,
+      iconTheme: IconThemeData(color: AppDarkColors.funcCornflowerBlue),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: AppDarkColors.primaryDark,
     ),
-    visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 }

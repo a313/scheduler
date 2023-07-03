@@ -14,12 +14,14 @@ class SettingPage extends GetView<SettingController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
-        title: 'Setting'.tr,
-        backgroundColor: context.neutral200,
-        body: GetBuilder<SettingController>(
-          builder: (_) {
-            return SingleChildScrollView(
+    return GetBuilder<SettingController>(
+      builder: (_) {
+        return BaseScafoldAppBar(
+            title: 'Setting'.tr,
+            key: UniqueKey(),
+            backgroundColor: context.neutral200,
+            fab: FloatingActionButton(onPressed: controller.update),
+            body: SingleChildScrollView(
               padding: padAll16,
               child: Column(
                 children: [
@@ -57,8 +59,8 @@ class SettingPage extends GetView<SettingController> {
                   ),
                 ],
               ),
-            );
-          },
-        ));
+            ));
+      },
+    );
   }
 }

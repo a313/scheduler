@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
+import 'package:scheduler/core/utils/constants/durations.dart';
 import 'package:scheduler/presentation/setting/components/setting_cell.dart';
 import 'package:scheduler/routes/routes.dart';
 import 'package:scheduler/widgets/base/base_bottom_sheet.dart';
@@ -8,6 +10,7 @@ import 'package:scheduler/widgets/custom_divider.dart';
 import 'package:scheduler/widgets/selectable_cell.dart';
 
 class SettingController extends BaseController {
+  final iconChannels = const MethodChannel('schedule/changeIcon');
   String get language {
     final lang = local.getLanguage();
     return lang ?? 'sys';
@@ -67,27 +70,43 @@ class SettingController extends BaseController {
       children: [
         SelectableCell(
           label: 'System',
-          onTap: () => Get.back(result: ThemeMode.system),
+          // onTap: () => Get.back(result: ThemeMode.system),
+          onTap: () {
+            changeAppIcon('icon1');
+          },
           isSelected: currentMode == ThemeMode.system,
         ),
         const CustomDivider(),
         SelectableCell(
           label: 'Light theme',
-          onTap: () => Get.back(result: ThemeMode.light),
+          // onTap: () => Get.back(result: ThemeMode.light),
+          onTap: () {
+            changeAppIcon("icon2");
+          },
           isSelected: currentMode == ThemeMode.light,
         ),
         const CustomDivider(),
         SelectableCell(
           label: 'Dark theme',
-          onTap: () => Get.back(result: ThemeMode.dark),
+          // onTap: () => Get.back(result: ThemeMode.dark),
+          onTap: () {
+            changeAppIcon("icon3");
+          },
           isSelected: currentMode == ThemeMode.dark,
         ),
       ],
     ).paddingOnly(left: 16)));
     if (result != null) {
-      local.savedThemeMode(result);
-      Get.changeThemeMode(result);
+      await local.savedThemeMode(result);
+      await Get.forceAppUpdate();
+      update();
+      await dur150.delay();
+      await Get.forceAppUpdate();
       update();
     }
+  }
+
+  Future<void> changeAppIcon(String name) async {
+    await iconChannels.invokeMethod('changeIcon', {'selectedIcon': name});
   }
 }

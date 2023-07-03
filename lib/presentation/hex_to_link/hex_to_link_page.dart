@@ -14,35 +14,36 @@ class HexToLinkPage extends GetView<HexToLinkController> {
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
         title: 'Hext To Text'.tr,
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Expanded(
+        onTappedScene: () => Get.focusScope?.unfocus(),
+        body: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
                 child: Column(
                   children: [
                     BaseTextField(
                       controller: controller.hexController,
                       labelText: 'Hex String'.tr,
-                      maxLines: 4,
                     ),
                     sizedBoxH08,
                     BaseTextField(
                       controller: controller.decodedController,
                       labelText: 'Decoded String'.tr,
-                      maxLines: 4,
                     ),
                   ],
                 ),
               ),
-              BaseButton.fixBottom2(
-                leftTitle: 'Decode'.tr,
-                onLeftPressed: controller.onDecode,
-                rightTitle: 'Open'.tr,
-                onRightPressed: controller.onOpen,
-              )
-            ],
-          ),
+            ),
+            // BaseButton.fixBottom(title: 'title', onPressed: () {}),
+            BaseButton.fixBottom2(
+              leftTitle: 'Decode'.tr,
+              onLeftPressed: controller.onDecode,
+              rightTitle: 'Open'.tr,
+              onRightPressed: controller.onOpen,
+            )
+          ],
         ));
   }
 }

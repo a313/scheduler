@@ -1,4 +1,4 @@
-import 'package:flutter/src/material/app.dart';
+import 'package:flutter/material.dart';
 
 const PASS_INTRO = "_pass_intro";
 const LAST_ROUTE = "_last_route";
@@ -33,5 +33,5 @@ abstract class LocalDataRepo {
 
   ThemeMode getThemeMode();
 
-  void savedThemeMode(String name);
+  Future<void> savedThemeMode(String name);
 }
