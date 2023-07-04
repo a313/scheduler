@@ -60,12 +60,28 @@ extension DateExtension on DateTime {
     return tmp.isToday();
   }
 
-  String getPassedTime() {
-    final now = DateTime.now().dateWithoutTime();
+  int get daysInMonth {
+    return DateTime(year, month + 1, 1)
+        .difference(DateTime(year, month, 1))
+        .inDays;
+  }
+
+  String getPassedTime(DateTime to) {
     var result = '';
-    final y = now.year - year;
-    final m = now.month - month;
-    final d = now.day - day;
+    var y = to.year - year;
+    var m = to.month - month;
+    var d = to.day - day;
+    final dInM = daysInMonth;
+
+    if (d < 0) {
+      m -= 1;
+      d = dInM + d - to.day;
+    }
+    if (m < 0) {
+      y -= 1;
+      m = 12 - to.month;
+    }
+
     if (y > 0) {
       result += '$y ${'years'.tr} ';
     }

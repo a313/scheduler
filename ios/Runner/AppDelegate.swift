@@ -18,7 +18,7 @@ import flutter_local_notifications
     }
     let controller: FlutterViewController  = window?.rootViewController as! FlutterViewController
         
-        let METHOD_CHANNEL_NAME = "schedule/changeIcon"
+        let METHOD_CHANNEL_NAME = "schedule/tools"
         let changeIcon = FlutterMethodChannel(name: METHOD_CHANNEL_NAME, binaryMessenger: controller.binaryMessenger)
         
         changeIcon.setMethodCallHandler({
