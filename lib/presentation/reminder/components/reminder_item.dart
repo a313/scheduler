@@ -37,7 +37,7 @@ class ReminderItem extends StatelessWidget {
                 ),
                 sizedBoxH06,
                 Text(
-                  data.remindDate.getPassedTime(),
+                  data.remindDate.getPassedTime(DateTime.now()),
                   style: AppFonts.bSmall.copyWith(color: context.neutral900),
                   textAlign: TextAlign.right,
                 ),
