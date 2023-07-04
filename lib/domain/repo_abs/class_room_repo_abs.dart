@@ -6,4 +6,5 @@ abstract class ClassRoomRepo {
   Future<DataState<List<ClassRoom>>> getAllClassRoom();
   Future<DataState<ClassRoom>> getClassRoomById(int id);
   Future<DataState<ClassRoom>> insertOrUpdate(ClassRoom data);
+  Future<DataState<int>> delete(int id);
 }

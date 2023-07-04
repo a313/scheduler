@@ -2,15 +2,13 @@ import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/domain/usecases/class_room_usecases.dart';
-import 'package:scheduler/domain/usecases/student_usecases.dart';
+import 'package:scheduler/presentation/students/base_student_controller.dart';
 
-class EditStudentController extends BaseController
+class EditStudentController extends BaseStudentController
     with StateMixin<List<ClassRoom>> {
   final Student? initData;
   final nameController = TextEditingController();
@@ -18,8 +16,6 @@ class EditStudentController extends BaseController
   final phoneController = TextEditingController();
 
   late Student data;
-  final StudentUseCases studentUseCase = Get.find();
-  final ClassRoomUseCases classUseCase = Get.find();
 
   Rx<List<ClassRoom>> selectedClassRoom = Rx<List<ClassRoom>>([]);
   RxBool shouldShowFee = false.obs;
@@ -85,7 +81,7 @@ class EditStudentController extends BaseController
         data.image = file.path;
       }
 
-      final result = await studentUseCase.insertOrUpdate(data);
+      final result = await useCases.insertOrUpdate(data);
       dismissLoading();
       if (result is DataSuccess<Student>) {
         Get.back(result: result.data);

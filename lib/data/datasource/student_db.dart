@@ -15,8 +15,15 @@ abstract class StudentDB extends DBSQLHelper {
       isSpecial INTEGER,
       fee INTEGER,
       isFollow INTEGER,
-      image TEXT
+      image TEXT,
+      lastCharge INTEGER
       )''';
+  }
+
+  static String getAlterSQL() {
+    return '''ALTER TABLE $STUDENT_TABLE 
+      ADD lastCharge INTEGER
+      ''';
   }
 
   Future<List<Map<String, Object?>>> getAllStudent();

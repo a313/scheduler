@@ -83,7 +83,11 @@ class Languages extends Translations {
           'years': 'years',
           'months': 'months',
           'days': 'days',
-          'Just created': 'Just created'
+          'Just created': 'Just created',
+          '-1': 'Inactive',
+          '-2': 'No location',
+          'Deactivate': 'Deactivate',
+          'Activate': 'Activate',
         },
         'vi': {
           'Filter': 'Lọc',
@@ -165,7 +169,11 @@ class Languages extends Translations {
           'years': 'năm',
           'months': 'tháng',
           'days': 'ngày',
-          'Just created': 'Vừa tạo'
+          'Just created': 'Vừa tạo',
+          '-1': 'Không hoạt động',
+          '-2': 'Không rõ địa điểm',
+          'Deactivate': 'Dừng hoạt động',
+          'Activate': 'Kích hoạt',
         },
       };
 }

@@ -15,16 +15,23 @@ class DBHelper {
   static Future<Database> openDb() async {
     var databasesPath = await getDatabasesPath();
     String path = join(databasesPath, 'app_database.db');
-    Database database = await openDatabase(path, version: 1,
-        onCreate: (Database db, int version) async {
-      await db.execute(EventDB.getCreateSQL());
-      await db.execute(ReminderDB.getCreateSQL());
-      await db.execute(StudentDB.getCreateSQL());
-      await db.execute(ClassRoomDB.getCreateSQL());
-      await db.execute(ScheduleDB.getCreateSQL());
-      Utils().cloneDb();
-      await db.insertMultiple(SCHEDULE_TABLE, Utils.addExampleSchdule());
-    });
+    Database database = await openDatabase(
+      path,
+      version: 2,
+      onCreate: (Database db, int version) async {
+        await db.execute(EventDB.getCreateSQL());
+        await db.execute(ReminderDB.getCreateSQL());
+        await db.execute(StudentDB.getCreateSQL());
+        await db.execute(ClassRoomDB.getCreateSQL());
+        await db.execute(ScheduleDB.getCreateSQL());
+        Utils().cloneDb();
+        await db.insertMultiple(SCHEDULE_TABLE, Utils.addExampleSchdule());
+      },
+      onUpgrade: (db, oldVersion, newVersion) async {
+        print('old:$oldVersion - new:$newVersion');
+        await db.execute(StudentDB.getAlterSQL());
+      },
+    );
 
     return database;
   }

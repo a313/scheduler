@@ -2,7 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:scheduler/domain/entities/swipe_action_data.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'package:scheduler/widgets/shimmer/shimmer_list.dart';
 
@@ -25,15 +25,15 @@ class StudentsPage extends GetView<StudentsController> {
           color: context.neutral100,
         ),
       ),
-      actions: [
-        TextButton(
-          onPressed: controller.onTappedFilter,
-          child: Text(
-            'Grouping'.tr,
-            style: AppFonts.bSmall,
-          ),
-        )
-      ],
+      // actions: [
+      //   TextButton(
+      //     onPressed: controller.onTappedFilter,
+      //     child: Text(
+      //       'Grouping'.tr,
+      //       style: AppFonts.bSmall,
+      //     ),
+      //   )
+      // ],
       body: SafeArea(
         child: controller.obx(
           (state) => CustomScrollView(
@@ -45,6 +45,20 @@ class StudentsPage extends GetView<StudentsController> {
               classRoom: key,
               data: students,
               onTapped: controller.onTappedStudent,
+              actions: [
+                SwipeActionData(onTap: controller.onDeleteStudent),
+                SwipeActionData(
+                  onTap: controller.onToggleFollow,
+                  styleBuilder: (data) {
+                    final isFollow = data.isFollow;
+                    return SwipeData(
+                        title: isFollow ? 'Deactivate'.tr : 'Activate'.tr,
+                        color: isFollow
+                            ? context.funcBitterLemon
+                            : context.funcCornflowerBlue);
+                  },
+                ),
+              ],
             );
           })),
           onLoading:

@@ -14,4 +14,8 @@ class StudentUseCases {
   Future<DataState<Student>> insertOrUpdate(Student data) async {
     return await _.insertOrUpdate(data);
   }
+
+  Future<DataState<int>> delete(int id) async {
+    return await _.delete(id);
+  }
 }

@@ -18,6 +18,7 @@ class Student with _$Student {
       @BoolConverter() required bool isSpecial,
       required int fee,
       @ListStringConverter() required List<String> phones,
+      @DateTimeConverter() DateTime? lastCharge,
       String? image}) = _Student;
 
   factory Student.fromJson(Map<String, Object?> json) =>

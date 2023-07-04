@@ -19,6 +19,10 @@ class ClassRoomUseCases {
     return await _.insertOrUpdate(data);
   }
 
+  Future<DataState<int>> delete(int id) async {
+    return await _.delete(id);
+  }
+
   List<Event> generateEvent({
     required ClassRoom classRoom,
     required List<Student> students,

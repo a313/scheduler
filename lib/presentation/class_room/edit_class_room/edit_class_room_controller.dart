@@ -2,20 +2,15 @@ import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/timetable.dart';
-import 'package:scheduler/domain/usecases/class_room_usecases.dart';
-import 'package:scheduler/domain/usecases/event_usecases.dart';
+import 'package:scheduler/presentation/class_room/base_class_controller.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../routes/routes.dart';
 
-class EditClassRoomController extends BaseController {
-  final ClassRoomUseCases useCases = Get.find();
-  final EventUseCases eventUseCases = Get.find();
-
+class EditClassRoomController extends BaseClassController {
   final ClassRoom? initData;
   late ClassRoom data;
 
@@ -40,9 +35,9 @@ class EditClassRoomController extends BaseController {
     super.onInit();
   }
 
-  void onChangeCreateDate(DateTime? time) {
+  void onChangeOpenDate(DateTime? time) {
     if (time != null) {
-      data.createDate = time;
+      data.openDate = time;
     }
   }
 
@@ -121,24 +116,6 @@ class EditClassRoomController extends BaseController {
 
   void onChangeLocation(String location) {
     data.location = location;
-  }
-
-  Future<void> reGeneraEvent(ClassRoom data) async {
-    log('reGeneraEvent for Class :${data.id}', name: runtimeType.toString());
-    final from = DateTime.now().dateWithoutTime();
-    final to =
-        local.getLastGenerateTime() ?? from.add(const Duration(days: 15));
-    await eventUseCases.removeEvents(
-        parentId: data.id!, from: from, to: to, type: EventType.GeneradeClass);
-    final events = useCases.generateEvent(
-      classRoom: data,
-      students: allStudent,
-      from: from,
-      to: to,
-    );
-
-    await eventUseCases.insertAll(events);
-    reloadData();
   }
 
   void onChangeTuition(String p1) {

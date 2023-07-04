@@ -98,10 +98,10 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
                         },
                       ),
                       BaseDateField(
-                        labelText: 'Create date'.tr,
-                        initDate: controller.data.createDate,
+                        labelText: 'Open date'.tr,
+                        initDate: controller.data.openDate,
                         timeFormat: DateFormater.ddMMYYYY,
-                        onSelected: controller.onChangeCreateDate,
+                        onSelected: controller.onChangeOpenDate,
                       ),
                       BaseSwitchField(
                         labelText: 'Active?'.tr,

@@ -1,39 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/presentation/students/components/swipe_student_cell.dart';
+import 'package:scheduler/domain/entities/swipe_action_data.dart';
+import 'package:scheduler/presentation/class_room/components/class_room_cell.dart';
+import 'package:scheduler/presentation/class_room/components/class_room_header.dart';
 import 'package:scheduler/widgets/custom_divider.dart';
 
-import '../../../domain/entities/swipe_action_data.dart';
-import 'student_header.dart';
-
-class StudentComponent extends StatelessWidget {
-  const StudentComponent({
+class ClassRoomComponent extends StatelessWidget {
+  const ClassRoomComponent({
     super.key,
-    required this.classRoom,
+    required this.title,
     required this.data,
     this.onTapped,
     this.actions,
     // this.headerKey,
   });
-  final ClassRoom classRoom;
-  final List<Student> data;
-  final Function(Student student)? onTapped;
-  final List<SwipeActionData<Student>>? actions;
+  final String title;
+  final List<ClassRoom> data;
+  final Function(ClassRoom data)? onTapped;
+  final List<SwipeActionData<ClassRoom>>? actions;
 
   @override
   Widget build(BuildContext context) {
     final length = data.length;
 
     return SliverStickyHeader.builder(
-      builder: (context, state) => StudentHeader(
-        classRoom: classRoom,
-        data: data,
-      ),
+      builder: (context, state) => ClassRoomHeader(title: title, data: data),
       sliver: SliverList.separated(
         itemCount: length,
-        itemBuilder: (context, index) => SwipeStudentCell(
+        itemBuilder: (context, index) => SwipeClassRoomCell(
           data: data[index],
           onTapped: onTapped,
           actions: actions,

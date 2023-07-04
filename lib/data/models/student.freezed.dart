@@ -46,6 +46,10 @@ mixin _$Student {
   List<String> get phones => throw _privateConstructorUsedError;
   @ListStringConverter()
   set phones(List<String> value) => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  DateTime? get lastCharge => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  set lastCharge(DateTime? value) => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   set image(String? value) => throw _privateConstructorUsedError;
 
@@ -68,6 +72,7 @@ abstract class $StudentCopyWith<$Res> {
       @BoolConverter() bool isSpecial,
       int fee,
       @ListStringConverter() List<String> phones,
+      @DateTimeConverter() DateTime? lastCharge,
       String? image});
 }
 
@@ -92,6 +97,7 @@ class _$StudentCopyWithImpl<$Res, $Val extends Student>
     Object? isSpecial = null,
     Object? fee = null,
     Object? phones = null,
+    Object? lastCharge = freezed,
     Object? image = freezed,
   }) {
     return _then(_value.copyWith(
@@ -127,6 +133,10 @@ class _$StudentCopyWithImpl<$Res, $Val extends Student>
           ? _value.phones
           : phones // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      lastCharge: freezed == lastCharge
+          ? _value.lastCharge
+          : lastCharge // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -151,6 +161,7 @@ abstract class _$$_StudentCopyWith<$Res> implements $StudentCopyWith<$Res> {
       @BoolConverter() bool isSpecial,
       int fee,
       @ListStringConverter() List<String> phones,
+      @DateTimeConverter() DateTime? lastCharge,
       String? image});
 }
 
@@ -172,6 +183,7 @@ class __$$_StudentCopyWithImpl<$Res>
     Object? isSpecial = null,
     Object? fee = null,
     Object? phones = null,
+    Object? lastCharge = freezed,
     Object? image = freezed,
   }) {
     return _then(_$_Student(
@@ -207,6 +219,10 @@ class __$$_StudentCopyWithImpl<$Res>
           ? _value.phones
           : phones // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      lastCharge: freezed == lastCharge
+          ? _value.lastCharge
+          : lastCharge // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -227,6 +243,7 @@ class _$_Student extends _Student {
       @BoolConverter() required this.isSpecial,
       required this.fee,
       @ListStringConverter() required this.phones,
+      @DateTimeConverter() this.lastCharge,
       this.image})
       : super._();
 
@@ -255,11 +272,14 @@ class _$_Student extends _Student {
   @ListStringConverter()
   List<String> phones;
   @override
+  @DateTimeConverter()
+  DateTime? lastCharge;
+  @override
   String? image;
 
   @override
   String toString() {
-    return 'Student(id: $id, name: $name, classId: $classId, beginStudy: $beginStudy, isFollow: $isFollow, isSpecial: $isSpecial, fee: $fee, phones: $phones, image: $image)';
+    return 'Student(id: $id, name: $name, classId: $classId, beginStudy: $beginStudy, isFollow: $isFollow, isSpecial: $isSpecial, fee: $fee, phones: $phones, lastCharge: $lastCharge, image: $image)';
   }
 
   @JsonKey(ignore: true)
@@ -286,6 +306,7 @@ abstract class _Student extends Student {
       @BoolConverter() required bool isSpecial,
       required int fee,
       @ListStringConverter() required List<String> phones,
+      @DateTimeConverter() DateTime? lastCharge,
       String? image}) = _$_Student;
   _Student._() : super._();
 
@@ -325,6 +346,11 @@ abstract class _Student extends Student {
   List<String> get phones;
   @ListStringConverter()
   set phones(List<String> value);
+  @override
+  @DateTimeConverter()
+  DateTime? get lastCharge;
+  @DateTimeConverter()
+  set lastCharge(DateTime? value);
   @override
   String? get image;
   set image(String? value);

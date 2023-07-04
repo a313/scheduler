@@ -3,6 +3,8 @@ import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
 import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/presentation/students/components/student_item.dart';
 
+import '../../../domain/entities/swipe_action_data.dart';
+
 class SwipeStudentCell extends StatelessWidget {
   const SwipeStudentCell({
     super.key,
@@ -12,7 +14,7 @@ class SwipeStudentCell extends StatelessWidget {
   });
   final Student data;
   final Function(Student student)? onTapped;
-  final List<SwipeAction>? actions;
+  final List<SwipeActionData<Student>>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class SwipeStudentCell extends StatelessWidget {
       onTap: () => onTapped?.call(data),
       child: SwipeActionCell(
           key: ObjectKey(data),
-          trailingActions: actions,
+          trailingActions: actions?.map((e) => e.toAction(data)).toList(),
           child: StudentItem(data: data)),
     );
   }

@@ -18,36 +18,39 @@ class ClassRoomItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: padAll12,
-      child: Row(
-        children: [
-          LocalAvatar(
-            path: data.image,
-            size: 32,
-            name: data.name,
-          ),
-          sizedBoxW12,
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  data.name,
-                  style: AppFonts.h500,
-                ),
-                sizedBoxH04,
-                Text(
-                  data.timetables.isEmpty
-                      ? 'Not exist schedule'.tr
-                      : '${'Schedule'.tr}: ${data.timetables.map((e) => e.dayInWeek.getDayOfWeek).join(", ")}',
-                  style: AppFonts.bSmall.copyWith(color: context.neutral900),
-                )
-              ],
+    return Opacity(
+      opacity: data.isOpen ? 1 : 0.5,
+      child: Padding(
+        padding: padAll12,
+        child: Row(
+          children: [
+            LocalAvatar(
+              path: data.image,
+              size: 32,
+              name: data.name,
             ),
-          ),
-          if (isSelected) const Icon(Icons.check_circle_rounded)
-        ],
+            sizedBoxW12,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    data.name,
+                    style: AppFonts.h500,
+                  ),
+                  sizedBoxH04,
+                  Text(
+                    data.timetables.isEmpty
+                        ? 'Not exist schedule'.tr
+                        : '${'Schedule'.tr}: ${data.timetables.map((e) => e.dayInWeek.getDayOfWeek).join(", ")}',
+                    style: AppFonts.bSmall.copyWith(color: context.neutral900),
+                  )
+                ],
+              ),
+            ),
+            if (isSelected) const Icon(Icons.check_circle_rounded)
+          ],
+        ),
       ),
     );
   }

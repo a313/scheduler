@@ -30,4 +30,14 @@ class ClassRoomRepoImpl extends ClassRoomRepo {
       return DataSuccess(data);
     }
   }
+
+  @override
+  Future<DataState<int>> delete(int id) async {
+    final data = await db.delete(id);
+    if (data > 0) {
+      return DataSuccess(data);
+    } else {
+      return DataFailure(DB_ERR_CODE, DB_ERR_MSG);
+    }
+  }
 }
