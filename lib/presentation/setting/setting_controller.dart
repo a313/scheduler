@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:path/path.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/entities/app_icon.dart';
 import 'package:scheduler/widgets/base/base_bottom_sheet.dart';
 import 'package:scheduler/widgets/custom_divider.dart';
 import 'package:scheduler/widgets/selectable_cell.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:sqflite/sqflite.dart';
 
 import '../../routes/routes.dart';
 
@@ -115,5 +118,13 @@ class SettingController extends BaseController {
 
   Future<void> onChangeAppIcon(AppIconData data) async {
     await changeAppIcon(data.iconName);
+  }
+
+  Future<void> onTapShareDatabase() async {
+    var databasesPath = await getDatabasesPath();
+    String path = join(databasesPath, 'app_database.db');
+    final file = XFile(path);
+    final DateTime now = DateTime.now();
+    Share.shareXFiles([file], text: 'DB_BACKUP_${now.toIso8601String()}');
   }
 }

@@ -15,9 +15,9 @@ class BaseStateWidget extends StatelessWidget {
   }) : super(key: key);
 
   final WidgetBuilder builder;
-  final WidgetBuilder onLoading;
-  final WidgetBuilder? onEmpty;
-  final WidgetBuilder? onError;
+  final Widget onLoading;
+  final Widget? onEmpty;
+  final Widget? onError;
   final Color? baseColor;
   final Color? highlightColor;
   final WidgetState state;
@@ -26,13 +26,13 @@ class BaseStateWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (state) {
       case WidgetState.loading:
-        return onLoading(context);
+        return onLoading;
       case WidgetState.success:
         return builder(context);
       case WidgetState.empty:
-        return onEmpty?.call(context) ?? const SizedBox();
+        return onEmpty ?? const SizedBox();
       default:
-        return onError?.call(context) ?? const SizedBox();
+        return onError ?? const SizedBox();
     }
   }
 }

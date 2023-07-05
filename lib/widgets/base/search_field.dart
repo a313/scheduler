@@ -20,7 +20,7 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = controller ?? TextEditingController();
     return TextField(
-      controller: c,
+      controller: controller,
       keyboardType: TextInputType.name,
       textCapitalization: TextCapitalization.words,
       textInputAction: TextInputAction.search,

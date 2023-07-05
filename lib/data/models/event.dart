@@ -21,7 +21,7 @@ class Event with _$Event {
     required AlertType alert,
     required RepeatType repeat,
     String? location,
-    @Default([]) @ListIntConverter() List<int> classIds,
+    int? classId,
     @Default([]) @ListIntConverter() List<int> invitedIds,
     @Default([]) @ListIntConverter() List<int> joinedIds,
     @Default(true) @BoolConverter() bool isActive,
@@ -29,9 +29,7 @@ class Event with _$Event {
     @JsonKey(includeToJson: false, includeFromJson: false)
     @Default([])
     List<Student> students,
-    @JsonKey(includeToJson: false, includeFromJson: false)
-    @Default([])
-    List<ClassRoom> classRooms,
+    @JsonKey(includeToJson: false, includeFromJson: false) ClassRoom? classRoom,
   }) = _Event;
 
   factory Event.fromJson(Map<String, Object?> json) => _$EventFromJson(json);

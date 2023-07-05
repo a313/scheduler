@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/data/models/report.dart';
+import 'package:scheduler/data/models/report_for_student.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../theme/app_fonts.dart';
@@ -13,10 +13,10 @@ class ReportHeader extends StatelessWidget {
     required this.onToggle,
     this.onTapped,
   });
-  final Report data;
+  final ReportForStudent data;
   final bool isShowChildren;
   final Function(bool isShow) onToggle;
-  final Function(Report data)? onTapped;
+  final Function(ReportForStudent data)? onTapped;
 
   @override
   Widget build(BuildContext context) {

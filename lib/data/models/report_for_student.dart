@@ -3,18 +3,16 @@ import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/event.dart';
 import 'package:scheduler/data/models/student.dart';
 
-part 'report.freezed.dart';
+part 'report_for_student.freezed.dart';
 
 @unfreezed
-class Report with _$Report {
-  const Report._();
+class ReportForStudent with _$ReportForStudent {
+  const ReportForStudent._();
 
-  factory Report({
-    required DateTime start,
-    required DateTime end,
+  factory ReportForStudent({
     required Student student,
     required Map<ClassRoom, List<Event>> data,
-  }) = _Report;
+  }) = _ReportForStudent;
 
   String get getFormula {
     int total = 0;

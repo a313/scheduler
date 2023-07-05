@@ -17,7 +17,7 @@ class DBHelper {
     String path = join(databasesPath, 'app_database.db');
     Database database = await openDatabase(
       path,
-      version: 2,
+      version: 3,
       onCreate: (Database db, int version) async {
         await db.execute(EventDB.getCreateSQL());
         await db.execute(ReminderDB.getCreateSQL());
@@ -28,8 +28,15 @@ class DBHelper {
         await db.insertMultiple(SCHEDULE_TABLE, Utils.addExampleSchdule());
       },
       onUpgrade: (db, oldVersion, newVersion) async {
-        print('old:$oldVersion - new:$newVersion');
-        await db.execute(StudentDB.getAlterSQL());
+        log('onUpgrade database old:$oldVersion - new:$newVersion');
+        if (oldVersion < 2) {
+          await db.execute(StudentDB.getAlterSQL());
+        }
+        if (oldVersion < 3) {
+          await db.execute(EventDB.getAlterSQL1());
+          await db.execute(EventDB.getAlterSQL2());
+          await db.execute(EventDB.getAlterSQL3());
+        }
       },
     );
 

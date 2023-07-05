@@ -18,11 +18,25 @@ abstract class EventDB extends DBSQLHelper {
       type TEXT,
       alert TEXT,
       repeat TEXT,
-      classIds TEXT,
+      classId INTEGER,
       invitedIds TEXT,
       joinedIds TEXT,
       note TEXT
       )''';
+  }
+
+  static String getAlterSQL1() {
+    return '''ALTER TABLE $EVENT_TABLE 
+      ADD COLUMN classId INTEGER    
+    ''';
+  }
+
+  static String getAlterSQL2() {
+    return '''UPDATE $EVENT_TABLE SET classId = CAST(classIds as INTEGER)''';
+  }
+
+  static String getAlterSQL3() {
+    return '''ALTER TABLE $EVENT_TABLE DROP COLUMN classIds''';
   }
 
   Future<List<Map<String, dynamic>>> getAllEvent(OrderType order);
@@ -89,7 +103,7 @@ class EventDbImpl extends EventDB {
   Future<List<Map<String, dynamic>>> getClassEventsFrom(
       int from, int to, OrderType type) async {
     final result = await db.query(table,
-        where: 'classIds IS NOT NULL AND startTime BETWEEN ? and ?  ',
+        where: 'classId IS NOT NULL AND startTime BETWEEN ? and ?  ',
         whereArgs: [from, to],
         orderBy: 'startTime ${type.name}');
     return result;

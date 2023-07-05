@@ -11,7 +11,7 @@ import '../../../data/models/event.dart';
 
 class EditEventController extends BaseController {
   EventUseCases useCases = Get.find();
-  Rx<List<ClassRoom>> selectedClassRoom = Rx<List<ClassRoom>>([]);
+  Rx<ClassRoom?> selectedClassRoom = Rx<ClassRoom?>(null);
   Rx<List<Student>> selectedStudent = Rx<List<Student>>([]);
 
   EditEventController(this.initData);
@@ -31,9 +31,9 @@ class EditEventController extends BaseController {
     nameController.text = data.name;
     noteController.text = data.note ?? '';
     locationController.text = data.location ?? '';
-    selectedClassRoom.value = allClassRoom
-        .where((element) => data.classIds.contains(element.id))
-        .toList();
+
+    selectedClassRoom.value =
+        allClassRoom.firstWhereOrNull((e) => e.id == data.classId);
     selectedStudent.value = allStudent
         .where((element) => data.invitedIds.contains(element.id))
         .toList();
@@ -42,8 +42,9 @@ class EditEventController extends BaseController {
 
   void onSelectedClass(List<ClassRoom>? listClass) {
     if (listClass == null) return;
-    data.classIds = listClass.map((e) => e.id!).toList();
-    selectedClassRoom.value = listClass;
+    final classR = listClass.firstOrNull;
+    data.classId = classR?.id;
+    selectedClassRoom.value = classR;
     selectedStudent.value.clear();
     for (var c in listClass) {
       for (var s in allStudent) {

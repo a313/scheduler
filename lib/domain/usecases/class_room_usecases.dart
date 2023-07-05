@@ -48,7 +48,7 @@ class ClassRoomUseCases {
           result.add(Event(
             name: classRoom.name,
             parentId: classRoom.id,
-            classIds: [classRoom.id!],
+            classId: classRoom.id!,
             invitedIds: listIds,
             joinedIds: listIds,
             startTime: startTime,

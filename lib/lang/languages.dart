@@ -88,6 +88,7 @@ class Languages extends Translations {
           '-2': 'No location',
           'Deactivate': 'Deactivate',
           'Activate': 'Activate',
+          'Share Database': 'Share Database',
         },
         'vi': {
           'Filter': 'Lọc',
@@ -174,6 +175,7 @@ class Languages extends Translations {
           '-2': 'Không rõ địa điểm',
           'Deactivate': 'Dừng hoạt động',
           'Activate': 'Kích hoạt',
+          'Share Database': 'Share Database',
         },
       };
 }

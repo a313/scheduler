@@ -8,7 +8,7 @@ import 'package:scheduler/presentation/report/components/class_header.dart';
 import 'package:scheduler/widgets/custom_divider.dart';
 
 import '../../../data/models/event.dart';
-import '../../../data/models/report.dart';
+import '../../../data/models/report_for_student.dart';
 import 'report_header.dart';
 import 'report_item.dart';
 
@@ -18,8 +18,8 @@ class ReportComponent extends StatefulWidget {
     required this.data,
     this.onTapped,
   });
-  final Report data;
-  final Function(Report data)? onTapped;
+  final ReportForStudent data;
+  final Function(ReportForStudent data)? onTapped;
 
   @override
   State<ReportComponent> createState() => _ReportComponentState();
@@ -56,7 +56,9 @@ class _ReportComponentState extends State<ReportComponent> {
               },
               separatorBuilder: (context, index) => const CustomDivider(),
             )
-          : const SliverToBoxAdapter(),
+          : const SliverToBoxAdapter(
+              child: SizedBox(height: 1),
+            ),
     );
   }
 }

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/app_icon.dart';
 import 'package:scheduler/presentation/setting/components/setting_cell.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'package:scheduler/widgets/custom_divider.dart';
 
 import '../../widgets/custom_card.dart';
+import 'components/app_icon.dart';
 import 'setting_controller.dart';
 
 class SettingPage extends GetView<SettingController> {
@@ -61,12 +61,12 @@ class SettingPage extends GetView<SettingController> {
                   sizedBoxH16,
                   CustomCard(
                     child: SizedBox(
-                      height: 118,
+                      height: 120,
                       child: ListView.separated(
                         padding: padAll16,
                         scrollDirection: Axis.horizontal,
                         itemCount: controller.appIcons.length,
-                        itemBuilder: (context, index) => _AppIcon(
+                        itemBuilder: (context, index) => AppIcon(
                           data: controller.appIcons[index],
                           onTap: controller.onChangeAppIcon,
                         ),
@@ -74,38 +74,17 @@ class SettingPage extends GetView<SettingController> {
                       ),
                     ),
                   ),
+                  sizedBoxH16,
+                  CustomCard(
+                      child: SettingCell(
+                    prefix: SvgPicture.asset('assets/svg/Regular/Database.svg'),
+                    label: 'Share Database'.tr,
+                    onTap: controller.onTapShareDatabase,
+                  )),
                 ],
               ),
             ));
       },
-    );
-  }
-}
-
-class _AppIcon extends StatelessWidget {
-  const _AppIcon({required this.data, this.onTap});
-
-  final AppIconData data;
-  final Function(AppIconData data)? onTap;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => onTap?.call(data),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ClipRRect(
-            borderRadius: borRad08,
-            child: Image.asset(
-              data.path,
-              width: 56,
-              height: 56,
-            ),
-          ),
-          sizedBoxH12,
-          Text(data.name),
-        ],
-      ),
     );
   }
 }

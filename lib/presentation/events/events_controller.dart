@@ -223,8 +223,8 @@ class EventsController extends BaseController {
   void fillData(Event event) {
     event.students =
         allStudent.where((e) => event.invitedIds.contains(e.id)).toList();
-    event.classRooms =
-        allClassRoom.where((e) => event.classIds.contains(e.id)).toList();
+    event.classRoom =
+        allClassRoom.firstWhereOrNull((e) => event.classId == e.id);
   }
 
   Future<void> onRefresh() async {

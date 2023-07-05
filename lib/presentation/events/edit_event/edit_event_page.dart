@@ -66,10 +66,12 @@ class EditEventPage extends GetView<EditEventController> {
                             itemBuilder: (_, obj) => ClassRoomItem(data: obj),
                             selectedBuilder: (_, obj) =>
                                 ClassRoomItem(data: obj, isSelected: true),
-                            isMultiSelect: true,
                             labelText: 'Class room'.tr,
                             options: controller.allClassRoom,
-                            initValue: controller.selectedClassRoom.value,
+                            initValue:
+                                controller.selectedClassRoom.value == null
+                                    ? []
+                                    : [controller.selectedClassRoom.value!],
                             valueBuilder: (values) {
                               if (values == null || values.isEmpty) return "";
                               return values.map((e) => e.name).join(", ");

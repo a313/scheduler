@@ -42,10 +42,8 @@ mixin _$Event {
   set repeat(RepeatType value) => throw _privateConstructorUsedError;
   String? get location => throw _privateConstructorUsedError;
   set location(String? value) => throw _privateConstructorUsedError;
-  @ListIntConverter()
-  List<int> get classIds => throw _privateConstructorUsedError;
-  @ListIntConverter()
-  set classIds(List<int> value) => throw _privateConstructorUsedError;
+  int? get classId => throw _privateConstructorUsedError;
+  set classId(int? value) => throw _privateConstructorUsedError;
   @ListIntConverter()
   List<int> get invitedIds => throw _privateConstructorUsedError;
   @ListIntConverter()
@@ -65,9 +63,9 @@ mixin _$Event {
   @JsonKey(includeToJson: false, includeFromJson: false)
   set students(List<Student> value) => throw _privateConstructorUsedError;
   @JsonKey(includeToJson: false, includeFromJson: false)
-  List<ClassRoom> get classRooms => throw _privateConstructorUsedError;
+  ClassRoom? get classRoom => throw _privateConstructorUsedError;
   @JsonKey(includeToJson: false, includeFromJson: false)
-  set classRooms(List<ClassRoom> value) => throw _privateConstructorUsedError;
+  set classRoom(ClassRoom? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -91,8 +89,7 @@ abstract class $EventCopyWith<$Res> {
       AlertType alert,
       RepeatType repeat,
       String? location,
-      @ListIntConverter()
-          List<int> classIds,
+      int? classId,
       @ListIntConverter()
           List<int> invitedIds,
       @ListIntConverter()
@@ -103,7 +100,9 @@ abstract class $EventCopyWith<$Res> {
       @JsonKey(includeToJson: false, includeFromJson: false)
           List<Student> students,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          List<ClassRoom> classRooms});
+          ClassRoom? classRoom});
+
+  $ClassRoomCopyWith<$Res>? get classRoom;
 }
 
 /// @nodoc
@@ -128,13 +127,13 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
     Object? alert = null,
     Object? repeat = null,
     Object? location = freezed,
-    Object? classIds = null,
+    Object? classId = freezed,
     Object? invitedIds = null,
     Object? joinedIds = null,
     Object? isActive = null,
     Object? note = freezed,
     Object? students = null,
-    Object? classRooms = null,
+    Object? classRoom = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -173,10 +172,10 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String?,
-      classIds: null == classIds
-          ? _value.classIds
-          : classIds // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+      classId: freezed == classId
+          ? _value.classId
+          : classId // ignore: cast_nullable_to_non_nullable
+              as int?,
       invitedIds: null == invitedIds
           ? _value.invitedIds
           : invitedIds // ignore: cast_nullable_to_non_nullable
@@ -197,11 +196,23 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.students
           : students // ignore: cast_nullable_to_non_nullable
               as List<Student>,
-      classRooms: null == classRooms
-          ? _value.classRooms
-          : classRooms // ignore: cast_nullable_to_non_nullable
-              as List<ClassRoom>,
+      classRoom: freezed == classRoom
+          ? _value.classRoom
+          : classRoom // ignore: cast_nullable_to_non_nullable
+              as ClassRoom?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ClassRoomCopyWith<$Res>? get classRoom {
+    if (_value.classRoom == null) {
+      return null;
+    }
+
+    return $ClassRoomCopyWith<$Res>(_value.classRoom!, (value) {
+      return _then(_value.copyWith(classRoom: value) as $Val);
+    });
   }
 }
 
@@ -223,8 +234,7 @@ abstract class _$$_EventCopyWith<$Res> implements $EventCopyWith<$Res> {
       AlertType alert,
       RepeatType repeat,
       String? location,
-      @ListIntConverter()
-          List<int> classIds,
+      int? classId,
       @ListIntConverter()
           List<int> invitedIds,
       @ListIntConverter()
@@ -235,7 +245,10 @@ abstract class _$$_EventCopyWith<$Res> implements $EventCopyWith<$Res> {
       @JsonKey(includeToJson: false, includeFromJson: false)
           List<Student> students,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          List<ClassRoom> classRooms});
+          ClassRoom? classRoom});
+
+  @override
+  $ClassRoomCopyWith<$Res>? get classRoom;
 }
 
 /// @nodoc
@@ -256,13 +269,13 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
     Object? alert = null,
     Object? repeat = null,
     Object? location = freezed,
-    Object? classIds = null,
+    Object? classId = freezed,
     Object? invitedIds = null,
     Object? joinedIds = null,
     Object? isActive = null,
     Object? note = freezed,
     Object? students = null,
-    Object? classRooms = null,
+    Object? classRoom = freezed,
   }) {
     return _then(_$_Event(
       id: freezed == id
@@ -301,10 +314,10 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String?,
-      classIds: null == classIds
-          ? _value.classIds
-          : classIds // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+      classId: freezed == classId
+          ? _value.classId
+          : classId // ignore: cast_nullable_to_non_nullable
+              as int?,
       invitedIds: null == invitedIds
           ? _value.invitedIds
           : invitedIds // ignore: cast_nullable_to_non_nullable
@@ -325,10 +338,10 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
           ? _value.students
           : students // ignore: cast_nullable_to_non_nullable
               as List<Student>,
-      classRooms: null == classRooms
-          ? _value.classRooms
-          : classRooms // ignore: cast_nullable_to_non_nullable
-              as List<ClassRoom>,
+      classRoom: freezed == classRoom
+          ? _value.classRoom
+          : classRoom // ignore: cast_nullable_to_non_nullable
+              as ClassRoom?,
     ));
   }
 }
@@ -348,8 +361,7 @@ class _$_Event extends _Event {
       required this.alert,
       required this.repeat,
       this.location,
-      @ListIntConverter()
-          this.classIds = const [],
+      this.classId,
       @ListIntConverter()
           this.invitedIds = const [],
       @ListIntConverter()
@@ -360,7 +372,7 @@ class _$_Event extends _Event {
       @JsonKey(includeToJson: false, includeFromJson: false)
           this.students = const [],
       @JsonKey(includeToJson: false, includeFromJson: false)
-          this.classRooms = const []})
+          this.classRoom})
       : super._();
 
   factory _$_Event.fromJson(Map<String, dynamic> json) =>
@@ -387,9 +399,7 @@ class _$_Event extends _Event {
   @override
   String? location;
   @override
-  @JsonKey()
-  @ListIntConverter()
-  List<int> classIds;
+  int? classId;
   @override
   @JsonKey()
   @ListIntConverter()
@@ -409,11 +419,11 @@ class _$_Event extends _Event {
   List<Student> students;
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
-  List<ClassRoom> classRooms;
+  ClassRoom? classRoom;
 
   @override
   String toString() {
-    return 'Event(id: $id, parentId: $parentId, name: $name, startTime: $startTime, endTime: $endTime, type: $type, alert: $alert, repeat: $repeat, location: $location, classIds: $classIds, invitedIds: $invitedIds, joinedIds: $joinedIds, isActive: $isActive, note: $note, students: $students, classRooms: $classRooms)';
+    return 'Event(id: $id, parentId: $parentId, name: $name, startTime: $startTime, endTime: $endTime, type: $type, alert: $alert, repeat: $repeat, location: $location, classId: $classId, invitedIds: $invitedIds, joinedIds: $joinedIds, isActive: $isActive, note: $note, students: $students, classRoom: $classRoom)';
   }
 
   @JsonKey(ignore: true)
@@ -443,8 +453,7 @@ abstract class _Event extends Event {
       required AlertType alert,
       required RepeatType repeat,
       String? location,
-      @ListIntConverter()
-          List<int> classIds,
+      int? classId,
       @ListIntConverter()
           List<int> invitedIds,
       @ListIntConverter()
@@ -455,7 +464,7 @@ abstract class _Event extends Event {
       @JsonKey(includeToJson: false, includeFromJson: false)
           List<Student> students,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          List<ClassRoom> classRooms}) = _$_Event;
+          ClassRoom? classRoom}) = _$_Event;
   _Event._() : super._();
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$_Event.fromJson;
@@ -492,10 +501,8 @@ abstract class _Event extends Event {
   String? get location;
   set location(String? value);
   @override
-  @ListIntConverter()
-  List<int> get classIds;
-  @ListIntConverter()
-  set classIds(List<int> value);
+  int? get classId;
+  set classId(int? value);
   @override
   @ListIntConverter()
   List<int> get invitedIds;
@@ -521,9 +528,9 @@ abstract class _Event extends Event {
   set students(List<Student> value);
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
-  List<ClassRoom> get classRooms;
+  ClassRoom? get classRoom;
   @JsonKey(includeToJson: false, includeFromJson: false)
-  set classRooms(List<ClassRoom> value);
+  set classRoom(ClassRoom? value);
   @override
   @JsonKey(ignore: true)
   _$$_EventCopyWith<_$_Event> get copyWith =>
