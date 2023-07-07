@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/data/models/report_for_student.dart';
+import 'package:scheduler/data/models/report_for_class.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../theme/app_fonts.dart';
 import '../../../widgets/local_avatar.dart';
 
-class ReportHeader extends StatelessWidget {
-  const ReportHeader({
+class ReportForClassHeader extends StatelessWidget {
+  const ReportForClassHeader({
     super.key,
     required this.data,
     required this.isShowChildren,
     required this.onToggle,
     this.onTapped,
   });
-  final ReportForStudent data;
+  final ReportForClass data;
   final bool isShowChildren;
   final Function(bool isShow) onToggle;
-  final Function(ReportForStudent data)? onTapped;
+  final Function(ReportForClass data)? onTapped;
 
   @override
   Widget build(BuildContext context) {
@@ -31,19 +31,19 @@ class ReportHeader extends StatelessWidget {
         child: Row(
           children: [
             LocalAvatar(
-              path: data.student.image,
+              path: data.classRoom.image,
               size: 32,
-              name: data.student.name,
+              name: data.classRoom.name,
             ),
             sizedBoxW12,
             Expanded(
               child: Text(
-                data.student.name,
+                data.classRoom.name,
                 style: AppFonts.h500,
               ),
             ),
             Text(
-              data.getFormula,
+              data.getActive,
               style: AppFonts.bMedium,
             ),
             IconButton(

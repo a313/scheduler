@@ -40,6 +40,12 @@ class EditStudentController extends BaseStudentController
     super.onReady();
   }
 
+  void onChangeLastCharge(DateTime? time) {
+    if (time != null) {
+      data.lastCharge = time;
+    }
+  }
+
   void onChangeBeginStudy(DateTime? time) {
     if (time != null) {
       data.beginStudy = time;

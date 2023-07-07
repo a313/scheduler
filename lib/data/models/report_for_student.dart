@@ -13,24 +13,4 @@ class ReportForStudent with _$ReportForStudent {
     required Student student,
     required Map<ClassRoom, List<Event>> data,
   }) = _ReportForStudent;
-
-  String get getFormula {
-    int total = 0;
-    List<String> formula = [];
-    data.forEach((key, value) {
-      var fee = key.tuition;
-      int onCount = 0;
-      if (student.isSpecial) {
-        fee = student.fee;
-      }
-      for (var element in value) {
-        if (element.isActive && element.joinedIds.contains(student.id)) {
-          onCount++;
-        }
-      }
-      formula.add('$onCount x $fee');
-      total += onCount * fee;
-    });
-    return '${formula.join(' + ')}= $total';
-  }
 }

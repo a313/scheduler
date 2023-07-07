@@ -4,16 +4,15 @@ import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/presentation/report/components/class_header.dart';
 import 'package:scheduler/widgets/custom_divider.dart';
 
 import '../../../data/models/event.dart';
 import '../../../data/models/report_for_student.dart';
-import 'report_header.dart';
-import 'report_item.dart';
+import 'group_by_student_header.dart';
+import 'group_by_student_item.dart';
 
-class ReportComponent extends StatefulWidget {
-  const ReportComponent({
+class GrByStudentComponent extends StatefulWidget {
+  const GrByStudentComponent({
     super.key,
     required this.data,
     this.onTapped,
@@ -22,10 +21,10 @@ class ReportComponent extends StatefulWidget {
   final Function(ReportForStudent data)? onTapped;
 
   @override
-  State<ReportComponent> createState() => _ReportComponentState();
+  State<GrByStudentComponent> createState() => _GrByStudentComponentState();
 }
 
-class _ReportComponentState extends State<ReportComponent> {
+class _GrByStudentComponentState extends State<GrByStudentComponent> {
   bool isShowChildren = false;
   @override
   void initState() {
@@ -36,7 +35,7 @@ class _ReportComponentState extends State<ReportComponent> {
   Widget build(BuildContext context) {
     final data = widget.data;
     return SliverStickyHeader.builder(
-      builder: (context, state) => ReportHeader(
+      builder: (context, state) => GrByStudentHeader(
         data: data,
         isShowChildren: isShowChildren,
         onToggle: (isShow) {
@@ -51,7 +50,7 @@ class _ReportComponentState extends State<ReportComponent> {
               itemBuilder: (context, index) {
                 final key = data.data.keys.elementAt(index);
                 final events = data.data[key]!;
-                return ReportClassComponent(
+                return _ClassComponent(
                     student: data.student, classRoom: key, data: events);
               },
               separatorBuilder: (context, index) => const CustomDivider(),
@@ -63,9 +62,8 @@ class _ReportComponentState extends State<ReportComponent> {
   }
 }
 
-class ReportClassComponent extends StatelessWidget {
-  const ReportClassComponent({
-    super.key,
+class _ClassComponent extends StatelessWidget {
+  const _ClassComponent({
     required this.classRoom,
     required this.data,
     required this.student,
@@ -78,11 +76,13 @@ class ReportClassComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     final children = List<Widget>.generate(
         data.length,
-        (index) => ReportItem(
-            student: student, classRoom: classRoom, data: data[index]))
+        (index) => GrByStudentItem(
+              classRoom: classRoom,
+              data: data[index],
+              joinerId: student.id,
+            ))
       ..addSeparated(
-          separated: (index) => const CustomDivider().paddingOnly(left: 80))
-      ..insert(0, ClassHeader(data: classRoom, events: data));
+          separated: (index) => const CustomDivider().paddingOnly(left: 80));
 
     return Column(children: children);
   }

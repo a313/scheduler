@@ -1,7 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 const UNKNOWN_ERROR = 'Something wrong please try again!';
-const EMPTY_FIELD = '---';
+const EMPTY_FIELD = '------';
 const PATTERN = "|";
 
 const DB_ERR_CODE = "DB_ERROR";

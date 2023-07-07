@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
+import 'package:scheduler/presentation/report/group_by_class/group_by_class_component.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/base/base_input.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
@@ -8,7 +9,7 @@ import 'package:scheduler/widgets/base/base_state_widget.dart';
 import 'package:scheduler/widgets/base/search_field.dart';
 
 import '../../widgets/shimmer/shimmer_list.dart';
-import 'components/report_component.dart';
+import 'group_by_student/group_by_student_component.dart';
 import 'report_controller.dart';
 
 class ReportPage extends GetView<ReportController> {
@@ -74,15 +75,29 @@ class ReportPage extends GetView<ReportController> {
                       state: controller.state,
                       builder: (context) {
                         if (controller.groupByClass.value) {
-                          return const SizedBox();
+                          final keys = controller.filterClassKeys;
+                          return CustomScrollView(
+                            slivers: List.generate(keys.length, (index) {
+                              final key = keys.elementAt(index);
+                              final events = controller.reportForClass[key]!;
+                              return GrByClassComponent(
+                                  classRoom: key, data: events);
+                            }),
+                          );
+
+                          // final data = controller.filterReportForClass;
+                          // return CustomScrollView(
+                          //   slivers: List.generate(data.length, (index) {
+                          //     final report = data.elementAt(index);
+                          //     //return ReportForClassComponent(data: report);
+                          //   }),
+                          // );
                         } else {
                           final data = controller.filterReportForStudent;
                           return CustomScrollView(
                             slivers: List.generate(data.length, (index) {
                               final report = data.elementAt(index);
-                              return ReportComponent(
-                                data: report,
-                              );
+                              return GrByStudentComponent(data: report);
                             }),
                           );
                         }

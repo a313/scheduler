@@ -9,7 +9,7 @@ const dbName = 'db.database';
 
 class DbHelper {
   Future<Database> openAssertDB() async {
-    String path = await getDbPath();
+    String path = await getDbPath(dbName);
 
     Database? db;
     try {
@@ -34,13 +34,22 @@ class DbHelper {
     return db;
   }
 
-  Future<String> getDbPath() async {
+  Future<String> getDbPath(String name) async {
     final databasesPath = await getDatabasesPath();
-    final path = join(databasesPath, dbName);
+    final path = join(databasesPath, name);
     return path;
   }
 
   Future<File> writeFileAsBytes(String path, Uint8List data) async {
     return File(path).writeAsBytes(data);
+  }
+
+  Future<void> replaceDatabase() async {
+    final data = await rootBundle.load(join('assets', 'app_database.db'));
+    final bytes =
+        data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+    final path = await getDbPath('app_database.db');
+    await deleteDatabase(path);
+    await writeFileAsBytes(path, bytes);
   }
 }

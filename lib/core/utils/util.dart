@@ -47,23 +47,6 @@ extension ListExt on List {
 }
 
 class Utils {
-  // List<E> separated(
-  //     {required int itemCount,
-  //     required E Function(int index) item,
-  //     required E Function(int index) separater}) {
-  //   var result = [];
-  //   final realCount = max(0, itemCount * 2 - 1);
-  //   for (int i = 0; i < realCount; i++) {
-  //     final int itemIndex = i ~/ 2;
-  //     if (i.isEven) {
-  //       result.add(item(itemIndex));
-  //     } else {
-  //       result.add(separater(itemIndex));
-  //     }
-  //   }
-  //   return result;
-  // }
-
   static String hexToAscii(String source) {
     source = source.removeAllWhitespace;
     return List.generate(

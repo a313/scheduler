@@ -89,6 +89,14 @@ class Languages extends Translations {
           'Deactivate': 'Deactivate',
           'Activate': 'Activate',
           'Share Database': 'Share Database',
+          'class_formula':
+              'Calculation formula: Number of students attending * tuition fee + Total tuition fee of special students',
+          'student_formula':
+              'Calculation formula: Number of lessons * tuition fee',
+          'Off': 'Off',
+          'Joined': 'Joined',
+          'Open': 'Open',
+          'Close': 'Close',
         },
         'vi': {
           'Filter': 'Lọc',
@@ -176,6 +184,13 @@ class Languages extends Translations {
           'Deactivate': 'Dừng hoạt động',
           'Activate': 'Kích hoạt',
           'Share Database': 'Share Database',
+          'class_formula':
+              'Công thức tính : Số học sinh đi học * học phí + Tổng học phí của học sinh đặc biệt',
+          'student_formula': 'Công thức tính : Số buổi đi học * học phí',
+          'Off': 'Nghỉ học',
+          'Joined': 'Tham gia',
+          'Open': 'Hoạt động',
+          'Close': 'Nghỉ',
         },
       };
 }

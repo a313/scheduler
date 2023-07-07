@@ -12,6 +12,9 @@ Future<void> main() async {
   runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
     await GetStorage.init();
+
+    // await DbHelper().replaceDatabase();
+
     await DependencyInjection.injection();
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
         FlutterLocalNotificationsPlugin();

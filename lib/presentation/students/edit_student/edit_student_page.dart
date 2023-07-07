@@ -62,6 +62,12 @@ class EditStudentPage extends GetView<EditStudentController> {
                               return values.map((e) => e.name).join(", ");
                             },
                           )),
+                      BaseDateField(
+                        initDate: DateTime.now(),
+                        labelText: 'Last charge'.tr,
+                        timeFormat: DateFormater.ddMMYYYY,
+                        onSelected: controller.onChangeLastCharge,
+                      ),
                       BaseSwitchField(
                         labelText: 'Attendance?',
                         initState: controller.data.isFollow,
@@ -84,6 +90,7 @@ class EditStudentPage extends GetView<EditStudentController> {
                               ))),
                       BaseDateField(
                         labelText: 'Register date',
+                        initDate: controller.data.beginStudy,
                         timeFormat: DateFormater.ddMMYYYY,
                         onSelected: controller.onChangeBeginStudy,
                       ),
