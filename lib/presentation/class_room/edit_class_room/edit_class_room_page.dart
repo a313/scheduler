@@ -21,6 +21,18 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
     final isEdit = controller.initData != null;
     return BaseScafoldAppBar(
         title: isEdit ? 'Edit class'.tr : 'Add class'.tr,
+        onTappedScene: controller.hideKeyboard,
+        onWillPop: controller.onWillPop,
+        actions: isEdit
+            ? [
+                TextButton(
+                  onPressed: controller.onDeleteClass,
+                  child: Text('Delete'.tr,
+                      style: AppFonts.bSmall
+                          .copyWith(color: context.funcRadicalRed)),
+                )
+              ]
+            : [],
         body: Column(
           children: [
             Expanded(

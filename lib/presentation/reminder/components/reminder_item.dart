@@ -24,7 +24,7 @@ class ReminderItem extends StatelessWidget {
           children: [
             LocalAvatar(
               path: data.image,
-              size: 32,
+              size: 40,
               name: data.name,
             ),
             sizedBoxW12,
@@ -35,11 +35,13 @@ class ReminderItem extends StatelessWidget {
                   data.name,
                   style: AppFonts.h500,
                 ),
-                sizedBoxH06,
                 Text(
-                  data.remindDate.getPassedTime(DateTime.now()),
-                  style: AppFonts.bSmall.copyWith(color: context.neutral900),
-                  textAlign: TextAlign.right,
+                  'Create At: ${data.remindDate.toStringFormat(DateFormater.ddMMYYYY)}',
+                  style: AppFonts.bSmall.copyWith(color: context.neutral1000),
+                ),
+                Text(
+                  data.remindDate.getDiffTime(DateTime.now()),
+                  style: AppFonts.bSmall.copyWith(color: context.neutral1000),
                 ),
               ],
             ),

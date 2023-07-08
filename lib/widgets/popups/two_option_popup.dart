@@ -4,38 +4,38 @@ import 'package:get/get.dart';
 import '../base/base_button.dart';
 import '../base/base_popup.dart';
 
-class YesNoPopup extends StatelessWidget {
-  const YesNoPopup({
+class TwoOptionPopup extends StatelessWidget {
+  const TwoOptionPopup({
     Key? key,
     required this.desc,
     this.title = 'Warning',
-    this.okTitle = 'Ok',
-    this.cancelTitle = 'Cancel',
-    required this.onOk,
-    this.onCancel,
+    this.primaryTitle = 'Ok',
+    this.secondaryTitle = 'Cancel',
+    required this.onPrimary,
+    this.onSecondary,
   }) : super(key: key);
 
   final String desc;
-  final String title;
-  final String okTitle;
-  final String cancelTitle;
-  final Function() onOk;
-  final Function()? onCancel;
+  final String? title;
+  final String primaryTitle;
+  final String secondaryTitle;
+  final Function() onPrimary;
+  final Function()? onSecondary;
   @override
   Widget build(BuildContext context) {
     return BasePopup(
-      title: title,
+      title: title?.tr,
       desc: desc,
       actions: [
         BaseButton.largeSecondary(
           width: double.infinity,
-          title: cancelTitle,
-          onPressed: onCancel != null ? onCancel! : Get.back,
+          title: secondaryTitle.tr,
+          onPressed: onSecondary != null ? onSecondary! : Get.back,
         ),
         BaseButton.largePrimary(
           width: double.infinity,
-          title: okTitle,
-          onPressed: onOk,
+          title: primaryTitle.tr,
+          onPressed: onPrimary,
         )
       ],
     );

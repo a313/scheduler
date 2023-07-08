@@ -30,34 +30,36 @@ class ClassRoomUseCases {
     required DateTime to,
   }) {
     List<Event> result = [];
-    if (!classRoom.isActive && !classRoom.hasSchedule) return [];
-    for (var date = from;
-        date.isBefore(to);
-        date = date.add(const Duration(days: 1))) {
-      for (final t in classRoom.timetables) {
-        if (date.weekday == t.dayInWeek) {
-          final begin = t.begin;
-          final end = t.end;
-          final startTime =
-              date.copyWith(hour: begin.hour, minute: begin.minute);
-          final endTime = date.copyWith(hour: end.hour, minute: end.minute);
-          final studensOfClass =
-              students.where((e) => e.classId.contains(classRoom.id)).toList();
-          final listIds = studensOfClass.map((e) => e.id!).toList();
+    if (classRoom.isActive && classRoom.hasSchedule) {
+      for (var date = from;
+          date.isBefore(to);
+          date = date.add(const Duration(days: 1))) {
+        for (final t in classRoom.timetables) {
+          if (date.weekday == t.dayInWeek) {
+            final begin = t.begin;
+            final end = t.end;
+            final startTime =
+                date.copyWith(hour: begin.hour, minute: begin.minute);
+            final endTime = date.copyWith(hour: end.hour, minute: end.minute);
+            final studensOfClass = students
+                .where((e) => e.classId.contains(classRoom.id))
+                .toList();
+            final listIds = studensOfClass.map((e) => e.id!).toList();
 
-          result.add(Event(
-            name: classRoom.name,
-            parentId: classRoom.id,
-            classId: classRoom.id!,
-            invitedIds: listIds,
-            joinedIds: listIds,
-            startTime: startTime,
-            endTime: endTime,
-            location: classRoom.location,
-            alert: classRoom.alert,
-            type: EventType.GeneradeClass,
-            repeat: RepeatType.None,
-          ));
+            result.add(Event(
+              name: classRoom.name,
+              parentId: classRoom.id,
+              classId: classRoom.id!,
+              invitedIds: listIds,
+              joinedIds: listIds,
+              startTime: startTime,
+              endTime: endTime,
+              location: classRoom.location,
+              alert: classRoom.alert,
+              type: EventType.GeneradeClass,
+              repeat: RepeatType.None,
+            ));
+          }
         }
       }
     }

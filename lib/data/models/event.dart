@@ -32,6 +32,38 @@ class Event with _$Event {
     @JsonKey(includeToJson: false, includeFromJson: false) ClassRoom? classRoom,
   }) = _Event;
 
+  @override
+  bool operator ==(Object other) =>
+      other is Event &&
+      other.id == id &&
+      other.parentId == parentId &&
+      other.name == name &&
+      other.startTime == startTime &&
+      other.endTime == endTime &&
+      other.alert == alert &&
+      other.repeat == repeat &&
+      other.location == location &&
+      other.classId == classId &&
+      other.invitedIds == invitedIds &&
+      other.joinedIds == joinedIds &&
+      other.isActive == isActive &&
+      other.note == note;
+
+  @override
+  int get hashCode =>
+      id.hashCode ^
+      parentId.hashCode ^
+      startTime.hashCode ^
+      endTime.hashCode ^
+      alert.hashCode ^
+      repeat.hashCode ^
+      location.hashCode ^
+      classId.hashCode ^
+      invitedIds.hashCode ^
+      joinedIds.hashCode ^
+      isActive.hashCode ^
+      note.hashCode;
+
   factory Event.fromJson(Map<String, Object?> json) => _$EventFromJson(json);
 
   static List<Event> getListFromDB(List<Map<String, Object?>> data) =>

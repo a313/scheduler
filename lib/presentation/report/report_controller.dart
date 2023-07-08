@@ -48,9 +48,7 @@ class ReportController extends BaseController {
   @override
   void onInit() {
     startDate = DateTime.now().dateWithoutDay();
-    endDate = startDate
-        .copyWith(month: startDate.month + 1)
-        .subtract(const Duration(seconds: 1));
+    endDate = DateTime.now().endOfDay();
     getData(startDate, endDate);
 
     super.onInit();

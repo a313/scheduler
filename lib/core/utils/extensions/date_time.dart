@@ -66,21 +66,41 @@ extension DateExtension on DateTime {
         .inDays;
   }
 
-  String getPassedTime(DateTime to) {
-    var result = '';
-    var y = to.year - year;
-    var m = to.month - month;
-    var d = to.day - day;
-    final dInM = daysInMonth;
+  String getDiffTime(DateTime to) {
+    if (dateWithoutTime().isAtSameMomentAs(to.dateWithoutTime())) {
+      return 'Just created'.tr;
+    }
 
-    if (d < 0) {
-      m -= 1;
-      d = dInM + d - to.day;
+    var from = this;
+    String result;
+    int y = 0;
+    int m = 0;
+    int d = 0;
+    if (to.isBefore(from)) {
+      final tmp = from;
+      from = to;
+      to = tmp;
+      result = "${'Remain'.tr}: ";
+    } else {
+      result = "${'Passed'.tr}: ";
     }
-    if (m < 0) {
-      y -= 1;
-      m = 12 - to.month;
+    final dInM = from.daysInMonth;
+    int mF = from.month;
+    int yF = from.year;
+    if (to.day < from.day) {
+      d = dInM + to.day - from.day;
+      mF += 1;
+    } else {
+      d = to.day - from.day;
     }
+
+    if (to.month < mF) {
+      m = 12 + to.month - mF;
+      yF += 1;
+    } else {
+      m = to.month - mF;
+    }
+    y = to.year - yF;
 
     if (y > 0) {
       result += '$y ${'years'.tr} ';
@@ -92,7 +112,6 @@ extension DateExtension on DateTime {
       result += '$d ${'days'.tr} ';
     }
 
-    if (result.isEmpty) return 'Just created'.tr;
     return result;
   }
 

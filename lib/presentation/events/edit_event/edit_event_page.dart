@@ -22,6 +22,18 @@ class EditEventPage extends GetView<EditEventController> {
     final isEdit = controller.initData != null;
     return BaseScafoldAppBar(
         title: isEdit ? 'Edit event'.tr : 'New event'.tr,
+        onTappedScene: controller.hideKeyboard,
+        onWillPop: controller.onWillPop,
+        actions: isEdit
+            ? [
+                TextButton(
+                  onPressed: controller.onDeleteEvent,
+                  child: Text('Delete'.tr,
+                      style: AppFonts.bSmall
+                          .copyWith(color: context.funcRadicalRed)),
+                )
+              ]
+            : [],
         body: Column(
           children: [
             Expanded(

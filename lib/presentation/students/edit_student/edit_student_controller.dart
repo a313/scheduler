@@ -8,6 +8,8 @@ import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/presentation/students/base_student_controller.dart';
 
+import '../../../widgets/popups/two_option_popup.dart';
+
 class EditStudentController extends BaseStudentController
     with StateMixin<List<ClassRoom>> {
   final Student? initData;
@@ -114,5 +116,53 @@ class EditStudentController extends BaseStudentController
     } else {
       log('err');
     }
+  }
+
+  void onDeleteStudent() {
+    showPopup(
+      TwoOptionPopup(
+        desc: '${'Are your sure to delete'.tr} ${data.name}?',
+        secondaryTitle: 'Delete',
+        onSecondary: () async {
+          Get.back();
+          handlerDelete();
+        },
+        primaryTitle: 'Cancel',
+        onPrimary: () async {
+          Get.back();
+        },
+      ),
+    );
+  }
+
+  Future<void> handlerDelete() async {
+    showLoading();
+    final result = await useCases.delete(data.id!);
+    if (result is DataFailure) return;
+    await reGeneraEvent(data);
+    dismissLoading();
+    Get.back(result: data);
+    showSnackBar('${'Deleted'.tr} ${data.name}', type: SnackBarType.success);
+  }
+
+  Future<bool> onWillPop() async {
+    final origin = initData ?? Student.init();
+    if (data != origin) {
+      showPopup(
+        TwoOptionPopup(
+          desc: 'Data has been changed. Do you want to save?'.tr,
+          onPrimary: () {
+            Get.back();
+            onInsertOrUpdate();
+          },
+          onSecondary: () {
+            Get.back();
+            Get.back();
+          },
+        ),
+      );
+      return false;
+    }
+    return true;
   }
 }

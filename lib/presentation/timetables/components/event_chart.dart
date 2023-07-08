@@ -24,13 +24,14 @@ class EventChart extends StatelessWidget {
       final children = List.generate(events.length, (index) {
         final event = events[index];
         final duration = event.duration;
-        final itemH = duration.inSeconds / 86400 * h;
+        var itemH = duration.inSeconds / 86400 * h;
         final y = (event.startTime.weekday - 1) * itemW;
         final x = (event.startTime
                     .difference(event.startTime.dateWithoutTime())
                     .inSeconds /
                 86400) *
             h;
+        if (duration.inMinutes < 15) itemH = 36;
         return Positioned(
           left: y,
           top: x,
@@ -58,17 +59,18 @@ class _EventItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = getColor(context, getState(event));
+    final minDif = event.duration.inMinutes;
     return Opacity(
       opacity: event.isActive ? 1 : 0.2,
       child: ABWidget(
-        isShowA: event.duration.inMinutes < 15,
+        isShowA: minDif < 15,
         widgetA: (context) => Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
                 width: 4,
                 height: 4,
-                margin: const EdgeInsets.only(top: 6),
+                margin: const EdgeInsets.only(top: 6, left: 2),
                 decoration:
                     BoxDecoration(shape: BoxShape.circle, color: color)),
             sizedBoxW04,
@@ -96,7 +98,7 @@ class _EventItem extends StatelessWidget {
             padding: const EdgeInsets.all(4),
             child: Text(
               event.name,
-              maxLines: 2,
+              maxLines: 3,
               style: AppFonts.bSuperSmall,
               overflow: TextOverflow.ellipsis,
             ),

@@ -20,4 +20,6 @@ abstract class EventRepo {
 
   Future<DataState<List<Event>>> getClassEventsFrom(
       DateTime from, DateTime to, OrderType type);
+
+  Future<DataState<int>> delete(int id);
 }

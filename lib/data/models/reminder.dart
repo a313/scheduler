@@ -11,17 +11,45 @@ part 'reminder.g.dart';
 class Reminder with _$Reminder {
   const Reminder._();
 
-  factory Reminder(
-      {int? id,
-      required String name,
-      @DateTimeConverter() required DateTime createDate,
-      @DateTimeConverter() required DateTime remindDate,
-      required AlertType alert,
-      required RepeatType repeat,
-      @Default(1) int interval,
-      @TimeOfDayConverter() TimeOfDay? time,
-      @Default(-1) int softIndex,
-      String? image}) = _Reminder;
+  factory Reminder({
+    int? id,
+    required String name,
+    @DateTimeConverter() required DateTime createDate,
+    @DateTimeConverter() required DateTime remindDate,
+    required AlertType alert,
+    required RepeatType repeat,
+    @Default(1) int interval,
+    @TimeOfDayConverter() TimeOfDay? time,
+    @Default(-1) int softIndex,
+    String? image,
+  }) = _Reminder;
+
+  @override
+  bool operator ==(Object other) =>
+      other is Reminder &&
+      other.id == id &&
+      other.name == name &&
+      other.createDate == createDate &&
+      other.remindDate == remindDate &&
+      other.alert == alert &&
+      other.repeat == repeat &&
+      other.interval == interval &&
+      other.time == time &&
+      other.softIndex == softIndex &&
+      other.image == image;
+
+  @override
+  int get hashCode =>
+      id.hashCode ^
+      name.hashCode ^
+      createDate.hashCode ^
+      remindDate.hashCode ^
+      alert.hashCode ^
+      repeat.hashCode ^
+      interval.hashCode ^
+      time.hashCode ^
+      softIndex.hashCode ^
+      image.hashCode;
 
   factory Reminder.fromJson(Map<String, Object?> json) =>
       _$ReminderFromJson(json);

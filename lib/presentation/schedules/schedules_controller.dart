@@ -6,7 +6,7 @@ import 'package:scheduler/data/models/schedule.dart';
 import 'package:scheduler/domain/usecases/schedule_usecases.dart';
 import 'package:scheduler/routes/routes.dart';
 
-import '../../widgets/popups/yes_no_popup.dart';
+import '../../widgets/popups/two_option_popup.dart';
 
 class SchedulesController extends BaseController {
   final useCase = Get.find<ScheduleUseCases>();
@@ -34,15 +34,17 @@ class SchedulesController extends BaseController {
 
   void deleteSchedule(Schedule data, CompletionHandler handler) {
     showPopup(
-      YesNoPopup(
+      TwoOptionPopup(
         desc: 'Are your sure to delete ${data.name}?',
-        onOk: () async {
+        secondaryTitle: 'Delete',
+        onSecondary: () async {
           Get.back();
           await handler(true);
           await useCase.delete(data.id!);
           getData();
         },
-        onCancel: () async {
+        primaryTitle: 'Cancel',
+        onPrimary: () async {
           Get.back();
           await handler(false);
         },

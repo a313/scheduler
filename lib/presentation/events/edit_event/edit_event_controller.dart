@@ -8,6 +8,7 @@ import 'package:scheduler/domain/usecases/event_usecases.dart';
 
 import '../../../core/usecase/data_state.dart';
 import '../../../data/models/event.dart';
+import '../../../widgets/popups/two_option_popup.dart';
 
 class EditEventController extends BaseController {
   EventUseCases useCases = Get.find();
@@ -71,6 +72,9 @@ class EditEventController extends BaseController {
     if (initData == data) {
       Get.back();
     } else {
+      if (data.startTime.isAfter(data.endTime)) {
+        data.endTime = data.startTime;
+      }
       final result = await useCases.insertOrUpdate(data);
       if (result is DataSuccess<Event>) {
         Get.back(result: result.data);
@@ -108,5 +112,52 @@ class EditEventController extends BaseController {
 
   void onChangeLocation(String location) {
     data.location = location;
+  }
+
+  void onDeleteEvent() {
+    showPopup(
+      TwoOptionPopup(
+        desc: '${'Are your sure to delete'.tr} ${data.name}?',
+        secondaryTitle: 'Delete',
+        onSecondary: () async {
+          Get.back();
+          handlerDelete();
+        },
+        primaryTitle: 'Cancel',
+        onPrimary: () async {
+          Get.back();
+        },
+      ),
+    );
+  }
+
+  Future<void> handlerDelete() async {
+    showLoading();
+    final result = await useCases.delete(data.id!);
+    if (result is DataFailure) return;
+    dismissLoading();
+    Get.back(result: data);
+    showSnackBar('${'Deleted'.tr} ${data.name}', type: SnackBarType.success);
+  }
+
+  Future<bool> onWillPop() async {
+    final origin = initData ?? Event.init();
+    if (data != origin) {
+      showPopup(
+        TwoOptionPopup(
+          desc: 'Data has been changed. Do you want to save?'.tr,
+          onPrimary: () {
+            Get.back();
+            onInsertOrUpdate();
+          },
+          onSecondary: () {
+            Get.back();
+            Get.back();
+          },
+        ),
+      );
+      return false;
+    }
+    return true;
   }
 }

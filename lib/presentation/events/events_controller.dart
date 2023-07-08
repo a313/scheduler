@@ -49,7 +49,6 @@ class EventsController extends BaseController {
     await generateEvent(lastDay);
     await loadEvent(firstDay, lastDay);
 
-    updateUI();
     generateNotificaion();
   }
 
@@ -84,7 +83,6 @@ class EventsController extends BaseController {
 
   Future<void> onReloadData() async {
     await loadEvent(firstDay, lastDay);
-    updateUI();
     generateNotificaion();
   }
 
@@ -133,7 +131,6 @@ class EventsController extends BaseController {
   }
 
   Future<void> loadEvent(DateTime from, DateTime to) async {
-    formatedData.clear();
     final result = await useCases.getEventsFrom(
       from.dateWithoutTime(),
       to.dateWithoutTime().add(const Duration(days: 1)),
@@ -145,9 +142,18 @@ class EventsController extends BaseController {
     } else if (result is DataFailure<List<Event>>) {
       onDataFailed(result);
     }
+    updateUI();
   }
 
-  void groupEvent(List<Event> events) {
+  Map<DateTime, List<Event>> groupEvent(List<Event> events) {
+    void addToGroup(DateTime key, Event event) {
+      if (formatedData.containsKey(key)) {
+        formatedData[key]!.add(event);
+      } else {
+        formatedData[key] = [event];
+      }
+    }
+
     for (var event in events) {
       fillData(event);
       final startDay = event.startTime;
@@ -164,6 +170,7 @@ class EventsController extends BaseController {
         }
       }
     }
+    return formatedData;
   }
 
   Future<void> onTappedEvent(Event event) async {
@@ -181,8 +188,7 @@ class EventsController extends BaseController {
         await Get.toNamed(Routes.editEvent, arguments: event) as Event?;
     if (data != null) {
       await loadEvent(firstDay, lastDay);
-      updateUI();
-      if (data.alert != AlertType.None) generateNotificaion();
+      generateNotificaion();
     }
   }
 
@@ -190,7 +196,6 @@ class EventsController extends BaseController {
     final data = await Get.toNamed(Routes.editEvent) as Event?;
     if (data != null) {
       await loadEvent(firstDay, lastDay);
-      updateUI();
       if (data.alert != AlertType.None) generateNotificaion();
     }
   }
@@ -205,18 +210,10 @@ class EventsController extends BaseController {
     }
   }
 
-  void addToGroup(DateTime key, Event event) {
-    if (formatedData.containsKey(key)) {
-      formatedData[key]!.add(event);
-    } else {
-      formatedData[key] = [event];
-    }
-  }
-
   Future<void> onDaySelected(DateTime selectedDay, DateTime focusedDay) async {
     firstDay = selectedDay;
     await loadEvent(firstDay, lastDay);
-    updateUI();
+
     this.selectedDay.value = selectedDay;
   }
 
@@ -230,7 +227,7 @@ class EventsController extends BaseController {
   Future<void> onRefresh() async {
     firstDay = firstDay.subtract(const Duration(days: 7));
     await loadEvent(firstDay, lastDay);
-    updateUI();
+
     refreshController.refreshCompleted();
   }
 
@@ -238,7 +235,7 @@ class EventsController extends BaseController {
     lastDay = lastDay.add(const Duration(days: 7));
     await generateEvent(lastDay);
     await loadEvent(firstDay, lastDay);
-    updateUI();
+
     refreshController.loadComplete();
   }
 

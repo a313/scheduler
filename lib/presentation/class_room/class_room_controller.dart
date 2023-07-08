@@ -7,7 +7,7 @@ import 'package:scheduler/domain/usecases/event_usecases.dart';
 import 'package:scheduler/presentation/class_room/base_class_controller.dart';
 
 import '../../routes/routes.dart';
-import '../../widgets/popups/yes_no_popup.dart';
+import '../../widgets/popups/two_option_popup.dart';
 
 class ClassRoomController extends BaseClassController
     with StateMixin<Map<String, List<ClassRoom>>> {
@@ -62,9 +62,10 @@ class ClassRoomController extends BaseClassController
 
   void deleteClass(ClassRoom data, CompletionHandler handler) {
     showPopup(
-      YesNoPopup(
+      TwoOptionPopup(
         desc: 'Are your sure to delete ${data.name}?',
-        onOk: () async {
+        secondaryTitle: 'Delete',
+        onSecondary: () async {
           Get.back();
           await handler(true);
           await useCases.delete(data.id!);
@@ -76,7 +77,8 @@ class ClassRoomController extends BaseClassController
               type: EventType.GeneradeClass);
           getData();
         },
-        onCancel: () async {
+        primaryTitle: 'Cancel',
+        onPrimary: () async {
           Get.back();
           await handler(false);
         },
@@ -89,19 +91,9 @@ class ClassRoomController extends BaseClassController
     state.isOpen = !state.isOpen;
     final result = await useCases.insertOrUpdate(state);
     if (result is DataFailure) return;
-    if (!state.isOpen) {
-      final from = DateTime.now().dateWithoutTime();
-
-      await Get.find<EventUseCases>().removeEvents(
-          parentId: state.id!,
-          from: from,
-          to: DateTime(2300),
-          type: EventType.GeneradeClass);
-    } else {
-      await reGeneraEvent(state);
-    }
-    await handler(false);
+    await reGeneraEvent(state);
     await getData();
+    handler(false);
   }
 
   Map<String, List<ClassRoom>> formatData(List<ClassRoom> allClassRoom) {

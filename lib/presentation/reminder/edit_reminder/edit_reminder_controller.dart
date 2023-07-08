@@ -9,6 +9,8 @@ import 'package:scheduler/data/models/reminder.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
 import 'package:scheduler/domain/usecases/reminder_usecases.dart';
 
+import '../../../widgets/popups/two_option_popup.dart';
+
 class EditReminderController extends BaseController {
   final Reminder? initData;
   final nameController = TextEditingController();
@@ -133,5 +135,53 @@ class EditReminderController extends BaseController {
 
     await eventUseCases.insertAll(events);
     reloadData();
+  }
+
+  void onDeleteClass() {
+    showPopup(
+      TwoOptionPopup(
+        desc: '${'Are your sure to delete'.tr} ${data.name}?',
+        secondaryTitle: 'Delete',
+        onSecondary: () async {
+          Get.back();
+          handlerDelete();
+        },
+        primaryTitle: 'Cancel',
+        onPrimary: () async {
+          Get.back();
+        },
+      ),
+    );
+  }
+
+  Future<void> handlerDelete() async {
+    showLoading();
+    final result = await useCases.delete(data.id!);
+    if (result is DataFailure) return;
+    await reGeneraEvent(data);
+    dismissLoading();
+    Get.back(result: data);
+    showSnackBar('${'Deleted'.tr} ${data.name}', type: SnackBarType.success);
+  }
+
+  Future<bool> onWillPop() async {
+    final origin = initData ?? Reminder.init();
+    if (data != origin) {
+      showPopup(
+        TwoOptionPopup(
+          desc: 'Data has been changed. Do you want to save?'.tr,
+          onPrimary: () {
+            Get.back();
+            onInsertOrUpdate();
+          },
+          onSecondary: () {
+            Get.back();
+            Get.back();
+          },
+        ),
+      );
+      return false;
+    }
+    return true;
   }
 }

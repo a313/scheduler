@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/datasource/db_helper.dart';
 
@@ -77,6 +79,8 @@ class EventDbImpl extends EventDB {
         where: 'startTime BETWEEN ? and ?',
         whereArgs: [from, to],
         orderBy: 'startTime ${type.name}');
+    log('${result.length} Events - startTime BETWEEN $from and $to',
+        name: 'QUERY');
     return result;
   }
 
@@ -88,8 +92,10 @@ class EventDbImpl extends EventDB {
     required int to,
   }) async {
     final result = await db.delete(table,
-        where: 'parentId = ? AND type = ? AND startTime BETWEEN ? and ?',
+        where: 'parentId = ? AND type = ? AND startTime BETWEEN ? AND ?',
         whereArgs: [parentId, type.name, from, to]);
+    log('$result Events - parentId:$parentId AND type:$type AND startTime BETWEEN $from AND $to',
+        name: 'DELETED');
     return result;
   }
 

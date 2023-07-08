@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 
 import '../../widgets/loading_indicator.dart';
-import '../../widgets/popups/confirm_popup.dart';
+import '../../widgets/popups/one_option_popup.dart';
 import '../usecase/data_state.dart';
 import '../utils/util.dart';
 
@@ -158,9 +158,9 @@ mixin BaseCommonWidgets {
     bool dismissable = true,
   }) {
     showPopup(
-      ConfirmPopup(
+      OneOptionPopup(
         title: title,
-        btnTitle: btnTitle,
+        btnTitle: btnTitle ?? 'Close',
         desc: failure.message,
         onConfirm: onConfirm,
       ),

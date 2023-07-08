@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/presentation/students/components/student_item.dart';
+
+import '../../../theme/app_fonts.dart';
+import '../../../widgets/local_avatar.dart';
 
 class SwitchStudentCell extends StatelessWidget {
   const SwitchStudentCell(
@@ -20,19 +22,54 @@ class SwitchStudentCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: StudentItem(data: data)),
+        Expanded(child: _StudentItem(data: data)),
         Padding(
           padding: const EdgeInsets.only(right: 12),
           child: IgnorePointer(
               ignoring: !enable,
-              child: CupertinoSwitch(
-                activeColor:
-                    enable ? context.primaryDark : context.disableColor,
-                value: switchValue,
-                onChanged: onChanged,
+              child: Transform.scale(
+                transformHitTests: false,
+                scale: .85,
+                child: CupertinoSwitch(
+                  activeColor:
+                      enable ? context.primaryDark : context.disableColor,
+                  value: switchValue,
+                  onChanged: onChanged,
+                ),
               )),
         ),
       ],
+    );
+  }
+}
+
+class _StudentItem extends StatelessWidget {
+  const _StudentItem({
+    required this.data,
+  });
+  final Student data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Opacity(
+      opacity: data.isFollow ? 1 : 0.3,
+      child: Padding(
+        padding: padSymHor12Ver06,
+        child: Row(
+          children: [
+            LocalAvatar(
+              path: data.image,
+              size: 32,
+              name: data.name,
+            ),
+            sizedBoxW12,
+            Text(
+              data.name,
+              style: AppFonts.h400,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

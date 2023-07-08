@@ -24,25 +24,21 @@ class EventBottomSheet extends StatefulWidget {
 
 class _EventBottomSheetState extends State<EventBottomSheet> {
   late List<Student> invited;
-  late List<Student> joined;
+
   late Event event;
   @override
   void initState() {
-    event = widget.event;
-    joined = widget.allStudent
-        .where((e) => widget.event.joinedIds.contains(e.id))
-        .toList();
-    invited = widget.allStudent
-        .where((e) => widget.event.invitedIds.contains(e.id))
-        .toList();
-
+    //TODO BUG
+    event = widget.event.copyWith();
+    final allStudent = widget.allStudent;
+    invited = allStudent.where((e) => event.invitedIds.contains(e.id)).toList();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return BaseBottomSheet(
-        title: widget.event.name,
+        title: event.name,
         subTitle: CupertinoSwitch(
           activeColor: context.primaryDark,
           value: event.isActive,
@@ -52,38 +48,42 @@ class _EventBottomSheetState extends State<EventBottomSheet> {
             });
           },
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Expanded(
-              child: ListView.separated(
-                shrinkWrap: true,
-                itemCount: invited.length,
-                itemBuilder: (context, index) => SwitchStudentCell(
-                  enable: event.isActive,
-                  data: invited[index],
-                  switchValue: joined.contains(invited[index]),
-                  onChanged: (value) {
-                    setState(() {
-                      if (value) {
-                        joined.add(invited[index]);
-                        event.joinedIds.add(invited[index].id!);
-                      } else {
-                        joined.remove(invited[index]);
-                        event.joinedIds.remove(invited[index].id!);
-                      }
-                    });
-                  },
+        child: LayoutBuilder(
+          builder: (context, constraints) => Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ConstrainedBox(
+                constraints:
+                    BoxConstraints(maxHeight: constraints.maxHeight - 75),
+                child: CupertinoScrollbar(
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: invited.length,
+                    itemBuilder: (context, index) => SwitchStudentCell(
+                      enable: event.isActive,
+                      data: invited[index],
+                      switchValue: event.joinedIds.contains(invited[index].id),
+                      onChanged: (value) {
+                        setState(() {
+                          if (value) {
+                            event.joinedIds.add(invited[index].id!);
+                          } else {
+                            event.joinedIds.remove(invited[index].id!);
+                          }
+                        });
+                      },
+                    ),
+                    separatorBuilder: (context, index) => const CustomDivider(),
+                  ),
                 ),
-                separatorBuilder: (context, index) => const CustomDivider(),
               ),
-            ),
-            BaseButton.fixBottom(
-                title: 'Update',
-                onPressed: () {
-                  Get.back(result: event);
-                })
-          ],
+              BaseButton.fixBottom(
+                  title: 'Update',
+                  onPressed: () {
+                    Get.back(result: event);
+                  })
+            ],
+          ),
         ));
   }
 }

@@ -8,6 +8,7 @@ import 'package:scheduler/widgets/base/base_input.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'package:scheduler/widgets/base/base_state_widget.dart';
 
+import '../../../theme/app_fonts.dart';
 import '../../../widgets/avatar_picker.dart';
 import '../../../widgets/base/base_button.dart';
 import 'edit_student_controller.dart';
@@ -19,7 +20,19 @@ class EditStudentPage extends GetView<EditStudentController> {
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
     return BaseScafoldAppBar(
+        onTappedScene: controller.hideKeyboard,
+        onWillPop: controller.onWillPop,
         title: isEdit ? "Edit student" : "Add student",
+        actions: isEdit
+            ? [
+                TextButton(
+                  onPressed: controller.onDeleteStudent,
+                  child: Text('Delete'.tr,
+                      style: AppFonts.bSmall
+                          .copyWith(color: context.funcRadicalRed)),
+                )
+              ]
+            : [],
         body: Column(
           children: [
             Expanded(

@@ -6,9 +6,11 @@ class Languages extends Translations {
         'en': {
           'Filter': 'Filter',
           'Skip': 'Skip',
+          'Cancel': 'Cancel',
           'Grouping': 'Grouping',
           'Not exist class room': 'Not exist class room',
           'Not exist schedule': 'Not exist schedule',
+          'Are your sure to delete': 'Are your sure to delete',
           'Schedule': 'Schedule',
           'Add schedule': 'Add schedule',
           'On': 'On',
@@ -97,13 +99,20 @@ class Languages extends Translations {
           'Joined': 'Joined',
           'Open': 'Open',
           'Close': 'Close',
+          'Warning': 'Warning',
+          'Data has been changed. Do you want to save?':
+              'Data has been changed. Do you want to save?',
+          'Remain': 'Remain',
+          'Passed': 'Passed'
         },
         'vi': {
           'Filter': 'Lọc',
           'Skip': 'Bỏ qua',
+          'Cancel': 'Hủy',
           'Grouping': 'Nhóm',
           'Not exist class room': 'Lớp học không tồn tại',
           'Not exist schedule': 'Tiết học không tồn tại',
+          'Are your sure to delete': 'Bạn có chắc muốn xóa',
           'Schedule': 'Tiết học',
           'Add schedule': 'Thêm lịch trình',
           'On': 'Vào',
@@ -191,6 +200,11 @@ class Languages extends Translations {
           'Joined': 'Tham gia',
           'Open': 'Hoạt động',
           'Close': 'Nghỉ',
+          'Warning': 'Chú ý',
+          'Data has been changed. Do you want to save?':
+              'Dữ liệu đã được thay đổi. Bạn có muốn lưu lại?',
+          'Remain': 'Còn lại',
+          'Passed': 'Đã qua'
         },
       };
 }

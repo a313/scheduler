@@ -9,6 +9,7 @@ import 'package:scheduler/presentation/class_room/base_class_controller.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../routes/routes.dart';
+import '../../../widgets/popups/two_option_popup.dart';
 
 class EditClassRoomController extends BaseClassController {
   final ClassRoom? initData;
@@ -28,7 +29,7 @@ class EditClassRoomController extends BaseClassController {
         initData?.copyWith(timetables: List.from(initData?.timetables ?? [])) ??
             ClassRoom.init();
 
-    log('onInit :${data.id}', name: runtimeType.toString());
+    log('onInit id:${data.id}', name: runtimeType.toString());
     classNameController.text = data.name;
     locationController.text = data.location ?? '';
     tuitionController.text = data.tuition.toCurrency(symbol: '');
@@ -120,5 +121,53 @@ class EditClassRoomController extends BaseClassController {
 
   void onChangeTuition(String p1) {
     data.tuition = int.parse(p1.onlyNumberic);
+  }
+
+  void onDeleteClass() {
+    showPopup(
+      TwoOptionPopup(
+        desc: '${'Are your sure to delete'.tr} ${data.name}?',
+        secondaryTitle: 'Delete',
+        onSecondary: () async {
+          Get.back();
+          handlerDelete();
+        },
+        primaryTitle: 'Cancel',
+        onPrimary: () async {
+          Get.back();
+        },
+      ),
+    );
+  }
+
+  Future<void> handlerDelete() async {
+    showLoading();
+    final result = await useCases.delete(data.id!);
+    if (result is DataFailure) return;
+    await reGeneraEvent(data);
+    dismissLoading();
+    Get.back(result: data);
+    showSnackBar('${'Deleted'.tr} ${data.name}', type: SnackBarType.success);
+  }
+
+  Future<bool> onWillPop() async {
+    final origin = initData ?? ClassRoom.init();
+    if (data != origin) {
+      showPopup(
+        TwoOptionPopup(
+          desc: 'Data has been changed. Do you want to save?'.tr,
+          onPrimary: () {
+            Get.back();
+            onInsertOrUpdate();
+          },
+          onSecondary: () {
+            Get.back();
+            Get.back();
+          },
+        ),
+      );
+      return false;
+    }
+    return true;
   }
 }

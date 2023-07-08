@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_storage/get_storage.dart';
@@ -13,7 +14,9 @@ Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
     await GetStorage.init();
 
-    // await DbHelper().replaceDatabase();
+    if (kDebugMode) {
+      // await DbHelper().replaceDatabase();
+    }
 
     await DependencyInjection.injection();
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =

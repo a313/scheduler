@@ -52,11 +52,12 @@ abstract class DBSQLHelper {
 
   Future<List<Map<String, dynamic>>> fetchAll() async {
     final result = await db.query(table);
-    log('FetchAll $table: ${result.length}', name: 'DATABASE');
+    log('$table: ${result.length}', name: 'FetchAll');
     return result;
   }
 
   Future<int?> insertAll(Iterable<Map<String, Object?>> data) async {
+    log('$table: ${data.length}', name: 'InsertAll');
     if (data.isEmpty) return 0;
     return await db.insertMultiple(table, data);
   }
@@ -81,22 +82,22 @@ abstract class DBSQLHelper {
   }
 
   Future<int> insert(Map<String, Object?> values) async {
-    log('INSERT into $table: ${values.toString()}', name: 'DATABASE');
+    log('Into $table: ${values.toString()}', name: 'INSERT');
     return await db.insert(table, values);
   }
 
   Future<int> update(int id, Map<String, Object?> values) async {
-    log('UPDATE at $table id:$id: ${values.toString()}', name: 'DATABASE');
+    log('At $table id:$id: ${values.toString()}', name: 'UPDATE');
     return await db.update(table, values, where: 'id = ?', whereArgs: [id]);
   }
 
   Future<int> delete(int id) async {
-    log('DELETE at $table id:$id', name: 'DATABASE');
+    log('At $table id:$id', name: 'DELETE');
     return await db.delete(table, where: 'id = ?', whereArgs: [id]);
   }
 
   Future<int> truncate() async {
-    log('DELETE ALL $table', name: 'DATABASE');
+    log(table, name: 'DELETE ALL');
     return await db.delete(table);
   }
 }

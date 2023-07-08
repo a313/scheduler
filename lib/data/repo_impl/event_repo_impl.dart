@@ -72,4 +72,14 @@ class EventRepoImpl extends EventRepo {
         from.millisecondsSinceEpoch, to.millisecondsSinceEpoch, type);
     return DataSuccess(Event.getListFromDB(data));
   }
+
+  @override
+  Future<DataState<int>> delete(int id) async {
+    final data = await db.delete(id);
+    if (data > 0) {
+      return DataSuccess(data);
+    } else {
+      return DataFailure(DB_ERR_CODE, DB_ERR_MSG);
+    }
+  }
 }

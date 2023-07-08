@@ -24,6 +24,33 @@ class ClassRoom with _$ClassRoom {
       @Default(-1) int softIndex,
       String? image}) = _ClassRoom;
 
+  @override
+  bool operator ==(Object other) =>
+      other is ClassRoom &&
+      other.id == id &&
+      other.name == name &&
+      other.createDate == createDate &&
+      other.openDate == openDate &&
+      other.alert == alert &&
+      other.tuition == tuition &&
+      other.location == location &&
+      listEquals(other.timetables, timetables) &&
+      other.softIndex == softIndex &&
+      other.image == image;
+
+  @override
+  int get hashCode =>
+      id.hashCode ^
+      name.hashCode ^
+      createDate.hashCode ^
+      openDate.hashCode ^
+      alert.hashCode ^
+      tuition.hashCode ^
+      location.hashCode ^
+      timetables.hashCode ^
+      softIndex.hashCode ^
+      image.hashCode;
+
   factory ClassRoom.fromJson(Map<String, Object?> json) =>
       _$ClassRoomFromJson(json);
 
@@ -49,29 +76,29 @@ class ClassRoom with _$ClassRoom {
     return timetables.isNotEmpty;
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+  // @override
+  // bool operator ==(Object other) {
+  //   if (identical(this, other)) return true;
 
-    return other is ClassRoom &&
-        other.name == name &&
-        other.createDate == createDate &&
-        other.openDate == openDate &&
-        other.alert == alert &&
-        other.tuition == tuition &&
-        other.location == location &&
-        listEquals(other.timetables, timetables) &&
-        other.isOpen == isOpen;
-  }
+  //   return other is ClassRoom &&
+  //       other.name == name &&
+  //       other.createDate == createDate &&
+  //       other.openDate == openDate &&
+  //       other.alert == alert &&
+  //       other.tuition == tuition &&
+  //       other.location == location &&
+  //       listEquals(other.timetables, timetables) &&
+  //       other.isOpen == isOpen;
+  // }
 
-  @override
-  int get hashCode {
-    return name.hashCode ^
-        createDate.hashCode ^
-        openDate.hashCode ^
-        tuition.hashCode ^
-        location.hashCode ^
-        timetables.hashCode ^
-        isOpen.hashCode;
-  }
+  // @override
+  // int get hashCode {
+  //   return name.hashCode ^
+  //       createDate.hashCode ^
+  //       openDate.hashCode ^
+  //       tuition.hashCode ^
+  //       location.hashCode ^
+  //       timetables.hashCode ^
+  //       isOpen.hashCode;
+  // }
 }

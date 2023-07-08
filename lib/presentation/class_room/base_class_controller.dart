@@ -19,6 +19,7 @@ class BaseClassController extends BaseController {
         local.getLastGenerateTime() ?? from.add(const Duration(days: 15));
     await eventUseCases.removeEvents(
         parentId: data.id!, from: from, to: to, type: EventType.GeneradeClass);
+
     final events = useCases.generateEvent(
       classRoom: data,
       students: allStudent,
