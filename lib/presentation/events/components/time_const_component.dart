@@ -8,17 +8,28 @@ class TimeConstComponent extends StatelessWidget {
   const TimeConstComponent({
     super.key,
     required this.data,
+    required this.time,
   });
-
+  final DateTime time;
   final Event data;
 
   @override
   Widget build(BuildContext context) {
-    final start = data.startTime;
-    final end = data.endTime;
+    var start = data.startTime;
+    if (start.beginOfDay().isBefore(time)) {
+      start = time;
+    }
+
+    var end = data.endTime;
+    if (end.isBefore(time.endOfDay())) {
+      end = time;
+    }
+
+    var timeStr = data.startTime.toStringFormat(DateFormater.HHmm);
     final now = DateTime.now();
     final isGoingOn = now.isBetween(start, end);
-    final isAllDay = start.difference(end).inHours > 23;
+
+    final duration = end.difference(start);
     return SizedBox(
       width: 80,
       child: Column(
@@ -30,16 +41,15 @@ class TimeConstComponent extends StatelessWidget {
                 Container(
                   margin: padSymHor04,
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: context.primaryDark),
+                      shape: BoxShape.circle,
+                      color: context.funcCornflowerBlue),
                   width: 6,
                   height: 6,
                 )
               else
                 sizedBoxW14,
               Text(
-                isAllDay
-                    ? 'ALL DAY'
-                    : data.startTime.toStringFormat(DateFormater.HHmm),
+                timeStr,
                 style: AppFonts.bSmall.copyWith(
                   color: isGoingOn ? context.primaryDark : context.neutral1100,
                   decoration: data.isActive ? null : TextDecoration.lineThrough,
@@ -51,7 +61,7 @@ class TimeConstComponent extends StatelessWidget {
           Padding(
             padding: padSymHor14,
             child: Text(
-              data.duration.formatInDuration(),
+              duration.formatInDuration(),
               style: AppFonts.bSmall.copyWith(
                   decoration:
                       data.isActive ? null : TextDecoration.lineThrough),

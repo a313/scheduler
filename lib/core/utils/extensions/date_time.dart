@@ -18,6 +18,10 @@ extension DateExtension on DateTime {
     return DateTime(year, month, day);
   }
 
+  DateTime beginOfDay() {
+    return DateTime(year, month, day);
+  }
+
   DateTime endOfDay() {
     return DateTime(year, month, day, 23, 59, 59);
   }

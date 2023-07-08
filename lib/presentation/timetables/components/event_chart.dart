@@ -21,30 +21,57 @@ class EventChart extends StatelessWidget {
       final h = constraints.maxHeight;
       final itemW = w / 7;
 
-      final children = List.generate(events.length, (index) {
-        final event = events[index];
-        final duration = event.duration;
+      Positioned genPosition(DateTime time, Duration duration, Event parent) {
         var itemH = duration.inSeconds / 86400 * h;
-        final y = (event.startTime.weekday - 1) * itemW;
-        final x = (event.startTime
-                    .difference(event.startTime.dateWithoutTime())
-                    .inSeconds /
-                86400) *
-            h;
+        final y = (time.weekday - 1) * itemW;
+        final x = (time.difference(time.beginOfDay()).inSeconds / 86400) * h;
         if (duration.inMinutes < 15) itemH = 36;
+
         return Positioned(
-          left: y,
           top: x,
+          left: y,
           width: itemW,
           height: itemH,
           child: GestureDetector(
             behavior: HitTestBehavior.opaque,
-            onTap: () => onTapped?.call(event),
-            child: _EventItem(event),
+            onTap: () => onTapped?.call(parent),
+            child: _EventItem(parent),
           ),
         );
-      });
-      return Stack(children: children);
+      }
+
+      List<Positioned> manyDayPos = [];
+      final manyDayEvents = events.where(
+          (e) => e.startTime.dateWithoutTime() != e.endTime.dateWithoutTime());
+
+      for (var e in manyDayEvents) {
+        final days =
+            e.endTime.beginOfDay().difference(e.startTime.beginOfDay()).inDays;
+        var start = e.startTime;
+        for (var i = 0; i <= days; i++) {
+          var endOfDay = start.endOfDay();
+          if (endOfDay.isAfter(e.endTime)) {
+            endOfDay = e.endTime;
+          }
+
+          final dur = endOfDay.difference(start);
+          manyDayPos.add(genPosition(start, dur, e));
+          start = start.beginOfDay().add(const Duration(days: 1));
+        }
+      }
+      final oneEvents = events.where(
+          (e) => e.startTime.dateWithoutTime() == e.endTime.dateWithoutTime());
+      final oneDayWidget = List.generate(
+        oneEvents.length,
+        (index) {
+          final event = oneEvents.elementAt(index);
+          return genPosition(event.startTime, event.duration, event);
+        },
+      );
+      return Stack(children: [
+        ...manyDayPos,
+        // ...oneDayWidget,
+      ]);
     });
   }
 }

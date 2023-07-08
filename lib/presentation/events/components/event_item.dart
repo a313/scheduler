@@ -18,8 +18,9 @@ class EventItem extends StatelessWidget {
     required this.data,
     this.onTapped,
     this.onTappedEdit,
+    required this.time,
   });
-
+  final DateTime time;
   final Event data;
   final Function(Event data)? onTapped;
   final Function(Event data)? onTappedEdit;
@@ -34,7 +35,7 @@ class EventItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TimeConstComponent(data: data),
+            TimeConstComponent(time: time, data: data),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

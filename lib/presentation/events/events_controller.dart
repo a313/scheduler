@@ -135,7 +135,7 @@ class EventsController extends BaseController {
       from.dateWithoutTime(),
       to.dateWithoutTime().add(const Duration(days: 1)),
     );
-    createKey(from, to);
+    resetData(from, to);
     if (result is DataSuccess<List<Event>>) {
       final events = result.data;
       groupEvent(events);
@@ -200,7 +200,8 @@ class EventsController extends BaseController {
     }
   }
 
-  void createKey(DateTime from, DateTime to) {
+  void resetData(DateTime from, DateTime to) {
+    formatedData.clear();
     final days = lastDay.difference(firstDay).inDays;
     final first = firstDay.dateWithoutTime();
     for (int i = 0; i < days; i++) {

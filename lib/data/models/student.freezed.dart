@@ -233,7 +233,7 @@ class __$$_StudentCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Student extends _Student {
+class _$_Student extends _Student with DiagnosticableTreeMixin {
   _$_Student(
       {this.id,
       required this.name,
@@ -278,8 +278,25 @@ class _$_Student extends _Student {
   String? image;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Student(id: $id, name: $name, classId: $classId, beginStudy: $beginStudy, isFollow: $isFollow, isSpecial: $isSpecial, fee: $fee, phones: $phones, lastCharge: $lastCharge, image: $image)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Student'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('classId', classId))
+      ..add(DiagnosticsProperty('beginStudy', beginStudy))
+      ..add(DiagnosticsProperty('isFollow', isFollow))
+      ..add(DiagnosticsProperty('isSpecial', isSpecial))
+      ..add(DiagnosticsProperty('fee', fee))
+      ..add(DiagnosticsProperty('phones', phones))
+      ..add(DiagnosticsProperty('lastCharge', lastCharge))
+      ..add(DiagnosticsProperty('image', image));
   }
 
   @JsonKey(ignore: true)
