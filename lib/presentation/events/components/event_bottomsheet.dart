@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/student.dart';
@@ -24,27 +25,29 @@ class EventBottomSheet extends StatefulWidget {
 
 class _EventBottomSheetState extends State<EventBottomSheet> {
   late List<Student> invited;
+  late List<int> joinIds;
+  late List<int> invIds;
+  late bool isActive;
 
-  late Event event;
   @override
   void initState() {
-    //TODO BUG
-    event = widget.event.copyWith();
-    final allStudent = widget.allStudent;
-    invited = allStudent.where((e) => event.invitedIds.contains(e.id)).toList();
+    isActive = widget.event.isActive;
+    invIds = List<int>.from(widget.event.invitedIds);
+    joinIds = List<int>.from(widget.event.joinedIds);
+    invited = widget.allStudent.where((e) => invIds.contains(e.id)).toList();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return BaseBottomSheet(
-        title: event.name,
+        title: widget.event.name,
         subTitle: CupertinoSwitch(
           activeColor: context.primaryDark,
-          value: event.isActive,
+          value: isActive,
           onChanged: (value) {
             setState(() {
-              event.isActive = value;
+              isActive = value;
             });
           },
         ),
@@ -60,15 +63,15 @@ class _EventBottomSheetState extends State<EventBottomSheet> {
                     shrinkWrap: true,
                     itemCount: invited.length,
                     itemBuilder: (context, index) => SwitchStudentCell(
-                      enable: event.isActive,
+                      enable: isActive,
                       data: invited[index],
-                      switchValue: event.joinedIds.contains(invited[index].id),
+                      switchValue: joinIds.contains(invited[index].id),
                       onChanged: (value) {
                         setState(() {
                           if (value) {
-                            event.joinedIds.add(invited[index].id!);
+                            joinIds.add(invited[index].id!);
                           } else {
-                            event.joinedIds.remove(invited[index].id!);
+                            joinIds.remove(invited[index].id!);
                           }
                         });
                       },
@@ -80,7 +83,14 @@ class _EventBottomSheetState extends State<EventBottomSheet> {
               BaseButton.fixBottom(
                   title: 'Update',
                   onPressed: () {
-                    Get.back(result: event);
+                    if (isActive == widget.event.isActive &&
+                        listEquals(joinIds, widget.event.joinedIds)) {
+                      Get.back();
+                    } else {
+                      widget.event.isActive = isActive;
+                      widget.event.joinedIds = joinIds;
+                      Get.back(result: widget.event);
+                    }
                   })
             ],
           ),

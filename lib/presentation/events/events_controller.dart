@@ -187,16 +187,14 @@ class EventsController extends BaseController {
     final data =
         await Get.toNamed(Routes.editEvent, arguments: event) as Event?;
     if (data != null) {
-      await loadEvent(firstDay, lastDay);
-      generateNotificaion();
+      reloadData();
     }
   }
 
   Future<void> addEvent() async {
     final data = await Get.toNamed(Routes.editEvent) as Event?;
     if (data != null) {
-      await loadEvent(firstDay, lastDay);
-      if (data.alert != AlertType.None) generateNotificaion();
+      reloadData();
     }
   }
 
@@ -214,7 +212,6 @@ class EventsController extends BaseController {
   Future<void> onDaySelected(DateTime selectedDay, DateTime focusedDay) async {
     firstDay = selectedDay;
     await loadEvent(firstDay, lastDay);
-
     this.selectedDay.value = selectedDay;
   }
 

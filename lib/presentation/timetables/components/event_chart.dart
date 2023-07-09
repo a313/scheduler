@@ -70,7 +70,7 @@ class EventChart extends StatelessWidget {
       );
       return Stack(children: [
         ...manyDayPos,
-        // ...oneDayWidget,
+        ...oneDayWidget,
       ]);
     });
   }
