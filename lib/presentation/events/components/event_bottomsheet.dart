@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/student.dart';
+import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/base/base_button.dart';
 
 import '../../../data/models/event.dart';
@@ -42,14 +43,23 @@ class _EventBottomSheetState extends State<EventBottomSheet> {
   Widget build(BuildContext context) {
     return BaseBottomSheet(
         title: widget.event.name,
-        subTitle: CupertinoSwitch(
-          activeColor: context.primaryDark,
-          value: isActive,
-          onChanged: (value) {
-            setState(() {
-              isActive = value;
-            });
-          },
+        subTitle: Row(
+          children: [
+            Text(
+              '${joinIds.length} / ${invited.length}',
+              style: AppFonts.bMedium,
+            ),
+            sizedBoxW08,
+            CupertinoSwitch(
+              activeColor: context.primaryDark,
+              value: isActive,
+              onChanged: (value) {
+                setState(() {
+                  isActive = value;
+                });
+              },
+            ),
+          ],
         ),
         child: LayoutBuilder(
           builder: (context, constraints) => Column(

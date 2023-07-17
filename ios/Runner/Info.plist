@@ -36,6 +36,10 @@
 	<string>Take pretty screenshots and save it to the PhotoLibrary.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow access to photos to upload photos from your library this will be used for avatar.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to location when open.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app needs access to location when in the background.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>

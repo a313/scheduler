@@ -1,15 +1,20 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/event.dart';
+import 'package:scheduler/data/models/forecast.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
 import 'package:scheduler/domain/usecases/notification_usecases.dart';
 import 'package:scheduler/domain/usecases/reminder_usecases.dart';
 import 'package:scheduler/domain/usecases/student_usecases.dart';
+import 'package:scheduler/domain/usecases/weather_usecases.dart';
 import 'package:scheduler/presentation/events/components/event_bottomsheet.dart';
 import 'package:scheduler/routes/routes.dart';
 
@@ -19,6 +24,7 @@ import '../../data/models/student.dart';
 
 class EventsController extends BaseController {
   EventUseCases useCases = Get.find();
+  WeatherUseCases weatherUseCases = Get.find();
   NotificationUseCases notiUseCases = Get.find();
   ClassRoomUseCases classRoomUseCases = Get.find();
   ReminderUseCases reminderUseCases = Get.find();
@@ -57,7 +63,43 @@ class EventsController extends BaseController {
       getStudents(),
       getClassRooms(),
       getReminders(),
+      getWeather(),
     ]);
+  }
+
+  Future<void> getWeather() async {
+    Position? currentPosition = await getLocation();
+    if (currentPosition == null) return;
+    final result = weatherUseCases.getForecastSummary(currentPosition);
+    if (result is DataSuccess<Forecast>) {
+      log('Success');
+    } else {
+      log('Err');
+    }
+  }
+
+  Future<Position?> getLocation() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    // Test if location services are enabled.
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return null;
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return null;
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return null;
+    }
+    return await Geolocator.getCurrentPosition();
   }
 
   Future<void> getClassRooms() async {
