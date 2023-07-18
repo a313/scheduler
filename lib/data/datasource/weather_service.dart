@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 abstract class WeatherService extends GetConnect {
   Future<Response> getForecastSummary(double lat, double long);
+  Future<Response> getCurrentWeather(double lat, double long);
 }
 
 class ForecastService extends WeatherService {
@@ -21,6 +22,12 @@ class ForecastService extends WeatherService {
         'https://forecast9.p.rapidapi.com/rapidapi/forecast/$lat/$long/summary/';
     return get(url, headers: buildHeader());
   }
+
+  @override
+  Future<Response> getCurrentWeather(double lat, double long) {
+    // TODO: implement getCurrentWeather
+    throw UnimplementedError();
+  }
 }
 
 class WeatherbitService extends WeatherService {
@@ -29,6 +36,17 @@ class WeatherbitService extends WeatherService {
   @override
   Future<Response> getForecastSummary(double lat, double long) {
     const endPoint = '/forecast/daily';
+    final url = BASE_URL + endPoint;
+    return get(url, query: {
+      'lat': lat.toString(),
+      'lon': long.toString(),
+      'key': KEY,
+    });
+  }
+
+  @override
+  Future<Response> getCurrentWeather(double lat, double long) {
+    const endPoint = '/current';
     final url = BASE_URL + endPoint;
     return get(url, query: {
       'lat': lat.toString(),

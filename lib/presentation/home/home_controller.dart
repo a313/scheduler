@@ -11,6 +11,7 @@ import 'package:scheduler/presentation/home/components/reorder_feature.dart';
 import 'package:scheduler/presentation/qrcode/qrcode_page.dart';
 import 'package:scheduler/presentation/setting/setting_page.dart';
 import 'package:scheduler/presentation/timetables/timetables_page.dart';
+import 'package:scheduler/presentation/weather/weather_page.dart';
 
 import '../class_room/class_room_page.dart';
 import '../events/events_page.dart';
@@ -147,6 +148,19 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               colorFilter: activeColor,
             ),
             label: 'Setting'.tr),
+      ),
+      Feature(
+        key: weatherPage,
+        page: const WeatherPage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/CloudSun.svg',
+                colorFilter: normalColor),
+            activeIcon: BarIcon(
+              path: 'assets/svg/Regular/CloudSun.svg',
+              colorFilter: activeColor,
+            ),
+            label: 'Weather'.tr),
       ),
     ];
     getFeature(pinKeys: local.getPinFeatures());

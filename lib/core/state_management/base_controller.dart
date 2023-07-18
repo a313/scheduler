@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/data/models/reminder.dart';
 import 'package:scheduler/data/models/student.dart';
@@ -41,6 +42,30 @@ class BaseController extends GetxController with BaseCommonWidgets {
     if (result is DataSuccess<List<Event>>) {
       Get.find<NotificationUseCases>().createNotiFor(result.data);
     }
+  }
+
+  Future<Position?> getCurrentPosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    // Test if location services are enabled.
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return null;
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return null;
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return null;
+    }
+    return await Geolocator.getCurrentPosition();
   }
 
   void reloadData() {

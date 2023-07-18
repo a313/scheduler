@@ -11,6 +11,7 @@ import 'package:scheduler/presentation/schedules/schedules_page.dart';
 import 'package:scheduler/presentation/setting/setting_binding.dart';
 import 'package:scheduler/presentation/students/students_binding.dart';
 import 'package:scheduler/presentation/timetables/timetables_binding.dart';
+import 'package:scheduler/presentation/weather/weather_binding.dart';
 
 import '../presentation/class_room/edit_class_room/edit_class_room_binding.dart';
 import '../presentation/class_room/edit_class_room/edit_class_room_page.dart';
@@ -48,6 +49,7 @@ class AppPages {
         StudentsBinding(),
         TimetablesBinding(),
         SettingBinding(),
+        WeatherBinding(),
       ],
     ),
     GetPage(

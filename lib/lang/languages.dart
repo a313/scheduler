@@ -103,7 +103,8 @@ class Languages extends Translations {
           'Data has been changed. Do you want to save?':
               'Data has been changed. Do you want to save?',
           'Remain': 'Remain',
-          'Passed': 'Passed'
+          'Passed': 'Passed',
+          'Weather': 'Weather',
         },
         'vi': {
           'Filter': 'Lọc',
@@ -204,7 +205,8 @@ class Languages extends Translations {
           'Data has been changed. Do you want to save?':
               'Dữ liệu đã được thay đổi. Bạn có muốn lưu lại?',
           'Remain': 'Còn lại',
-          'Passed': 'Đã qua'
+          'Passed': 'Đã qua',
+          'Weather': 'Thời tiết',
         },
       };
 }

@@ -70,7 +70,7 @@ class EventsController extends BaseController {
   }
 
   Future<void> getWeather() async {
-    Position? currentPosition = await getLocation();
+    Position? currentPosition = await getCurrentPosition();
     if (currentPosition == null) return;
     final result = await weatherUseCases.getForecastSummary(currentPosition);
     if (result is DataSuccess<Weatherbit>) {
@@ -78,30 +78,6 @@ class EventsController extends BaseController {
     } else {
       log('Err');
     }
-  }
-
-  Future<Position?> getLocation() async {
-    bool serviceEnabled;
-    LocationPermission permission;
-
-    // Test if location services are enabled.
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return null;
-    }
-
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return null;
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      return null;
-    }
-    return await Geolocator.getCurrentPosition();
   }
 
   Future<void> getClassRooms() async {

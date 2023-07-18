@@ -12,4 +12,8 @@ class WeatherUseCases {
   Future<DataState<Weatherbit>> getForecastSummary(Position location) async {
     return _.getForecastSummary(location.latitude, location.longitude);
   }
+
+  Future<DataState<dynamic>> getCurrentWeather(Position location) async {
+    return _.getCurrentWeather(location.latitude, location.longitude);
+  }
 }
