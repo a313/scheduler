@@ -24,8 +24,9 @@ class Weatherbit with _$Weatherbit {
   Datum? findByKey(DateTime key) {
     if (data == null) return null;
     for (final d in data!) {
-      d.datetime == key.toStringFormat(DateFormater.YYYYMMDD);
-      return d;
+      if (d.datetime == key.toStringFormat(DateFormater.YYYYMMDD)) {
+        return d;
+      }
     }
     return null;
   }
