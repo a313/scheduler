@@ -2,7 +2,11 @@
 
 import 'package:get/get.dart';
 
-class WeatherService extends GetConnect {
+abstract class WeatherService extends GetConnect {
+  Future<Response> getForecastSummary(double lat, double long);
+}
+
+class ForecastService extends WeatherService {
   final Forecast_KEY = '0b832762f2mshc091cf40976d7e0p16ee69jsnecede991f698';
   final Forecast_HOST = 'forecast9.p.rapidapi.com';
 
@@ -10,10 +14,26 @@ class WeatherService extends GetConnect {
     return {'X-RapidAPI-Key': Forecast_KEY, 'X-RapidAPI-Host': Forecast_HOST};
   }
 
+  @override
   Future<Response> getForecastSummary(double lat, double long) {
     ();
     final url =
         'https://forecast9.p.rapidapi.com/rapidapi/forecast/$lat/$long/summary/';
     return get(url, headers: buildHeader());
+  }
+}
+
+class WeatherbitService extends WeatherService {
+  final KEY = 'f3eaa5bef5534483be94837302adaba2';
+  final BASE_URL = 'https://api.weatherbit.io/v2.0';
+  @override
+  Future<Response> getForecastSummary(double lat, double long) {
+    const endPoint = '/forecast/daily';
+    final url = BASE_URL + endPoint;
+    return get(url, query: {
+      'lat': lat.toString(),
+      'lon': long.toString(),
+      'key': KEY,
+    });
   }
 }

@@ -8,7 +8,7 @@ import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/event.dart';
-import 'package:scheduler/data/models/forecast.dart';
+import 'package:scheduler/data/models/weatherbit.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
 import 'package:scheduler/domain/usecases/notification_usecases.dart';
@@ -36,6 +36,8 @@ class EventsController extends BaseController {
   final scrollController = ScrollController();
 
   final refreshController = RefreshController();
+
+  Weatherbit? weather;
 
   @override
   void onInit() {
@@ -70,9 +72,9 @@ class EventsController extends BaseController {
   Future<void> getWeather() async {
     Position? currentPosition = await getLocation();
     if (currentPosition == null) return;
-    final result = weatherUseCases.getForecastSummary(currentPosition);
-    if (result is DataSuccess<Forecast>) {
-      log('Success');
+    final result = await weatherUseCases.getForecastSummary(currentPosition);
+    if (result is DataSuccess<Weatherbit>) {
+      weather = result.data;
     } else {
       log('Err');
     }

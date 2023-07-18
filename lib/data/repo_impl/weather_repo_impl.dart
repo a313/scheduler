@@ -1,9 +1,8 @@
-import 'dart:convert';
-
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/forecast.dart';
+import 'package:scheduler/data/models/weatherbit.dart';
 
 import '../../domain/repo_abs/weather_repo_abs.dart';
 import '../datasource/weather_service.dart';
@@ -14,16 +13,27 @@ class WeatherRepoImpl extends WeatherRepo {
   WeatherRepoImpl(this._);
 
   @override
-  Future<DataState<Forecast>> getForecastSummary(
+  Future<DataState<Weatherbit>> getForecastSummary(
       double lat, double long) async {
-    final Response response =
-        await _.getForecastSummary(lat.toPrecision(5), long.toPrecision(5));
+    final Response response = await _.getForecastSummary(lat, long);
+    final GetStorage local = GetStorage();
+    const localKey = 'weather';
     if (response.statusCode == 200) {
-      return DataSuccess(Forecast.fromJson(response.body));
+      final data = Weatherbit.fromJson(response.body);
+
+      local.write(localKey, data);
+      return DataSuccess(data);
+    } else if (local.hasData(localKey)) {
+      final data = local.read(localKey);
+      if (data is Weatherbit) {
+        return DataSuccess(data);
+      } else if (data is Map) {
+        return DataSuccess(Weatherbit.fromJson(data as Map<String, dynamic>));
+      } else {
+        return DataFailure('local', UNKNOWN_ERROR);
+      }
     } else {
-      final err = jsonDecode(response.bodyString!);
-      final detail = err['error']['details'] ?? UNKNOWN_ERROR;
-      return DataFailure(response.statusCode.toString(), detail.toString());
+      return DataFailure(response.body['code'], response.body['message']);
     }
   }
 }

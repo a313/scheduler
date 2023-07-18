@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
+import 'package:scheduler/data/models/weatherbit.dart';
 import 'package:scheduler/presentation/events/components/event_header.dart';
 import 'package:scheduler/presentation/events/components/event_item.dart';
 import 'package:scheduler/theme/app_fonts.dart';
@@ -16,11 +17,11 @@ class EventsComponent extends StatelessWidget {
     required this.data,
     this.onTapped,
     this.onTappedEdit,
-    // this.headerKey,
+    required this.weather,
   });
   final DateTime time;
   final List<Event> data;
-  // final dynamic headerKey;
+  final Datum? weather;
   final Function(Event event)? onTapped;
   final Function(Event event)? onTappedEdit;
 
@@ -30,7 +31,7 @@ class EventsComponent extends StatelessWidget {
     if (length == 0) {
       return SliverStickyHeader.builder(
         controller: StickyHeaderController(),
-        builder: (context, state) => EventHeader(time: time),
+        builder: (context, state) => EventHeader(time: time, weather: weather),
         sliver: SliverToBoxAdapter(
           child: Padding(
             padding: padSymHor14Ver08,

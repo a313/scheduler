@@ -46,8 +46,10 @@ class EventsPage extends GetView<EventsController> {
                       slivers: List.generate(data.length, (index) {
                         final key = data.keys.elementAt(index);
                         final events = data[key]!;
+                        final weather = controller.weather?.findByKey(key);
                         return EventsComponent(
                           time: key,
+                          weather: weather,
                           data: events,
                           onTapped: controller.onTappedEvent,
                           onTappedEdit: controller.onTappedEdit,
