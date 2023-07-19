@@ -5,23 +5,23 @@ part 'weatherbit.freezed.dart';
 part 'weatherbit.g.dart';
 
 @freezed
-class Weatherbit with _$Weatherbit {
+class Forecast with _$Forecast {
+  const Forecast._();
   @JsonSerializable(fieldRename: FieldRename.snake)
-  const Weatherbit._();
-  const factory Weatherbit({
+  const factory Forecast({
     String? cityName,
     String? stateCode,
     String? countryCode,
     num? lat,
     num? lon,
     String? timezone,
-    List<Datum>? data,
-  }) = _Weatherbit;
+    List<WeatherInfo>? data,
+  }) = _Forecast;
 
-  factory Weatherbit.fromJson(Map<String, dynamic> json) =>
-      _$WeatherbitFromJson(json);
+  factory Forecast.fromJson(Map<String, dynamic> json) =>
+      _$ForecastFromJson(json);
 
-  Datum? findByKey(DateTime key) {
+  WeatherInfo? findByKey(DateTime key) {
     if (data == null) return null;
     for (final d in data!) {
       if (d.datetime == key.toStringFormat(DateFormater.YYYYMMDD)) {
@@ -33,9 +33,22 @@ class Weatherbit with _$Weatherbit {
 }
 
 @freezed
-class Datum with _$Datum {
+class CurrentWeather with _$CurrentWeather {
   @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory Datum({
+  const factory CurrentWeather({
+    int? count,
+    List<WeatherInfo>? data,
+  }) = _CurrentWeather;
+
+  factory CurrentWeather.fromJson(Map<String, dynamic> json) =>
+      _$CurrentWeatherFromJson(json);
+}
+
+@freezed
+class WeatherInfo with _$WeatherInfo {
+  const WeatherInfo._();
+  @JsonSerializable(fieldRename: FieldRename.snake)
+  const factory WeatherInfo({
     num? ts,
     DateTime? timestampLocal,
     DateTime? timestampUtc,
@@ -68,9 +81,31 @@ class Datum with _$Datum {
     int? windDir,
     String? windCdir,
     String? windCdirFull,
-  }) = _Datum;
+    double? appTemp,
+    int? aqi,
+    String? cityName,
+    String? countryCode,
+    double? dhi,
+    double? dni,
+    double? elevAngle,
+    double? ghi,
+    double? gust,
+    double? hAngle,
+    double? lat,
+    double? lon,
+    String? obTime,
+    double? solarRad,
+    List<String>? sources,
+    String? stateCode,
+    String? station,
+    String? sunrise,
+    String? timezone,
+  }) = _WeatherInfo;
 
-  factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
+  factory WeatherInfo.fromJson(Map<String, dynamic> json) =>
+      _$WeatherInfoFromJson(json);
+
+  DateTime get date => DateTime.parse(datetime ?? '1900-01-01');
 }
 
 @freezed

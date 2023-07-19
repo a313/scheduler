@@ -138,18 +138,6 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
             label: 'QrCode'.tr),
       ),
       Feature(
-        key: settingPage,
-        page: const SettingPage(),
-        item: BottomNavigationBarItem(
-            icon: BarIcon(
-                path: 'assets/svg/Regular/Gear.svg', colorFilter: normalColor),
-            activeIcon: BarIcon(
-              path: 'assets/svg/Regular/Gear.svg',
-              colorFilter: activeColor,
-            ),
-            label: 'Setting'.tr),
-      ),
-      Feature(
         key: weatherPage,
         page: const WeatherPage(),
         item: BottomNavigationBarItem(
@@ -161,6 +149,18 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               colorFilter: activeColor,
             ),
             label: 'Weather'.tr),
+      ),
+      Feature(
+        key: settingPage,
+        page: const SettingPage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/Gear.svg', colorFilter: normalColor),
+            activeIcon: BarIcon(
+              path: 'assets/svg/Regular/Gear.svg',
+              colorFilter: activeColor,
+            ),
+            label: 'Setting'.tr),
       ),
     ];
     getFeature(pinKeys: local.getPinFeatures());

@@ -50,7 +50,7 @@ dev_dependencies:
 
 icons_launcher:
   image_path: "assets/png/appIcons/app_icon.jpg"
-  platforms:
+platforms:
     android:
       enable: true
     ios:
@@ -66,4 +66,5 @@ flutter:
     - assets/png/onboarding/
     - assets/png/home/
     - assets/png/appIcons/
-    - assets/png/weather/
+    - assets/png/weather/small/
+    - assets/png/weather/large/

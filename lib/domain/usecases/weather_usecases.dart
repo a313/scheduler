@@ -9,11 +9,15 @@ class WeatherUseCases {
 
   WeatherUseCases(this._);
 
-  Future<DataState<Weatherbit>> getForecastSummary(Position location) async {
+  Future<DataState<Forecast>> getForecastSummary(Position location) async {
     return _.getForecastSummary(location.latitude, location.longitude);
   }
 
-  Future<DataState<dynamic>> getCurrentWeather(Position location) async {
+  Future<DataState<Forecast>> getForecastHourly(Position location) async {
+    return _.getForecastHourly(location.latitude, location.longitude);
+  }
+
+  Future<DataState<CurrentWeather>> getCurrentWeather(Position location) async {
     return _.getCurrentWeather(location.latitude, location.longitude);
   }
 }

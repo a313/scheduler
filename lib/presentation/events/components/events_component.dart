@@ -21,7 +21,7 @@ class EventsComponent extends StatelessWidget {
   });
   final DateTime time;
   final List<Event> data;
-  final Datum? weather;
+  final WeatherInfo? weather;
   final Function(Event event)? onTapped;
   final Function(Event event)? onTappedEdit;
 

@@ -203,4 +203,110 @@ class Utils {
           end: const TimeOfDay(hour: 17, minute: 20)),
     ].map((e) => e.toJson());
   }
+
+  static String getPath(String? icon, {bool isSmall = true}) {
+    final suffix = isSmall ? 'small' : 'large';
+    switch (icon) {
+      case 't01d':
+      case 't02d':
+      case 't03d':
+        return 'assets/png/weather/$suffix/80030_tstorm_partly_cloudy_$suffix.png';
+      case 't01n':
+      case 't02n':
+      case 't03n':
+        return 'assets/png/weather/$suffix/80011_tstorm_mostly_clear_$suffix.png';
+      case 't04d':
+      case 't05d':
+        return 'assets/png/weather/$suffix/80000_tstorm_$suffix.png';
+      case 't04n':
+      case 't05n':
+        return 'assets/png/weather/$suffix/80021_tstorm_mostly_cloudy_$suffix.png';
+      case 'd01d':
+      case 'd02d':
+      case 'd03d':
+        return 'assets/png/weather/$suffix/40000_drizzle_$suffix.png';
+      case 'd01n':
+      case 'd02n':
+      case 'd03n':
+        return 'assets/png/weather/$suffix/42041_drizzle_partly_cloudy_$suffix.png';
+      case 'r01d':
+        return 'assets/png/weather/$suffix/80030_tstorm_partly_cloudy_$suffix.png';
+      case 'r01n':
+        return 'assets/png/weather/$suffix/42131_rain_light_mostly_clear_$suffix.png';
+      case 'r02d':
+        return 'assets/png/weather/$suffix/40010_rain_$suffix.png';
+      case 'r02n':
+        return 'assets/png/weather/$suffix/42081_rain_partly_cloudy_$suffix.png';
+      case 'r03d':
+        return 'assets/png/weather/$suffix/42111_rain_heavy_mostly_clear_$suffix.png';
+      case 'r03n':
+        return 'assets/png/weather/$suffix/80011_tstorm_mostly_clear_$suffix.png';
+      case 'f01d':
+        return 'assets/png/weather/$suffix/62010_freezing_rain_heavy_$suffix.png';
+      case 'f01n':
+        return 'assets/png/weather/$suffix/62021_freezing_rain_heavy_partly_cloudy_$suffix.png';
+      case 'r04d':
+      case 'r05d':
+      case 'r06d':
+        return 'assets/png/weather/$suffix/62020_freezing_rain_heavy_partly_cloudy_$suffix.png';
+      case 'r04n':
+      case 'r05n':
+      case 'r06n':
+        return 'assets/png/weather/$suffix/62020_freezing_rain_heavy_partly_cloudy_$suffix.png';
+      case 's01d':
+        return 'assets/png/weather/$suffix/51000_snow_light_$suffix.png';
+      case 's01n':
+        return 'assets/png/weather/$suffix/51021_snow_light_mostly_clear_$suffix.png';
+      case 's02d':
+        return 'assets/png/weather/$suffix/50000_snow_$suffix.png';
+      case 's02n':
+        return 'assets/png/weather/$suffix/51051_snow_mostly_clear_$suffix.png';
+      case 's03d':
+        return 'assets/png/weather/$suffix/51010_snow_heavy_$suffix.png';
+      case 's03n':
+        return 'assets/png/weather/$suffix/51191_snow_heavy_mostly_clear_$suffix.png';
+      case 's04d':
+      case 's05d':
+      case 's06d':
+        return 'assets/png/weather/$suffix/51050_snow_mostly_clear_$suffix.png';
+      case 's04n':
+      case 's05n':
+      case 's06n':
+        return 'assets/png/weather/$suffix/51051_snow_mostly_clear_$suffix.png';
+      case 'a01d':
+      case 'a02d':
+      case 'a03d':
+      case 'a04d':
+        return 'assets/png/weather/$suffix/11020_mostly_cloudy_$suffix.png';
+      case 'a01n':
+      case 'a02n':
+      case 'a03n':
+      case 'a04n':
+        return 'assets/png/weather/$suffix/11021_mostly_cloudy_$suffix.png';
+      case 'a05d':
+      case 'a06d':
+        return 'assets/png/weather/$suffix/21060_fog_mostly_clear_$suffix.png';
+      case 'a05n':
+      case 'a06n':
+        return 'assets/png/weather/$suffix/21061_fog_mostly_clear_$suffix.png';
+      case 'c01d':
+        return 'assets/png/weather/$suffix/10000_clear_$suffix.png';
+      case 'c01n':
+        return 'assets/png/weather/$suffix/10001_clear_$suffix.png';
+      case 'c02d':
+        return 'assets/png/weather/$suffix/11000_mostly_clear_$suffix.png';
+      case 'c02n':
+        return 'assets/png/weather/$suffix/11001_mostly_clear_$suffix.png';
+      case 'c03d':
+        return 'assets/png/weather/$suffix/11010_partly_cloudy_$suffix.png';
+      case 'c03n':
+        return 'assets/png/weather/$suffix/11011_partly_cloudy_$suffix.png';
+      case 'c04d':
+        return 'assets/png/weather/$suffix/10010_cloudy_$suffix.png';
+      case 'c04n':
+        return 'assets/png/weather/$suffix/10010_cloudy_$suffix.png';
+      default:
+        return 'assets/png/weather/$suffix/10000_clear_$suffix.png';
+    }
+  }
 }

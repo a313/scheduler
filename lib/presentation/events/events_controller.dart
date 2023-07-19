@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -37,7 +35,7 @@ class EventsController extends BaseController {
 
   final refreshController = RefreshController();
 
-  Weatherbit? weather;
+  Forecast? weather;
 
   @override
   void onInit() {
@@ -52,12 +50,11 @@ class EventsController extends BaseController {
     super.onReady();
     await getData();
 
-    // await useCases.deleteAllEvent();
-
     await generateEvent(lastDay);
     await loadEvent(firstDay, lastDay);
 
     generateNotificaion();
+    getWeather();
   }
 
   Future<void> getData() {
@@ -65,7 +62,6 @@ class EventsController extends BaseController {
       getStudents(),
       getClassRooms(),
       getReminders(),
-      getWeather(),
     ]);
   }
 
@@ -73,10 +69,9 @@ class EventsController extends BaseController {
     Position? currentPosition = await getCurrentPosition();
     if (currentPosition == null) return;
     final result = await weatherUseCases.getForecastSummary(currentPosition);
-    if (result is DataSuccess<Weatherbit>) {
+    if (result is DataSuccess<Forecast>) {
       weather = result.data;
-    } else {
-      log('Err');
+      updateUI();
     }
   }
 

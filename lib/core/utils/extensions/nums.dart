@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -90,6 +91,23 @@ extension CustomNumExtension on num {
       default:
         return 'UNKNOWN';
     }
+  }
+
+  Color celsiusToColor() {
+    const int coldColorValue = 0xFF0000FF; // Blue color
+    const int hotColorValue = 0xFFFF0000; // Red color
+    const double minTemp = -20.0;
+    const double maxTemp = 50.0;
+    final tmp = clamp(minTemp, maxTemp);
+    // Normalize the temperature value to a scale from 0 to 1
+    double normalizedTemp = (tmp - minTemp) / (maxTemp - minTemp);
+
+    // Linearly interpolate between the cold and hot colors based on the normalized temperature
+    int interpolatedColorValue = coldColorValue +
+        (normalizedTemp * (hotColorValue - coldColorValue)).toInt();
+
+    // Return the Color object based on the interpolated value
+    return Color(interpolatedColorValue);
   }
 }
 
