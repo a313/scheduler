@@ -93,22 +93,34 @@ extension CustomNumExtension on num {
     }
   }
 
+  /// -30°C to 40°C
   Color celsiusToColor() {
-    const int coldColorValue = 0xFF0000FF; // Blue color
-    const int hotColorValue = 0xFFFF0000; // Red color
-    const double minTemp = -20.0;
-    const double maxTemp = 50.0;
-    final tmp = clamp(minTemp, maxTemp);
-    // Normalize the temperature value to a scale from 0 to 1
-    double normalizedTemp = (tmp - minTemp) / (maxTemp - minTemp);
-
-    // Linearly interpolate between the cold and hot colors based on the normalized temperature
-    int interpolatedColorValue = coldColorValue +
-        (normalizedTemp * (hotColorValue - coldColorValue)).toInt();
-
-    // Return the Color object based on the interpolated value
-    return Color(interpolatedColorValue);
+    final colors = [
+      const Color.fromRGBO(162, 41, 28, 1),
+      const Color.fromRGBO(227, 91, 58, 1),
+      const Color.fromRGBO(236, 124, 48, 1),
+      const Color.fromRGBO(244, 178, 64, 1),
+      const Color.fromRGBO(239, 202, 71, 1),
+      const Color.fromRGBO(212, 203, 78, 1),
+      const Color.fromRGBO(174, 204, 128, 1),
+      const Color.fromRGBO(140, 205, 187, 1),
+      const Color.fromRGBO(126, 203, 207, 1),
+      const Color.fromRGBO(122, 197, 237, 1),
+      const Color.fromRGBO(118, 196, 244, 1),
+      const Color.fromRGBO(59, 142, 247, 1),
+      const Color.fromRGBO(67, 100, 223, 1),
+      const Color.fromRGBO(72, 66, 167, 1),
+    ].reversed;
+    final index = ((this + 30) ~/ 5).clamp(0, colors.length - 1);
+    return colors.elementAt(index);
   }
+
+  // Color celsiusToColor2() {
+  //   final t = ((this + 40) / 95).clamp(0, 1);
+  //   const b = Color.fromRGBO(120, 15, 0, 1);
+  //   const a = Color.fromRGBO(49, 28, 95, 1);
+  //   return Color.lerp(a, b, t.toDouble())!;
+  // }
 }
 
 extension BoolExt on bool {

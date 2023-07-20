@@ -1,5 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'dart:math';
+
 import 'package:get/get.dart';
 
 import '../../core/network/api_service.dart';
@@ -34,7 +36,13 @@ abstract class WeatherService extends ApiService {
 // }
 
 class WeatherbitService extends WeatherService {
-  final KEY = 'f3eaa5bef5534483be94837302adaba2';
+  final KEYS = [
+    'f3eaa5bef5534483be94837302adaba2',
+    'e2b7c6b9696d47f196d3e690b33c63b7',
+    '4b4aec150b334ae59687dffeb399da71',
+  ];
+
+  String get key => KEYS[Random().nextInt(KEYS.length)];
   @override
   String get domain => 'https://api.weatherbit.io/v2.0';
 
@@ -45,7 +53,7 @@ class WeatherbitService extends WeatherService {
     return getData(endPoint: endPoint, params: {
       'lat': lat.toString(),
       'lon': long.toString(),
-      'key': KEY,
+      'key': key,
     });
   }
 
@@ -55,7 +63,7 @@ class WeatherbitService extends WeatherService {
     return getData(endPoint: endPoint, params: {
       'lat': lat.toString(),
       'lon': long.toString(),
-      'key': KEY,
+      'key': key,
     });
   }
 
@@ -66,7 +74,7 @@ class WeatherbitService extends WeatherService {
     return getData(endPoint: endPoint, params: {
       'lat': lat.toString(),
       'lon': long.toString(),
-      'key': KEY,
+      'key': key,
     });
   }
 }

@@ -1,38 +1,38 @@
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/weatherbit.dart';
+import 'package:scheduler/domain/repo_abs/local_data_repo_abs.dart';
 
 import '../../domain/repo_abs/weather_repo_abs.dart';
 import '../datasource/weather_service.dart';
 
 class WeatherRepoImpl extends WeatherRepo {
   final WeatherService _;
+  final LocalDataRepo local;
 
-  WeatherRepoImpl(this._);
+  WeatherRepoImpl(this._, this.local);
 
   @override
   Future<DataState<Forecast>> getForecastSummary(
       double lat, double long) async {
+    final now = DateTime.now();
+    final lastUpdate = local.getLastUpdateForecastSummary();
+    if (lastUpdate != null &&
+        lastUpdate.isAfter(now.add(const Duration(hours: 3)))) {
+      final forescast = local.getLastForecast();
+      if (forescast != null) return DataSuccess(forescast);
+    }
+
     final Response response = await _.getForecastSummary(lat, long);
-    final GetStorage local = GetStorage();
-    const localKey = 'ForecastSummary';
+
     if (response.statusCode == 200) {
       final data = Forecast.fromJson(response.body);
-
-      local.write(localKey, data);
+      local.savedLastForecast(data);
+      local.savedLastUpdateForecastSummary(now);
       return DataSuccess(data);
-    } else if (local.hasData(localKey)) {
-      final data = local.read(localKey);
-      if (data is Forecast) {
-        return DataSuccess(data);
-      } else if (data is Map) {
-        return DataSuccess(Forecast.fromJson(data as Map<String, dynamic>));
-      } else {
-        return DataFailure('local', UNKNOWN_ERROR);
-      }
     } else {
+      final forescast = local.getLastForecast();
+      if (forescast != null) return DataSuccess(forescast);
       return DataFailure(response.body['code'], response.body['message']);
     }
   }
@@ -40,51 +40,30 @@ class WeatherRepoImpl extends WeatherRepo {
   @override
   Future<DataState<CurrentWeather>> getCurrentWeather(
       double lat, double long) async {
+    final now = DateTime.now();
+    final lastUpdate = local.getLastUpdateCurrentWeather();
+    if (lastUpdate != null &&
+        lastUpdate.isAfter(now.add(const Duration(minutes: 30)))) {
+      final weather = local.getLastCurrentWeather();
+      if (weather != null) return DataSuccess(weather);
+    }
+
     final Response response = await _.getCurrentWeather(lat, long);
-    final GetStorage local = GetStorage();
-    const localKey = 'CurrentWeather';
+
     if (response.statusCode == 200) {
       final data = CurrentWeather.fromJson(response.body);
-
-      local.write(localKey, data);
-
+      local.savedLastCurrentWeather(data);
+      local.savedLastUpdateCurrentWeather(now);
       return DataSuccess(data);
-    } else if (local.hasData(localKey)) {
-      final data = local.read(localKey);
-      if (data is CurrentWeather) {
-        return DataSuccess(data);
-      } else if (data is Map) {
-        return DataSuccess(
-            CurrentWeather.fromJson(data as Map<String, dynamic>));
-      } else {
-        return DataFailure('local', UNKNOWN_ERROR);
-      }
     } else {
+      final weather = local.getLastCurrentWeather();
+      if (weather != null) return DataSuccess(weather);
       return DataFailure(response.body['code'], response.body['message']);
     }
   }
 
   @override
   Future<DataState<Forecast>> getForecastHourly(double lat, double long) async {
-    final Response response = await _.getForecastHourly(lat, long);
-    final GetStorage local = GetStorage();
-    const localKey = 'ForecastHourly';
-    if (response.statusCode == 200) {
-      final data = Forecast.fromJson(response.body);
-
-      local.write(localKey, data);
-      return DataSuccess(data);
-    } else if (local.hasData(localKey)) {
-      final data = local.read(localKey);
-      if (data is Forecast) {
-        return DataSuccess(data);
-      } else if (data is Map) {
-        return DataSuccess(Forecast.fromJson(data as Map<String, dynamic>));
-      } else {
-        return DataFailure('local', UNKNOWN_ERROR);
-      }
-    } else {
-      return DataFailure(response.body['code'], response.body['message']);
-    }
+    throw UnimplementedError();
   }
 }

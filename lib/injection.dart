@@ -45,6 +45,7 @@ class DependencyInjection {
 
     Get.put(ScheduleUseCases(ScheduleRepoImpl(ScheduleDBImpl(db))));
 
-    Get.put(WeatherUseCases(WeatherRepoImpl(WeatherbitService())));
+    Get.put(WeatherUseCases(
+        WeatherRepoImpl(WeatherbitService(), LocalDataImpl(GetStorage()))));
   }
 }

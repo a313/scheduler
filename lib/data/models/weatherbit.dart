@@ -99,6 +99,7 @@ class WeatherInfo with _$WeatherInfo {
     String? stateCode,
     String? station,
     String? sunrise,
+    String? sunset,
     String? timezone,
   }) = _WeatherInfo;
 
