@@ -38,7 +38,12 @@ class WeatherPage extends GetView<WeatherController> {
                 sizedBoxH16,
                 Text(
                   data.cityName ?? EMPTY_FIELD,
-                  style: AppFonts.bLarge,
+                  style: AppFonts.h600,
+                ),
+                sizedBoxH12,
+                Text(
+                  'Update at: ${DateTime.fromMillisecondsSinceEpoch(data.ts!.toInt() * 1000).toStringFormat(DateFormater.ddMMYYYYhhmm)}',
+                  style: AppFonts.bSmall.copyWith(color: context.neutral900),
                 ),
                 sizedBoxH16,
                 Row(

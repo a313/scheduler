@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/widgets/custom_divider.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../data/models/weatherbit.dart';
@@ -27,15 +28,11 @@ class WeatherTable extends StatelessWidget {
           ),
           CustomCell(
             title: "Sunrise time",
-            content: '${data.sunrise}',
+            content: data.sunriseTime.toLocal().toStringFormat('HH:mm'),
           ),
           CustomCell(
             title: "Sunset time ",
-            content: '${data.sunset}',
-          ),
-          CustomCell(
-            title: "UV Index",
-            content: '${data.uv}',
+            content: data.sunsetTime.toLocal().toStringFormat('HH:mm'),
           ),
           CustomCell(
             title: "Feels Like",
@@ -69,7 +66,12 @@ class WeatherTable extends StatelessWidget {
             title: 'Pressure',
             content: '${data.pres} mb',
           ),
-        ],
+        ]..addSeparated(
+            separated: (index) => const Padding(
+              padding: padSymVer04,
+              child: CustomDivider(),
+            ),
+          ),
       ),
     );
   }

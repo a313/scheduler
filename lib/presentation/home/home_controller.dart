@@ -8,6 +8,7 @@ import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:scheduler/presentation/home/components/more_feature.dart';
 import 'package:scheduler/presentation/home/components/reorder_feature.dart';
+import 'package:scheduler/presentation/periods/periods_page.dart';
 import 'package:scheduler/presentation/qrcode/qrcode_page.dart';
 import 'package:scheduler/presentation/setting/setting_page.dart';
 import 'package:scheduler/presentation/timetables/timetables_page.dart';
@@ -149,6 +150,19 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               colorFilter: activeColor,
             ),
             label: 'Weather'.tr),
+      ),
+      Feature(
+        key: periodsPage,
+        page: const PeriodsPage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/Heartbeat.svg',
+                colorFilter: normalColor),
+            activeIcon: BarIcon(
+              path: 'assets/svg/Regular/Heartbeat.svg',
+              colorFilter: activeColor,
+            ),
+            label: 'Periods'.tr),
       ),
       Feature(
         key: settingPage,

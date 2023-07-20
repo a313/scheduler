@@ -10,6 +10,7 @@ const timeTablePage = 'TIME_PAGE';
 const settingPage = 'SETTING_PAGE';
 const qrPage = 'QR_PAGE';
 const weatherPage = 'WEATHER_PAGE';
+const periodsPage = 'PERIODS_PAGE';
 
 class Feature {
   final String key;

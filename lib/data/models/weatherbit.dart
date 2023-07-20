@@ -107,6 +107,11 @@ class WeatherInfo with _$WeatherInfo {
       _$WeatherInfoFromJson(json);
 
   DateTime get date => DateTime.parse(datetime ?? '1900-01-01');
+
+  DateTime get sunriseTime =>
+      DateTime.parse('${DateTime.now().toStringFormat('yyyy-MM-dd')} $sunrise');
+  DateTime get sunsetTime =>
+      DateTime.parse('${DateTime.now().toStringFormat('yyyy-MM-dd')} $sunset');
 }
 
 @freezed

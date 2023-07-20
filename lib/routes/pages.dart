@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:scheduler/presentation/class_room/class_room_binding.dart';
 import 'package:scheduler/presentation/events/events_binding.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_binding.dart';
+import 'package:scheduler/presentation/periods/periods_binding.dart';
 import 'package:scheduler/presentation/reminder/reminder_binding.dart';
 import 'package:scheduler/presentation/report/report_binding.dart';
 import 'package:scheduler/presentation/schedules/edit_schedule/edit_schedule_binding.dart';
@@ -50,6 +51,7 @@ class AppPages {
         TimetablesBinding(),
         SettingBinding(),
         WeatherBinding(),
+        PeriodsBinding()
       ],
     ),
     GetPage(
