@@ -49,8 +49,8 @@ abstract class EventDB extends DBSQLHelper {
       int from, int to, OrderType type);
 
   Future<int> removeEvents({
-    required int parentId,
-    required EventType type,
+    int? parentId,
+    EventType? type,
     required int from,
     required int to,
   });
@@ -86,15 +86,23 @@ class EventDbImpl extends EventDB {
 
   @override
   Future<int> removeEvents({
-    required int parentId,
-    required EventType type,
+    int? parentId,
+    EventType? type,
     required int from,
     required int to,
   }) async {
-    final result = await db.delete(table,
-        where: 'parentId = ? AND type = ? AND startTime BETWEEN ? AND ?',
-        whereArgs: [parentId, type.name, from, to]);
-    log('$result Events - parentId:$parentId AND type:$type AND startTime BETWEEN $from AND $to',
+    var where = 'startTime BETWEEN ? AND ?';
+    List<dynamic> whereArgs = [from, to];
+    if (parentId != null) {
+      where += ' AND parentId = ?';
+      whereArgs.add(parentId);
+    }
+    if (type != null) {
+      where += ' AND type = ?';
+      whereArgs.add(type.name);
+    }
+    final result = await db.delete(table, where: where, whereArgs: whereArgs);
+    log('$result Events - startTime BETWEEN $from AND $to AND parentId:$parentId AND type:$type',
         name: 'DELETED');
     return result;
   }

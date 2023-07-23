@@ -15,13 +15,15 @@ class BaseBottomSheet extends StatelessWidget {
     required this.child,
     this.title,
     this.subTitle,
-    this.bottomButton = false,
+    this.bottom = true,
   }) : super(key: key);
 
   final Widget child;
   final String? title;
   final Widget? subTitle;
-  final bool bottomButton;
+
+  /// Whether to avoid system intrusions on the bottom side of the screen.
+  final bool bottom;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,10 @@ class BaseBottomSheet extends StatelessWidget {
                 ConstrainedBox(
                     constraints:
                         BoxConstraints(maxHeight: context.screenHeight * 0.8),
-                    child: SafeArea(child: child)),
+                    child: SafeArea(
+                      bottom: bottom,
+                      child: child,
+                    )),
               ],
             ),
           ),

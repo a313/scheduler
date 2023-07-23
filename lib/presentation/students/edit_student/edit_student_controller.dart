@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
@@ -92,7 +93,13 @@ class EditStudentController extends BaseStudentController
       final result = await useCases.insertOrUpdate(data);
       dismissLoading();
       if (result is DataSuccess<Student>) {
-        Get.back(result: result.data);
+        final classIds = <int>[];
+        if (shouldReGeneraEvent(data, initData)) {
+          classIds.addAll(data.classId);
+          classIds.addAll(initData?.classId ?? []);
+          classIds.toSet().toList();
+        }
+        Get.back(result: [result.data, classIds]);
       } else if (result is DataFailure<Student>) {
         onDataFailed(result);
       }
@@ -164,5 +171,13 @@ class EditStudentController extends BaseStudentController
       return false;
     }
     return true;
+  }
+
+  bool shouldReGeneraEvent(Student data, Student? initData) {
+    if (initData == null) return true;
+    if (!listEquals(initData.classId, data.classId)) return true;
+    if (initData.isFollow != data.isFollow ||
+        initData.beginStudy != data.beginStudy) return true;
+    return false;
   }
 }

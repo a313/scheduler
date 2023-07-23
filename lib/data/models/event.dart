@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:scheduler/core/converters.dart';
 import 'package:scheduler/core/utils/util.dart';
@@ -44,8 +46,8 @@ class Event with _$Event {
       other.repeat == repeat &&
       other.location == location &&
       other.classId == classId &&
-      other.invitedIds == invitedIds &&
-      other.joinedIds == joinedIds &&
+      listEquals(other.invitedIds, invitedIds) &&
+      listEquals(joinedIds, joinedIds) &&
       other.isActive == isActive &&
       other.note == note;
 
@@ -81,4 +83,17 @@ class Event with _$Event {
   }
 
   Duration get duration => endTime.difference(startTime);
+
+  Color get colorByType {
+    switch (type) {
+      case EventType.Origin:
+        return Colors.indigo;
+      case EventType.Modified:
+        return Colors.black12;
+      case EventType.GeneradeClass:
+        return Colors.lightBlue;
+      case EventType.GeneradeReminder:
+        return Colors.lightGreen;
+    }
+  }
 }

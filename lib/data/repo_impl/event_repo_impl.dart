@@ -30,8 +30,10 @@ class EventRepoImpl extends EventRepo {
 
   @override
   Future<DataState<Event>> insertOrUpdate(Event data) async {
+    if (data.id != null) {
+      data.type = EventType.Modified;
+    }
     final id = await db.insertOrUpdate(data.toJson());
-
     if (id == 0) {
       return DataFailure(DB_ERR_CODE, DB_ERR_MSG);
     } else {
@@ -53,8 +55,8 @@ class EventRepoImpl extends EventRepo {
 
   @override
   Future<DataState> removeEvents(
-      {required int parentId,
-      required EventType type,
+      {int? parentId,
+      EventType? type,
       required DateTime from,
       required DateTime to}) async {
     return DataSuccess(await db.removeEvents(

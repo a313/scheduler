@@ -42,6 +42,15 @@ class EventItem extends StatelessWidget {
                 children: [
                   Row(
                     children: [
+                      Container(
+                        width: 6,
+                        height: 6,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: data.colorByType,
+                        ),
+                      ),
+                      sizedBoxW02,
                       Expanded(
                         child: Text(
                           data.name,

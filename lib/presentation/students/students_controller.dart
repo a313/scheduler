@@ -21,7 +21,8 @@ class StudentsController extends BaseStudentController
     final result = await Get.toNamed(Routes.editStudent, arguments: student);
     if (result != null) {
       //Need reload;
-      getData();
+      await getData();
+      await reGeneraEvent(result[0], classId: result[1]);
     }
   }
 
@@ -46,8 +47,8 @@ class StudentsController extends BaseStudentController
   Future<void> addStudent() async {
     final result = await Get.toNamed(Routes.editStudent);
     if (result != null) {
-      //Need reload;
-      getData();
+      await getData();
+      await reGeneraEvent(result[0], classId: result[1]);
     }
   }
 
