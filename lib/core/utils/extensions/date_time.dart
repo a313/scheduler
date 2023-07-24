@@ -40,7 +40,7 @@ extension DateExtension on DateTime {
   }
 
   String toTimeDateString() {
-    return DateFormat(DateFormater.hhmmDDMMYYYY).format(this);
+    return DateFormat(DateFormater.yyyyMMddhhmm).format(this);
   }
 
   bool isBetween(DateTime start, DateTime end) {

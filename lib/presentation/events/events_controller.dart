@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:scheduler/core/manager/event_tracking.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
@@ -19,6 +20,7 @@ import 'package:scheduler/routes/routes.dart';
 import '../../data/models/class_room.dart';
 import '../../data/models/reminder.dart';
 import '../../data/models/student.dart';
+import 'event_events.dart';
 
 class EventsController extends BaseController {
   EventUseCases useCases = Get.find();
@@ -102,6 +104,7 @@ class EventsController extends BaseController {
   Future<void> onReloadData() async {
     await loadEvent(firstDay, lastDay);
     generateNotificaion();
+    EventManager.fire(EventEvent.reloadData(firstDay, lastDay));
   }
 
   Future<void> generateEvent(DateTime to) async {
@@ -119,6 +122,7 @@ class EventsController extends BaseController {
     events.addAll(reminderEvents);
     await useCases.insertAll(events);
     local.savedLastGenerateTime(to);
+    EventManager.fire(EventEvent.generateEvent(from, to, events.length));
   }
 
   List<Event> generateClassRoomEvent(DateTime from, DateTime to) {
@@ -192,11 +196,14 @@ class EventsController extends BaseController {
   }
 
   Future<void> onTappedEvent(Event event) async {
+    final origin = event.joinedIds;
     final data = await bottomSheet(
         EventBottomSheet(event: event, allStudent: allStudent)) as Event?;
     if (data != null) {
+      final modified = data.joinedIds;
       await useCases.insertOrUpdate(data);
       updateUI();
+      EventManager.fire(EventEvent.editJoined(event.id, origin, modified));
       if (data.alert != AlertType.None) generateNotificaion();
     }
   }
@@ -204,6 +211,7 @@ class EventsController extends BaseController {
   Future<void> onTappedEdit(Event event) async {
     final data =
         await Get.toNamed(Routes.editEvent, arguments: event) as Event?;
+
     if (data != null) {
       reloadData();
     }
@@ -211,6 +219,7 @@ class EventsController extends BaseController {
 
   Future<void> addEvent() async {
     final data = await Get.toNamed(Routes.editEvent) as Event?;
+
     if (data != null) {
       reloadData();
     }
@@ -229,6 +238,7 @@ class EventsController extends BaseController {
 
   Future<void> onDaySelected(DateTime selectedDay, DateTime focusedDay) async {
     firstDay = selectedDay;
+    EventManager.fire(EventEvent.onDaySelected(firstDay, lastDay));
     await loadEvent(firstDay, lastDay);
     this.selectedDay.value = selectedDay;
   }
@@ -242,6 +252,7 @@ class EventsController extends BaseController {
 
   Future<void> onRefresh() async {
     firstDay = firstDay.subtract(const Duration(days: 7));
+    EventManager.fire(EventEvent.onRefresh(firstDay, lastDay));
     await loadEvent(firstDay, lastDay);
 
     refreshController.refreshCompleted();
@@ -249,6 +260,7 @@ class EventsController extends BaseController {
 
   Future<void> onLoading() async {
     lastDay = lastDay.add(const Duration(days: 7));
+    EventManager.fire(EventEvent.onLoading(firstDay, lastDay));
     await generateEvent(lastDay);
     await loadEvent(firstDay, lastDay);
 
