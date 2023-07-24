@@ -48,13 +48,16 @@ class EventsController extends BaseController {
   @override
   Future<void> onReady() async {
     super.onReady();
-    await getData();
-
-    await generateEvent(lastDay);
-    await loadEvent(firstDay, lastDay);
+    await handlerEvents();
 
     generateNotificaion();
     getWeather();
+  }
+
+  Future<void> handlerEvents() async {
+    await getData();
+    await generateEvent(lastDay);
+    await loadEvent(firstDay, lastDay);
   }
 
   Future<void> getData() {

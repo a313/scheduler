@@ -5,13 +5,16 @@ import 'package:path/path.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/entities/app_icon.dart';
+import 'package:scheduler/presentation/events/events_controller.dart';
 import 'package:scheduler/widgets/base/base_bottom_sheet.dart';
 import 'package:scheduler/widgets/custom_divider.dart';
 import 'package:scheduler/widgets/selectable_cell.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sqflite/sqflite.dart';
 
+import '../../domain/usecases/event_usecases.dart';
 import '../../routes/routes.dart';
+import '../../widgets/popups/two_option_popup.dart';
 
 class SettingController extends BaseController {
   final iconChannels = const MethodChannel('schedule/tools');
@@ -126,5 +129,37 @@ class SettingController extends BaseController {
     final file = XFile(path);
     final DateTime now = DateTime.now();
     Share.shareXFiles([file], text: 'DB_BACKUP_${now.toIso8601String()}');
+  }
+
+  void onTapReGenerateEvents() {
+    showPopup(
+      TwoOptionPopup(
+        desc: 'Are your sure to re create events?',
+        secondaryTitle: "I'm sure",
+        onSecondary: () async {
+          Get.back();
+          showLoading();
+          await reGenerateEvent();
+          dismissLoading();
+        },
+        primaryTitle: 'Cancel',
+        onPrimary: () {
+          Get.back();
+        },
+      ),
+    );
+  }
+
+  Future<void> reGenerateEvent() async {
+    final from = DateTime.now().dateWithoutTime();
+
+    local.savedLastGenerateTime(from);
+    final useCases = Get.find<EventUseCases>();
+    await useCases.removeEvents(
+      from: from,
+      to: DateTime(2300),
+    );
+
+    await Get.find<EventsController>().handlerEvents();
   }
 }

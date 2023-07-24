@@ -14,21 +14,36 @@ class BaseStudentController extends BaseController {
   final useCases = Get.find<StudentUseCases>();
   final classUseCase = Get.find<ClassRoomUseCases>();
 
-  Future<void> reGeneraEvent(Student data) async {
+  Future<void> reGeneraEvent(Student data, {List<int>? classId}) async {
+    if (classId != null && classId.isEmpty) {
+      log('Skip reGeneraEvent for Student :${data.id}',
+          name: runtimeType.toString());
+      return;
+    }
     log('reGeneraEvent for Student :${data.id}', name: runtimeType.toString());
     final from = DateTime.now().dateWithoutTime();
     final to =
         local.getLastGenerateTime() ?? from.add(const Duration(days: 15));
     final events = <Event>[];
-
     final eventUseCases = Get.find<EventUseCases>();
 
-    for (var id in data.classId) {
-      final classRoom =
-          allClassRoom.where((element) => element.id == id).firstOrNull;
-      if (classRoom == null) continue;
+    for (var id in classId ?? data.classId) {
+      final c = allClassRoom.where((e) => e.id == id).firstOrNull;
+      if (c == null) continue;
+
+      await eventUseCases.removeEvents(
+        parentId: c.id!,
+        from: from,
+        to: to,
+        type: EventType.GeneradeClass,
+      );
+
       final e = classUseCase.generateEvent(
-          classRoom: classRoom, students: allStudent, from: from, to: to);
+        classRoom: c,
+        students: allStudent,
+        from: from,
+        to: to,
+      );
       events.addAll(e);
     }
 

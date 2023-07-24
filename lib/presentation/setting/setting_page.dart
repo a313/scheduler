@@ -76,10 +76,22 @@ class SettingPage extends GetView<SettingController> {
                   ),
                   sizedBoxH16,
                   CustomCard(
-                      child: SettingCell(
-                    prefix: SvgPicture.asset('assets/svg/Regular/Database.svg'),
-                    label: 'Share Database'.tr,
-                    onTap: controller.onTapShareDatabase,
+                      child: Column(
+                    children: [
+                      SettingCell(
+                        prefix:
+                            SvgPicture.asset('assets/svg/Regular/Database.svg'),
+                        label: 'Share Database'.tr,
+                        onTap: controller.onTapShareDatabase,
+                      ),
+                      const CustomDivider(indent: 48),
+                      SettingCell(
+                        prefix: SvgPicture.asset(
+                            'assets/svg/Regular/ClockCounterClockwise.svg'),
+                        label: 'Re Generate Events'.tr,
+                        onTap: controller.onTapReGenerateEvents,
+                      ),
+                    ],
                   )),
                 ],
               ),

@@ -63,8 +63,10 @@ class EditEventController extends BaseController {
   void onSelectedStudent(List<Student>? listStudent) {
     if (listStudent == null) return;
     final studentIds = listStudent.map((e) => e.id!).toList();
-    data.joinedIds = studentIds;
     data.invitedIds = studentIds;
+    if (data.type != EventType.Modified) {
+      data.joinedIds = studentIds;
+    }
   }
 
   Future<void> onInsertOrUpdate() async {

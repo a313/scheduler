@@ -12,8 +12,8 @@ abstract class EventRepo {
   Future<DataState> deleteAllEvent();
 
   Future<DataState> removeEvents({
-    required int parentId,
-    required EventType type,
+    int? parentId,
+    EventType? type,
     required DateTime from,
     required DateTime to,
   });

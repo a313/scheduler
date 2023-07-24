@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:scheduler/device_Info.dart';
 import 'package:scheduler/injection.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
@@ -21,6 +22,7 @@ Future<void> main() async {
     }
 
     await DependencyInjection.injection();
+    await DeviceInfo().getDeviceInfo();
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
         FlutterLocalNotificationsPlugin();
     flutterLocalNotificationsPlugin

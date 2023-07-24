@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
+import 'package:scheduler/device_Info.dart';
 import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 
@@ -35,36 +36,46 @@ class MoreFeatureBottomSheet extends StatelessWidget {
         BaseBottomSheet(
           subTitle: TextButton(onPressed: reOrder, child: Text('Reorder'.tr)),
           title: 'Features'.tr,
+          bottom: false,
           child: Padding(
             padding: padAll16,
-            child: SizedBox(
-              width: double.infinity,
-              child: Wrap(
-                runSpacing: 12,
-                spacing: 12,
-                alignment: WrapAlignment.start,
-                children: List.generate(feature.length, (index) {
-                  final obj = feature[index];
-                  return GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    onTap: () => onTappedFeature(obj),
-                    child: SizedBox(
-                      width: 56,
-                      child: Column(
-                        children: [
-                          obj.item.icon,
-                          sizedBoxH02,
-                          Text(
-                            obj.item.label ?? "",
-                            style: AppFonts.h100
-                                .copyWith(color: context.neutral600),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  child: Wrap(
+                    runSpacing: 16,
+                    spacing: 12,
+                    alignment: WrapAlignment.start,
+                    children: List.generate(feature.length, (index) {
+                      final obj = feature[index];
+                      return GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () => onTappedFeature(obj),
+                        child: SizedBox(
+                          width: 56,
+                          child: Column(
+                            children: [
+                              obj.item.icon,
+                              sizedBoxH02,
+                              Text(
+                                obj.item.label ?? "",
+                                style: AppFonts.h100
+                                    .copyWith(color: context.neutral600),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                  );
-                }),
-              ),
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+                Text(
+                  '${DeviceInfo().appVersion}(${DeviceInfo().buildNumber})',
+                  style: AppFonts.bSmall.copyWith(color: context.neutral600),
+                )
+              ],
             ),
           ),
         ),
