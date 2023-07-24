@@ -1,9 +1,12 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'package:scheduler/widgets/painter/clock_time_painter.dart';
 
-import '../../widgets/painter/clock_background_painter.dart';
+import '../../widgets/painter/periods_background_painter.dart';
 import 'periods_controller.dart';
 
 class PeriodsPage extends GetView<PeriodsController> {
@@ -11,20 +14,58 @@ class PeriodsPage extends GetView<PeriodsController> {
 
   @override
   Widget build(BuildContext context) {
+    final size = min(context.width, context.height) * 0.8;
     return BaseScafoldAppBar(
         title: 'Periods'.tr,
-        body: Center(
-          child: SizedBox(
-            width: 300,
-            height: 300,
-            child: CustomPaint(
-              painter: ClockBackgroundPainter(context),
-              foregroundPainter: ClockTimePainter(context),
-              // child: CustomPaint(
-              //   painter: ClockPainter(),
-              // ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 16, width: double.infinity),
+            SizedBox(
+              width: size,
+              height: size,
+              child: CustomPaint(
+                painter: PeriodsBackgroundPainter(context: context, period: 28),
+              ),
             ),
-          ),
+          ],
         ));
+  }
+}
+
+//
+class TimeComponent extends StatefulWidget {
+  const TimeComponent({
+    super.key,
+  });
+
+  @override
+  State<TimeComponent> createState() => _TimeComponentState();
+}
+
+class _TimeComponentState extends State<TimeComponent> {
+  late Timer timer;
+
+  @override
+  void initState() {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        print('Update Clock');
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: ClockTimePainter(context: context, time: DateTime.now()),
+    );
   }
 }
