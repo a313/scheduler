@@ -4,29 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/entities/feature.dart';
-import 'package:scheduler/widgets/base/base_bottom_sheet.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
+import 'package:scheduler/theme/app_fonts.dart';
+import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 
-import '../../../theme/app_fonts.dart';
+import '../../../widgets/custom_divider.dart';
 
-class ReorderFeatureBottomSheet extends StatefulWidget {
-  const ReorderFeatureBottomSheet({
-    super.key,
-    required this.pin,
-    required this.other,
-    required this.onChanged,
-  });
-
+class ReorderFeaturePage extends StatefulWidget {
+  const ReorderFeaturePage({super.key, required this.pin, required this.other});
   final List<Feature> pin;
   final List<Feature> other;
-  final Function(List<Feature> pin, List<Feature> other) onChanged;
 
   @override
-  State<ReorderFeatureBottomSheet> createState() =>
-      _ReorderFeatureBottomSheetState();
+  State<ReorderFeaturePage> createState() => _ReorderFeaturePageState();
 }
 
-class _ReorderFeatureBottomSheetState extends State<ReorderFeatureBottomSheet> {
+class _ReorderFeaturePageState extends State<ReorderFeaturePage> {
   late List<Feature> items;
   late int pinCount;
 
@@ -59,10 +51,16 @@ class _ReorderFeatureBottomSheetState extends State<ReorderFeatureBottomSheet> {
       );
     }
 
-    return BaseBottomSheet(
+    return BaseScafoldAppBar(
       title: 'Reorder Features'.tr,
-      child: ReorderableListView.builder(
-        physics: const ScrollPhysics(),
+      onWillPop: () async {
+        Get.back(result: [
+          items.take(pinCount).toList(),
+          items.sublist(pinCount),
+        ]);
+        return false;
+      },
+      body: ReorderableListView.builder(
         header: const _Header(),
         footer: Container(color: context.neutral200, padding: padAll12),
         shrinkWrap: true,
@@ -107,9 +105,6 @@ class _ReorderFeatureBottomSheetState extends State<ReorderFeatureBottomSheet> {
 
             final item = items.removeAt(oldIndex);
             items.insert(newIndex, item);
-
-            widget.onChanged(
-                items.take(pinCount).toList(), items.sublist(pinCount));
           });
         },
       ),

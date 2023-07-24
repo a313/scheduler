@@ -7,7 +7,6 @@ import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:scheduler/presentation/home/components/more_feature.dart';
-import 'package:scheduler/presentation/home/components/reorder_feature.dart';
 import 'package:scheduler/presentation/periods/periods_page.dart';
 import 'package:scheduler/presentation/qrcode/qrcode_page.dart';
 import 'package:scheduler/presentation/setting/setting_page.dart';
@@ -21,6 +20,7 @@ import '../report/report_page.dart';
 import '../students/students_page.dart';
 import 'components/bar_icon.dart';
 import 'components/calendar_icon.dart';
+import 'components/reorder_feature.dart';
 
 class HomeController extends BaseController with GetTickerProviderStateMixin {
   late TabController tabController;
@@ -241,7 +241,9 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
       other: other,
       onChanged: onChangedFeatureOrder,
     ));
-
+    // final result =
+    //     await Get.to(() => ReorderFeaturePage(pin: pin, other: other));
+    // onChangedFeatureOrder(result[0], result[1]);
     updateHome();
   }
 

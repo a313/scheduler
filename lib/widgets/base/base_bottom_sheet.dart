@@ -63,8 +63,9 @@ class BaseBottomSheet extends StatelessWidget {
                   ),
                 if (hasHeader) const CustomDivider(),
                 ConstrainedBox(
-                    constraints:
-                        BoxConstraints(maxHeight: context.screenHeight * 0.8),
+                    constraints: BoxConstraints(
+                        maxHeight:
+                            context.screenHeight * (hasHeader ? 0.8 : 0.9)),
                     child: SafeArea(child: child)),
               ],
             ),
