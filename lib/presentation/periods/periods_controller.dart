@@ -1,18 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scheduler/core/state_management/base_controller.dart';
 
-class PeriodsController extends GetxController {
-  Map<String, double> dataMap = {};
-
-  final colorList = <Color>[
-    Colors.greenAccent,
-  ];
+class PeriodsController extends BaseController {
+  late DateTime begin;
 
   @override
   void onInit() {
-    for (int i = 0; i < 28; i++) {
-      dataMap['${i + 1}'] = 1.0;
-    }
+    begin = local.getLastPeriods() ?? DateTime.now();
     super.onInit();
   }
 }

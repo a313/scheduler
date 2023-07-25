@@ -63,4 +63,12 @@ class LocalUseCases {
   Future<void> savedThemeMode(ThemeMode mode) {
     return _.savedThemeMode(mode.name);
   }
+
+  DateTime? getLastPeriods() {
+    return _.getLastPeriods();
+  }
+
+  Future<void> savedLastPeriods(DateTime time) {
+    return _.savedLastPeriods(time);
+  }
 }

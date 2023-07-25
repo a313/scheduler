@@ -14,7 +14,7 @@ class PeriodsPage extends GetView<PeriodsController> {
 
   @override
   Widget build(BuildContext context) {
-    final size = min(context.width, context.height) * 0.8;
+    final size = min(context.width, context.height) * 0.9;
     return BaseScafoldAppBar(
         title: 'Periods'.tr,
         body: Column(
@@ -49,9 +49,7 @@ class _TimeComponentState extends State<TimeComponent> {
   @override
   void initState() {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        print('Update Clock');
-      });
+      setState(() {});
     });
     super.initState();
   }
