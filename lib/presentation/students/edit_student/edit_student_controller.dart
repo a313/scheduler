@@ -3,11 +3,13 @@ import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:scheduler/core/manager/event_tracking.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/presentation/students/base_student_controller.dart';
+import 'package:scheduler/presentation/students/student_event.dart';
 
 import '../../../widgets/popups/two_option_popup.dart';
 
@@ -30,6 +32,7 @@ class EditStudentController extends BaseStudentController
   @override
   void onInit() {
     data = initData?.copyWith() ?? Student.init();
+    EventManager.fire(StudentEvent.onInitEditStudent(data));
     nameController.text = data.name;
     feeController.text = data.fee.toString();
     phoneController.text = data.phones.join(',');
@@ -91,6 +94,7 @@ class EditStudentController extends BaseStudentController
       }
 
       final result = await useCases.insertOrUpdate(data);
+      EventManager.fire(StudentEvent.onInsertOrUpdate(data));
       dismissLoading();
       if (result is DataSuccess<Student>) {
         final classIds = <int>[];

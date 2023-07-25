@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -15,6 +17,8 @@ import 'core/utils/helper/sql_helper.dart';
 Future<void> main() async {
   runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
     await GetStorage.init();
 
     if (kDebugMode) {
@@ -35,6 +39,6 @@ Future<void> main() async {
   }, (error, stackTrace) {
     debugPrint(stackTrace.toString());
     // DebugHelper.addException(ExceptionData(error: error, stack: stackTrace));
-    // FirebaseCrashlytics.instance.recordError(error, stackTrace);
+    FirebaseCrashlytics.instance.recordError(error, stackTrace);
   });
 }

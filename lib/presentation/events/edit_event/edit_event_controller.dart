@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:scheduler/core/manager/event_tracking.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
+import 'package:scheduler/presentation/events/event_events.dart';
 
 import '../../../core/usecase/data_state.dart';
 import '../../../data/models/event.dart';
@@ -29,6 +31,7 @@ class EditEventController extends BaseController {
   @override
   void onInit() {
     data = initData?.copyWith() ?? Event.init();
+    EventManager.fire(EventEvent.onInitEditEvent(data));
     nameController.text = data.name;
     noteController.text = data.note ?? '';
     locationController.text = data.location ?? '';
@@ -78,6 +81,7 @@ class EditEventController extends BaseController {
         data.endTime = data.startTime;
       }
       final result = await useCases.insertOrUpdate(data);
+      EventManager.fire(EventEvent.onInsertOrUpdate(data));
       if (result is DataSuccess<Event>) {
         Get.back(result: result.data);
       } else if (result is DataFailure<Event>) {

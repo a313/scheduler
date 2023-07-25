@@ -348,7 +348,7 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Event extends _Event {
+class _$_Event extends _Event with DiagnosticableTreeMixin {
   _$_Event(
       {this.id,
       this.parentId,
@@ -422,8 +422,31 @@ class _$_Event extends _Event {
   ClassRoom? classRoom;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Event(id: $id, parentId: $parentId, name: $name, startTime: $startTime, endTime: $endTime, type: $type, alert: $alert, repeat: $repeat, location: $location, classId: $classId, invitedIds: $invitedIds, joinedIds: $joinedIds, isActive: $isActive, note: $note, students: $students, classRoom: $classRoom)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Event'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('parentId', parentId))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('startTime', startTime))
+      ..add(DiagnosticsProperty('endTime', endTime))
+      ..add(DiagnosticsProperty('type', type))
+      ..add(DiagnosticsProperty('alert', alert))
+      ..add(DiagnosticsProperty('repeat', repeat))
+      ..add(DiagnosticsProperty('location', location))
+      ..add(DiagnosticsProperty('classId', classId))
+      ..add(DiagnosticsProperty('invitedIds', invitedIds))
+      ..add(DiagnosticsProperty('joinedIds', joinedIds))
+      ..add(DiagnosticsProperty('isActive', isActive))
+      ..add(DiagnosticsProperty('note', note))
+      ..add(DiagnosticsProperty('students', students))
+      ..add(DiagnosticsProperty('classRoom', classRoom));
   }
 
   @JsonKey(ignore: true)

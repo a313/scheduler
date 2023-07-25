@@ -1,7 +1,7 @@
 name: scheduler
 description: A new Flutter project.
 publish_to: 'none'
-version: 0.3.2+0.0.2
+version: 0.3.2+0.0.3
 
 environment:
   sdk: '>=3.0.2 <4.0.0'
@@ -13,6 +13,9 @@ dependencies:
   crypto: ^3.0.3
   device_info_plus: ^9.0.2
   dotted_border: ^2.0.0+3
+  firebase_analytics: ^10.4.4
+  firebase_core: ^2.15.0
+  firebase_crashlytics: ^3.3.4
   flutter:
     sdk: flutter
   flutter_local_notifications: ^14.1.1
