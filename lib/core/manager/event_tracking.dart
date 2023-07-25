@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/device_Info.dart';
@@ -45,5 +47,7 @@ class EventManager {
     final now = DateTime.now();
     event.timeStamp = now.millisecondsSinceEpoch;
     _firebaseAnalytics.logEvent(name: event.name, parameters: event.params);
+    log("name:${event.name} params:${event.params.toString()}",
+        name: "Event Tracking");
   }
 }
