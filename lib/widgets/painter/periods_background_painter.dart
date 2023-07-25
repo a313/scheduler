@@ -5,8 +5,13 @@ import 'package:flutter/material.dart';
 class PeriodsBackgroundPainter extends CustomPainter {
   final BuildContext context;
   final int period;
+  DateTime begin;
 
-  PeriodsBackgroundPainter({required this.context, required this.period});
+  PeriodsBackgroundPainter({
+    required this.context,
+    required this.period,
+    required this.begin,
+  });
   @override
   void paint(Canvas canvas, Size size) {
     var centerX = size.width / 2;
@@ -20,7 +25,7 @@ class PeriodsBackgroundPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
     for (double i = 0; i < period; i++) {
-      final startAngle = pieceAngle * i * rad - 0.5 * pi;
+      final angle = pieceAngle * i * rad - 0.5 * pi;
       final rect2 = Rect.fromCircle(center: center, radius: 0.85 * radius);
       final paint = Paint()
         ..color = Colors.blue
@@ -28,24 +33,53 @@ class PeriodsBackgroundPainter extends CustomPainter {
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.butt;
 
-      canvas.drawArc(
-          rect2, startAngle, degreesToRadians(pieceAngle), false, paint);
+      canvas.drawArc(rect2, angle, degreesToRadians(pieceAngle), false, paint);
 
-      var x1 = centerX + radius * 0.7 * cos(startAngle);
-      var y1 = centerX + radius * 0.7 * sin(startAngle);
-      var x2 = centerX + radius * cos(startAngle);
-      var y2 = centerX + radius * sin(startAngle);
+      var x1 = centerX + radius * 0.7 * cos(angle);
+      var y1 = centerX + radius * 0.7 * sin(angle);
+      var x2 = centerX + radius * cos(angle);
+      var y2 = centerX + radius * sin(angle);
 
       canvas.drawLine(Offset(x2, y2), Offset(x1, y1), borderPaint);
     }
 
     canvas.drawCircle(center, radius, borderPaint);
     canvas.drawCircle(center, radius * 0.7, borderPaint);
+
+    ///draw time
+    final paint = Paint()
+      ..strokeWidth = 4
+      ..color = Colors.indigoAccent
+      ..strokeCap = StrokeCap.round
+      ..style = PaintingStyle.fill;
+    final fullSeconds = period * 24 * 60 * 60;
+    final passTime = DateTime.now().difference(begin).inSeconds;
+
+    final dv = passTime ~/ fullSeconds;
+
+    final timeAngle = degreesToRadians(360 / dv);
+
+    final p = Path();
+    var x = centerX + 12 * cos(timeAngle - 0.5 * pi);
+    var y = centerY + 12 * sin(timeAngle + 0.5 * pi);
+    p.moveTo(x, y);
+    x = centerX + radius * 0.8 * cos(timeAngle);
+    y = centerX + radius * 0.8 * sin(timeAngle);
+    p.lineTo(x, y);
+    x = centerX + 12 * cos(timeAngle + 0.5 * pi);
+    y = centerY + 12 * sin(timeAngle - 0.5 * pi);
+    p.lineTo(x, y);
+    x = centerX + 12 * cos(timeAngle - pi);
+    y = centerY + 12 * sin(timeAngle + pi);
+    p.lineTo(x, y);
+
+    p.close();
+    canvas.drawPath(p, paint);
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false;
+  bool shouldRepaint(PeriodsBackgroundPainter oldDelegate) {
+    return oldDelegate.begin != begin || oldDelegate.period != period;
   }
 
   double degreesToRadians(double degrees) {

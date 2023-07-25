@@ -71,4 +71,12 @@ class LocalUseCases {
   Future<void> savedLastPeriods(DateTime time) {
     return _.savedLastPeriods(time);
   }
+
+  Future<void> savedPeriodsDuration(int dur) {
+    return _.savedPeriodsDuration(dur);
+  }
+
+  int? getPeriodsDuration() {
+    return _.getPeriodsDuration();
+  }
 }

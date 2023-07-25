@@ -32,6 +32,7 @@ class BaseTextField extends StatelessWidget {
     this.textStyle,
     this.validMode,
     this.obscureText = false,
+    this.initialValue,
   }) : super(key: key);
 
   final bool autofocus;
@@ -55,6 +56,7 @@ class BaseTextField extends StatelessWidget {
   final String? helperText;
   final String? errorText;
   final bool obscureText;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +79,7 @@ class BaseTextField extends StatelessWidget {
       style: (textStyle ?? AppFonts.pMedium).copyWith(
         color: enabled ? null : context.neutral600,
       ),
+      initialValue: initialValue,
       decoration: InputDecoration(
         prefixIcon: prefix,
         suffixIcon: suffix,

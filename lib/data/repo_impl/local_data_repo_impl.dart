@@ -155,4 +155,14 @@ class LocalDataImpl extends LocalDataRepo {
   Future<void> savedLastPeriods(DateTime time) {
     return _.write(LAST_PERIODS, time.millisecondsSinceEpoch);
   }
+
+  @override
+  int? getPeriodsDuration() {
+    return _.read<int>(PERIODS_DURATION);
+  }
+
+  @override
+  Future<void> savedPeriodsDuration(int dur) {
+    return _.write(PERIODS_DURATION, dur);
+  }
 }

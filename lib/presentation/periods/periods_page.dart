@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'package:scheduler/widgets/painter/clock_time_painter.dart';
 
+import '../../core/utils/util.dart';
+import '../../widgets/base/base_input.dart';
 import '../../widgets/painter/periods_background_painter.dart';
 import 'periods_controller.dart';
 
@@ -17,18 +19,53 @@ class PeriodsPage extends GetView<PeriodsController> {
     final size = min(context.width, context.height) * 0.9;
     return BaseScafoldAppBar(
         title: 'Periods'.tr,
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 16, width: double.infinity),
-            SizedBox(
-              width: size,
-              height: size,
-              child: CustomPaint(
-                painter: PeriodsBackgroundPainter(context: context, period: 28),
-              ),
-            ),
-          ],
+        onTappedScene: Get.focusScope?.unfocus,
+        body: SingleChildScrollView(
+          child: GetBuilder<PeriodsController>(
+            builder: (controller) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 16, width: double.infinity),
+                  SizedBox(
+                    width: size,
+                    height: size,
+                    child: CustomPaint(
+                      painter: PeriodsBackgroundPainter(
+                        context: context,
+                        period: controller.periodsDuration,
+                        begin: controller.begin,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      BaseDateField(
+                          labelText: 'Last Periods'.tr,
+                          initDate: controller.begin,
+                          onSelected: controller.onChangeLastPeriods,
+                          timeFormat: DateFormater.ddMMYYYY),
+                      BaseTextField(
+                        labelText: 'Periods Duration'.tr,
+                        initialValue: controller.periodsDuration.toString(),
+                        keyboardType: TextInputType.number,
+                        validMode: AutovalidateMode.always,
+                        onChanged: controller.onChangePeriodDuration,
+                        validator: (value) {
+                          if (value.hasText) {
+                            int n = int.parse(value!);
+                            if (n >= 22 && n <= 36) return null;
+                            return 'Periods Duration must in range 22 ~ 36';
+                          }
+                          return null;
+                        },
+                      ),
+                    ],
+                  ).paddingAll(16),
+                ],
+              );
+            },
+          ),
         ));
   }
 }

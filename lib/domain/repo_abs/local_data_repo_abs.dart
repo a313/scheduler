@@ -13,6 +13,7 @@ const FORECAST = "forecast";
 const LAST_UPDATE_WEATHER = "_time_current_weather";
 const CURRENT_WEATHER = "_current_weather";
 const LAST_PERIODS = "_last_periods";
+const PERIODS_DURATION = "_periods_duration";
 const THEME = "_theme";
 
 abstract class LocalDataRepo {
@@ -57,4 +58,8 @@ abstract class LocalDataRepo {
   DateTime? getLastPeriods();
 
   Future<void> savedLastPeriods(DateTime time);
+
+  Future<void> savedPeriodsDuration(int dur);
+
+  int? getPeriodsDuration();
 }
