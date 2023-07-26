@@ -162,4 +162,9 @@ class SettingController extends BaseController {
 
     await Get.find<EventsController>().handlerEvents();
   }
+
+  void onTestCrash() {
+    showSnackBar('throw Exception(${DateTime.now().toIso8601String()})');
+    throw Exception(DateTime.now().toIso8601String());
+  }
 }

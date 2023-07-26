@@ -91,6 +91,13 @@ class SettingPage extends GetView<SettingController> {
                         label: 'Re Generate Events'.tr,
                         onTap: controller.onTapReGenerateEvents,
                       ),
+                      const CustomDivider(indent: 48),
+                      SettingCell(
+                        prefix: SvgPicture.asset(
+                            'assets/svg/Regular/LightningSlash.svg'),
+                        label: 'Test Crash'.tr,
+                        onTap: controller.onTestCrash,
+                      ),
                     ],
                   )),
                 ],

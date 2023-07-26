@@ -19,11 +19,10 @@ class EventsPainter extends CustomPainter {
     var centerY = size.height / 2;
     var center = Offset(centerX, centerY);
     var radius = min(centerX, centerY);
-    const rad = (pi / 180);
+
     const oneSec = 360 / fullSeconds;
     final now = DateTime.now();
     final paint = Paint()
-      ..strokeWidth = 0.3 * radius
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.butt;
     for (var event in events) {
@@ -34,7 +33,20 @@ class EventsPainter extends CustomPainter {
       final dur = endTime.difference(startTime).inSeconds;
       final begin = startTime.difference(now.beginOfDay()).inSeconds;
 
-      var r = (0.7 - ((now.hour - startTime.hour))).abs() * radius;
+      bool isPassedEvent = endTime.isBefore(now);
+      bool isMoment = now.isBetween(startTime, endTime);
+      var r = 0.3 * radius;
+      var strokeWidth = 0.3 * radius;
+      if (isPassedEvent) {
+        r = 0.2 * radius;
+        strokeWidth = 0.1 * radius;
+      } else if (isMoment) {
+        r = 0.6 * radius;
+        strokeWidth = 0.3 * radius;
+      } else {
+        r = 0.4 * radius;
+        strokeWidth = 0.2 * radius;
+      }
 
       if (dur > 900) {
         final startAngle =
@@ -43,6 +55,7 @@ class EventsPainter extends CustomPainter {
         final rect2 = Rect.fromCircle(center: center, radius: r);
 
         paint.color = color;
+        paint.strokeWidth = strokeWidth;
         canvas.drawArc(rect2, startAngle, sweepAngle, false, paint);
 
         final textSpan = TextSpan(
