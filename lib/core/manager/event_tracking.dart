@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/device_Info.dart';
+import 'package:scheduler/device_info.dart';
 
 const SHOW_EVENT_TRACKING_LOG = true;
 

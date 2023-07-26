@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:scheduler/core/utils/util.dart';
 
 class PeriodsBackgroundPainter extends CustomPainter {
   final BuildContext context;
@@ -33,7 +34,8 @@ class PeriodsBackgroundPainter extends CustomPainter {
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.butt;
 
-      canvas.drawArc(rect2, angle, degreesToRadians(pieceAngle), false, paint);
+      canvas.drawArc(
+          rect2, angle, Utils.degreesToRadians(pieceAngle), false, paint);
 
       var x1 = centerX + radius * 0.7 * cos(angle);
       var y1 = centerX + radius * 0.7 * sin(angle);
@@ -57,7 +59,7 @@ class PeriodsBackgroundPainter extends CustomPainter {
 
     final dv = passTime ~/ fullSeconds;
 
-    final timeAngle = degreesToRadians(360 / dv);
+    final timeAngle = Utils.degreesToRadians(360 / dv);
 
     final p = Path();
     var x = centerX + 12 * cos(timeAngle - 0.5 * pi);
@@ -80,13 +82,5 @@ class PeriodsBackgroundPainter extends CustomPainter {
   @override
   bool shouldRepaint(PeriodsBackgroundPainter oldDelegate) {
     return oldDelegate.begin != begin || oldDelegate.period != period;
-  }
-
-  double degreesToRadians(double degrees) {
-    return degrees * pi / 180.0;
-  }
-
-  double radiansToDegrees(double radians) {
-    return radians * 180 / pi;
   }
 }

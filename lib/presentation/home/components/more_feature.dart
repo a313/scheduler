@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/device_Info.dart';
+import 'package:scheduler/device_info.dart';
 import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -88,6 +89,14 @@ class Utils {
     final fileName = name ?? basename(filePath);
     final amved = await file.copy('${appDir.path}/$fileName');
     return amved;
+  }
+
+  static double degreesToRadians(double degrees) {
+    return degrees * pi / 180.0;
+  }
+
+  static double radiansToDegrees(double radians) {
+    return radians * 180 / pi;
   }
 
   Future<void> cloneDb() async {

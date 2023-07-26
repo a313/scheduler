@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/entities/feature.dart';
+import 'package:scheduler/presentation/clock/clock_page.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:scheduler/presentation/home/components/more_feature.dart';
 import 'package:scheduler/presentation/periods/periods_page.dart';
@@ -163,6 +164,18 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               colorFilter: activeColor,
             ),
             label: 'Periods'.tr),
+      ),
+      Feature(
+        key: clockPage,
+        page: const ClockPage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/Clock.svg', colorFilter: normalColor),
+            activeIcon: BarIcon(
+              path: 'assets/svg/Regular/Clock.svg',
+              colorFilter: activeColor,
+            ),
+            label: 'Clock'.tr),
       ),
       Feature(
         key: settingPage,

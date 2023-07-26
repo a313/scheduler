@@ -65,17 +65,17 @@ class _Prefix extends StatelessWidget {
   Widget build(BuildContext context) {
     if (time.isToday()) {
       return Text(
-        'Today'.tr,
+        '${'Today'.tr},',
         style: AppFonts.h300,
       ).paddingOnly(right: 8);
     } else if (time.isTomorrow()) {
       return Text(
-        'Tomorrow'.tr,
+        '${'Tomorrow'.tr},',
         style: AppFonts.h300,
       ).paddingOnly(right: 8);
     } else if (time.isYesterday()) {
       return Text(
-        'Yesterday'.tr,
+        '${'Yesterday'.tr},',
         style: AppFonts.h300,
       ).paddingOnly(right: 8);
     }

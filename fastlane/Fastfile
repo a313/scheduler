@@ -166,6 +166,12 @@ lane :submit do |options|
 	end
 end
 
+desc "Upload symbols to Crashlytics"
+  lane :upload_dSYM do |options|
+	build_env = (options[:env] ? options[:env] : "dev")	
+	upload_symbols_to_crashlytics(gsp_path:"./ios/GoogleService-Info.plist",
+	binary_path: 'fastlane/scripts/upload-symbols')
+  end
 
 def get_release_note(options)
 	build_env = (options[:env] ? options[:env] : "dev")

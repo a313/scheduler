@@ -32,8 +32,8 @@ class ClockTimePainter extends CustomPainter {
 
     final hourAngle = (time.hour * 30 + time.minute * 0.5) * rad - 0.5 * pi;
 
-    var hourHandX = centerX + 60 * cos(hourAngle);
-    var hourHandY = centerX + 60 * sin(hourAngle);
+    var hourHandX = centerX + radius * 0.4 * cos(hourAngle);
+    var hourHandY = centerX + radius * 0.4 * sin(hourAngle);
     canvas.drawLine(center, Offset(hourHandX, hourHandY), hourHandBrush);
 
     final minAngle = time.minute * 6 * rad - 0.5 * pi;
@@ -41,8 +41,8 @@ class ClockTimePainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 4;
-    var minHandX = centerX + 80 * cos(minAngle);
-    var minHandY = centerX + 80 * sin(minAngle);
+    var minHandX = centerX + radius * 0.6 * cos(minAngle);
+    var minHandY = centerX + radius * 0.6 * sin(minAngle);
     canvas.drawLine(center, Offset(minHandX, minHandY), minHandBrush);
 
     var centerFillBrush = Paint();
