@@ -273,7 +273,9 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
   }
 
   void getFeature({required List<String> pinKeys}) {
-    pin = allFeature.where((e) => pinKeys.contains(e.key)).toList();
+    pin = pinKeys
+        .map((pin) => allFeature.firstWhere((f) => pin == f.key))
+        .toList();
     other = allFeature.where((e) => !pin.contains(e)).toList();
   }
 }

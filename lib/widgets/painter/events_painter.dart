@@ -26,7 +26,7 @@ class EventsPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.butt;
     for (var event in events) {
-      final color = event.name.nameToColor().withOpacity(0.2);
+      Color color;
 
       final startTime = event.startTime;
       final endTime = event.endTime;
@@ -34,54 +34,58 @@ class EventsPainter extends CustomPainter {
       final begin = startTime.difference(now.beginOfDay()).inSeconds;
 
       bool isPassedEvent = endTime.isBefore(now);
-      bool isMoment = now.isBetween(startTime, endTime);
-      var r = 0.3 * radius;
+      bool isFuture = startTime.isAfter(now);
+      double r;
+      double scale = 1.0;
       var strokeWidth = 0.3 * radius;
       if (isPassedEvent) {
-        r = 0.2 * radius;
+        scale = (1 - now.difference(endTime).inMinutes / (12 * 60));
+        r = 0.4 * scale * radius;
         strokeWidth = 0.1 * radius;
-      } else if (isMoment) {
-        r = 0.6 * radius;
-        strokeWidth = 0.3 * radius;
-      } else {
-        r = 0.4 * radius;
+      } else if (isFuture) {
+        scale = (1 - startTime.difference(now).inMinutes / (12 * 60));
+        r = 0.6 * scale * radius;
         strokeWidth = 0.2 * radius;
+      } else {
+        r = 0.6 * scale * radius;
+        strokeWidth = 0.3 * radius;
       }
-
-      if (dur > 900) {
-        final startAngle =
-            Utils.degreesToRadians(begin % fullSeconds * oneSec) - 0.5 * pi;
-        final sweepAngle = Utils.degreesToRadians(dur * oneSec);
+      color = Color.lerp(context.neutral100, event.name.nameToColor(), scale)!;
+      final startAngle =
+          Utils.degreesToRadians(begin % fullSeconds * oneSec) - 0.5 * pi;
+      final sweepAngle = Utils.degreesToRadians(dur * oneSec);
+      if (dur > 300) {
         final rect2 = Rect.fromCircle(center: center, radius: r);
-
-        paint.color = color;
+        paint.color = color.withOpacity(0.3 * scale);
         paint.strokeWidth = strokeWidth;
         canvas.drawArc(rect2, startAngle, sweepAngle, false, paint);
-
-        final textSpan = TextSpan(
-          text: event.name,
-          style: AppFonts.bSuperSmall.copyWith(
-            color: context.neutral1100,
-          ),
-        );
-        final textPainter = TextPainter(
-          text: textSpan,
-          textAlign: TextAlign.center,
-          textDirection: TextDirection.rtl,
-        );
-        textPainter.layout(
-          minWidth: 0,
-          maxWidth: 70,
-        );
-        var x3 = centerX + r * 0.7 * cos(startAngle + sweepAngle * 0.5);
-        var y3 = centerX + r * 0.7 * sin(startAngle + sweepAngle * 0.5);
-        final tOffset = Offset(x3, y3);
-        final xCenter = tOffset.dx - textPainter.width / 2;
-        final yCenter = tOffset.dy - textPainter.height / 2;
-        textPainter.paint(canvas, Offset(xCenter, yCenter));
       } else {
-        print('Less than 15m');
+        r *= 1.7;
       }
+      var x = centerX + r * cos(startAngle + sweepAngle * 0.5);
+      var y = centerX + r * sin(startAngle + sweepAngle * 0.5);
+      final tOffset = Offset(x, y);
+      final pointPainter = Paint()..color = color;
+
+      canvas.drawCircle(tOffset, 4 * scale, pointPainter);
+
+      final textSpan = TextSpan(
+        text: event.name,
+        style: AppFonts.bSuperSmall.copyWith(color: context.neutral1100),
+      );
+      final textPainter = TextPainter(
+        text: textSpan,
+        maxLines: 1,
+        textScaleFactor: scale,
+        textDirection: TextDirection.rtl,
+      );
+      textPainter.layout(
+        minWidth: 0,
+        maxWidth: 70,
+      );
+      final xCenter = tOffset.dx + 6 * scale;
+      final yCenter = tOffset.dy - textPainter.height / 2;
+      textPainter.paint(canvas, Offset(xCenter, yCenter));
     }
   }
 
