@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/report/group_by_class/group_by_class_component.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/base/base_input.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
@@ -30,6 +29,15 @@ class ReportPage extends GetView<ReportController> {
                 style: AppFonts.bSmall.copyWith(color: context.neutral100),
               )))
         ],
+        fab: FloatingActionButton(
+          heroTag: runtimeType,
+          onPressed: controller.exportExcel,
+          backgroundColor: context.primaryDark,
+          child: Icon(
+            Icons.document_scanner,
+            color: context.neutral100,
+          ),
+        ),
         body: SafeArea(
           child: Column(
             children: [
@@ -61,7 +69,6 @@ class ReportPage extends GetView<ReportController> {
                     padding: padSymHor16,
                     child: SearchField(
                       hintText: 'Search'.tr,
-                      // controller: controller.searchController,
                       onChanged: controller.onSearchChanged,
                       onClearSearch: controller.onClearSearch,
                     ),
@@ -76,20 +83,13 @@ class ReportPage extends GetView<ReportController> {
                       builder: (context) {
                         if (controller.groupByClass.value) {
                           final keys = controller.filterClassKeys;
-                          return CustomScrollView(
-                            slivers: List.generate(keys.length, (index) {
-                              final key = keys.elementAt(index);
-                              final events = controller.reportForClass[key]!;
-                              return GrByClassComponent(
-                                  classRoom: key, data: events);
-                            }),
-                          );
-
-                          // final data = controller.filterReportForClass;
+                          return const SizedBox();
                           // return CustomScrollView(
-                          //   slivers: List.generate(data.length, (index) {
-                          //     final report = data.elementAt(index);
-                          //     //return ReportForClassComponent(data: report);
+                          //   slivers: List.generate(keys.length, (index) {
+                          //     final key = keys.elementAt(index);
+                          //     final events = controller.reportForClass[key]!;
+                          //     return GrByClassComponent(
+                          //         classRoom: key, data: events);
                           //   }),
                           // );
                         } else {
