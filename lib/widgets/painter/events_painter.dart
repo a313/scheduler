@@ -56,7 +56,7 @@ class EventsPainter extends CustomPainter {
       final sweepAngle = Utils.degreesToRadians(dur * oneSec);
       if (dur > 300) {
         final rect2 = Rect.fromCircle(center: center, radius: r);
-        paint.color = color.withOpacity(0.3 * scale);
+        paint.color = color.withOpacity((0.3 * scale).clamp(0.05, 0.5));
         paint.strokeWidth = strokeWidth;
         canvas.drawArc(rect2, startAngle, sweepAngle, false, paint);
       } else {
