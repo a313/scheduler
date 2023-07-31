@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/theme/app_fonts.dart';
@@ -8,6 +9,7 @@ import 'package:scheduler/widgets/base/base_state_widget.dart';
 import 'package:scheduler/widgets/base/search_field.dart';
 
 import '../../widgets/shimmer/shimmer_list.dart';
+import 'group_by_class/group_by_class_component.dart';
 import 'group_by_student/group_by_student_component.dart';
 import 'report_controller.dart';
 
@@ -29,15 +31,6 @@ class ReportPage extends GetView<ReportController> {
                 style: AppFonts.bSmall.copyWith(color: context.neutral100),
               )))
         ],
-        fab: FloatingActionButton(
-          heroTag: runtimeType,
-          onPressed: controller.exportExcel,
-          backgroundColor: context.primaryDark,
-          child: Icon(
-            Icons.document_scanner,
-            color: context.neutral100,
-          ),
-        ),
         body: SafeArea(
           child: Column(
             children: [
@@ -67,12 +60,25 @@ class ReportPage extends GetView<ReportController> {
                   ),
                   Padding(
                     padding: padSymHor16,
-                    child: SearchField(
-                      hintText: 'Search'.tr,
-                      onChanged: controller.onSearchChanged,
-                      onClearSearch: controller.onClearSearch,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: SearchField(
+                            hintText: 'Search'.tr,
+                            onChanged: controller.onSearchChanged,
+                            onClearSearch: controller.onClearSearch,
+                          ),
+                        ),
+                        sizedBoxW12,
+                        IconButton(
+                          onPressed: controller.exportExcel,
+                          icon: SvgPicture.asset(
+                              'assets/svg/Regular/FileXls.svg'),
+                        ),
+                      ],
                     ),
                   ),
+                  sizedBoxH04,
                 ],
               ),
               Expanded(
@@ -82,16 +88,13 @@ class ReportPage extends GetView<ReportController> {
                       state: controller.state,
                       builder: (context) {
                         if (controller.groupByClass.value) {
-                          final keys = controller.filterClassKeys;
-                          return const SizedBox();
-                          // return CustomScrollView(
-                          //   slivers: List.generate(keys.length, (index) {
-                          //     final key = keys.elementAt(index);
-                          //     final events = controller.reportForClass[key]!;
-                          //     return GrByClassComponent(
-                          //         classRoom: key, data: events);
-                          //   }),
-                          // );
+                          final data = controller.filterReportForClass;
+                          return CustomScrollView(
+                            slivers: List.generate(data.length, (index) {
+                              final report = data.elementAt(index);
+                              return GrByClassComponent(data: report);
+                            }),
+                          );
                         } else {
                           final data = controller.filterReportForStudent;
                           return CustomScrollView(

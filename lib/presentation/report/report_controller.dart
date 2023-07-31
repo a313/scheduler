@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/class_room.dart';
 import 'package:scheduler/data/models/event.dart';
 import 'package:scheduler/data/models/report_for_class.dart';
 import 'package:scheduler/data/models/report_for_student.dart';
@@ -34,7 +33,7 @@ class ReportController extends BaseController {
 
   List<ReportForClass> reportForClass = [];
   List<ReportForClass> filterReportForClass = [];
-  Iterable<ClassRoom> filterClassKeys = [];
+  // Iterable<ClassRoom> filterClassKeys = [];
 
   final searchController = TextEditingController();
 
@@ -109,8 +108,9 @@ class ReportController extends BaseController {
       filterReportForStudent = reportForStudent
           .where((e) => e.student.name.toLowerCase().contains(lowCase))
           .toList();
-      // filterClassKeys = reportForClass.keys
-      //     .where((e) => e.name.toLowerCase().contains(lowCase));
+      filterReportForClass = reportForClass
+          .where((e) => e.classRoom.name.toLowerCase().contains(lowCase))
+          .toList();
       updateUI();
     } else {
       onClearSearch();
@@ -119,7 +119,7 @@ class ReportController extends BaseController {
 
   void onClearSearch() {
     filterReportForStudent = reportForStudent;
-    // filterClassKeys = reportForClass.keys;
+    filterReportForClass = reportForClass;
     updateUI();
   }
 

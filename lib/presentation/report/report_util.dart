@@ -77,13 +77,11 @@ List<ReportForClass> createClassReport(StuIsl data) {
   List<ReportForClass> result = [];
   formatedData.forEach(
     (clr, events) {
-      Map<Student, List<Event>> map = {};
-      for (var student in data.stu) {
-        if (student.classId.contains(clr.id)) {
-          map[student] = events;
-        }
+      for (var event in events) {
+        event.students =
+            data.stu.where((std) => event.invitedIds.contains(std.id)).toList();
       }
-      result.add(ReportForClass(classRoom: clr, data: map));
+      result.add(ReportForClass(classRoom: clr, events: events));
     },
   );
   return result;

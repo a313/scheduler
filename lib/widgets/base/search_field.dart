@@ -73,7 +73,8 @@ class SearchField extends StatelessWidget {
         helperStyle: const TextStyle(fontSize: 0),
         errorMaxLines: 1,
         errorStyle: const TextStyle(fontSize: 0),
-        counter: const SizedBox(),
+        counterStyle: const TextStyle(fontSize: 0),
+        counterText: '',
       ),
     );
   }
