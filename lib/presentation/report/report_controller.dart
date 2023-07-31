@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,8 +9,10 @@ import 'package:scheduler/data/models/report_for_class.dart';
 import 'package:scheduler/data/models/report_for_student.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
 import 'package:scheduler/widgets/base/base_state_widget.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:syncfusion_flutter_xlsio/xlsio.dart';
 
+import '../../data/models/student.dart';
 import 'report_util.dart';
 
 class ReportController extends BaseController {
@@ -137,20 +137,111 @@ class ReportController extends BaseController {
 
   Future<void> exportExcel() async {
     showLoading();
-    if (reportForStudent.isEmpty) {
-      final input = ClrIsl(events, allClassRoom);
-      reportForStudent = await compute(createStudentReport, input);
+    if (reportForClass.isEmpty) {
+      final input = StuIsl(events, allStudent);
+      reportForClass = await compute(createClassReport, input);
     }
 
-    if (reportForStudent.isEmpty) {
+    if (reportForClass.isEmpty) {
       showSnackBar('No data'.tr);
+      return;
     }
     final Workbook workbook = Workbook();
+    final cellStyle = CellStyle(workbook);
+    cellStyle.fontColor = '#f70019';
+    workbook.styles.addStyle(cellStyle);
+    for (int i = 0; i < reportForClass.length; i++) {
+      final rp = reportForClass[i];
+      Worksheet sheet;
+      if (i == 0) {
+        sheet = workbook.worksheets[0];
+        sheet.name = rp.classRoom.name;
+      } else {
+        sheet = workbook.worksheets.addWithName(rp.classRoom.name);
+      }
 
-    final List<int> bytes = workbook.saveAsStream();
+      ///Table
+      sheet.getRangeByIndex(3, 1).setText('STT');
+      sheet.getRangeByIndex(3, 2).setText('Họ tên');
+      sheet.getRangeByIndex(3, 3).setText('Học phí');
+      int realCol = 3;
+      final students = <Student>{};
+      for (var j = 0; j < rp.events.length; j++) {
+        final event = rp.events[j];
+        if (event.isActive) {
+          realCol++;
+          sheet.getRangeByIndex(3, realCol).setDateTime(event.startTime);
+          // .setText(event.startTime.toStringFormat(DateFormater.ddMMMMyyyy));
+          students.addAll(event.students);
+        }
+      }
+
+      //Header
+      sheet.getRangeByIndex(1, 1, 1, realCol + 2).merge();
+      sheet
+          .getRangeByIndex(1, 1)
+          .setText('Danh sách học sinh ${rp.classRoom.name}');
+      sheet.getRangeByIndex(2, 1, 2, realCol + 2).merge();
+      sheet.getRangeByIndex(2, 1).setText('Tháng abc');
+
+      sheet.getRangeByIndex(3, realCol + 1).setText('Tổng số buổi');
+
+      sheet.getRangeByIndex(3, realCol + 2).setText('Tổng học phí');
+
+      fillValueToSheet(sheet, students, rp, cellStyle);
+    }
+
     final now = DateTime.now();
-    File('Report_${now.toIso8601String()}.xlsx').writeAsBytes(bytes);
+    final fileName = 'Report_${now.toIso8601String()}.xlsx';
+    final List<int> bytes = workbook.saveAsStream();
     workbook.dispose();
+
     dismissLoading();
+
+    final xfile = XFile.fromData(
+      Uint8List.fromList(bytes),
+      name: fileName,
+      mimeType: 'xlsx',
+    );
+    Share.shareXFiles([xfile], text: fileName);
+  }
+
+  void fillValueToSheet(
+    Worksheet sheet,
+    Set<Student> students,
+    ReportForClass data,
+    CellStyle redStyle,
+  ) {
+    final classRoom = data.classRoom;
+    final events = data.events;
+
+    for (var i = 0; i < students.length; i++) {
+      final student = students.elementAt(i);
+      final fee =
+          (student.isSpecial ? student.fee : classRoom.tuition).toDouble();
+      sheet.getRangeByIndex(i + 4, 1).setNumber(i + 1);
+      sheet.getRangeByIndex(i + 4, 2).setText(student.name);
+      sheet.getRangeByIndex(i + 4, 3).setNumber(fee);
+      int realCol = 3;
+      int joined = 0;
+      for (var j = 0; j < events.length; j++) {
+        final event = events[j];
+        if (event.isActive) {
+          realCol++;
+          final isJoined = event.joinedIds.contains(student.id);
+
+          sheet
+              .getRangeByIndex(i + 4, realCol)
+              .setText(isJoined ? 'Học' : 'Nghỉ');
+          if (isJoined) joined++;
+          if (!isJoined) {
+            sheet.getRangeByIndex(i + 4, realCol).cellStyle = redStyle;
+          }
+        }
+      }
+
+      sheet.getRangeByIndex(i + 4, realCol + 1).setNumber(joined.toDouble());
+      sheet.getRangeByIndex(i + 4, realCol + 2).setNumber(joined * fee);
+    }
   }
 }
