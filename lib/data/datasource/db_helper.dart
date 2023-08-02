@@ -24,7 +24,7 @@ class DBHelper {
         await db.execute(StudentDB.getCreateSQL());
         await db.execute(ClassRoomDB.getCreateSQL());
         await db.execute(ScheduleDB.getCreateSQL());
-        Utils().cloneDb();
+        // Utils().cloneDb();
         await db.insertMultiple(SCHEDULE_TABLE, Utils.addExampleSchdule());
       },
       onUpgrade: (db, oldVersion, newVersion) async {
