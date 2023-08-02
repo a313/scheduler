@@ -32,8 +32,9 @@ class PeriodsBackgroundPainter extends CustomPainter {
       final angle = pieceAngle * i * rad - 0.5 * pi;
       final sweepAngle = Utils.degreesToRadians(pieceAngle);
       final rect2 = Rect.fromCircle(center: center, radius: 0.85 * radius);
+      final color = getColorByIndex(i + 1);
       final paint = Paint()
-        ..color = Colors.blue
+        ..color = color
         ..strokeWidth = 0.3 * radius
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.butt;
@@ -49,8 +50,8 @@ class PeriodsBackgroundPainter extends CustomPainter {
       canvas.drawLine(Offset(x2, y2), Offset(x1, y1), borderPaint);
 
       final textSpan = TextSpan(
-        text: '$i',
-        style: AppFonts.bSuperSmall.copyWith(color: context.neutral1100),
+        text: '${i + 1}',
+        style: AppFonts.bSuperSmall.copyWith(color: context.neutral100),
       );
       final textPainter = TextPainter(
         text: textSpan,
@@ -113,5 +114,17 @@ class PeriodsBackgroundPainter extends CustomPainter {
   @override
   bool shouldRepaint(PeriodsBackgroundPainter oldDelegate) {
     return oldDelegate.begin != begin || oldDelegate.period != period;
+  }
+
+  Color getColorByIndex(int i) {
+    if (i == 14) return context.funcRadicalRed;
+    if (i <= 7) {
+      return context.funcRadicalRed;
+    } else if (i <= 11) {
+      return const Color.fromARGB(255, 239, 173, 51);
+    } else if (i <= 18) {
+      return context.primaryLight;
+    }
+    return context.funcCornflowerBlue;
   }
 }
