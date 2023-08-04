@@ -20,7 +20,12 @@ class WeatherPage extends GetView<WeatherController> {
         builder: (controller) {
           final data = controller.currentWeather?.data?.first;
           final summary = controller.summary;
-          if (data == null || summary == null) return const ShimmerListWidget();
+          if (data == null || summary == null) {
+            return const Padding(
+              padding: padAll16,
+              child: ShimmerListWidget(),
+            );
+          }
           num lowest = 999;
           num heightest = -999;
           summary.data?.forEach((element) {

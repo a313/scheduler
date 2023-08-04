@@ -33,7 +33,7 @@ class WeatherRepoImpl extends WeatherRepo {
     } else {
       final forescast = local.getLastForecast();
       if (forescast != null) return DataSuccess(forescast);
-      return DataFailure(response.body['code'], response.body['message']);
+      return DataFailure(response.statusText ?? '', response.body.toString());
     }
   }
 
@@ -58,7 +58,7 @@ class WeatherRepoImpl extends WeatherRepo {
     } else {
       final weather = local.getLastCurrentWeather();
       if (weather != null) return DataSuccess(weather);
-      return DataFailure(response.body['code'], response.body['message']);
+      return DataFailure(response.statusText ?? '', response.body.toString());
     }
   }
 
