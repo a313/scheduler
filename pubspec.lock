@@ -353,6 +353,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.6.4"
+  firebase_dynamic_links:
+    dependency: "direct main"
+    description:
+      name: firebase_dynamic_links
+      sha256: "4872f4d7e94736041398bc3490c2ddd87ee159d6b051ba01ca2708e5260a7ebe"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.3.4"
+  firebase_dynamic_links_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_dynamic_links_platform_interface
+      sha256: "946fccfefb67e26bf63e392f1b3917d79ea031d3071488f0c5e8ab72de8219ab"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.6+4"
   fixnum:
     dependency: transitive
     description:
@@ -622,7 +638,7 @@ packages:
     source: hosted
     version: "2.1.0"
   image:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: image
       sha256: a72242c9a0ffb65d03de1b7113bc4e189686fc07c7147b8b41811d0dd0e0d9bf
@@ -957,6 +973,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  qr:
+    dependency: transitive
+    description:
+      name: qr
+      sha256: "64957a3930367bf97cc211a5af99551d630f2f4625e38af10edd6b19131b64b3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
+  qr_image:
+    dependency: "direct main"
+    description:
+      name: qr_image
+      sha256: c3cd2ac2c6cd6b14604c97b45c477b18988b6518f72120fa04418fc54e3b0d76
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   rxdart:
     dependency: transitive
     description:
