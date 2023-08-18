@@ -1,3 +1,5 @@
+import 'package:collection/collection.dart';
+
 import '../../data/models/class_room.dart';
 import '../../data/models/event.dart';
 import '../../data/models/report_for_class.dart';
@@ -43,7 +45,8 @@ List<ReportForStudent> createStudentReport(ClrIsl data) {
     (student, events) {
       Map<ClassRoom, List<Event>> map = {};
       for (var classId in student.classId) {
-        final classRoom = data.clr.firstWhere((e) => e.id == classId);
+        final classRoom = data.clr.firstWhereOrNull((e) => e.id == classId);
+        if (classRoom == null) continue;
         final es = events.where((e) => e.classId == classId).toList();
         map[classRoom] = es;
       }
