@@ -2,6 +2,9 @@ import 'package:get/get.dart';
 import 'package:scheduler/presentation/class_room/class_room_binding.dart';
 import 'package:scheduler/presentation/events/events_binding.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_binding.dart';
+import 'package:scheduler/presentation/ocr/ocr_binding.dart';
+import 'package:scheduler/presentation/ocr/ocr_detail/ocr_detail_binding.dart';
+import 'package:scheduler/presentation/ocr/ocr_detail/ocr_detail_page.dart';
 import 'package:scheduler/presentation/periods/periods_binding.dart';
 import 'package:scheduler/presentation/qrcode/qrcode_binding.dart';
 import 'package:scheduler/presentation/reminder/reminder_binding.dart';
@@ -54,6 +57,7 @@ class AppPages {
         WeatherBinding(),
         PeriodsBinding(),
         QrcodeBinding(),
+        OcrBinding()
       ],
     ),
     GetPage(
@@ -90,6 +94,11 @@ class AppPages {
       name: Routes.editSchedule,
       page: () => const EditSchedulePage(),
       binding: EditScheduleBinding(),
+    ),
+    GetPage(
+      name: Routes.ocrDetail,
+      page: () => const OcrDetailPage(),
+      binding: OcrDetailBinding(),
     ),
   ];
 }

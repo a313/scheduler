@@ -12,6 +12,7 @@ const qrPage = 'QR_PAGE';
 const weatherPage = 'WEATHER_PAGE';
 const periodsPage = 'PERIODS_PAGE';
 const clockPage = 'CLOCK_PAGE';
+const ocrPage = 'OCR_PAGE';
 
 class Feature {
   final String key;

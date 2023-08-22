@@ -9,6 +9,7 @@ environment:
 dependencies:
   auto_size_text: ^3.0.0
   cached_network_image: ^3.2.3
+  camera: ^0.10.5+3
   collection: any
   crypto: ^3.0.3
   device_info_plus: ^9.0.2
@@ -30,6 +31,7 @@ dependencies:
   get: ^4.6.5
   get_storage: ^2.1.1
   google_fonts: any
+  google_ml_kit: ^0.16.2
   image: ^4.0.17
   image_picker: ^0.8.7+5
   intl: ^0.18.0

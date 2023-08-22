@@ -13,5 +13,8 @@ class Routes {
   static const editReminder = "/editReminder";
 
   static const schedule = "/schedule";
+
   static const editSchedule = "/editSchedule";
+
+  static const ocrDetail = "/ocrDetail";
 }

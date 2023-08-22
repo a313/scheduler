@@ -8,6 +8,7 @@ import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/presentation/clock/clock_page.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:scheduler/presentation/home/components/more_feature.dart';
+import 'package:scheduler/presentation/ocr/ocr_page.dart';
 import 'package:scheduler/presentation/periods/periods_page.dart';
 import 'package:scheduler/presentation/qrcode/qrcode_page.dart';
 import 'package:scheduler/presentation/setting/setting_page.dart';
@@ -176,6 +177,18 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               colorFilter: activeColor,
             ),
             label: 'Clock'.tr),
+      ),
+      Feature(
+        key: ocrPage,
+        page: const OcrPage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/Clock.svg', colorFilter: normalColor),
+            activeIcon: BarIcon(
+              path: 'assets/svg/Regular/Clock.svg',
+              colorFilter: activeColor,
+            ),
+            label: 'OCR'.tr),
       ),
       Feature(
         key: settingPage,
