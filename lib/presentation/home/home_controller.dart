@@ -183,9 +183,9 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
         page: const OcrPage(),
         item: BottomNavigationBarItem(
             icon: BarIcon(
-                path: 'assets/svg/Regular/Clock.svg', colorFilter: normalColor),
+                path: 'assets/svg/Regular/Scan.svg', colorFilter: normalColor),
             activeIcon: BarIcon(
-              path: 'assets/svg/Regular/Clock.svg',
+              path: 'assets/svg/Regular/Scan.svg',
               colorFilter: activeColor,
             ),
             label: 'OCR'.tr),
