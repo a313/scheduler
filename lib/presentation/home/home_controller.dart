@@ -20,6 +20,7 @@ import '../events/events_page.dart';
 import '../reminder/reminder_page.dart';
 import '../report/report_page.dart';
 import '../students/students_page.dart';
+import '../vpn/vpn_page.dart';
 import 'components/bar_icon.dart';
 import 'components/calendar_icon.dart';
 import 'components/reorder_feature.dart';
@@ -189,6 +190,19 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               colorFilter: activeColor,
             ),
             label: 'OCR'.tr),
+      ),
+      Feature(
+        key: ocrPage,
+        page: const VpnPage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/WifiHigh.svg',
+                colorFilter: normalColor),
+            activeIcon: BarIcon(
+              path: 'assets/svg/Regular/WifiHigh.svg',
+              colorFilter: activeColor,
+            ),
+            label: 'VPN'.tr),
       ),
       Feature(
         key: settingPage,

@@ -6,6 +6,7 @@ import 'package:scheduler/data/datasource/event_db.dart';
 import 'package:scheduler/data/datasource/reminder_db.dart';
 import 'package:scheduler/data/datasource/schedule_db.dart';
 import 'package:scheduler/data/datasource/student_db.dart';
+import 'package:scheduler/data/datasource/vpn_service.dart';
 import 'package:scheduler/data/datasource/weather_service.dart';
 import 'package:scheduler/data/repo_impl/class_room_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/event_repo_impl.dart';
@@ -24,6 +25,9 @@ import 'package:scheduler/domain/usecases/schedule_usecases.dart';
 import 'package:scheduler/domain/usecases/student_usecases.dart';
 import 'package:scheduler/domain/usecases/weather_usecases.dart';
 import 'package:scheduler/global.dart';
+
+import 'data/repo_impl/vpn_repo_impl.dart';
+import 'domain/usecases/vpn_usecases.dart';
 
 class DependencyInjection {
   static Future<void> injection() async {
@@ -47,5 +51,7 @@ class DependencyInjection {
 
     Get.put(WeatherUseCases(
         WeatherRepoImpl(WeatherbitService(), LocalDataImpl(GetStorage()))));
+
+    Get.put(VpnUseCases(VpnRepoImpl(VpnServiceImp())));
   }
 }

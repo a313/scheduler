@@ -12,6 +12,7 @@ dependencies:
   camera: ^0.10.5+3
   collection: any
   crypto: ^3.0.3
+  csv: ^5.0.2
   device_info_plus: ^9.0.2
   dotted_border: ^2.0.0+3
   firebase_analytics: ^10.4.4

@@ -115,12 +115,12 @@ extension CustomNumExtension on num {
     return colors.elementAt(index);
   }
 
-  // Color celsiusToColor2() {
-  //   final t = ((this + 40) / 95).clamp(0, 1);
-  //   const b = Color.fromRGBO(120, 15, 0, 1);
-  //   const a = Color.fromRGBO(49, 28, 95, 1);
-  //   return Color.lerp(a, b, t.toDouble())!;
-  // }
+  String toBytes({int fractionDigits = 1}) {
+    if (this <= 0) return '0 B';
+    const suff = ['Bps', 'Kbps', 'Mbps', 'Gbps', 'Tbps'];
+    var titleIndex = (log(this) / log(1024)).floor();
+    return '${(this / pow(1024, titleIndex)).toStringAsFixed(fractionDigits)} ${suff[titleIndex]}';
+  }
 }
 
 extension BoolExt on bool {
