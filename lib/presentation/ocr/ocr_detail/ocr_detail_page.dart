@@ -28,12 +28,13 @@ class OcrDetailPage extends GetView<OcrDetailController> {
               return Positioned(
                   top: box.left * scale,
                   right: box.top * scale,
-                  width: box.height * scale,
-                  height: box.width * scale,
+                  width: box.height * scale * 1.5,
+                  height: box.width * scale * 1.5,
                   child: Container(
                     color: const Color.fromARGB(207, 255, 255, 255),
                     child: AutoSizeText(
                       block.text,
+                      maxFontSize: 20,
                       minFontSize: 4,
                       maxLines: lines.length,
                     ),

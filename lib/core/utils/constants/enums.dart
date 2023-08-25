@@ -124,3 +124,11 @@ enum OrderType {
   ASC,
   DESC,
 }
+
+enum CameraType {
+  freeStyle,
+  fontCmnd,
+  backCmnd,
+  passport,
+  portrait,
+}
