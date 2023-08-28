@@ -1,4 +1,5 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
@@ -12,35 +13,41 @@ class OcrDetailPage extends GetView<OcrDetailController> {
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
         title: 'OCR Detail',
-        body: controller.obx(
-          (state) => Stack(children: [
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Image.memory(state!),
-            ),
-            ...List.generate(controller.data.blocks.length, (index) {
-              final block = controller.data.blocks[index];
-              final box = block.boundingBox;
-              final scale = controller.scale;
-              final lines = block.lines;
-              return Positioned(
-                  top: box.left * scale,
-                  right: box.top * scale,
-                  width: box.height * scale * 1.5,
-                  height: box.width * scale * 1.5,
-                  child: Container(
-                    color: const Color.fromARGB(207, 255, 255, 255),
-                    child: AutoSizeText(
-                      block.text,
-                      maxFontSize: 20,
-                      minFontSize: 4,
-                      maxLines: lines.length,
-                    ),
-                  ));
-            }),
-          ]),
-        ));
+        body: GetBuilder<OcrDetailController>(
+          builder: (_) {
+            return Column(children: [
+              Image.file(
+                File(controller.path),
+              ),
+              if (controller.qrPath != null)
+                Image.file(
+                  File(controller.qrPath!),
+                  fit: BoxFit.none,
+                ),
+
+              // ...List.generate(controller.data.blocks.length, (index) {
+              //   final block = controller.data.blocks[index];
+              //   final box = block.boundingBox;
+              //   final scale = controller.scale;
+              //   final lines = block.lines;
+              //   return Positioned(
+            ]);
+          },
+        ) //       top: box.left * scale,
+        //       right: box.top * scale,
+        //       width: box.height * scale * 1.5,
+        //       height: box.width * scale * 1.5,
+        //       child: Container(
+        //         color: const Color.fromARGB(207, 255, 255, 255),
+        //         child: AutoSizeText(
+        //           block.text,
+        //           maxFontSize: 20,
+        //           minFontSize: 4,
+        //           maxLines: lines.length,
+        //         ),
+        //       ));
+        // }),
+
+        );
   }
 }

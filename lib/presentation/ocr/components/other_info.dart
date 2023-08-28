@@ -36,7 +36,7 @@ class OtherInfo extends StatelessWidget {
 
     Widget cameraFrame = const SizedBox();
     switch (type) {
-      case CameraType.fontCmnd:
+      case CameraType.font:
         topText = "Mặt trước\nGiấy tờ tùy thân";
         midText = "MẶT TRƯỚC";
         botText = "Vui lòng đặt giấy tờ nằm trong\n khung hình chữ nhật";
@@ -49,7 +49,7 @@ class OtherInfo extends StatelessWidget {
         );
 
         break;
-      case CameraType.backCmnd:
+      case CameraType.back:
         topText = "Mặt sau\nGiấy tờ tùy thân";
         midText = "MẶT SAU";
         botText = "Vui lòng đặt giấy tờ nằm trong\n khung hình chữ nhật";

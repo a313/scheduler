@@ -127,8 +127,8 @@ enum OrderType {
 
 enum CameraType {
   freeStyle,
-  fontCmnd,
-  backCmnd,
+  font,
+  back,
   passport,
   portrait,
 }
