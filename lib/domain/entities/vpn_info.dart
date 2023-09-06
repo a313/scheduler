@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 class VpnInfo {
   final String HostName;
   final String IP;

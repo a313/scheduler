@@ -89,22 +89,12 @@ class BottomOptionCamera extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: onPickImage,
-                  child: recentPhoto.isNotEmpty
-                      ? ClipRRect(
-                          borderRadius: BorderRadius.circular(4.0),
-                          child: Image.memory(
-                            recentPhoto,
-                            fit: BoxFit.cover,
-                            width: 60,
-                            height: 60,
-                          ),
-                        )
-                      : const Icon(
-                          Icons.cameraswitch,
-                          color: Colors.white,
-                          size: 60,
-                        ),
+                  onTap: onSwapCamera,
+                  child: const Icon(
+                    Icons.cameraswitch,
+                    color: Colors.white,
+                    size: 60,
+                  ),
                 ),
               ],
             ),

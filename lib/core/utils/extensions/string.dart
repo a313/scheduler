@@ -182,4 +182,15 @@ extension CustomStringExtension on String {
       return list.first.substring(0, 1).toUpperCase();
     }
   }
+
+  double comparePrecise(String source) {
+    Set<String> set1 = Set.from(split(''));
+    Set<String> set2 = Set.from(source.split(''));
+
+    int intersection = set1.intersection(set2).length;
+    int union = set1.union(set2).length;
+
+    double jaccardSimilarity = intersection / union;
+    return jaccardSimilarity;
+  }
 }

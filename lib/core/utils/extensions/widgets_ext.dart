@@ -55,7 +55,6 @@ class _DebugSizeWidgetState extends State<DebugSizeWidget> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => getSizeAndPosition());
   }
 
   getSizeAndPosition() {
@@ -65,7 +64,13 @@ class _DebugSizeWidgetState extends State<DebugSizeWidget> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) => getSizeAndPosition());
     return Stack(
       key: UniqueKey(),
       alignment: Alignment.bottomRight,

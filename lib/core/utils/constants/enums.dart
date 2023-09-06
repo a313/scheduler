@@ -132,3 +132,10 @@ enum CameraType {
   passport,
   portrait,
 }
+
+enum CardType {
+  unknown,
+  cccd,
+  cccd_chip,
+  cmt,
+}

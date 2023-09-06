@@ -34,6 +34,7 @@ class OcrCameraPage extends GetView<OcrCameraController> {
           frameKey: controller.frameKey,
           enableBtn: false,
           recentPhoto: controller.recentPhoto.value,
+          onPickImage: controller.onPickImage,
         ),
       ),
     );

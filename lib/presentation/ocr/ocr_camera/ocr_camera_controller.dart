@@ -6,9 +6,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image/image.dart' as img;
-import 'package:path_provider/path_provider.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
+import 'package:scheduler/core/utils/image_helper.dart';
 import 'package:scheduler/routes/routes.dart';
 
 import '../../../core/utils/transform_image.dart';
@@ -192,10 +193,7 @@ class OcrCameraController extends BaseController
       final file = await cameraController!.takePicture();
       final imageBytes = await file.readAsBytes();
       final cropped = getImageCropped(imageBytes);
-      final dic = await getApplicationDocumentsDirectory();
-      final path = dic.path;
-      final saved = await File('$path/${type.name}.jpg').writeAsBytes(cropped);
-      Get.toNamed(Routes.ocrDetail, arguments: [saved.path, type]);
+      Get.toNamed(Routes.ocrDetail, arguments: [cropped, type]);
     }
   }
 
@@ -228,20 +226,20 @@ class OcrCameraController extends BaseController
   }
 
   Future<void> onChooseImageFromLibrary() async {
-    // isPickingPic = true;
-    // CropAspectRatio? aspectRatio;
-    // if (type != CameraType.portrait) {
-    //   aspectRatio = const CropAspectRatio(ratioX: 340.0, ratioY: 220.0);
-    // }
-    // isChooseImageFromLibrary = true;
-    // final imageBytes = await ImageHelper().pickImage(aspectRatio: aspectRatio);
-    // isPickingPic = false;
-    // isChooseImageFromLibrary = false;
-    // if (imageBytes != null) {
-    //   openConfirmScene(imageBytes);
-    // } else {
-    //   showSnackBar(UNKNOWN_ERROR);
-    // }
+    isPickingPic = true;
+    CropAspectRatio? aspectRatio;
+    if (type != CameraType.portrait) {
+      aspectRatio = const CropAspectRatio(ratioX: 340.0, ratioY: 220.0);
+    }
+    isChooseImageFromLibrary = true;
+    final imageBytes = await ImageHelper().pickImage(aspectRatio: aspectRatio);
+    isPickingPic = false;
+    isChooseImageFromLibrary = false;
+    if (imageBytes != null) {
+      openConfirmScene(imageBytes);
+    } else {
+      showSnackBar(UNKNOWN_ERROR);
+    }
   }
 
   Uint8List getImageCropped(Uint8List imageBytes) {

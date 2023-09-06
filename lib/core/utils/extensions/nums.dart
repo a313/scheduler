@@ -147,3 +147,10 @@ extension CustomNumNulsafetyExtension on num? {
     }
   }
 }
+
+extension RectExt on Rect {
+  Rect expand(double width, double height) {
+    return Rect.fromLTRB(left - width / 2, top + height / 2, right + width / 2,
+        bottom - height / 2);
+  }
+}

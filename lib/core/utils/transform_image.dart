@@ -91,8 +91,6 @@ class TransformImage {
   static Uint8List cropQr(img.Image image) {
     final size = (0.4 * image.height).ceil();
     final w = image.width;
-    final h = image.height;
-
     final img.Image cropped =
         img.copyCrop(image, x: w - size, y: 0, width: size, height: size);
     final bytes = img.encodeJpg(cropped);

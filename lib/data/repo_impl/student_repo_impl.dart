@@ -16,9 +16,13 @@ class StudentRepoImpl extends StudentRepo {
   }
 
   @override
-  Future<DataState<Student>> getStudentById(int id) {
-    // TODO: implement getStudentById
-    throw UnimplementedError();
+  Future<DataState<Student>> getStudentById(int id) async {
+    final data = await db.findById(id);
+    if (data != null) {
+      return DataSuccess(Student.fromJson(data));
+    } else {
+      return DataFailure('NOT FOUND', 'NOT FOUND');
+    }
   }
 
   @override
