@@ -12,9 +12,19 @@ class OcrController extends BaseController {
     );
   }
 
-  Future<void> onTappedCMT() async {}
+  Future<void> onTappedCMT() async {
+    Get.to(
+      () => const OcrCameraPage(),
+      binding: OcrCameraBinding(CameraType.back),
+    );
+  }
 
-  void onTappedPassport() {}
+  void onTappedPassport() {
+    Get.to(
+      () => const OcrCameraPage(),
+      binding: OcrCameraBinding(CameraType.back),
+    );
+  }
 
   void onTappedFreeStyle() {}
 }

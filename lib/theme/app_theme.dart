@@ -6,7 +6,7 @@ import 'app_light_colors.dart';
 
 class AppTheme {
   final lightTheme = ThemeData.light().copyWith(
-    textTheme: GoogleFonts.manropeTextTheme(),
+    textTheme: GoogleFonts.openSansTextTheme(),
     iconTheme: const IconThemeData(color: AppLightColors.iconColor, size: 28),
     scaffoldBackgroundColor: AppLightColors.neutral100,
     primaryColor: AppLightColors.primaryLight,

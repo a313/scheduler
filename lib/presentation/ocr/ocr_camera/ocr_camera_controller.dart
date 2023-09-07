@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:image/image.dart' as img;
 import 'package:image_cropper/image_cropper.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:photo_gallery/photo_gallery.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/image_helper.dart';
 import 'package:scheduler/routes/routes.dart';
@@ -193,7 +194,7 @@ class OcrCameraController extends BaseController
       final file = await cameraController!.takePicture();
       final imageBytes = await file.readAsBytes();
       final cropped = getImageCropped(imageBytes);
-      Get.toNamed(Routes.ocrDetail, arguments: [cropped, type]);
+      Get.offNamed(Routes.ocrDetail, arguments: [cropped, type]);
     }
   }
 
@@ -266,19 +267,19 @@ class OcrCameraController extends BaseController
   }
 
   Future<void> getRecentImage() async {
-    // try {
-    //   final List<Album> albums =
-    //       await PhotoGallery.listAlbums(mediumType: MediumType.image);
-    //   if (albums.isNotEmpty) {
-    //     recentPhoto.value = Uint8List.fromList(
-    //         await PhotoGallery.getAlbumThumbnail(albumId: albums.first.id));
-    //   }
-    // } on Exception catch (e) {
-    //   log.printError(info: "getRecentImage $e");
-    // }
+    try {
+      final List<Album> albums =
+          await PhotoGallery.listAlbums(mediumType: MediumType.image);
+      if (albums.isNotEmpty) {
+        recentPhoto.value = Uint8List.fromList(
+            await PhotoGallery.getAlbumThumbnail(albumId: albums.first.id));
+      }
+    } on Exception catch (e) {
+      log.printError(info: "getRecentImage $e");
+    }
   }
 
   Future<void> openConfirmScene(Uint8List bytes) async {
-    Get.toNamed(Routes.ocrDetail, arguments: [bytes, type]);
+    Get.offNamed(Routes.ocrDetail, arguments: [bytes, type]);
   }
 }

@@ -12,7 +12,7 @@ class OcrCameraPage extends GetView<OcrCameraController> {
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.black,
       body: controller.obx(
         (cameraController) {
           return CustomCameraPreview(

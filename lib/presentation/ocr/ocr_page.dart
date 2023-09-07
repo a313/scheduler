@@ -22,7 +22,7 @@ class OcrPage extends GetView<OcrController> {
           sizedBoxH16,
           InkWell(
             onTap: controller.onTappedCMT,
-            child: const Text('Chứng minh thư'),
+            child: const Text('Mặt sau căn cước công dân'),
           ),
           sizedBoxH16,
           InkWell(
