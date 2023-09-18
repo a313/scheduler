@@ -1,12 +1,8 @@
 import 'dart:io';
-import 'dart:typed_data';
 
-import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/entities/ekyc.dart';
@@ -17,11 +13,12 @@ import '../ocr_camera/ocr_camera_page.dart';
 
 class OcrDetailController extends BaseController {
   double scale = 0;
-  final Uint8List imageData;
+  final File file;
   final CameraType type;
-  OcrDetailController(this.imageData, this.type);
+  OcrDetailController(this.file, this.type, this.origin);
 
-  Ekyc? ekyc;
+  final Ekyc origin;
+  late Ekyc current;
 
   List<Barcode> qrs = [];
   RecognizedText? recognizedText;
@@ -31,6 +28,7 @@ class OcrDetailController extends BaseController {
   void onInit() {
     util = OcrIDCard();
     super.onInit();
+    current = origin.copyWith();
   }
 
   @override
@@ -39,19 +37,24 @@ class OcrDetailController extends BaseController {
     handlerImage();
   }
 
-  Future<InputImage> getInputImageFromBytes(Uint8List data) async {
-    final path = await getApplicationDocumentsDirectory();
-    final file = await File('${path.path}/${type.name}.jpg').create();
-    file.writeAsBytesSync(data);
+  // Future<InputImage> getInputImageFromBytes(Uint8List data) async {
+  //   final path = await getApplicationDocumentsDirectory();
+  //   final file = await File('${path.path}/${type.name}.jpg').create();
+  //   file.writeAsBytesSync(data);
 
-    final decodedImage = await decodeImageFromList(data);
-    util.imgWidth = decodedImage.width;
-    util.imgHeight = decodedImage.height;
-    return InputImage.fromFile(file);
-  }
+  //   final decodedImage = await decodeImageFromList(data);
+  //   util.imgWidth = decodedImage.width;
+  //   util.imgHeight = decodedImage.height;
+  //   if (type == CameraType.font) {
+  //     current.frontIdentifyImage = file.path;
+  //   } else if (type == CameraType.back) {
+  //     current.backIdentifyImage = file.path;
+  //   }
+  //   return InputImage.fromFile(file);
+  // }
 
   Future<void> handlerImage() async {
-    final inputImage = await getInputImageFromBytes(imageData);
+    final inputImage = InputImage.fromFile(File(file.path));
     recognizedText = await getRecognisedText(inputImage);
     if (!recognizedText!.text.hasText) {
       showSnackBar("No text was recognized");
@@ -60,8 +63,10 @@ class OcrDetailController extends BaseController {
     if (type == CameraType.font) {
       qrs = await getQrCode(inputImage);
       genFontCard();
+      current.frontIdentifyImage = file.path;
     } else if (type == CameraType.back) {
       genBackCard();
+      current.backIdentifyImage = file.path;
     }
     update();
   }
@@ -84,30 +89,29 @@ class OcrDetailController extends BaseController {
   void genFontCard() {
     if (qrs.isNotEmpty) {
       for (var qr in qrs) {
-        ekyc = Ekyc.fromQrCode(qr.rawValue!);
-        if (ekyc != null) break;
+        final e = Ekyc.fromQrCode(qr.rawValue!);
+        if (e != null) {
+          current = e;
+        }
+        break;
       }
     }
 
-    final e = ekyc ??= Ekyc();
     final rText = recognizedText;
     if (rText == null) return;
-    util.analyzeFontCard(rText, e);
+    util.analyzeFontCard(rText, current);
   }
 
   void genBackCard() {
-    final e = ekyc ??= Ekyc();
     final rText = recognizedText;
     if (rText == null) return;
-    analyzeBackCard(e);
+    util.analyzeBackCard(rText, current);
   }
-
-  void analyzeBackCard(Ekyc e) {}
 
   void onReTake() {
     Get.off(
       () => const OcrCameraPage(),
-      binding: OcrCameraBinding(CameraType.font),
+      binding: OcrCameraBinding(type, origin),
     );
   }
 
@@ -115,13 +119,12 @@ class OcrDetailController extends BaseController {
     if (type == CameraType.font) {
       Get.off(
         () => const OcrCameraPage(),
-        binding: OcrCameraBinding(CameraType.back),
+        binding: OcrCameraBinding(CameraType.back, current),
       );
-    }
-    if (type == CameraType.back) {
+    } else if (type == CameraType.back) {
       Get.off(
         () => const OcrCameraPage(),
-        binding: OcrCameraBinding(CameraType.portrait),
+        binding: OcrCameraBinding(CameraType.portrait, current),
       );
     }
   }

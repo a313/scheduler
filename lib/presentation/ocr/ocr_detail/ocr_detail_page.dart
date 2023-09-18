@@ -16,12 +16,11 @@ class OcrDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<OcrDetailController>(
-        init: OcrDetailController(Get.arguments[0], Get.arguments[1]),
         builder: (controller) => Scaffold(
               appBar: AppBar(title: const Text('OCR Detail')),
               floatingActionButton: FloatingActionButton.small(
                   onPressed: () => controller.util
-                      .analyzeFontCard(controller.recognizedText!, Ekyc())),
+                      .analyzeBackCard(controller.recognizedText!, Ekyc())),
               body: ui1(controller),
             ));
   }
@@ -32,12 +31,9 @@ class OcrDetailPage extends StatelessWidget {
         Expanded(
           child: SingleChildScrollView(
             child: Column(children: [
-              Image.memory(
-                key: UniqueKey(),
-                controller.imageData,
-              ),
+              Image.file(controller.file),
               const Divider(),
-              EkycView(ekyc: controller.ekyc),
+              EkycView(ekyc: controller.current),
             ]),
           ),
         ),
@@ -70,10 +66,7 @@ class OcrDetailPage extends StatelessWidget {
             width: controller.util.imgWidth.toDouble(),
             height: controller.util.imgHeight.toDouble(),
             child: Stack(children: [
-              Image.memory(
-                key: UniqueKey(),
-                controller.imageData,
-              ),
+              Image.file(controller.file),
               ...List.generate(lines.length, (index) {
                 final line = lines.elementAt(index);
                 return Positioned.fromRect(

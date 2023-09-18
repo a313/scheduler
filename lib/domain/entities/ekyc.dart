@@ -1,4 +1,5 @@
-import '../../core/utils/constants/enums.dart';
+import 'package:intl/intl.dart';
+import 'package:scheduler/core/utils/util.dart';
 
 class Ekyc {
   String? faceImage;
@@ -53,4 +54,50 @@ class Ekyc {
   static String rawToDateStr(String raw) {
     return '${raw.substring(0, 2)}/${raw.substring(2, 4)}/${raw.substring(4)}';
   }
+
+  Ekyc copyWith({
+    String? faceImage,
+    String? frontIdentifyImage,
+    String? backIdentifyImage,
+    CardType? cardType,
+    String? identifyNumber,
+    String? fullName,
+    String? dateOfBirth,
+    String? sex,
+    String? nationality,
+    String? placeOfOrigin,
+    String? placeOfResidence,
+    String? issueDate,
+    String? issueLoc,
+    String? dateOfExpiry,
+    String? ethnicity,
+  }) {
+    return Ekyc(
+      faceImage: faceImage ?? this.faceImage,
+      frontIdentifyImage: frontIdentifyImage ?? this.frontIdentifyImage,
+      backIdentifyImage: backIdentifyImage ?? this.backIdentifyImage,
+      cardType: cardType ?? this.cardType,
+      identifyNumber: identifyNumber ?? this.identifyNumber,
+      fullName: fullName ?? this.fullName,
+      dateOfBirth: dateOfBirth ?? this.dateOfBirth,
+      sex: sex ?? this.sex,
+      nationality: nationality ?? this.nationality,
+      placeOfOrigin: placeOfOrigin ?? this.placeOfOrigin,
+      placeOfResidence: placeOfResidence ?? this.placeOfResidence,
+      issueDate: issueDate ?? this.issueDate,
+      issueLoc: issueLoc ?? this.issueLoc,
+      dateOfExpiry: dateOfExpiry ?? this.dateOfExpiry,
+      ethnicity: ethnicity ?? this.ethnicity,
+    );
+  }
+
+  DateTime? get doB =>
+      dateOfBirth.hasText ? DateFormat('dd/MM/yyyy').parse(dateOfBirth!) : null;
+
+  DateTime? get doE => dateOfExpiry.hasText
+      ? DateFormat('dd/MM/yyyy').parse(dateOfExpiry!)
+      : null;
+
+  DateTime? get doI =>
+      issueDate.hasText ? DateFormat('dd/MM/yyyy').parse(issueDate!) : null;
 }

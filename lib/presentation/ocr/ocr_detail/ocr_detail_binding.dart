@@ -1,6 +1,14 @@
 import 'package:get/get.dart';
+import 'package:scheduler/presentation/ocr/ocr_detail/ocr_detail_controller.dart';
 
 class OcrDetailBinding implements Bindings {
   @override
-  void dependencies() {}
+  void dependencies() {
+    if (Get.arguments is List) {
+      final imageData = Get.arguments[0];
+      final type = Get.arguments[1];
+      final ekyc = Get.arguments[2];
+      Get.put(OcrDetailController(imageData, type, ekyc));
+    }
+  }
 }

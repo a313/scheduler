@@ -24,7 +24,11 @@ class OcrIDCard {
         t.text.contains('Sex:') ||
         t.text.contains('Nationality:') ||
         t.text.contains('Place of origin:') ||
-        t.text.contains('Place of residence:')) return CardType.cccd_chip;
+        t.text.contains('Place of residence:') ||
+        t.text.contains('identification:') ||
+        t.text.contains('Date, month, year:') ||
+        t.text.contains('index finger') ||
+        t.text.contains('<<<<')) return CardType.cccd_chip;
     return CardType.cccd;
   }
 
@@ -298,8 +302,8 @@ class OcrIDCard {
       text = text.substring(text.length - 10);
     }
     try {
-      DateFormat('dd/MM/yyyy').parse(text);
-      return text;
+      text = text.replaceAll('O', '0').replaceAll('o', '0');
+      return DateFormat('dd/MM/yyyy').parse(text).toStringFormat('dd/MM/yyyy');
     } catch (e) {
       if (dob != null) {
         final b = DateFormat('dd/MM/yyyy').parse(dob);
@@ -403,5 +407,59 @@ class OcrIDCard {
       return t.trim().length == 2 ? 'Nữ' : 'Nam';
     }
     return null;
+  }
+
+  void analyzeBackCard(RecognizedText recognizedText, Ekyc e) {
+    final cardType = findCardType(recognizedText);
+    log(recognizedText.text);
+    log(cardType.toString());
+
+    TextLine? issueDateTL;
+    List<TextLine> issueLocTLs = [];
+    int dateBlockIndex = 999;
+    int dateLineIndex = 999;
+
+    for (int i = 0; i < recognizedText.blocks.length; i++) {
+      final block = recognizedText.blocks[i];
+
+      for (int j = 0; j < block.lines.length; j++) {
+        final l = block.lines[j];
+        final text = l.text;
+
+        if (cardType == CardType.cccd_chip) {
+          if (text.comparePrecise('Ngày, tháng, năm/Date, month, year:') >
+              0.7) {
+            issueDateTL = l;
+            dateBlockIndex = i;
+            dateLineIndex = j;
+          }
+          if ((i >= dateBlockIndex && i < dateBlockIndex + 1) &&
+              (j > dateLineIndex && j < dateLineIndex + 3)) {
+            if (l.recognizedLanguages.contains('vi')) issueLocTLs.add(l);
+          }
+        } else {}
+      }
+    }
+
+    e.issueDate ??= correctIssueDate(issueDateTL, cardType);
+    e.issueLoc ??= correctIssueLoc(issueLocTLs, cardType);
+    log(e.issueDate ?? 'null');
+    log(e.issueLoc ?? 'null');
+  }
+
+  String? correctIssueDate(TextLine? issueDateTL, CardType cardType) {
+    var text = issueDateTL?.text;
+    if (text == null) return null;
+    if (text.length > 10) text = text.substring(text.length - 10);
+    try {
+      text = text.replaceAll('O', '0').replaceAll('o', '0');
+      return DateFormat('dd/MM/yyyy').parse(text).toStringFormat('dd/MM/yyyy');
+    } catch (e) {
+      return text;
+    }
+  }
+
+  String? correctIssueLoc(List<TextLine> lines, CardType cardType) {
+    return lines.map((e) => e.text.toUpperCase()).join(' ');
   }
 }

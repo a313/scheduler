@@ -154,9 +154,9 @@ class ImageHelper {
     return output;
   }
 
-  Future<Uint8List?> pickImage({CropAspectRatio? aspectRatio}) async {
+  Future<File?> pickImage({CropAspectRatio? aspectRatio}) async {
     XFile? pickedFile;
-    Uint8List? result;
+
     try {
       pickedFile = await _picker.pickImage(
         source: ImageSource.gallery,
@@ -169,18 +169,18 @@ class ImageHelper {
       pickedFile = await retrieveLostData();
     }
     if (pickedFile != null && pickedFile.path.isNotEmpty) {
-      final croppedImage = await ImageCropper().cropImage(
+      final cropper = await ImageCropper().cropImage(
         sourcePath: pickedFile.path,
         compressQuality: 100,
         aspectRatio: aspectRatio,
       );
 
-      if (croppedImage != null) {
-        result = await croppedImage.readAsBytes();
+      if (cropper != null) {
+        return File(cropper.path);
       }
     }
-    // return pickedFile?.readAsBytes();
-    return result;
+
+    return null;
   }
 
   Future<XFile?> retrieveLostData() async {

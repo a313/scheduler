@@ -27,6 +27,8 @@ import '../presentation/events/edit_event/edit_event_binding.dart';
 import '../presentation/events/edit_event/edit_event_page.dart';
 import '../presentation/home/home_binding.dart';
 import '../presentation/home/home_page.dart';
+import '../presentation/ocr/ocr_confirm/ocr_confirm_binding.dart';
+import '../presentation/ocr/ocr_confirm/ocr_confirm_page.dart';
 import '../presentation/onboarding/onboarding_binding.dart';
 import '../presentation/onboarding/onboarding_page.dart';
 import '../presentation/reminder/edit_reminder/edit_reminder_binding.dart';
@@ -101,6 +103,11 @@ class AppPages {
       name: Routes.ocrDetail,
       page: () => const OcrDetailPage(),
       binding: OcrDetailBinding(),
+    ),
+    GetPage(
+      name: Routes.ocrConfirm,
+      page: () => const OcrConfirmPage(),
+      binding: OcrConfirmBinding(),
     ),
   ];
 }

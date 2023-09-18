@@ -11,6 +11,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:photo_gallery/photo_gallery.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/image_helper.dart';
+import 'package:scheduler/domain/entities/ekyc.dart';
 import 'package:scheduler/routes/routes.dart';
 
 import '../../../core/utils/transform_image.dart';
@@ -31,8 +32,8 @@ class OcrCameraController extends BaseController
   bool canPickImage = true;
   bool isRequestingPermissionStorage = false;
   bool isChooseImageFromLibrary = false;
-
-  OcrCameraController(this.type);
+  final Ekyc ekyc;
+  OcrCameraController(this.type, this.ekyc);
 
   @override
   void onInit() {
@@ -192,9 +193,13 @@ class OcrCameraController extends BaseController
       }
 
       final file = await cameraController!.takePicture();
-      final imageBytes = await file.readAsBytes();
-      final cropped = getImageCropped(imageBytes);
-      Get.offNamed(Routes.ocrDetail, arguments: [cropped, type]);
+      if (type == CameraType.portrait) {
+        Get.offNamed(Routes.ocrConfirm, arguments: [file.path, ekyc]);
+      } else {
+        final imageBytes = await file.readAsBytes();
+        final cropped = getImageCropped(imageBytes);
+        Get.offNamed(Routes.ocrDetail, arguments: [cropped, type, ekyc]);
+      }
     }
   }
 
@@ -233,11 +238,11 @@ class OcrCameraController extends BaseController
       aspectRatio = const CropAspectRatio(ratioX: 340.0, ratioY: 220.0);
     }
     isChooseImageFromLibrary = true;
-    final imageBytes = await ImageHelper().pickImage(aspectRatio: aspectRatio);
+    final image = await ImageHelper().pickImage(aspectRatio: aspectRatio);
     isPickingPic = false;
     isChooseImageFromLibrary = false;
-    if (imageBytes != null) {
-      openConfirmScene(imageBytes);
+    if (image != null) {
+      openConfirmScene(image);
     } else {
       showSnackBar(UNKNOWN_ERROR);
     }
@@ -279,7 +284,12 @@ class OcrCameraController extends BaseController
     }
   }
 
-  Future<void> openConfirmScene(Uint8List bytes) async {
-    Get.offNamed(Routes.ocrDetail, arguments: [bytes, type]);
+  Future<void> openConfirmScene(File file) async {
+    if (type == CameraType.portrait) {
+      ekyc.faceImage = file.path;
+      Get.offNamed(Routes.ocrConfirm, arguments: ekyc);
+    } else {
+      Get.offNamed(Routes.ocrDetail, arguments: [file, type, ekyc]);
+    }
   }
 }

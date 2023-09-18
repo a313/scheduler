@@ -17,4 +17,6 @@ class Routes {
   static const editSchedule = "/editSchedule";
 
   static const ocrDetail = "/ocrDetail";
+
+  static const ocrConfirm = "/ocrConfirm";
 }

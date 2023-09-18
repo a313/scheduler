@@ -22,14 +22,14 @@ import '../../data/models/reminder.dart';
 import '../../data/models/student.dart';
 import 'event_events.dart';
 
-class EventsController extends BaseController {
+class EventsController extends BaseController with WidgetsBindingObserver {
   EventUseCases useCases = Get.find();
   WeatherUseCases weatherUseCases = Get.find();
   NotificationUseCases notiUseCases = Get.find();
   ClassRoomUseCases classRoomUseCases = Get.find();
   ReminderUseCases reminderUseCases = Get.find();
   StudentUseCases studentUseCases = Get.find();
-  Rx<DateTime> selectedDay = DateTime.now().dateWithoutTime().obs;
+  late Rx<DateTime> selectedDay;
   late DateTime firstDay, lastDay;
   Map<DateTime, List<Event>> formatedData = {};
 
@@ -41,19 +41,38 @@ class EventsController extends BaseController {
 
   @override
   void onInit() {
+    initDay();
+    WidgetsBinding.instance.addObserver(this);
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.onClose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      initDay();
+      handlerEvents().then((value) => generateNotificaion());
+    }
+  }
+
+  void initDay() {
+    selectedDay = DateTime.now().dateWithoutTime().obs;
     final d = selectedDay.value;
     firstDay = d.copyWith();
     lastDay = d.copyWith(day: d.day + 15);
-    super.onInit();
   }
 
   @override
   Future<void> onReady() async {
     super.onReady();
     await handlerEvents();
-
     generateNotificaion();
-    getWeather();
+    // getWeather();
   }
 
   Future<void> handlerEvents() async {
