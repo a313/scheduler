@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image/image.dart' as img;
 import 'package:image_cropper/image_cropper.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:photo_gallery/photo_gallery.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
@@ -194,11 +195,15 @@ class OcrCameraController extends BaseController
 
       final file = await cameraController!.takePicture();
       if (type == CameraType.portrait) {
-        Get.offNamed(Routes.ocrConfirm, arguments: [file.path, ekyc]);
+        ekyc.faceImage = file.path;
+        Get.offNamed(Routes.ocrConfirm, arguments: ekyc);
       } else {
         final imageBytes = await file.readAsBytes();
         final cropped = getImageCropped(imageBytes);
-        Get.offNamed(Routes.ocrDetail, arguments: [cropped, type, ekyc]);
+        final directory = await getApplicationDocumentsDirectory();
+        final tmpFile = File('${directory.path}/${file.name}');
+        tmpFile.writeAsBytesSync(cropped);
+        Get.offNamed(Routes.ocrDetail, arguments: [tmpFile, type, ekyc]);
       }
     }
   }

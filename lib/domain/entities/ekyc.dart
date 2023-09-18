@@ -42,7 +42,7 @@ class Ekyc {
 
     return Ekyc(
       identifyNumber: fields[0],
-      fullName: fields[2],
+      fullName: fields[2].toUpperCase(),
       dateOfBirth: rawToDateStr(fields[3]),
       sex: fields[4],
       placeOfResidence: fields[5],

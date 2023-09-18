@@ -11,7 +11,7 @@ class OcrIDCard {
   Offset topLeft = const Offset(0, 0);
   Offset bottomCenter = const Offset(0, 0);
   Offset center = const Offset(0, 0);
-  List<Offset> offsets = [];
+  // List<Offset> offsets = [];
 
   int imgWidth = 0, imgHeight = 0;
   double dH = 0, dW = 0;
@@ -41,7 +41,7 @@ class OcrIDCard {
             if (CustomStringExtension(e.text).isNumericOnly &&
                 e.text.length > 10) {
               center = e.boundingBox.center;
-              offsets.add(center);
+
               return e.text.padLeft(12, '0');
             }
           }
@@ -53,7 +53,7 @@ class OcrIDCard {
         for (final e in b.lines) {
           if (e.text.numericOnly().length > 10) {
             center = e.boundingBox.center;
-            offsets.add(center);
+
             final pattern = lookPatterns(
                 e.text, ['Số:', 'số:', 's6;', 'S6:', ':', ';', '.']);
             if (pattern != null) {
@@ -270,16 +270,16 @@ class OcrIDCard {
     e.placeOfOrigin ??= correctPoO(placeOfOriginTLs, cardType);
     e.placeOfResidence ??= correctPoR(placeOfResidenceTLs, cardType);
 
-    offsets.clear();
-    offsets.add(topLeft);
-    offsets.add(center);
-    offsets.add(fnOffset);
-    offsets.add(dobOffset);
-    offsets.add(sexOffset);
-    offsets.add(nOffset);
-    offsets.addAll(pooOffset);
-    offsets.addAll(porOffset);
-    offsets.add(edOffset);
+    // offsets.clear();
+    // offsets.add(topLeft);
+    // offsets.add(center);
+    // offsets.add(fnOffset);
+    // offsets.add(dobOffset);
+    // offsets.add(sexOffset);
+    // offsets.add(nOffset);
+    // offsets.addAll(pooOffset);
+    // offsets.addAll(porOffset);
+    // offsets.add(edOffset);
   }
 
   String? correctDoB(TextLine? dateOfBirthTL, CardType cardType) {
