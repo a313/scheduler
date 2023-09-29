@@ -29,9 +29,10 @@ class ReminderUseCases {
     List<Event> result = [];
     final alertAt = reminder.time;
     final remindDate = reminder.remindDate;
+
     if (reminder.repeat == RepeatType.None ||
         alertAt == null ||
-        reminder.createDate.isBefore(from)) {
+        reminder.createDate.isAfter(from)) {
       return result;
     }
     for (var date = from;
