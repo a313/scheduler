@@ -19,4 +19,6 @@ class Routes {
   static const ocrDetail = "/ocrDetail";
 
   static const ocrConfirm = "/ocrConfirm";
+
+  static const musicDownloading = "/musicDownloading";
 }
