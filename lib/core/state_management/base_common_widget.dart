@@ -150,8 +150,8 @@ mixin BaseCommonWidgets {
     ).whenComplete(() => onCompleted?.call());
   }
 
-  void onDataFailed<T>(
-    DataFailure<T> failure, {
+  void onDataFailed(
+    DataFailure failure, {
     VoidCallback? onConfirm,
     String? title,
     String? btnTitle,

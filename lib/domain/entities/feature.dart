@@ -13,6 +13,9 @@ const weatherPage = 'WEATHER_PAGE';
 const periodsPage = 'PERIODS_PAGE';
 const clockPage = 'CLOCK_PAGE';
 const ocrPage = 'OCR_PAGE';
+const vpnPage = 'VPN_PAGE';
+const musicPlayerPage = 'MUSIC_PLAYER_PAGE';
+const musicDownloaderPage = 'MUSIC_DOWNLOADER_PAGE';
 
 class Feature {
   final String key;

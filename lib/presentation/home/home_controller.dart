@@ -8,19 +8,19 @@ import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/presentation/clock/clock_page.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:scheduler/presentation/home/components/more_feature.dart';
+import 'package:scheduler/presentation/music_downloader/music_downloader_page.dart';
+import 'package:scheduler/presentation/music_player/music_player_page.dart';
 import 'package:scheduler/presentation/ocr/ocr_page.dart';
 import 'package:scheduler/presentation/periods/periods_page.dart';
 import 'package:scheduler/presentation/qrcode/qrcode_page.dart';
 import 'package:scheduler/presentation/setting/setting_page.dart';
 import 'package:scheduler/presentation/timetables/timetables_page.dart';
-import 'package:scheduler/presentation/weather/weather_page.dart';
 
 import '../class_room/class_room_page.dart';
 import '../events/events_page.dart';
 import '../reminder/reminder_page.dart';
 import '../report/report_page.dart';
 import '../students/students_page.dart';
-import '../vpn/vpn_page.dart';
 import 'components/bar_icon.dart';
 import 'components/calendar_icon.dart';
 import 'components/reorder_feature.dart';
@@ -141,19 +141,19 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
             ),
             label: 'QrCode'.tr),
       ),
-      Feature(
-        key: weatherPage,
-        page: const WeatherPage(),
-        item: BottomNavigationBarItem(
-            icon: BarIcon(
-                path: 'assets/svg/Regular/CloudSun.svg',
-                colorFilter: normalColor),
-            activeIcon: BarIcon(
-              path: 'assets/svg/Regular/CloudSun.svg',
-              colorFilter: activeColor,
-            ),
-            label: 'Weather'.tr),
-      ),
+      // Feature(
+      //   key: weatherPage,
+      //   page: const WeatherPage(),
+      //   item: BottomNavigationBarItem(
+      //       icon: BarIcon(
+      //           path: 'assets/svg/Regular/CloudSun.svg',
+      //           colorFilter: normalColor),
+      //       activeIcon: BarIcon(
+      //         path: 'assets/svg/Regular/CloudSun.svg',
+      //         colorFilter: activeColor,
+      //       ),
+      //       label: 'Weather'.tr),
+      // ),
       Feature(
         key: periodsPage,
         page: const PeriodsPage(),
@@ -191,18 +191,44 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
             ),
             label: 'OCR'.tr),
       ),
+      // Feature(
+      //   key: vpnPage,
+      //   page: const VpnPage(),
+      //   item: BottomNavigationBarItem(
+      //       icon: BarIcon(
+      //           path: 'assets/svg/Regular/WifiHigh.svg',
+      //           colorFilter: normalColor),
+      //       activeIcon: BarIcon(
+      //         path: 'assets/svg/Regular/WifiHigh.svg',
+      //         colorFilter: activeColor,
+      //       ),
+      //       label: 'VPN'.tr),
+      // ),
       Feature(
-        key: ocrPage,
-        page: const VpnPage(),
+        key: musicPlayerPage,
+        page: const MusicPlayerPage(),
         item: BottomNavigationBarItem(
             icon: BarIcon(
-                path: 'assets/svg/Regular/WifiHigh.svg',
+                path: 'assets/svg/Regular/MusicNotes.svg',
                 colorFilter: normalColor),
             activeIcon: BarIcon(
-              path: 'assets/svg/Regular/WifiHigh.svg',
+              path: 'assets/svg/Regular/MusicNotes.svg',
               colorFilter: activeColor,
             ),
-            label: 'VPN'.tr),
+            label: 'Music'.tr),
+      ),
+      Feature(
+        key: musicDownloaderPage,
+        page: const MusicDownloaderPage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/MusicNotesPlus.svg',
+                colorFilter: normalColor),
+            activeIcon: BarIcon(
+              path: 'assets/svg/Regular/MusicNotesPlus.svg',
+              colorFilter: activeColor,
+            ),
+            label: 'Download'.tr),
       ),
       Feature(
         key: settingPage,
