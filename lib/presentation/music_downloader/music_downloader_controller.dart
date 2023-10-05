@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/video_info.dart';
+import 'package:scheduler/data/models/y2_mate_video_detail.dart';
 import 'package:scheduler/domain/usecases/music_usecases.dart';
 import 'package:scheduler/routes/routes.dart';
 
@@ -11,31 +11,32 @@ class MusicDownloaderController extends BaseController {
   final musicUC = Get.find<MusicUseCases>();
   TextEditingController inputController = TextEditingController();
 
-  RxMap<String, VideoInfo?> pool = <String, VideoInfo?>{}.obs;
+  RxMap<String, Y2MateVideoDetail?> pool = <String, Y2MateVideoDetail?>{}.obs;
 
-  Future<void> getVideoInfo(String url) async {
+  Future<void> getVideoYoutubeInfo(String url) async {
     if (pool.containsKey(url)) return;
     pool[url] = null;
-    final result = await musicUC.getVideoInfo(url);
-    if (result is DataSuccess<VideoInfo>) {
+    final result = await musicUC.getVideoYoutubeInfo(url);
+    if (result is DataSuccess<Y2MateVideoDetail>) {
       pool[url] = result.data;
       pool.refresh();
-    } else if (result is DataFailure<VideoInfo>) {
-      pool[url] = VideoInfo.error(result.message);
+    } else if (result is DataFailure<Y2MateVideoDetail>) {
+      pool[url] = Y2MateVideoDetail.error(result.message);
       pool.refresh();
     }
   }
 
-  void startDownload() {
+  Future<void> startDownload() async {
     final items = pool.values.whereNotNull().toList();
-    Get.toNamed(Routes.musicDownloading, arguments: items);
-    pool.clear();
+    final shouldClear =
+        await Get.toNamed(Routes.musicDownloading, arguments: items);
+    if (shouldClear is bool && shouldClear) pool.clear();
   }
 
   void addToPool() {
     final url = inputController.text;
     if (url.isURL) {
-      getVideoInfo(url);
+      getVideoYoutubeInfo(url);
       inputController.clear();
     } else {
       showSnackBar('Input not valid');

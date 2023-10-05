@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_common_widget.dart';
 import 'package:scheduler/core/utils/util.dart';
@@ -8,7 +9,7 @@ import 'package:scheduler/theme/app_fonts.dart';
 import 'package:scheduler/widgets/base/base_search_page.dart';
 import 'package:scheduler/widgets/bottomsheets/date_picker_bottomsheet.dart';
 
-class BaseTextField extends StatelessWidget {
+class BaseTextField extends StatefulWidget {
   const BaseTextField({
     Key? key,
     this.labelText,
@@ -33,6 +34,7 @@ class BaseTextField extends StatelessWidget {
     this.validMode,
     this.obscureText = false,
     this.initialValue,
+    this.onClear,
   }) : super(key: key);
 
   final bool autofocus;
@@ -47,6 +49,7 @@ class BaseTextField extends StatelessWidget {
   final List<TextInputFormatter>? formaters;
   final TextInputAction? textInputAction;
   final Function(String p1)? onChanged;
+  final Function()? onClear;
   final Function(String p1)? onSubmitted;
   final AutovalidateMode? validMode;
   final Widget? prefix;
@@ -59,46 +62,117 @@ class BaseTextField extends StatelessWidget {
   final String? initialValue;
 
   @override
+  State<BaseTextField> createState() => _BaseTextFieldState();
+}
+
+class _BaseTextFieldState extends State<BaseTextField> {
+  late TextEditingController controller;
+  late bool showPassword;
+
+  @override
+  void initState() {
+    showPassword = widget.obscureText;
+    controller = widget.controller ?? TextEditingController();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      autofocus: autofocus,
-      focusNode: focusNode,
-      controller: controller,
-      keyboardType: keyboardType,
-      maxLength: maxLength,
-      obscureText: obscureText,
-      maxLines: maxLines,
-      validator: validator,
-      textCapitalization: textCapitalization,
-      enabled: enabled,
-      inputFormatters: formaters,
-      textInputAction: textInputAction,
-      onChanged: onChanged,
-      onFieldSubmitted: onSubmitted,
-      autovalidateMode: validMode,
-      style: (textStyle ?? AppFonts.pMedium).copyWith(
-        color: enabled ? null : context.neutral600,
+      autofocus: widget.autofocus,
+      focusNode: widget.focusNode,
+      controller: widget.controller,
+      keyboardType: widget.keyboardType,
+      maxLength: widget.maxLength,
+      obscureText: showPassword,
+      maxLines: widget.maxLines,
+      validator: widget.validator,
+      textCapitalization: widget.textCapitalization,
+      enabled: widget.enabled,
+      inputFormatters: widget.formaters,
+      textInputAction: widget.textInputAction,
+      onChanged: widget.onChanged,
+      onFieldSubmitted: widget.onSubmitted,
+      autovalidateMode: widget.validMode,
+      style: (widget.textStyle ?? AppFonts.pMedium).copyWith(
+        color: widget.enabled ? null : context.neutral600,
       ),
-      initialValue: initialValue,
+      initialValue: widget.initialValue,
       decoration: InputDecoration(
-        prefixIcon: prefix,
-        suffixIcon: suffix,
-        labelText: labelText,
-        fillColor: enabled ? context.neutral100 : context.neutral300,
-        labelStyle: (textStyle ?? AppFonts.pMedium).copyWith(height: 1),
-        hintStyle: (textStyle ?? AppFonts.pMedium)
+        prefixIcon: widget.prefix,
+        suffixIcon: _Suffix(
+          controller: controller,
+          obscureText: widget.obscureText,
+          showPassword: showPassword,
+          onChanged: widget.onChanged,
+          onClear: widget.onClear,
+          onToggleVisible: (visible) {
+            setState(() {
+              showPassword = visible;
+            });
+          },
+        ),
+        labelText: widget.labelText,
+        fillColor: widget.enabled ? context.neutral100 : context.neutral300,
+        labelStyle: (widget.textStyle ?? AppFonts.pMedium).copyWith(height: 1),
+        hintStyle: (widget.textStyle ?? AppFonts.pMedium)
             .copyWith(color: context.neutral600, height: 1),
         helperMaxLines: 1,
         counter: const SizedBox(),
-        helperText: helperText,
+        helperText: widget.helperText,
         hintMaxLines: 2,
         helperStyle:
             AppFonts.bSmall.copyWith(color: context.neutral800, height: 1),
-        errorText: errorText,
+        errorText: widget.errorText,
         errorMaxLines: 2,
         errorStyle:
             AppFonts.bSmall.copyWith(color: context.funcRadicalRed, height: 1),
       ),
+    );
+  }
+}
+
+class _Suffix extends StatelessWidget {
+  const _Suffix(
+      {required this.controller,
+      required this.showPassword,
+      required this.obscureText,
+      this.onChanged,
+      this.onClear,
+      this.onToggleVisible});
+
+  final TextEditingController controller;
+  final bool showPassword;
+  final bool obscureText;
+
+  final Function(String p1)? onChanged;
+  final Function()? onClear;
+  final Function(bool visible)? onToggleVisible;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        InkWell(
+          onTap: () {
+            controller.clear();
+            onChanged?.call("");
+            onClear?.call();
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: SvgPicture.asset("assets/svg/Regular/XCircle.svg"),
+          ),
+        ),
+        if (obscureText)
+          IconButton(
+            icon: Icon(
+              showPassword ? Icons.visibility : Icons.visibility_off,
+              color: context.neutral700,
+            ),
+            onPressed: onToggleVisible?.call(!showPassword),
+          ),
+      ],
     );
   }
 }

@@ -1,7 +1,8 @@
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/datasource/music_service.dart';
-import 'package:scheduler/data/models/video_info.dart';
+import 'package:scheduler/data/models/y2_mate_download_link.dart';
+import 'package:scheduler/data/models/y2_mate_video_detail.dart';
 import 'package:scheduler/domain/repo_abs/music_repo_abs.dart';
 
 class MusicRepoImpl extends MusicRepo {
@@ -10,11 +11,11 @@ class MusicRepoImpl extends MusicRepo {
   MusicRepoImpl(this._);
 
   @override
-  Future<DataState<VideoInfo>> getVideoInfo(String url) async {
-    final response = await _.getVideoInfo(url);
+  Future<DataState<Y2MateVideoDetail>> getVideoYoutubeInfo(String url) async {
+    final response = await _.getVideoYoutubeInfo(url);
     if (response.isSuccess) {
       try {
-        final data = VideoInfo.fromJson(response.data);
+        final data = Y2MateVideoDetail.fromJson(response.data);
         return DataSuccess(data);
       } catch (e) {
         return DataFailure(
@@ -47,6 +48,18 @@ class MusicRepoImpl extends MusicRepo {
     final response = await _.download(endPoint: url, savePath: savePath);
     if (response.isSuccess) {
       return DataSuccess(true);
+    } else {
+      return DataFailure(
+          response.statusCode.toString(), response.message ?? UNKNOWN_ERROR);
+    }
+  }
+
+  @override
+  Future<DataState<Y2MateDownloadLink>> getDownloadUrl(
+      String id, String key) async {
+    final response = await _.getDownloadUrl(id, key);
+    if (response.isSuccess) {
+      return DataSuccess(Y2MateDownloadLink.fromJson(response.data));
     } else {
       return DataFailure(
           response.statusCode.toString(), response.message ?? UNKNOWN_ERROR);

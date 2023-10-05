@@ -31,6 +31,7 @@ export 'extensions/build_context.dart';
 export 'extensions/color_context.dart';
 export 'extensions/date_time.dart';
 export 'extensions/durations.dart';
+export 'extensions/file_ext.dart';
 export 'extensions/map_ext.dart';
 export 'extensions/nums.dart';
 export 'extensions/scroll_controller.dart';
@@ -89,6 +90,46 @@ class Utils {
     final fileName = name ?? basename(filePath);
     final amved = await file.copy('${appDir.path}/$fileName');
     return amved;
+  }
+
+  static Future<Directory> getDirectory({String? path}) async {
+    Directory? directory;
+    if (Platform.isIOS) {
+      directory = await getApplicationDocumentsDirectory();
+    } else {
+      directory = Directory('/storage/emulated/0/Download');
+      if (!await directory.exists()) {
+        directory = await getExternalStorageDirectory();
+      }
+    }
+    if (directory != null) {
+      if (path != null) {
+        return Directory('${directory.path}/$path');
+      }
+      return directory;
+    }
+    return Directory(path ?? '');
+  }
+
+  static bool isAudioFile(String filePath) {
+    final ext = filePath.toLowerCase();
+
+    return ext.endsWith(".mp3") ||
+        ext.endsWith('m4a') ||
+        ext.endsWith(".wav") ||
+        ext.endsWith(".wma") ||
+        ext.endsWith(".amr") ||
+        ext.endsWith(".ogg");
+  }
+
+  static bool isImageFile(String filePath) {
+    final ext = filePath.toLowerCase();
+
+    return ext.endsWith(".jpg") ||
+        ext.endsWith(".jpeg") ||
+        ext.endsWith(".png") ||
+        ext.endsWith(".gif") ||
+        ext.endsWith(".bmp");
   }
 
   static double degreesToRadians(double degrees) {

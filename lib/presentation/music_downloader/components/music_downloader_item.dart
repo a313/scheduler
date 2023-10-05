@@ -1,7 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/video_info.dart';
+import 'package:scheduler/data/models/y2_mate_video_detail.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 
 class MusicDownloaderItem extends StatelessWidget {
@@ -11,18 +12,16 @@ class MusicDownloaderItem extends StatelessWidget {
     required this.url,
   });
   final String url;
-  final VideoInfo? info;
+  final Y2MateVideoDetail? info;
 
   @override
   Widget build(BuildContext context) {
     if (info == null) {
       return _Loading(url);
-    } else if (info?.error != null) {
-      return _Error(error: info!.error!);
-    } else if (info?.info != null) {
-      return _Info(info: info!.info!);
+    } else if (info!.isError) {
+      return _Error(error: info!.mess);
     }
-    return const SizedBox();
+    return _Info(info: info!);
   }
 }
 
@@ -31,7 +30,7 @@ class _Info extends StatelessWidget {
     required this.info,
   });
 
-  final Info info;
+  final Y2MateVideoDetail info;
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +38,8 @@ class _Info extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: borRad04,
-          child: Image.network(
-            info.thumbnails.first.url,
+          child: CachedNetworkImage(
+            imageUrl: info.thumbnailUrl,
             width: 100,
             height: 60,
             fit: BoxFit.cover,
@@ -59,7 +58,7 @@ class _Info extends StatelessWidget {
                 maxLines: 2,
               ),
               Text(
-                "Duration: ${Duration(seconds: int.tryParse(info.lengthSeconds) ?? 0)}",
+                "Duration: ${Duration(seconds: info.t)}",
                 style: AppFonts.bSmall.copyWith(color: context.neutral800),
               ),
             ],
@@ -77,7 +76,12 @@ class _Error extends StatelessWidget {
   final String error;
   @override
   Widget build(BuildContext context) {
-    return const SizedBox();
+    return Text(
+      error,
+      style: AppFonts.bMedium,
+      overflow: TextOverflow.ellipsis,
+      maxLines: 2,
+    );
   }
 }
 

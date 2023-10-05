@@ -16,9 +16,9 @@ String videoInfoToJson(VideoInfo data) => json.encode(data.toJson());
 @freezed
 class VideoInfo with _$VideoInfo {
   const factory VideoInfo({
-    Info? info,
-    String? dlVideo,
-    String? dlAudio,
+    String? creator,
+    List<Mp3>? mp4,
+    List<Mp3>? mp3,
     String? error,
   }) = _VideoInfo;
 
@@ -29,108 +29,104 @@ class VideoInfo with _$VideoInfo {
 }
 
 @freezed
-class Info with _$Info {
-  @JsonSerializable(fieldRename: FieldRename.none)
-  const factory Info({
-    required String title,
-    required String description,
-    required String lengthSeconds,
-    required String ownerProfileUrl,
-    required String externalChannelId,
-    required bool isFamilySafe,
-    required List<String> availableCountries,
-    required bool isUnlisted,
-    required bool hasYpcMetadata,
-    required String viewCount,
-    required String category,
-    required DateTime publishDate,
-    required String ownerChannelName,
-    required DateTime uploadDate,
-    required String videoId,
-    required List<String> keywords,
-    required String channelId,
-    required bool isOwnerViewing,
-    required bool isCrawlable,
-    required bool allowRatings,
-    required Author author,
-    required bool isPrivate,
-    required bool isUnpluggedCorpus,
-    required bool isLiveContent,
-    required Media media,
-    required dynamic likes,
-    required dynamic dislikes,
-    @JsonKey(name: 'age_restricted') required bool ageRestricted,
-    @JsonKey(name: 'video_url') required String videoUrl,
-    required List<Storyboard> storyboards,
-    required List<dynamic> chapters,
-    required List<InfoThumbnail> thumbnails,
-  }) = _Info;
-
-  factory Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);
-}
-
-@freezed
-class Author with _$Author {
-  const factory Author({
-    required String id,
-    required String name,
-    required String user,
-    required String channelUrl,
-    required String externalChannelUrl,
-    required String userUrl,
-    required List<AuthorThumbnail> thumbnails,
-    required bool verified,
-    required int subscriberCount,
-  }) = _Author;
-
-  factory Author.fromJson(Map<String, dynamic> json) => _$AuthorFromJson(json);
-}
-
-@freezed
-class AuthorThumbnail with _$AuthorThumbnail {
-  const factory AuthorThumbnail({
+class Mp3 with _$Mp3 {
+  const factory Mp3({
+    required String mimeType,
+    required String? qualityLabel,
+    required int bitrate,
+    int? audioBitrate,
+    required int itag,
+    required Range initRange,
+    required Range indexRange,
+    required String lastModified,
+    required String contentLength,
+    required String quality,
+    required ProjectionType projectionType,
+    required int averageBitrate,
+    String? audioQuality,
+    required String approxDurationMs,
+    String? audioSampleRate,
+    int? audioChannels,
+    double? loudnessDb,
     required String url,
-    required int width,
-    required int height,
-  }) = _AuthorThumbnail;
+    required bool hasVideo,
+    required bool hasAudio,
+    required Container container,
+    required String codecs,
+    required String? videoCodec,
+    required String? audioCodec,
+    required bool isLive,
+    required bool isHls,
+    required bool isDashMpd,
+    bool? highReplication,
+    int? width,
+    int? height,
+    int? fps,
+    ColorInfo? colorInfo,
+  }) = _Mp3;
 
-  factory AuthorThumbnail.fromJson(Map<String, dynamic> json) =>
-      _$AuthorThumbnailFromJson(json);
+  factory Mp3.fromJson(Map<String, dynamic> json) => _$Mp3FromJson(json);
 }
 
 @freezed
-class Media with _$Media {
-  const factory Media() = _Media;
+class ColorInfo with _$ColorInfo {
+  const factory ColorInfo({
+    required Primaries primaries,
+    required TransferCharacteristics transferCharacteristics,
+    required MatrixCoefficients matrixCoefficients,
+  }) = _ColorInfo;
 
-  factory Media.fromJson(Map<String, dynamic> json) => _$MediaFromJson(json);
+  factory ColorInfo.fromJson(Map<String, dynamic> json) =>
+      _$ColorInfoFromJson(json);
 }
 
-@freezed
-class Storyboard with _$Storyboard {
-  @JsonSerializable(fieldRename: FieldRename.none)
-  const factory Storyboard({
-    required String templateUrl,
-    required int thumbnailWidth,
-    required int thumbnailHeight,
-    required int thumbnailCount,
-    required int interval,
-    required int columns,
-    required int rows,
-    required int storyboardCount,
-  }) = _Storyboard;
+enum MatrixCoefficients { COLOR_MATRIX_COEFFICIENTS_BT709 }
 
-  factory Storyboard.fromJson(Map<String, dynamic> json) =>
-      _$StoryboardFromJson(json);
+final matrixCoefficientsValues = EnumValues({
+  "COLOR_MATRIX_COEFFICIENTS_BT709":
+      MatrixCoefficients.COLOR_MATRIX_COEFFICIENTS_BT709
+});
+
+enum Primaries { COLOR_PRIMARIES_BT709 }
+
+final primariesValues =
+    EnumValues({"COLOR_PRIMARIES_BT709": Primaries.COLOR_PRIMARIES_BT709});
+
+enum TransferCharacteristics { COLOR_TRANSFER_CHARACTERISTICS_BT709 }
+
+final transferCharacteristicsValues = EnumValues({
+  "COLOR_TRANSFER_CHARACTERISTICS_BT709":
+      TransferCharacteristics.COLOR_TRANSFER_CHARACTERISTICS_BT709
+});
+
+enum Container { MP4, WEBM }
+
+final containerValues =
+    EnumValues({"mp4": Container.MP4, "webm": Container.WEBM});
+
+@freezed
+class Range with _$Range {
+  const factory Range({
+    required String start,
+    required String end,
+  }) = _Range;
+
+  factory Range.fromJson(Map<String, dynamic> json) => _$RangeFromJson(json);
 }
 
-@freezed
-class InfoThumbnail with _$InfoThumbnail {
-  const factory InfoThumbnail({
-    required String url,
-    required int width,
-    required int height,
-  }) = _InfoThumbnail;
+enum ProjectionType { RECTANGULAR }
 
-  factory InfoThumbnail.fromJson(Map<String, dynamic> json) =>
-      _$InfoThumbnailFromJson(json);
+final projectionTypeValues =
+    EnumValues({"RECTANGULAR": ProjectionType.RECTANGULAR});
+
+class EnumValues<T> {
+  Map<String, T> map;
+  late Map<T, String> reverseMap;
+
+  EnumValues(this.map);
+
+  Map<T, String> get reverse {
+    reverseMap = map.map((k, v) => MapEntry(v, k));
+    return reverseMap;
+  }
 }
