@@ -16,13 +16,16 @@ String videoInfoToJson(VideoInfo data) => json.encode(data.toJson());
 @freezed
 class VideoInfo with _$VideoInfo {
   const factory VideoInfo({
-    required Info info,
-    required String dlVideo,
-    required String dlAudio,
+    Info? info,
+    String? dlVideo,
+    String? dlAudio,
+    String? error,
   }) = _VideoInfo;
 
   factory VideoInfo.fromJson(Map<String, dynamic> json) =>
       _$VideoInfoFromJson(json);
+
+  factory VideoInfo.error(String error) => VideoInfo(error: error);
 }
 
 @freezed
