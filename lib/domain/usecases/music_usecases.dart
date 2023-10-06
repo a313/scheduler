@@ -48,4 +48,6 @@ class MusicUseCases {
           androidNotificationChannelName: 'Music playback',
         ));
   }
+
+  void writeMetadata() {}
 }

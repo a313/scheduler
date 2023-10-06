@@ -34,7 +34,8 @@ class MusicDownloaderController extends BaseController {
   }
 
   Future<void> startDownload() async {
-    final items = pool.values.whereType<DataSuccess<Video>>().toList();
+    final items =
+        pool.values.whereType<DataSuccess<Video>>().map((e) => e.data).toList();
     final shouldClear =
         await Get.toNamed(Routes.musicDownloading, arguments: items);
     if (shouldClear is bool && shouldClear) pool.clear();
@@ -43,7 +44,7 @@ class MusicDownloaderController extends BaseController {
   void addToPool() {
     final url = inputController.text;
 
-    final id = findYoutubeId(url);
+    final id = VideoId.parseVideoId(url);
     if (id != null) {
       getVideoById(id);
       inputController.clear();
@@ -51,20 +52,5 @@ class MusicDownloaderController extends BaseController {
     }
 
     showSnackBar('Input not valid');
-  }
-
-  String? findYoutubeId(String source) {
-    String keywordStart = "v=";
-    String keywordEnd = "&";
-
-    int startIndex = source.indexOf(keywordStart);
-    int endIndex = source.indexOf(keywordEnd);
-
-    if (startIndex != -1 && endIndex != -1) {
-      String substring =
-          source.substring(startIndex + keywordStart.length, endIndex);
-      return substring;
-    }
-    return null;
   }
 }

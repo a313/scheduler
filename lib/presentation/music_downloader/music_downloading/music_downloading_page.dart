@@ -24,10 +24,6 @@ class MusicDownloadingPage extends StatelessWidget {
               info: data.keys.elementAt(index),
               percent: data.values.elementAt(index),
             ),
-            // itemBuilder: (context, index) => const SizedBox(
-            //   height: 50,
-            //   width: 50,
-            // ).debugSize(),
           );
         },
       ),

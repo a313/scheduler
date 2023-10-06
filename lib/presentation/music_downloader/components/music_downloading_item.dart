@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:scheduler/data/models/y2_mate_video_detail.dart';
 import 'package:scheduler/theme/app_fonts.dart';
+import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 import '../../../core/utils/util.dart';
 
@@ -13,7 +13,7 @@ class MusicDownloadingItem extends StatelessWidget {
   });
 
   final double percent;
-  final Y2MateVideoDetail info;
+  final Video info;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class MusicDownloadingItem extends StatelessWidget {
           ClipRRect(
             borderRadius: borRad04,
             child: CachedNetworkImage(
-              imageUrl: info.thumbnailUrl,
+              imageUrl: info.thumbnails.mediumResUrl,
               width: 100,
               height: 60,
               fit: BoxFit.cover,
