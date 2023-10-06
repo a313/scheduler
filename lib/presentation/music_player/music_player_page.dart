@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
+import 'package:scheduler/presentation/music_downloader/components/mini_player.dart';
 import 'package:scheduler/theme/app_fonts.dart';
 
 import '../../widgets/base/base_scafold_appbar.dart';
@@ -16,24 +17,29 @@ class MusicPlayerPage extends GetView<MusicPlayerController> {
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
       title: 'Music'.tr,
-      fab: FloatingActionButton.small(
-          onPressed: controller.reloadData, child: const Icon(Icons.refresh)),
       body: GetBuilder<MusicPlayerController>(
         builder: (_) {
           final musics = _.musics;
-          return ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            itemBuilder: (context, index) {
-              final music = musics.elementAt(index);
-              final thumb = _.thumbnails[music.fileName];
-              return MusicItem(
-                file: music,
-                thumbnail: thumb,
-                onTap: controller.onTapMusic,
-              );
-            },
-            separatorBuilder: (context, index) => sizedBoxH04,
-            itemCount: musics.length,
+          return Column(
+            children: [
+              Expanded(
+                  child: ListView.separated(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                itemBuilder: (context, index) {
+                  final music = musics.elementAt(index);
+                  final thumb = _.thumbnails[music.fileName];
+                  return MusicItem(
+                    file: music,
+                    thumbnail: thumb,
+                    onTap: controller.onTapMusic,
+                  );
+                },
+                separatorBuilder: (context, index) => sizedBoxH04,
+                itemCount: musics.length,
+              )),
+              const MiniPlayer(),
+            ],
           );
         },
       ),

@@ -16,3 +16,5 @@ class DataFailure<T> extends DataState<T> {
 }
 
 class IgnoreFailure<T> extends DataState<T> {}
+
+class LoadingState<T> extends DataState<T> {}

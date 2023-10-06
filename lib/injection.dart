@@ -17,6 +17,7 @@ import 'package:scheduler/data/repo_impl/reminder_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/schedule_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/student_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/weather_repo_impl.dart';
+import 'package:scheduler/data/repo_impl/youtube_repo_impl.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
 import 'package:scheduler/domain/usecases/local_usecase.dart';
@@ -57,6 +58,7 @@ class DependencyInjection {
 
     Get.put(VpnUseCases(VpnRepoImpl(VpnServiceImp())));
 
-    Get.put(MusicUseCases(MusicRepoImpl(MusicServiceImpl())));
+    Get.put(
+        MusicUseCases(MusicRepoImpl(MusicServiceImpl()), YoutubeRepoImpl()));
   }
 }

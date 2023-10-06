@@ -28,7 +28,7 @@ class MusicDownloaderPage extends GetView<MusicDownloaderController> {
                 child: Obx(() => ListView.separated(
                     itemBuilder: (context, index) => MusicDownloaderItem(
                         url: controller.pool.keys.elementAt(index),
-                        info: controller.pool.values.elementAt(index)),
+                        data: controller.pool.values.elementAt(index)),
                     separatorBuilder: (context, index) =>
                         const SizedBox(height: 4),
                     itemCount: controller.pool.keys.length))),

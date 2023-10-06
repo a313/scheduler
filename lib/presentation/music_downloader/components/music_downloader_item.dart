@@ -1,27 +1,30 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/y2_mate_video_detail.dart';
 import 'package:scheduler/theme/app_fonts.dart';
+import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 class MusicDownloaderItem extends StatelessWidget {
   const MusicDownloaderItem({
     super.key,
-    this.info,
+    required this.data,
     required this.url,
   });
   final String url;
-  final Y2MateVideoDetail? info;
+  final DataState<Video> data;
 
   @override
   Widget build(BuildContext context) {
-    if (info == null) {
+    if (data is LoadingState<Video>) {
       return _Loading(url);
-    } else if (info!.isError) {
-      return _Error(error: info!.mess);
+    } else if (data is DataFailure<Video>) {
+      return _Error(error: (data as DataFailure).message);
+    } else if (data is DataSuccess<Video>) {
+      return _Info(info: (data as DataSuccess<Video>).data);
     }
-    return _Info(info: info!);
+    return const SizedBox();
   }
 }
 
@@ -30,7 +33,7 @@ class _Info extends StatelessWidget {
     required this.info,
   });
 
-  final Y2MateVideoDetail info;
+  final Video info;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,7 @@ class _Info extends StatelessWidget {
         ClipRRect(
           borderRadius: borRad04,
           child: CachedNetworkImage(
-            imageUrl: info.thumbnailUrl,
+            imageUrl: info.thumbnails.highResUrl,
             width: 100,
             height: 60,
             fit: BoxFit.cover,
@@ -58,7 +61,7 @@ class _Info extends StatelessWidget {
                 maxLines: 2,
               ),
               Text(
-                "Duration: ${Duration(seconds: info.t)}",
+                "Duration: ${info.duration}",
                 style: AppFonts.bSmall.copyWith(color: context.neutral800),
               ),
             ],
