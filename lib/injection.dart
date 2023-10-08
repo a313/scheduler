@@ -1,3 +1,4 @@
+import 'package:audio_service/audio_service.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:scheduler/data/datasource/class_room_db.dart';
@@ -28,6 +29,7 @@ import 'package:scheduler/domain/usecases/student_usecases.dart';
 import 'package:scheduler/domain/usecases/weather_usecases.dart';
 import 'package:scheduler/global.dart';
 
+import 'data/repo_impl/audio_handler_impl.dart';
 import 'data/repo_impl/music_repo_impl.dart';
 import 'data/repo_impl/vpn_repo_impl.dart';
 import 'domain/usecases/vpn_usecases.dart';
@@ -58,5 +60,14 @@ class DependencyInjection {
     Get.put(VpnUseCases(VpnRepoImpl(VpnServiceImp())));
 
     Get.put(MusicUseCases(MusicRepoImpl(MusicServiceImpl())));
+
+    final audioHandler = await AudioService.init(
+        builder: () => AudioHandlerImpl(),
+        config: const AudioServiceConfig(
+          androidNotificationChannelId: 'com.ntt.scheduler.channel.audio',
+          androidNotificationChannelName: 'Audio playback',
+          androidNotificationOngoing: true,
+        ));
+    Get.put<AudioHandler>(audioHandler);
   }
 }

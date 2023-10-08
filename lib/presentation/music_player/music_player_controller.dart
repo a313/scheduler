@@ -1,13 +1,18 @@
+import 'dart:developer';
 import 'dart:io';
 
+import 'package:audio_service/audio_service.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
+import 'package:scheduler/domain/usecases/music_usecases.dart';
 
 class MusicPlayerController extends GetxController {
   List<File> musics = [];
   Map<String, File> thumbnails = {};
-
   File? currentSelect;
+  MusicUseCases useCases = Get.find<MusicUseCases>();
+  AudioHandler audioHandler = Get.find<AudioHandler>();
+  bool shuffle = false;
 
   @override
   void onInit() {
@@ -41,7 +46,23 @@ class MusicPlayerController extends GetxController {
     getData();
   }
 
-  Future<void> onTapMusic(File file) async {}
+  Future<void> onTapMusic(File file) async {
+    log('throw UnimplementedError()');
+  }
 
-  Future<void> setPlaylist() async {}
+  Future<void> setPlaylist() async {
+    List<File> list = musics;
+    if (shuffle) list.shuffle();
+    List<MediaItem> items = [];
+    for (var file in list) {
+      final thumb = thumbnails[file.fileName];
+      final item = MediaItem(
+          id: file.fileName,
+          title: file.fileName,
+          artUri: thumb?.uri,
+          extras: {'uri': file.uri.toString()});
+      items.add(item);
+    }
+    audioHandler.updateQueue(items);
+  }
 }

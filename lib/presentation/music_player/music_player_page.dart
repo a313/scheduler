@@ -1,12 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:scheduler/presentation/music_player/components/mini_player.dart';
 
 import '../../widgets/base/base_scafold_appbar.dart';
+import '../../widgets/media/music_item.dart';
 import 'music_player_controller.dart';
 
 class MusicPlayerPage extends GetView<MusicPlayerController> {
@@ -16,71 +14,36 @@ class MusicPlayerPage extends GetView<MusicPlayerController> {
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
       title: 'Music'.tr,
-      fab: FloatingActionButton.small(
-          onPressed: controller.reloadData, child: const Icon(Icons.refresh)),
       body: GetBuilder<MusicPlayerController>(
         builder: (_) {
           final musics = _.musics;
-          return ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            itemBuilder: (context, index) {
-              final music = musics.elementAt(index);
-              final thumb = _.thumbnails[music.fileName];
-              return MusicItem(
-                file: music,
-                thumbnail: thumb,
-                onTap: controller.onTapMusic,
-              );
-            },
-            separatorBuilder: (context, index) => sizedBoxH04,
-            itemCount: musics.length,
+          final audioHandler = _.audioHandler;
+          return Stack(
+            children: [
+              ListView.separated(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                itemBuilder: (context, index) {
+                  final music = musics.elementAt(index);
+                  final thumb = _.thumbnails[music.fileName];
+                  return MusicItem(
+                    file: music,
+                    thumbnail: thumb?.uri,
+                    onTap: controller.onTapMusic,
+                  );
+                },
+                separatorBuilder: (context, index) => sizedBoxH04,
+                itemCount: musics.length,
+              ),
+              Positioned(
+                left: 2,
+                right: 2,
+                bottom: 2,
+                child: MiniPlayer(audioHandler: audioHandler),
+              ),
+            ],
           );
         },
-      ),
-    );
-  }
-}
-
-class MusicItem extends StatelessWidget {
-  const MusicItem({
-    Key? key,
-    required this.file,
-    this.thumbnail,
-    required this.onTap,
-  }) : super(key: key);
-
-  final File file;
-  final File? thumbnail;
-  final Function(File file) onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => onTap(file),
-      child: Row(
-        children: [
-          SizedBox(
-            height: 50,
-            child: thumbnail != null
-                ? ClipRRect(
-                    borderRadius: borRad08,
-                    child: Image.file(
-                      thumbnail!,
-                      height: 50,
-                      fit: BoxFit.cover,
-                    ),
-                  )
-                : SvgPicture.asset('assets/svg/Regular/MusicNotes.svg'),
-          ),
-          sizedBoxW06,
-          Expanded(
-              child: Text(
-            file.fileName,
-            style: AppFonts.bMedium,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          )),
-        ],
       ),
     );
   }
