@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/datasource/music_service.dart';
 import 'package:scheduler/data/models/y2_mate_video_detail.dart';
 import 'package:scheduler/domain/usecases/music_usecases.dart';
 import 'package:scheduler/routes/routes.dart';
 
 class MusicDownloaderController extends BaseController {
   final musicUC = Get.find<MusicUseCases>();
-  TextEditingController inputController = TextEditingController(text: TEST_URL);
+  TextEditingController inputController = TextEditingController();
 
   RxMap<String, Y2MateVideoDetail?> pool = <String, Y2MateVideoDetail?>{}.obs;
 
@@ -35,12 +34,18 @@ class MusicDownloaderController extends BaseController {
   }
 
   void addToPool() {
-    final url = inputController.text;
+    final urls = inputController.text.split(',');
+    for (var url in urls) {
+      getVideoInfo(url);
+    }
+    inputController.clear();
+  }
+
+  void getVideoInfo(String url) {
     if (url.isURL) {
       getVideoYoutubeInfo(url);
-      inputController.clear();
     } else {
-      showSnackBar('Input not valid');
+      showSnackBar('$url not valid');
     }
   }
 }

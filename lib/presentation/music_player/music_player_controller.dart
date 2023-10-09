@@ -3,10 +3,11 @@ import 'dart:io';
 
 import 'package:audio_service/audio_service.dart';
 import 'package:get/get.dart';
+import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/usecases/music_usecases.dart';
 
-class MusicPlayerController extends GetxController {
+class MusicPlayerController extends BaseController {
   List<File> musics = [];
   Map<String, File> thumbnails = {};
   File? currentSelect;
@@ -42,12 +43,21 @@ class MusicPlayerController extends GetxController {
     setPlaylist();
   }
 
+  @override
   void reloadData() {
     getData();
   }
 
   Future<void> onTapMusic(File file) async {
     log('throw UnimplementedError()');
+  }
+
+  Future<void> onDeleteMusic(
+      File data, Future<void> Function(bool delete) handler) async {
+    musics.remove(data);
+    await data.delete();
+    await handler(true);
+    setPlaylist();
   }
 
   Future<void> setPlaylist() async {
@@ -64,5 +74,23 @@ class MusicPlayerController extends GetxController {
       items.add(item);
     }
     audioHandler.updateQueue(items);
+  }
+
+  void onSwipeDown() {
+    audioHandler.stop();
+  }
+
+  void onSwipeUp() {}
+
+  void onSwipeLeft() {
+    audioHandler.skipToPrevious();
+  }
+
+  void onSwipeRight() {
+    audioHandler.skipToNext();
+  }
+
+  void onSeek(double sec) {
+    audioHandler.seek(Duration(seconds: sec.round()));
   }
 }

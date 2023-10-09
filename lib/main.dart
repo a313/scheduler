@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:metadata_god/metadata_god.dart';
 import 'package:scheduler/device_info.dart';
 import 'package:scheduler/injection.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -20,7 +21,7 @@ Future<void> main() async {
     await Firebase.initializeApp();
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
     await GetStorage.init();
-
+    MetadataGod.initialize();
     if (kDebugMode) {
       //await DbHelper().replaceDatabase();
       // Utils().cloneDb();

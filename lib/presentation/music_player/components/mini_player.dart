@@ -1,29 +1,15 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scheduler/core/utils/extensions/build_context.dart';
 import 'package:scheduler/presentation/music_player/components/media_control_component.dart';
+import 'package:scheduler/presentation/music_player/music_player_controller.dart';
 import 'package:scheduler/widgets/media/media_info.dart';
 
-class MiniPlayer extends StatelessWidget {
-  const MiniPlayer(
-      {super.key,
-      required this.audioHandler,
-      this.onSwipeUp,
-      this.onSwipeDown,
-      this.onSwipeRight,
-      this.onSwipeLeft,
-      this.onSeek});
+class MiniPlayer extends GetWidget<MusicPlayerController> {
+  const MiniPlayer({super.key, required this.audioHandler});
   final AudioHandler audioHandler;
 
-  final Function()? onSwipeUp;
-
-  final Function()? onSwipeDown;
-
-  final Function()? onSwipeRight;
-
-  final Function()? onSwipeLeft;
-
-  final Function(double sec)? onSeek;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<MediaItem?>(
@@ -35,9 +21,9 @@ class MiniPlayer extends StatelessWidget {
             direction: DismissDirection.vertical,
             confirmDismiss: (direction) async {
               if (direction == DismissDirection.down) {
-                onSwipeDown?.call();
+                controller.onSwipeDown();
               } else if (direction == DismissDirection.up) {
-                onSwipeUp?.call();
+                controller.onSwipeUp();
               }
               return false;
             },
@@ -46,9 +32,9 @@ class MiniPlayer extends StatelessWidget {
                 direction: DismissDirection.horizontal,
                 confirmDismiss: (direction) async {
                   if (direction == DismissDirection.startToEnd) {
-                    onSwipeRight?.call();
+                    controller.onSwipeRight();
                   } else if (direction == DismissDirection.endToStart) {
-                    onSwipeLeft?.call();
+                    controller.onSwipeLeft();
                   }
                   return false;
                 },
@@ -72,7 +58,7 @@ class MiniPlayer extends StatelessWidget {
                       ),
                       SliderWidget(
                         length: mediaItem?.duration?.inSeconds.toDouble() ?? 0,
-                        onChanged: onSeek,
+                        onChanged: controller.onSeek,
                       ),
                     ],
                   ),

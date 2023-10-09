@@ -1,4 +1,8 @@
 PODS:
+  - audio_service (0.14.1):
+    - FlutterMacOS
+  - audio_session (0.0.1):
+    - FlutterMacOS
   - device_info_plus (0.0.1):
     - FlutterMacOS
   - Firebase/Analytics (10.12.0):
@@ -121,6 +125,9 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.11.5):
     - GoogleUtilities/Logger
+  - just_audio (0.0.1):
+    - FlutterMacOS
+  - metadata_god (0.0.1)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -143,6 +150,8 @@ PODS:
     - FlutterMacOS
 
 DEPENDENCIES:
+  - audio_service (from `Flutter/ephemeral/.symlinks/plugins/audio_service/macos`)
+  - audio_session (from `Flutter/ephemeral/.symlinks/plugins/audio_session/macos`)
   - device_info_plus (from `Flutter/ephemeral/.symlinks/plugins/device_info_plus/macos`)
   - firebase_analytics (from `Flutter/ephemeral/.symlinks/plugins/firebase_analytics/macos`)
   - firebase_core (from `Flutter/ephemeral/.symlinks/plugins/firebase_core/macos`)
@@ -150,6 +159,8 @@ DEPENDENCIES:
   - flutter_local_notifications (from `Flutter/ephemeral/.symlinks/plugins/flutter_local_notifications/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
   - geolocator_apple (from `Flutter/ephemeral/.symlinks/plugins/geolocator_apple/macos`)
+  - just_audio (from `Flutter/ephemeral/.symlinks/plugins/just_audio/macos`)
+  - metadata_god (from `Flutter/ephemeral/.symlinks/plugins/metadata_god/macos`)
   - package_info_plus (from `Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos`)
   - path_provider_foundation (from `Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin`)
   - share_plus (from `Flutter/ephemeral/.symlinks/plugins/share_plus/macos`)
@@ -175,6 +186,10 @@ SPEC REPOS:
     - PromisesSwift
 
 EXTERNAL SOURCES:
+  audio_service:
+    :path: Flutter/ephemeral/.symlinks/plugins/audio_service/macos
+  audio_session:
+    :path: Flutter/ephemeral/.symlinks/plugins/audio_session/macos
   device_info_plus:
     :path: Flutter/ephemeral/.symlinks/plugins/device_info_plus/macos
   firebase_analytics:
@@ -189,6 +204,10 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral
   geolocator_apple:
     :path: Flutter/ephemeral/.symlinks/plugins/geolocator_apple/macos
+  just_audio:
+    :path: Flutter/ephemeral/.symlinks/plugins/just_audio/macos
+  metadata_god:
+    :path: Flutter/ephemeral/.symlinks/plugins/metadata_god/macos
   package_info_plus:
     :path: Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos
   path_provider_foundation:
@@ -201,6 +220,8 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos
 
 SPEC CHECKSUMS:
+  audio_service: b88ff778e0e3915efd4cd1a5ad6f0beef0c950a9
+  audio_session: dea1f41890dbf1718f04a56f1d6150fd50039b72
   device_info_plus: 5401765fde0b8d062a2f8eb65510fb17e77cf07f
   Firebase: 07150e75d142fb9399f6777fa56a187b17f833a0
   firebase_analytics: ad91208433a0b831884ce0cf7c64a105fea64136
@@ -220,9 +241,11 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 2d800fab85e7848b1e66a6f8ce5bca06c5aad892
   GoogleDataTransport: 54dee9d48d14580407f8f5fbf2f496e92437a2f2
   GoogleUtilities: 13e2c67ede716b8741c7989e26893d151b2b2084
+  just_audio: 9b67ca7b97c61cfc9784ea23cd8cc55eb226d489
+  metadata_god: eceae399d0020475069a5cebc35943ce8562b5d7
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   package_info_plus: 02d7a575e80f194102bef286361c6c326e4c29ce
-  path_provider_foundation: eaf5b3e458fc0e5fbb9940fb09980e853fe058b8
+  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   PromisesSwift: 28dca69a9c40779916ac2d6985a0192a5cb4a265
   share_plus: 76dd39142738f7a68dd57b05093b5e8193f220f7
@@ -231,4 +254,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 236401fc2c932af29a9fcf0e97baeeb2d750d367
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.13.0

@@ -1,7 +1,7 @@
 name: scheduler
 description: A new Flutter project.
 publish_to: 'none'
-version: 0.3.6+0.0.22
+version: 0.3.6+0.0.25
 
 environment:
   sdk: '>=3.0.2 <4.0.0'
@@ -39,12 +39,14 @@ dependencies:
   google_mlkit_commons: ^0.5.0
   google_mlkit_object_detection: ^0.10.0
   google_mlkit_text_recognition: ^0.10.0
+  http: ^1.1.0
   image: ^4.0.17
   image_cropper: ^5.0.0
   image_picker: ^0.8.7+5
   intl: ^0.18.0
   json_annotation: ^4.8.1
   just_audio: ^0.9.35
+  metadata_god: ^0.5.2+1
   package_info_plus: ^4.0.2
   path: ^1.8.3
   path_provider: ^2.1.1
