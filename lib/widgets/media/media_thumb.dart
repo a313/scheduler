@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,22 @@ class MediaThumb extends StatelessWidget {
       return CachedNetworkImage(imageUrl: uri.toString());
     } else {
       return Image.file(File(uri!.toFilePath()));
+    }
+  }
+}
+
+class ByteThumb extends StatelessWidget {
+  const ByteThumb(this.bytes, {super.key});
+  final Uint8List? bytes;
+  @override
+  Widget build(BuildContext context) {
+    if (bytes == null || bytes!.isEmpty) {
+      return Padding(
+        padding: padSymHor08,
+        child: SvgPicture.asset("assets/svg/Regular/MusicNotes.svg"),
+      );
+    } else {
+      return Image.memory(bytes!);
     }
   }
 }

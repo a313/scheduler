@@ -71,7 +71,7 @@ class MusicDownloadingController extends BaseController {
     if (url != null) {
       final path = "$docPath/$videoId";
       final mp3Path = '$path.${url.ftype}';
-
+      final thumbPath = '$path.jpg';
       final mp3Rp = await musicUC.downloadMp3(
         url.dlink,
         mp3Path,
@@ -81,7 +81,8 @@ class MusicDownloadingController extends BaseController {
         },
       );
       if (mp3Rp is DataSuccess) {
-        await musicUC.fillMetadata(mp3Path, data);
+        await musicUC.downloadThumb(data.thumbnailUrl, thumbPath);
+        await musicUC.fillMetadata(mp3Path, thumbPath, data);
         return true;
       } else if (mp3Rp is DataFailure<bool>) {
         log(mp3Rp.message);

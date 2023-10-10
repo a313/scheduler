@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scheduler/core/utils/util.dart';
+import 'package:scheduler/presentation/music_player/components/header_component.dart';
 import 'package:scheduler/presentation/music_player/components/mini_player.dart';
 
 import '../../domain/entities/swipe_action_data.dart';
@@ -17,18 +18,18 @@ class MusicPlayerPage extends GetView<MusicPlayerController> {
       title: 'Music'.tr,
       body: GetBuilder<MusicPlayerController>(
         builder: (_) {
-          final musics = _.musics;
+          final musics = _.filteredMedia;
           final audioHandler = _.audioHandler;
           return Stack(
             children: [
               ListView.separated(
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 itemBuilder: (context, index) {
-                  final music = musics.elementAt(index);
-                  final thumb = _.thumbnails[music.fileName];
+                  if (index == 0) return const HeaderComponent();
+                  final music = musics.elementAt(index - 1);
+
                   return MusicItem(
-                    file: music,
-                    thumbnail: thumb?.uri,
+                    data: music,
                     onTap: controller.onTapMusic,
                     actions: [
                       SwipeActionData(onTap: controller.onDeleteMusic),
@@ -36,7 +37,7 @@ class MusicPlayerPage extends GetView<MusicPlayerController> {
                   );
                 },
                 separatorBuilder: (context, index) => sizedBoxH04,
-                itemCount: musics.length,
+                itemCount: musics.length + 1,
               ),
               Positioned(
                 left: 2,
