@@ -30,6 +30,7 @@ class MusicPlayerController extends BaseController {
     final directory = await Utils.getDirectory(path: 'musics');
     if (!await directory.exists()) return;
     final list = directory.listSync(recursive: true, followLinks: false);
+
     await handlerData(list);
     onFilter(filter);
     update();

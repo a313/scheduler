@@ -36,7 +36,7 @@ class MusicDownloaderController extends BaseController {
   void addToPool() {
     final urls = inputController.text.split(',');
     for (var url in urls) {
-      getVideoInfo(url);
+      getVideoInfo(url.trim());
     }
     inputController.clear();
   }

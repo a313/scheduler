@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:math' as math;
 
 import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
@@ -34,11 +35,26 @@ class MusicDownloadingController extends BaseController {
     timer = Timer.periodic(const Duration(milliseconds: 500), (timer) {
       update();
     });
-    final listFuture = data.map((e) => download(e));
-    final isSuccess = (await Future.wait(listFuture)).reduce((value, e) {
-      if (e == false) value = false;
-      return value;
-    });
+    const itemPerGroup = 5;
+    List<List<Y2MateVideoDetail>> group = [];
+    int groupCount = data.length ~/ itemPerGroup + 1;
+    for (int i = 0; i < groupCount; i++) {
+      final items = data.getRange(
+          i * itemPerGroup, math.min((i + 1) * itemPerGroup, data.length));
+      if (items.isNotEmpty) {
+        group.add(items.toList());
+      }
+    }
+    bool isSuccess = true;
+    for (var g in group) {
+      final listFuture = g.map((e) => download(e));
+      final response = (await Future.wait(listFuture)).reduce((value, e) {
+        if (e == false) value = false;
+        return value;
+      });
+      if (isSuccess) isSuccess = response;
+    }
+
     update();
     timer?.cancel();
     if (isSuccess) {
