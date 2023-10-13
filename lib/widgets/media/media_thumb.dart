@@ -20,9 +20,17 @@ class MediaThumb extends StatelessWidget {
     }
     final isNetwork = uri!.scheme.contains('http');
     if (isNetwork) {
-      return CachedNetworkImage(imageUrl: uri.toString());
+      return ClipRRect(
+          borderRadius: borRad04,
+          child: CachedNetworkImage(
+            imageUrl: uri.toString(),
+          ));
     } else {
-      return Image.file(File(uri!.toFilePath()));
+      return ClipRRect(
+          borderRadius: borRad04,
+          child: Image.file(File(
+            uri!.toFilePath(),
+          )));
     }
   }
 }

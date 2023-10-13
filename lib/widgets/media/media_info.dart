@@ -1,5 +1,6 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:scheduler/core/utils/constants/sized_boxs.dart';
 import 'package:scheduler/core/utils/extensions/build_context.dart';
 import 'package:scheduler/theme/app_fonts.dart';
@@ -20,7 +21,8 @@ class MediaInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
+        SizedBox(
+          width: 80,
           child: Hero(
             tag: heroTag,
             child: MediaThumb(data?.artUri),
@@ -35,16 +37,16 @@ class MediaInfo extends StatelessWidget {
             children: [
               sizedBoxH04,
               Text(
-                data?.title ?? 'Now playing',
+                data?.title ?? 'Not playing',
                 maxLines: 2,
                 style: AppFonts.bMedium,
               ),
-              sizedBoxH02,
-              Text(
-                data?.duration?.toString() ?? '',
-                maxLines: 1,
-                style: AppFonts.bSmall.copyWith(color: context.neutral900),
-              )
+              if (data?.duration != null)
+                Text(
+                  data!.duration!.toString().split('.')[0],
+                  maxLines: 1,
+                  style: AppFonts.bSmall.copyWith(color: context.neutral900),
+                ).paddingOnly(top: 2.0)
             ],
           ),
         ),

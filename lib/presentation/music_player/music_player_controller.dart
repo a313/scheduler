@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:audio_service/audio_service.dart';
@@ -7,6 +6,7 @@ import 'package:metadata_god/metadata_god.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/usecases/music_usecases.dart';
+import 'package:scheduler/presentation/music_player/components/audio_player.dart';
 
 class MusicPlayerController extends BaseController {
   List<MediaItem> allMedia = [];
@@ -65,35 +65,34 @@ class MusicPlayerController extends BaseController {
   }
 
   Future<void> onTapMusic(MediaItem audio) async {
-    log('throw UnimplementedError()');
+    final clone = List<MediaItem>.from(filteredMedia);
+    clone.remove(audio);
+    if (shuffle) clone.shuffle();
+    clone.insert(0, audio);
+    playAudios(clone);
   }
 
   Future<void> onDeleteMusic(
       MediaItem data, Future<void> Function(bool delete) handler) async {
     allMedia.remove(data);
-    final fUri = data.extras?['uri'] as Uri?;
+    final fUri = data.extras?['uri'] as String?;
     if (fUri != null) {
-      File.fromUri(fUri).delete();
+      File.fromUri(Uri.parse(fUri)).delete();
     }
 
-    final tUri = data.extras?['thumbUri'] as Uri?;
+    final tUri = data.extras?['thumbUri'] as String?;
     if (tUri != null) {
-      File.fromUri(tUri).delete();
+      File.fromUri(Uri.parse(tUri)).delete();
     }
-
     await handler(true);
+    update();
   }
 
   Future<void> playAudios(List<MediaItem> list, {bool shuffle = false}) async {
     if (shuffle) list.shuffle();
-    audioHandler.updateQueue(list);
+    await audioHandler.updateQueue(list);
+    await audioHandler.play();
   }
-
-  void onSwipeDown() {
-    audioHandler.stop();
-  }
-
-  void onSwipeUp() {}
 
   void onSwipeLeft() {
     audioHandler.skipToPrevious();
@@ -126,5 +125,9 @@ class MusicPlayerController extends BaseController {
           .toList();
     }
     update();
+  }
+
+  void openAudioPlayer() {
+    bottomSheet(const AudioPlayer());
   }
 }
