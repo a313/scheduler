@@ -36,6 +36,7 @@ class ClassRoom with _$ClassRoom {
       other.location == location &&
       listEquals(other.timetables, timetables) &&
       other.softIndex == softIndex &&
+      other.isOpen == isOpen &&
       other.image == image;
 
   @override
@@ -49,6 +50,7 @@ class ClassRoom with _$ClassRoom {
       location.hashCode ^
       timetables.hashCode ^
       softIndex.hashCode ^
+      isOpen.hashCode ^
       image.hashCode;
 
   factory ClassRoom.fromJson(Map<String, Object?> json) =>
