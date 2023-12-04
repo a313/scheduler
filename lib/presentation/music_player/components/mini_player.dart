@@ -1,7 +1,7 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/extensions/build_context.dart';
+import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/presentation/music_player/components/media_control_component.dart';
 import 'package:scheduler/presentation/music_player/music_player_controller.dart';
 import 'package:scheduler/widgets/media/media_info.dart';
@@ -16,53 +16,46 @@ class MiniPlayer extends GetWidget<MusicPlayerController> {
       stream: audioHandler.mediaItem,
       builder: (context, snapshot) {
         final mediaItem = snapshot.data;
-        return Dismissible(
-            key: const Key('up_down'),
-            direction: DismissDirection.vertical,
-            confirmDismiss: (direction) async {
-              if (direction == DismissDirection.down) {
-                controller.onSwipeDown();
-              } else if (direction == DismissDirection.up) {
-                controller.onSwipeUp();
-              }
-              return false;
-            },
-            child: Dismissible(
-                key: const Key('left_right'),
-                direction: DismissDirection.horizontal,
-                confirmDismiss: (direction) async {
-                  if (direction == DismissDirection.startToEnd) {
-                    controller.onSwipeRight();
-                  } else if (direction == DismissDirection.endToStart) {
-                    controller.onSwipeLeft();
-                  }
-                  return false;
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                        context.neutral400.withOpacity(0.5),
-                        context.neutral200.withOpacity(0.8)
-                      ])),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(child: MediaInfo(data: mediaItem)),
-                          MediaControlComponent(audioHandler: audioHandler)
-                        ],
-                      ),
-                      SliderWidget(
-                        length: mediaItem?.duration?.inSeconds.toDouble() ?? 0,
-                        onChanged: controller.onSeek,
-                      ),
-                    ],
-                  ),
-                )));
+        return GestureDetector(
+          onTap: controller.openAudioPlayer,
+          child: Dismissible(
+              key: const Key('left_right'),
+              direction: DismissDirection.horizontal,
+              confirmDismiss: (direction) async {
+                if (direction == DismissDirection.startToEnd) {
+                  controller.onSwipeRight();
+                } else if (direction == DismissDirection.endToStart) {
+                  controller.onSwipeLeft();
+                }
+                return false;
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                      context.neutral400.withOpacity(0.5),
+                      context.neutral200.withOpacity(0.8)
+                    ])),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(
+                      children: [
+                        sizedBoxW12,
+                        Expanded(child: MediaInfo(data: mediaItem)),
+                        MediaControlComponent(audioHandler: audioHandler)
+                      ],
+                    ),
+                    SliderWidget(
+                      length: mediaItem?.duration?.inSeconds.toDouble() ?? 0,
+                      onChanged: controller.onSeek,
+                    ),
+                  ],
+                ),
+              )),
+        );
       },
     );
   }

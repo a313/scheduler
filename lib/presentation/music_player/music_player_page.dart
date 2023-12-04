@@ -20,31 +20,29 @@ class MusicPlayerPage extends GetView<MusicPlayerController> {
         builder: (_) {
           final musics = _.filteredMedia;
           final audioHandler = _.audioHandler;
-          return Stack(
+          return Column(
             children: [
-              ListView.separated(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                itemBuilder: (context, index) {
-                  if (index == 0) return const HeaderComponent();
-                  final music = musics.elementAt(index - 1);
+              Expanded(
+                child: ListView.separated(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                  itemBuilder: (context, index) {
+                    if (index == 0) return const HeaderComponent();
+                    final music = musics.elementAt(index - 1);
 
-                  return MusicItem(
-                    data: music,
-                    onTap: controller.onTapMusic,
-                    actions: [
-                      SwipeActionData(onTap: controller.onDeleteMusic),
-                    ],
-                  );
-                },
-                separatorBuilder: (context, index) => sizedBoxH04,
-                itemCount: musics.length + 1,
+                    return MusicItem(
+                      data: music,
+                      onTap: controller.onTapMusic,
+                      actions: [
+                        SwipeActionData(onTap: controller.onDeleteMusic),
+                      ],
+                    );
+                  },
+                  separatorBuilder: (context, index) => sizedBoxH04,
+                  itemCount: musics.length + 1,
+                ),
               ),
-              Positioned(
-                left: 2,
-                right: 2,
-                bottom: 2,
-                child: MiniPlayer(audioHandler: audioHandler),
-              ),
+              MiniPlayer(audioHandler: audioHandler),
             ],
           );
         },

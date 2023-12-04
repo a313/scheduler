@@ -28,10 +28,9 @@ class MusicItem extends StatelessWidget {
           trailingActions: actions?.map((e) => e.toAction(data)).toList(),
           child: Row(
             children: [
-              Expanded(child: MediaThumb(data.artUri)),
+              SizedBox(width: 80, child: MediaThumb(data.artUri)),
               sizedBoxW08,
               Expanded(
-                flex: 5,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
