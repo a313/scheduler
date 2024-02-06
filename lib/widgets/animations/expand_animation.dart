@@ -5,12 +5,12 @@ import '../animations/size_animation.dart';
 
 class ExpandAnimation extends StatefulWidget {
   const ExpandAnimation({
-    Key? key,
+    super.key,
     this.initExpand = true,
     required this.child,
     required this.header,
     this.duration = dur500,
-  }) : super(key: key);
+  });
   final bool initExpand;
   final Widget child;
   final Widget header;

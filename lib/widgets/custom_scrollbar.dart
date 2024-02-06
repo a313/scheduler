@@ -3,11 +3,11 @@ import 'package:scheduler/core/utils/util.dart';
 
 class CustomHorizontalScrollbar extends StatefulWidget {
   const CustomHorizontalScrollbar({
-    Key? key,
+    super.key,
     required this.controller,
     required this.child,
     this.indicatorPadding = 16.0,
-  }) : super(key: key);
+  });
   final Widget child;
   final ScrollController controller;
 

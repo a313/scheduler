@@ -4,8 +4,8 @@ import '../base/base_shimmer.dart';
 
 class ShimmerAvatar extends StatelessWidget {
   const ShimmerAvatar({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,7 @@ import '../components/other_info.dart';
 import 'ocr_camera_controller.dart';
 
 class OcrCameraPage extends GetView<OcrCameraController> {
-  const OcrCameraPage({Key? key}) : super(key: key);
+  const OcrCameraPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -5,11 +5,11 @@ import '../../../theme/app_fonts.dart';
 
 class MainNavBar extends StatelessWidget {
   const MainNavBar({
-    Key? key,
+    super.key,
     this.onTap,
     required this.currentIndex,
     required this.items,
-  }) : super(key: key);
+  });
   final Function(int)? onTap;
   final int currentIndex;
   final List<BottomNavigationBarItem> items;

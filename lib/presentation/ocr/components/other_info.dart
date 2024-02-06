@@ -12,7 +12,7 @@ class OtherInfo extends StatelessWidget {
   final Key? frameKey;
 
   const OtherInfo({
-    Key? key,
+    super.key,
     this.frameKey,
     required this.enableBtn,
     required this.type,
@@ -20,7 +20,7 @@ class OtherInfo extends StatelessWidget {
     this.onTakePicture,
     required this.recentPhoto,
     this.onSwapCamera,
-  }) : super(key: key);
+  });
   final bool enableBtn;
   final CameraType type;
   final Function()? onPickImage;

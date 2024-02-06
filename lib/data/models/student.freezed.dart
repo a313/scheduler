@@ -12,7 +12,7 @@ part of 'student.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Student _$StudentFromJson(Map<String, dynamic> json) {
   return _Student.fromJson(json);
@@ -146,10 +146,10 @@ class _$StudentCopyWithImpl<$Res, $Val extends Student>
 }
 
 /// @nodoc
-abstract class _$$_StudentCopyWith<$Res> implements $StudentCopyWith<$Res> {
-  factory _$$_StudentCopyWith(
-          _$_Student value, $Res Function(_$_Student) then) =
-      __$$_StudentCopyWithImpl<$Res>;
+abstract class _$$StudentImplCopyWith<$Res> implements $StudentCopyWith<$Res> {
+  factory _$$StudentImplCopyWith(
+          _$StudentImpl value, $Res Function(_$StudentImpl) then) =
+      __$$StudentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -166,10 +166,11 @@ abstract class _$$_StudentCopyWith<$Res> implements $StudentCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_StudentCopyWithImpl<$Res>
-    extends _$StudentCopyWithImpl<$Res, _$_Student>
-    implements _$$_StudentCopyWith<$Res> {
-  __$$_StudentCopyWithImpl(_$_Student _value, $Res Function(_$_Student) _then)
+class __$$StudentImplCopyWithImpl<$Res>
+    extends _$StudentCopyWithImpl<$Res, _$StudentImpl>
+    implements _$$StudentImplCopyWith<$Res> {
+  __$$StudentImplCopyWithImpl(
+      _$StudentImpl _value, $Res Function(_$StudentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -186,7 +187,7 @@ class __$$_StudentCopyWithImpl<$Res>
     Object? lastCharge = freezed,
     Object? image = freezed,
   }) {
-    return _then(_$_Student(
+    return _then(_$StudentImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -233,8 +234,8 @@ class __$$_StudentCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Student extends _Student with DiagnosticableTreeMixin {
-  _$_Student(
+class _$StudentImpl extends _Student with DiagnosticableTreeMixin {
+  _$StudentImpl(
       {this.id,
       required this.name,
       @ListIntConverter() required this.classId,
@@ -247,8 +248,8 @@ class _$_Student extends _Student with DiagnosticableTreeMixin {
       this.image})
       : super._();
 
-  factory _$_Student.fromJson(Map<String, dynamic> json) =>
-      _$$_StudentFromJson(json);
+  factory _$StudentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StudentImplFromJson(json);
 
   @override
   int? id;
@@ -302,12 +303,12 @@ class _$_Student extends _Student with DiagnosticableTreeMixin {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StudentCopyWith<_$_Student> get copyWith =>
-      __$$_StudentCopyWithImpl<_$_Student>(this, _$identity);
+  _$$StudentImplCopyWith<_$StudentImpl> get copyWith =>
+      __$$StudentImplCopyWithImpl<_$StudentImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StudentToJson(
+    return _$$StudentImplToJson(
       this,
     );
   }
@@ -324,10 +325,10 @@ abstract class _Student extends Student {
       required int fee,
       @ListStringConverter() required List<String> phones,
       @DateTimeConverter() DateTime? lastCharge,
-      String? image}) = _$_Student;
+      String? image}) = _$StudentImpl;
   _Student._() : super._();
 
-  factory _Student.fromJson(Map<String, dynamic> json) = _$_Student.fromJson;
+  factory _Student.fromJson(Map<String, dynamic> json) = _$StudentImpl.fromJson;
 
   @override
   int? get id;
@@ -373,6 +374,6 @@ abstract class _Student extends Student {
   set image(String? value);
   @override
   @JsonKey(ignore: true)
-  _$$_StudentCopyWith<_$_Student> get copyWith =>
+  _$$StudentImplCopyWith<_$StudentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

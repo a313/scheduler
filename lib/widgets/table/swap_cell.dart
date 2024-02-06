@@ -3,11 +3,10 @@ import 'package:scheduler/core/utils/constants/durations.dart';
 
 class SwapCell extends StatelessWidget {
   const SwapCell(
-      {Key? key,
+      {super.key,
       required this.childA,
       required this.childB,
-      required this.isShowA})
-      : super(key: key);
+      required this.isShowA});
   final Widget childA;
   final Widget childB;
   final bool isShowA;

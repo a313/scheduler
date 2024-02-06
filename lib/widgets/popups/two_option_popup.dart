@@ -6,14 +6,14 @@ import '../base/base_popup.dart';
 
 class TwoOptionPopup extends StatelessWidget {
   const TwoOptionPopup({
-    Key? key,
+    super.key,
     required this.desc,
     this.title = 'Warning',
     this.primaryTitle = 'Ok',
     this.secondaryTitle = 'Cancel',
     required this.onPrimary,
     this.onSecondary,
-  }) : super(key: key);
+  });
 
   final String desc;
   final String? title;

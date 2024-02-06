@@ -3,10 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class BarIcon extends StatelessWidget {
   const BarIcon({
-    Key? key,
+    super.key,
     required this.path,
     this.colorFilter,
-  }) : super(key: key);
+  });
 
   final String path;
   final ColorFilter? colorFilter;

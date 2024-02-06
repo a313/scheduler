@@ -7,9 +7,9 @@ import '../base/base_shimmer.dart';
 
 class ShimmerTable extends StatelessWidget {
   const ShimmerTable({
-    Key? key,
+    super.key,
     this.itemCount = 4,
-  }) : super(key: key);
+  });
   final int itemCount;
   @override
   Widget build(BuildContext context) {
@@ -24,9 +24,7 @@ class ShimmerTable extends StatelessWidget {
 }
 
 class _Cell extends StatelessWidget {
-  const _Cell({
-    Key? key,
-  }) : super(key: key);
+  const _Cell();
 
   @override
   Widget build(BuildContext context) {

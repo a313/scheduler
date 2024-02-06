@@ -9,11 +9,11 @@ class ViewMoreWidget extends StatefulWidget {
   final Function(bool isShowAll)? onTappedShowMore;
 
   const ViewMoreWidget({
-    Key? key,
+    super.key,
     required this.short,
     required this.long,
     this.onTappedShowMore,
-  }) : super(key: key);
+  });
 
   @override
   State<ViewMoreWidget> createState() => _ViewMoreWidgetState();

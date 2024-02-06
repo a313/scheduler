@@ -12,7 +12,7 @@ part of 'schedule.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Schedule _$ScheduleFromJson(Map<String, dynamic> json) {
   return _Schedule.fromJson(json);
@@ -91,10 +91,11 @@ class _$ScheduleCopyWithImpl<$Res, $Val extends Schedule>
 }
 
 /// @nodoc
-abstract class _$$_ScheduleCopyWith<$Res> implements $ScheduleCopyWith<$Res> {
-  factory _$$_ScheduleCopyWith(
-          _$_Schedule value, $Res Function(_$_Schedule) then) =
-      __$$_ScheduleCopyWithImpl<$Res>;
+abstract class _$$ScheduleImplCopyWith<$Res>
+    implements $ScheduleCopyWith<$Res> {
+  factory _$$ScheduleImplCopyWith(
+          _$ScheduleImpl value, $Res Function(_$ScheduleImpl) then) =
+      __$$ScheduleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -105,11 +106,11 @@ abstract class _$$_ScheduleCopyWith<$Res> implements $ScheduleCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ScheduleCopyWithImpl<$Res>
-    extends _$ScheduleCopyWithImpl<$Res, _$_Schedule>
-    implements _$$_ScheduleCopyWith<$Res> {
-  __$$_ScheduleCopyWithImpl(
-      _$_Schedule _value, $Res Function(_$_Schedule) _then)
+class __$$ScheduleImplCopyWithImpl<$Res>
+    extends _$ScheduleCopyWithImpl<$Res, _$ScheduleImpl>
+    implements _$$ScheduleImplCopyWith<$Res> {
+  __$$ScheduleImplCopyWithImpl(
+      _$ScheduleImpl _value, $Res Function(_$ScheduleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +121,7 @@ class __$$_ScheduleCopyWithImpl<$Res>
     Object? begin = null,
     Object? end = null,
   }) {
-    return _then(_$_Schedule(
+    return _then(_$ScheduleImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -143,16 +144,16 @@ class __$$_ScheduleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Schedule extends _Schedule {
-  _$_Schedule(
+class _$ScheduleImpl extends _Schedule {
+  _$ScheduleImpl(
       {this.id,
       required this.name,
       @TimeOfDayConverter() required this.begin,
       @TimeOfDayConverter() required this.end})
       : super._();
 
-  factory _$_Schedule.fromJson(Map<String, dynamic> json) =>
-      _$$_ScheduleFromJson(json);
+  factory _$ScheduleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ScheduleImplFromJson(json);
 
   @override
   int? id;
@@ -173,12 +174,12 @@ class _$_Schedule extends _Schedule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ScheduleCopyWith<_$_Schedule> get copyWith =>
-      __$$_ScheduleCopyWithImpl<_$_Schedule>(this, _$identity);
+  _$$ScheduleImplCopyWith<_$ScheduleImpl> get copyWith =>
+      __$$ScheduleImplCopyWithImpl<_$ScheduleImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ScheduleToJson(
+    return _$$ScheduleImplToJson(
       this,
     );
   }
@@ -189,10 +190,11 @@ abstract class _Schedule extends Schedule {
       {int? id,
       required String name,
       @TimeOfDayConverter() required TimeOfDay begin,
-      @TimeOfDayConverter() required TimeOfDay end}) = _$_Schedule;
+      @TimeOfDayConverter() required TimeOfDay end}) = _$ScheduleImpl;
   _Schedule._() : super._();
 
-  factory _Schedule.fromJson(Map<String, dynamic> json) = _$_Schedule.fromJson;
+  factory _Schedule.fromJson(Map<String, dynamic> json) =
+      _$ScheduleImpl.fromJson;
 
   @override
   int? get id;
@@ -212,6 +214,6 @@ abstract class _Schedule extends Schedule {
   set end(TimeOfDay value);
   @override
   @JsonKey(ignore: true)
-  _$$_ScheduleCopyWith<_$_Schedule> get copyWith =>
+  _$$ScheduleImplCopyWith<_$ScheduleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

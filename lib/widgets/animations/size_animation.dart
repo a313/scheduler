@@ -5,11 +5,10 @@ class SizeAnimation extends StatefulWidget {
   final Widget child;
   final bool isActive;
   const SizeAnimation(
-      {Key? key,
+      {super.key,
       required this.duration,
       required this.child,
-      this.isActive = false})
-      : super(key: key);
+      this.isActive = false});
 
   @override
   State<SizeAnimation> createState() => _State();

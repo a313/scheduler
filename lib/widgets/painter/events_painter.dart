@@ -76,7 +76,7 @@ class EventsPainter extends CustomPainter {
       final textPainter = TextPainter(
         text: textSpan,
         maxLines: 1,
-        textScaleFactor: scale,
+        textScaler: TextScaler.linear(scale),
         textDirection: TextDirection.rtl,
       );
       textPainter.layout(

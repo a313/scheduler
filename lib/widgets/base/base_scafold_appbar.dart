@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 class BaseScafold extends StatelessWidget {
   const BaseScafold({
-    Key? key,
+    super.key,
     this.fab,
     this.backgroundColor,
     this.fabLocation,
@@ -14,7 +14,7 @@ class BaseScafold extends StatelessWidget {
     required this.body,
     this.appBar,
     this.extendBodyBehindAppBar = false,
-  }) : super(key: key);
+  });
 
   final Widget body;
   final Widget? fab;
@@ -29,7 +29,8 @@ class BaseScafold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
+      data: MediaQuery.of(context)
+          .copyWith(textScaler: const TextScaler.linear(1)),
       child: WillPopScope(
         onWillPop: () {
           if (onWillPop != null) {
@@ -61,7 +62,7 @@ class BaseScafold extends StatelessWidget {
 
 class BaseScafoldAppBar extends StatelessWidget {
   const BaseScafoldAppBar({
-    Key? key,
+    super.key,
     this.title,
     this.titleWidget,
     this.actions,
@@ -81,7 +82,7 @@ class BaseScafoldAppBar extends StatelessWidget {
     this.systemOverlayStyle,
     this.extendBodyBehindAppBar = false,
     this.centerTitle,
-  }) : super(key: key);
+  });
   final String? title;
   final Widget? titleWidget;
   final List<Widget>? actions;

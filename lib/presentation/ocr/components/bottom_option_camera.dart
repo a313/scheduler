@@ -6,7 +6,7 @@ import 'package:scheduler/theme/app_fonts.dart';
 
 class BottomOptionCamera extends StatelessWidget {
   const BottomOptionCamera({
-    Key? key,
+    super.key,
     required this.botText,
     required this.enableBtn,
     required this.onPickImage,
@@ -14,7 +14,7 @@ class BottomOptionCamera extends StatelessWidget {
     required this.recentPhoto,
     this.onSwapCamera,
     required this.bgColor,
-  }) : super(key: key);
+  });
 
   final String botText;
 

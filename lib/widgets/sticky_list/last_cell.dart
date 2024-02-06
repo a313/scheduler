@@ -3,11 +3,11 @@ import 'package:scheduler/core/utils/util.dart';
 
 class LastCell extends StatelessWidget {
   const LastCell({
-    Key? key,
+    super.key,
     required this.child,
     this.onTapped,
     this.backgroundColor,
-  }) : super(key: key);
+  });
   final Widget child;
   final Function()? onTapped;
   final Color? backgroundColor;

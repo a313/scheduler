@@ -7,7 +7,7 @@ import '../components/music_downloading_item.dart';
 import 'music_downloading_controller.dart';
 
 class MusicDownloadingPage extends StatelessWidget {
-  const MusicDownloadingPage({Key? key}) : super(key: key);
+  const MusicDownloadingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +24,6 @@ class MusicDownloadingPage extends StatelessWidget {
               info: data.keys.elementAt(index),
               percent: data.values.elementAt(index),
             ),
-            // itemBuilder: (context, index) => const SizedBox(
-            //   height: 50,
-            //   width: 50,
-            // ).debugSize(),
           );
         },
       ),

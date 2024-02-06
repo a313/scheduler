@@ -6,7 +6,7 @@ import '../../widgets/base/base_scafold_appbar.dart';
 import 'ocr_controller.dart';
 
 class OcrPage extends GetView<OcrController> {
-  const OcrPage({Key? key}) : super(key: key);
+  const OcrPage({super.key});
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(

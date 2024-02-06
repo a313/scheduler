@@ -12,7 +12,7 @@ part of 'timetable.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Timetable _$TimetableFromJson(Map<String, dynamic> json) {
   return _Timetable.fromJson(json);
@@ -83,10 +83,11 @@ class _$TimetableCopyWithImpl<$Res, $Val extends Timetable>
 }
 
 /// @nodoc
-abstract class _$$_TimetableCopyWith<$Res> implements $TimetableCopyWith<$Res> {
-  factory _$$_TimetableCopyWith(
-          _$_Timetable value, $Res Function(_$_Timetable) then) =
-      __$$_TimetableCopyWithImpl<$Res>;
+abstract class _$$TimetableImplCopyWith<$Res>
+    implements $TimetableCopyWith<$Res> {
+  factory _$$TimetableImplCopyWith(
+          _$TimetableImpl value, $Res Function(_$TimetableImpl) then) =
+      __$$TimetableImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -96,11 +97,11 @@ abstract class _$$_TimetableCopyWith<$Res> implements $TimetableCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TimetableCopyWithImpl<$Res>
-    extends _$TimetableCopyWithImpl<$Res, _$_Timetable>
-    implements _$$_TimetableCopyWith<$Res> {
-  __$$_TimetableCopyWithImpl(
-      _$_Timetable _value, $Res Function(_$_Timetable) _then)
+class __$$TimetableImplCopyWithImpl<$Res>
+    extends _$TimetableCopyWithImpl<$Res, _$TimetableImpl>
+    implements _$$TimetableImplCopyWith<$Res> {
+  __$$TimetableImplCopyWithImpl(
+      _$TimetableImpl _value, $Res Function(_$TimetableImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +111,7 @@ class __$$_TimetableCopyWithImpl<$Res>
     Object? end = null,
     Object? dayInWeek = null,
   }) {
-    return _then(_$_Timetable(
+    return _then(_$TimetableImpl(
       begin: null == begin
           ? _value.begin
           : begin // ignore: cast_nullable_to_non_nullable
@@ -129,15 +130,15 @@ class __$$_TimetableCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Timetable extends _Timetable {
-  _$_Timetable(
+class _$TimetableImpl extends _Timetable {
+  _$TimetableImpl(
       {@TimeOfDayConverter() required this.begin,
       @TimeOfDayConverter() required this.end,
       required this.dayInWeek})
       : super._();
 
-  factory _$_Timetable.fromJson(Map<String, dynamic> json) =>
-      _$$_TimetableFromJson(json);
+  factory _$TimetableImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TimetableImplFromJson(json);
 
   @override
   @TimeOfDayConverter()
@@ -156,12 +157,12 @@ class _$_Timetable extends _Timetable {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimetableCopyWith<_$_Timetable> get copyWith =>
-      __$$_TimetableCopyWithImpl<_$_Timetable>(this, _$identity);
+  _$$TimetableImplCopyWith<_$TimetableImpl> get copyWith =>
+      __$$TimetableImplCopyWithImpl<_$TimetableImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TimetableToJson(
+    return _$$TimetableImplToJson(
       this,
     );
   }
@@ -171,11 +172,11 @@ abstract class _Timetable extends Timetable {
   factory _Timetable(
       {@TimeOfDayConverter() required TimeOfDay begin,
       @TimeOfDayConverter() required TimeOfDay end,
-      required int dayInWeek}) = _$_Timetable;
+      required int dayInWeek}) = _$TimetableImpl;
   _Timetable._() : super._();
 
   factory _Timetable.fromJson(Map<String, dynamic> json) =
-      _$_Timetable.fromJson;
+      _$TimetableImpl.fromJson;
 
   @override
   @TimeOfDayConverter()
@@ -192,6 +193,6 @@ abstract class _Timetable extends Timetable {
   set dayInWeek(int value);
   @override
   @JsonKey(ignore: true)
-  _$$_TimetableCopyWith<_$_Timetable> get copyWith =>
+  _$$TimetableImplCopyWith<_$TimetableImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -7,11 +7,11 @@ class BaseNetworkImage extends StatelessWidget {
     this.width,
     this.height,
     this.fit,
-    Key? key,
+    super.key,
     this.onLoading,
     this.onError,
     this.borderRadius = BorderRadius.zero,
-  }) : super(key: key);
+  });
   final String imageUrl;
   final double? width;
   final double? height;

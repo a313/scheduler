@@ -11,7 +11,7 @@ import 'package:scheduler/widgets/painter/clock_time_painter.dart';
 import 'package:scheduler/widgets/painter/events_painter.dart';
 
 class ClockPage extends StatelessWidget {
-  const ClockPage({Key? key}) : super(key: key);
+  const ClockPage({super.key});
 
   @override
   Widget build(BuildContext context) {

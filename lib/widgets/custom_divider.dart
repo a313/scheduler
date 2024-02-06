@@ -4,12 +4,12 @@ import '../core/utils/util.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({
-    Key? key,
+    super.key,
     this.color,
     this.height = 1,
     this.indent = 0.0,
     this.endIndent = 0.0,
-  }) : super(key: key);
+  });
   final Color? color;
   final double height;
   final double indent;

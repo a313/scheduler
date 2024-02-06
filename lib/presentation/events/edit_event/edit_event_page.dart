@@ -15,7 +15,7 @@ import '../../class_room/components/class_room_item.dart';
 import 'edit_event_controller.dart';
 
 class EditEventPage extends GetView<EditEventController> {
-  const EditEventPage({Key? key}) : super(key: key);
+  const EditEventPage({super.key});
 
   @override
   Widget build(BuildContext context) {

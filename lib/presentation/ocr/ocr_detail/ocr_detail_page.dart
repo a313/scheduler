@@ -6,7 +6,7 @@ import '../components/ekyc_view.dart';
 import 'ocr_detail_controller.dart';
 
 class OcrDetailPage extends StatelessWidget {
-  const OcrDetailPage({Key? key}) : super(key: key);
+  const OcrDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {

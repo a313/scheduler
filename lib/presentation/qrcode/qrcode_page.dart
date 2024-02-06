@@ -9,7 +9,7 @@ import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'qrcode_controller.dart';
 
 class QrcodePage extends GetView<QrcodeController> {
-  const QrcodePage({Key? key}) : super(key: key);
+  const QrcodePage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -39,9 +39,9 @@ extension ListExt on List {
 
 class DebugSizeWidget extends StatefulWidget {
   const DebugSizeWidget({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
   final Widget child;
 
   @override

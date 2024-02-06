@@ -7,7 +7,7 @@ import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/entities/ekyc.dart';
 
 class EkycImagesComponent extends StatelessWidget {
-  const EkycImagesComponent({Key? key, required this.ekyc}) : super(key: key);
+  const EkycImagesComponent({super.key, required this.ekyc});
   final Ekyc ekyc;
 
   @override
@@ -77,8 +77,8 @@ class EkycImagesComponent extends StatelessWidget {
 }
 
 class GalleryPreView extends StatelessWidget {
-  const GalleryPreView({Key? key, required this.imagePath, this.initIndex = 0})
-      : super(key: key);
+  const GalleryPreView(
+      {super.key, required this.imagePath, this.initIndex = 0});
 
   final List<String> imagePath;
   final int initIndex;

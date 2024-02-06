@@ -4,9 +4,9 @@ import 'package:scheduler/theme/app_fonts.dart';
 
 class StickyHeader extends StatelessWidget {
   const StickyHeader({
-    Key? key,
+    super.key,
     required this.header,
-  }) : super(key: key);
+  });
   final String header;
 
   @override

@@ -8,11 +8,11 @@ import 'media_thumb.dart';
 
 class MusicItem extends StatelessWidget {
   const MusicItem({
-    Key? key,
+    super.key,
     required this.file,
     this.thumbnail,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   final File file;
   final Uri? thumbnail;

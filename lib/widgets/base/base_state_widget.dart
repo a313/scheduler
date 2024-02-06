@@ -4,7 +4,7 @@ enum WidgetState { loading, success, empty, error }
 
 class BaseStateWidget extends StatelessWidget {
   const BaseStateWidget({
-    Key? key,
+    super.key,
     required this.builder,
     required this.onLoading,
     this.onEmpty,
@@ -12,7 +12,7 @@ class BaseStateWidget extends StatelessWidget {
     this.baseColor,
     this.highlightColor,
     this.state = WidgetState.loading,
-  }) : super(key: key);
+  });
 
   final WidgetBuilder builder;
   final Widget onLoading;
@@ -45,8 +45,7 @@ class ABWidget extends StatelessWidget {
   final bool isShowA;
 
   const ABWidget(
-      {Key? key, required this.widgetA, this.widgetB, this.isShowA = true})
-      : super(key: key);
+      {super.key, required this.widgetA, this.widgetB, this.isShowA = true});
   @override
   Widget build(BuildContext context) {
     if (isShowA) {

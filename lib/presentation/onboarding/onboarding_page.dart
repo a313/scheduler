@@ -8,7 +8,7 @@ import '../../widgets/animations/circle_progress_bar.dart';
 import 'onboarding_controller.dart';
 
 class OnboardingPage extends GetView<OnboardingController> {
-  const OnboardingPage({Key? key}) : super(key: key);
+  const OnboardingPage({super.key});
 
   @override
   Widget build(BuildContext context) {

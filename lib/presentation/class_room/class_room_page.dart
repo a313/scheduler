@@ -11,7 +11,7 @@ import '../../widgets/shimmer/shimmer_list.dart';
 import 'class_room_controller.dart';
 
 class ClassRoomPage extends GetView<ClassRoomController> {
-  const ClassRoomPage({Key? key}) : super(key: key);
+  const ClassRoomPage({super.key});
 
   @override
   Widget build(BuildContext context) {

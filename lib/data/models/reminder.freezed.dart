@@ -12,7 +12,7 @@ part of 'reminder.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Reminder _$ReminderFromJson(Map<String, dynamic> json) {
   return _Reminder.fromJson(json);
@@ -141,10 +141,11 @@ class _$ReminderCopyWithImpl<$Res, $Val extends Reminder>
 }
 
 /// @nodoc
-abstract class _$$_ReminderCopyWith<$Res> implements $ReminderCopyWith<$Res> {
-  factory _$$_ReminderCopyWith(
-          _$_Reminder value, $Res Function(_$_Reminder) then) =
-      __$$_ReminderCopyWithImpl<$Res>;
+abstract class _$$ReminderImplCopyWith<$Res>
+    implements $ReminderCopyWith<$Res> {
+  factory _$$ReminderImplCopyWith(
+          _$ReminderImpl value, $Res Function(_$ReminderImpl) then) =
+      __$$ReminderImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -161,11 +162,11 @@ abstract class _$$_ReminderCopyWith<$Res> implements $ReminderCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ReminderCopyWithImpl<$Res>
-    extends _$ReminderCopyWithImpl<$Res, _$_Reminder>
-    implements _$$_ReminderCopyWith<$Res> {
-  __$$_ReminderCopyWithImpl(
-      _$_Reminder _value, $Res Function(_$_Reminder) _then)
+class __$$ReminderImplCopyWithImpl<$Res>
+    extends _$ReminderCopyWithImpl<$Res, _$ReminderImpl>
+    implements _$$ReminderImplCopyWith<$Res> {
+  __$$ReminderImplCopyWithImpl(
+      _$ReminderImpl _value, $Res Function(_$ReminderImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -182,7 +183,7 @@ class __$$_ReminderCopyWithImpl<$Res>
     Object? softIndex = null,
     Object? image = freezed,
   }) {
-    return _then(_$_Reminder(
+    return _then(_$ReminderImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -229,8 +230,8 @@ class __$$_ReminderCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Reminder extends _Reminder {
-  _$_Reminder(
+class _$ReminderImpl extends _Reminder {
+  _$ReminderImpl(
       {this.id,
       required this.name,
       @DateTimeConverter() required this.createDate,
@@ -243,8 +244,8 @@ class _$_Reminder extends _Reminder {
       this.image})
       : super._();
 
-  factory _$_Reminder.fromJson(Map<String, dynamic> json) =>
-      _$$_ReminderFromJson(json);
+  factory _$ReminderImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReminderImplFromJson(json);
 
   @override
   int? id;
@@ -280,12 +281,12 @@ class _$_Reminder extends _Reminder {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReminderCopyWith<_$_Reminder> get copyWith =>
-      __$$_ReminderCopyWithImpl<_$_Reminder>(this, _$identity);
+  _$$ReminderImplCopyWith<_$ReminderImpl> get copyWith =>
+      __$$ReminderImplCopyWithImpl<_$ReminderImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReminderToJson(
+    return _$$ReminderImplToJson(
       this,
     );
   }
@@ -302,10 +303,11 @@ abstract class _Reminder extends Reminder {
       int interval,
       @TimeOfDayConverter() TimeOfDay? time,
       int softIndex,
-      String? image}) = _$_Reminder;
+      String? image}) = _$ReminderImpl;
   _Reminder._() : super._();
 
-  factory _Reminder.fromJson(Map<String, dynamic> json) = _$_Reminder.fromJson;
+  factory _Reminder.fromJson(Map<String, dynamic> json) =
+      _$ReminderImpl.fromJson;
 
   @override
   int? get id;
@@ -345,6 +347,6 @@ abstract class _Reminder extends Reminder {
   set image(String? value);
   @override
   @JsonKey(ignore: true)
-  _$$_ReminderCopyWith<_$_Reminder> get copyWith =>
+  _$$ReminderImplCopyWith<_$ReminderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

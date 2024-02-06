@@ -86,7 +86,6 @@ class _AvatarPickerState extends State<AvatarPicker> with BaseCommonWidgets {
               title: const Text(
                 "Chụp ảnh",
                 style: AppFonts.h400,
-                textScaleFactor: 1,
               ),
               onTap: () => pickImage(ImageSource.camera),
             ),
@@ -96,7 +95,6 @@ class _AvatarPickerState extends State<AvatarPicker> with BaseCommonWidgets {
               title: const Text(
                 "Thư viện",
                 style: AppFonts.h400,
-                textScaleFactor: 1,
               ),
               onTap: () => pickImage(ImageSource.gallery),
             ),

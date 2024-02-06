@@ -14,7 +14,7 @@ import '../../../widgets/base/base_button.dart';
 import 'edit_student_controller.dart';
 
 class EditStudentPage extends GetView<EditStudentController> {
-  const EditStudentPage({Key? key}) : super(key: key);
+  const EditStudentPage({super.key});
 
   @override
   Widget build(BuildContext context) {

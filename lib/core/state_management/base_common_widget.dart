@@ -100,7 +100,6 @@ mixin BaseCommonWidgets {
               style: AppFonts.h500.copyWith(color: textColor, height: 1)),
       messageText: Text(
         message,
-        textScaleFactor: 1,
         style: AppFonts.bSmall.copyWith(color: textColor, height: 1),
       ),
       mainButton: IconButton(

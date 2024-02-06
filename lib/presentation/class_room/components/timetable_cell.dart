@@ -6,11 +6,11 @@ import '../../../data/models/timetable.dart';
 
 class TimetableCell extends StatelessWidget {
   const TimetableCell({
-    Key? key,
+    super.key,
     required this.data,
     this.onTapped,
     this.onRemove,
-  }) : super(key: key);
+  });
 
   final Timetable data;
   final Function(Timetable data)? onTapped;

@@ -5,14 +5,14 @@ import 'package:scheduler/widgets/base/base_input.dart';
 
 class GenderPicker extends StatefulWidget {
   const GenderPicker({
-    Key? key,
+    super.key,
     required this.isRequired,
     required this.option,
     this.initIndex = 0,
     required this.title,
     this.enable = true,
     required this.onChanged,
-  }) : super(key: key);
+  });
   final bool isRequired;
   final String title;
   final bool enable;

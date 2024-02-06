@@ -4,10 +4,10 @@ import 'package:scheduler/core/utils/util.dart';
 
 class ObscureWidget extends StatelessWidget {
   const ObscureWidget({
-    Key? key,
+    super.key,
     required this.isObscure,
     this.onTap,
-  }) : super(key: key);
+  });
   final bool isObscure;
   final Function()? onTap;
   @override

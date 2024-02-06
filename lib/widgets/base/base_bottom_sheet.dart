@@ -11,12 +11,12 @@ const BOTTOMSHEET_TITLE_HEIGHT = 64.0;
 
 class BaseBottomSheet extends StatelessWidget {
   const BaseBottomSheet({
-    Key? key,
+    super.key,
     required this.child,
     this.title,
     this.subTitle,
     this.bottom = true,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final String? title;
@@ -29,7 +29,8 @@ class BaseBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final hasHeader = title != null || subTitle != null;
     return MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
+      data: MediaQuery.of(context)
+          .copyWith(textScaler: const TextScaler.linear(1)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

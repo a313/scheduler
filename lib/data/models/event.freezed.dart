@@ -12,7 +12,7 @@ part of 'event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Event _$EventFromJson(Map<String, dynamic> json) {
   return _Event.fromJson(json);
@@ -81,26 +81,21 @@ abstract class $EventCopyWith<$Res> {
       {int? id,
       int? parentId,
       String name,
-      @DateTimeConverter()
-          DateTime startTime,
-      @DateTimeConverter()
-          DateTime endTime,
+      @DateTimeConverter() DateTime startTime,
+      @DateTimeConverter() DateTime endTime,
       EventType type,
       AlertType alert,
       RepeatType repeat,
       String? location,
       int? classId,
-      @ListIntConverter()
-          List<int> invitedIds,
-      @ListIntConverter()
-          List<int> joinedIds,
-      @BoolConverter()
-          bool isActive,
+      @ListIntConverter() List<int> invitedIds,
+      @ListIntConverter() List<int> joinedIds,
+      @BoolConverter() bool isActive,
       String? note,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          List<Student> students,
+      List<Student> students,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          ClassRoom? classRoom});
+      ClassRoom? classRoom});
 
   $ClassRoomCopyWith<$Res>? get classRoom;
 }
@@ -217,44 +212,42 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
 }
 
 /// @nodoc
-abstract class _$$_EventCopyWith<$Res> implements $EventCopyWith<$Res> {
-  factory _$$_EventCopyWith(_$_Event value, $Res Function(_$_Event) then) =
-      __$$_EventCopyWithImpl<$Res>;
+abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
+  factory _$$EventImplCopyWith(
+          _$EventImpl value, $Res Function(_$EventImpl) then) =
+      __$$EventImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {int? id,
       int? parentId,
       String name,
-      @DateTimeConverter()
-          DateTime startTime,
-      @DateTimeConverter()
-          DateTime endTime,
+      @DateTimeConverter() DateTime startTime,
+      @DateTimeConverter() DateTime endTime,
       EventType type,
       AlertType alert,
       RepeatType repeat,
       String? location,
       int? classId,
-      @ListIntConverter()
-          List<int> invitedIds,
-      @ListIntConverter()
-          List<int> joinedIds,
-      @BoolConverter()
-          bool isActive,
+      @ListIntConverter() List<int> invitedIds,
+      @ListIntConverter() List<int> joinedIds,
+      @BoolConverter() bool isActive,
       String? note,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          List<Student> students,
+      List<Student> students,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          ClassRoom? classRoom});
+      ClassRoom? classRoom});
 
   @override
   $ClassRoomCopyWith<$Res>? get classRoom;
 }
 
 /// @nodoc
-class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
-    implements _$$_EventCopyWith<$Res> {
-  __$$_EventCopyWithImpl(_$_Event _value, $Res Function(_$_Event) _then)
+class __$$EventImplCopyWithImpl<$Res>
+    extends _$EventCopyWithImpl<$Res, _$EventImpl>
+    implements _$$EventImplCopyWith<$Res> {
+  __$$EventImplCopyWithImpl(
+      _$EventImpl _value, $Res Function(_$EventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -277,7 +270,7 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
     Object? students = null,
     Object? classRoom = freezed,
   }) {
-    return _then(_$_Event(
+    return _then(_$EventImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -348,35 +341,29 @@ class __$$_EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res, _$_Event>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Event extends _Event with DiagnosticableTreeMixin {
-  _$_Event(
+class _$EventImpl extends _Event with DiagnosticableTreeMixin {
+  _$EventImpl(
       {this.id,
       this.parentId,
       required this.name,
-      @DateTimeConverter()
-          required this.startTime,
-      @DateTimeConverter()
-          required this.endTime,
+      @DateTimeConverter() required this.startTime,
+      @DateTimeConverter() required this.endTime,
       required this.type,
       required this.alert,
       required this.repeat,
       this.location,
       this.classId,
-      @ListIntConverter()
-          this.invitedIds = const [],
-      @ListIntConverter()
-          this.joinedIds = const [],
-      @BoolConverter()
-          this.isActive = true,
+      @ListIntConverter() this.invitedIds = const [],
+      @ListIntConverter() this.joinedIds = const [],
+      @BoolConverter() this.isActive = true,
       this.note,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          this.students = const [],
-      @JsonKey(includeToJson: false, includeFromJson: false)
-          this.classRoom})
+      this.students = const [],
+      @JsonKey(includeToJson: false, includeFromJson: false) this.classRoom})
       : super._();
 
-  factory _$_Event.fromJson(Map<String, dynamic> json) =>
-      _$$_EventFromJson(json);
+  factory _$EventImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EventImplFromJson(json);
 
   @override
   int? id;
@@ -452,12 +439,12 @@ class _$_Event extends _Event with DiagnosticableTreeMixin {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EventCopyWith<_$_Event> get copyWith =>
-      __$$_EventCopyWithImpl<_$_Event>(this, _$identity);
+  _$$EventImplCopyWith<_$EventImpl> get copyWith =>
+      __$$EventImplCopyWithImpl<_$EventImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EventToJson(
+    return _$$EventImplToJson(
       this,
     );
   }
@@ -468,29 +455,24 @@ abstract class _Event extends Event {
       {int? id,
       int? parentId,
       required String name,
-      @DateTimeConverter()
-          required DateTime startTime,
-      @DateTimeConverter()
-          required DateTime endTime,
+      @DateTimeConverter() required DateTime startTime,
+      @DateTimeConverter() required DateTime endTime,
       required EventType type,
       required AlertType alert,
       required RepeatType repeat,
       String? location,
       int? classId,
-      @ListIntConverter()
-          List<int> invitedIds,
-      @ListIntConverter()
-          List<int> joinedIds,
-      @BoolConverter()
-          bool isActive,
+      @ListIntConverter() List<int> invitedIds,
+      @ListIntConverter() List<int> joinedIds,
+      @BoolConverter() bool isActive,
       String? note,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          List<Student> students,
+      List<Student> students,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          ClassRoom? classRoom}) = _$_Event;
+      ClassRoom? classRoom}) = _$EventImpl;
   _Event._() : super._();
 
-  factory _Event.fromJson(Map<String, dynamic> json) = _$_Event.fromJson;
+  factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
 
   @override
   int? get id;
@@ -556,6 +538,6 @@ abstract class _Event extends Event {
   set classRoom(ClassRoom? value);
   @override
   @JsonKey(ignore: true)
-  _$$_EventCopyWith<_$_Event> get copyWith =>
+  _$$EventImplCopyWith<_$EventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -9,7 +9,7 @@ import 'search_field.dart';
 
 class BaseSearchPage<T> extends StatefulWidget {
   const BaseSearchPage({
-    Key? key,
+    super.key,
     required this.title,
     this.hintText = 'Search',
     required this.options,
@@ -19,7 +19,7 @@ class BaseSearchPage<T> extends StatefulWidget {
     this.isMultiSelect = false,
     this.selected,
     this.selectedBuilder,
-  }) : super(key: key);
+  });
 
   final bool isMultiSelect;
   final String title;

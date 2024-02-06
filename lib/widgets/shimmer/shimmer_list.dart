@@ -4,7 +4,7 @@ import 'package:scheduler/core/utils/util.dart';
 import '../base/base_shimmer.dart';
 
 class ShimmerListWidget extends StatelessWidget {
-  const ShimmerListWidget({Key? key}) : super(key: key);
+  const ShimmerListWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,10 +66,9 @@ class ShimmerListWidget extends StatelessWidget {
 
 class _Cell extends StatelessWidget {
   const _Cell({
-    Key? key,
     required this.flexs,
     required this.padding,
-  }) : super(key: key);
+  });
   final List<int> flexs;
   final EdgeInsets padding;
 
@@ -108,9 +107,7 @@ class _Cell extends StatelessWidget {
 }
 
 class _Header extends StatelessWidget {
-  const _Header({
-    Key? key,
-  }) : super(key: key);
+  const _Header();
 
   @override
   Widget build(BuildContext context) {
