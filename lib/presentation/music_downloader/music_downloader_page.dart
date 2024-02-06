@@ -9,38 +9,35 @@ import 'components/music_downloader_item.dart';
 import 'music_downloader_controller.dart';
 
 class MusicDownloaderPage extends GetView<MusicDownloaderController> {
-  const MusicDownloaderPage({super.key});
+  const MusicDownloaderPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BaseScafoldAppBar(
       title: 'Music Downloader'.tr,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          children: [
-            BaseTextField(
-              labelText: 'Urls',
-              controller: controller.inputController,
-              maxLines: 1,
-            ),
-            Expanded(
-                child: Obx(() => ListView.separated(
-                    itemBuilder: (context, index) => MusicDownloaderItem(
-                        url: controller.pool.keys.elementAt(index),
-                        data: controller.pool.values.elementAt(index)),
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: 4),
-                    itemCount: controller.pool.keys.length))),
-            Obx(() => BaseButton.fixBottom2(
-                leftTitle: 'Add to pool',
-                onLeftPressed: controller.addToPool,
-                rightTitle: 'Download',
-                onRightPressed: controller.pool.values.whereNotNull().isNotEmpty
-                    ? controller.startDownload
-                    : null))
-          ],
-        ),
+      body: Column(
+        children: [
+          BaseTextField(
+            labelText: 'Urls',
+            controller: controller.inputController,
+            maxLines: 1,
+          ),
+          Expanded(
+              child: Obx(() => ListView.separated(
+                  itemBuilder: (context, index) => MusicDownloaderItem(
+                      url: controller.pool.keys.elementAt(index),
+                      info: controller.pool.values.elementAt(index)),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 4),
+                  itemCount: controller.pool.keys.length))),
+          Obx(() => BaseButton.fixBottom2(
+              leftTitle: 'Add to pool',
+              onLeftPressed: controller.addToPool,
+              rightTitle: 'Download',
+              onRightPressed: controller.pool.values.whereNotNull().isNotEmpty
+                  ? controller.startDownload
+                  : null))
+        ],
       ),
     );
   }

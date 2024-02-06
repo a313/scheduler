@@ -1,53 +1,59 @@
-import 'package:audio_service/audio_service.dart';
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
+import 'package:metadata_god/metadata_god.dart';
+import 'package:mime/mime.dart';
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/data/models/y2_mate_download_link.dart';
 import 'package:scheduler/data/models/y2_mate_video_detail.dart';
 import 'package:scheduler/domain/repo_abs/music_repo_abs.dart';
-import 'package:scheduler/domain/repo_abs/youtube_repo_abs.dart';
-import 'package:scheduler/domain/usecases/audio_usecases.dart';
-import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 class MusicUseCases {
-  final MusicRepo m;
-  final YoutubeRepo y;
-  late AudioHandlerImpl audioHandler;
-  MusicUseCases(this.m, this.y) {
-    init();
-  }
+  final MusicRepo _;
+  MusicUseCases(this._);
 
   Future<DataState<bool>> downloadMp3(String url, String savePath,
       {Function(int count, int total)? progress}) {
-    return m.downloadMp3(url, savePath, progress: progress);
+    return _.downloadMp3(url, savePath, progress: progress);
   }
 
   Future<DataState<bool>> downloadThumb(String url, String savePath) {
-    return m.downloadThumb(url, savePath);
+    return _.downloadThumb(url, savePath);
   }
 
   Future<DataState<Y2MateVideoDetail>> getVideoYoutubeInfo(String url) {
-    return m.getVideoYoutubeInfo(url);
+    return _.getVideoYoutubeInfo(url);
   }
 
   Future<DataState<Y2MateDownloadLink>> getDownloadUrl(String id, String key) {
-    return m.getDownloadUrl(id, key);
+    return _.getDownloadUrl(id, key);
   }
 
-  Future<DataState<Video>> getYoutubeVideoFromId(String id) {
-    return y.getVideoFromId(id);
+  Future<DataState<Uint8List>> downloadByte(String url) {
+    return _.downloadByte(url);
   }
 
-  Future<DataState<List<String>>> getYoutubeDownloadUrl(String id) {
-    return y.getDownloadUrl(id);
+  Future<bool> fillMetadata(
+      String audioFile, String thumbFile, Y2MateVideoDetail data) async {
+    Picture? picture;
+    try {
+      picture = Picture(
+          mimeType: lookupMimeType(thumbFile) ?? '.jpg',
+          data: File(thumbFile).readAsBytesSync());
+    } finally {}
+    try {
+      await MetadataGod.writeMetadata(
+          file: audioFile,
+          metadata: Metadata(
+            title: data.title,
+            artist: data.extractor,
+            durationMs: data.t * 1000,
+            fileSize: File(audioFile).lengthSync(),
+            picture: picture,
+          ));
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
-
-  Future<void> init() async {
-    audioHandler = await AudioService.init(
-        builder: () => AudioHandlerImpl(),
-        config: const AudioServiceConfig(
-          androidNotificationChannelId: 'com.mycompany.myapp.channel.audio',
-          androidNotificationChannelName: 'Music playback',
-        ));
-  }
-
-  void writeMetadata() {}
 }

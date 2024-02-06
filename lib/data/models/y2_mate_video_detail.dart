@@ -63,7 +63,6 @@ class ItemDetail with _$ItemDetail {
     required String size,
     required String f,
     required String q,
-    required String qText,
     required String k,
   }) = _ItemDetail;
 

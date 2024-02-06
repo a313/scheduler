@@ -15,6 +15,7 @@ import 'package:scheduler/presentation/periods/periods_page.dart';
 import 'package:scheduler/presentation/qrcode/qrcode_page.dart';
 import 'package:scheduler/presentation/setting/setting_page.dart';
 import 'package:scheduler/presentation/timetables/timetables_page.dart';
+import 'package:scheduler/widgets/base/keep_alive_wrapper.dart';
 
 import '../class_room/class_room_page.dart';
 import '../events/events_page.dart';
@@ -268,7 +269,7 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
       update();
     });
 
-    barPages = pin.map((k) => k.page).toList();
+    barPages = pin.map((k) => KeepAliveWrapper(child: k.page)).toList();
     barItems = pin.map((k) => k.item).toList();
     final more = BottomNavigationBarItem(
         icon: BarIcon(

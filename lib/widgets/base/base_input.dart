@@ -100,18 +100,19 @@ class _BaseTextFieldState extends State<BaseTextField> {
       initialValue: widget.initialValue,
       decoration: InputDecoration(
         prefixIcon: widget.prefix,
-        suffixIcon: _Suffix(
-          controller: controller,
-          obscureText: widget.obscureText,
-          showPassword: showPassword,
-          onChanged: widget.onChanged,
-          onClear: widget.onClear,
-          onToggleVisible: (visible) {
-            setState(() {
-              showPassword = visible;
-            });
-          },
-        ),
+        suffixIcon: widget.suffix ??
+            _Suffix(
+              controller: controller,
+              obscureText: widget.obscureText,
+              showPassword: showPassword,
+              onChanged: widget.onChanged,
+              onClear: widget.onClear,
+              onToggleVisible: (visible) {
+                setState(() {
+                  showPassword = visible;
+                });
+              },
+            ),
         labelText: widget.labelText,
         fillColor: widget.enabled ? context.neutral100 : context.neutral300,
         labelStyle: (widget.textStyle ?? AppFonts.pMedium).copyWith(height: 1),
@@ -545,6 +546,7 @@ class _BaseSwitchFieldState extends State<BaseSwitchField> {
           ignoring: true,
           child: BaseTextField(
             labelText: widget.labelText,
+            suffix: const SizedBox(),
           ),
         ),
         CupertinoSwitch(

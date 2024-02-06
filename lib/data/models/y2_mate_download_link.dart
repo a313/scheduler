@@ -2,8 +2,9 @@
 //
 //     final y2MateDownloadLink = y2MateDownloadLinkFromJson(jsonString);
 
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:convert';
+
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'y2_mate_download_link.freezed.dart';
 part 'y2_mate_download_link.g.dart';
@@ -19,7 +20,7 @@ class Y2MateDownloadLink with _$Y2MateDownloadLink {
   const factory Y2MateDownloadLink({
     required String status,
     required String mess,
-    required String cStatus,
+    @JsonKey(name: 'c_status') required String cStatus,
     required String vid,
     required String title,
     required String ftype,

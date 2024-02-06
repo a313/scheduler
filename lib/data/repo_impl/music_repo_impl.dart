@@ -1,3 +1,6 @@
+import 'dart:typed_data';
+
+import 'package:http/http.dart' as http;
 import 'package:scheduler/core/usecase/data_state.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/datasource/music_service.dart';
@@ -63,6 +66,16 @@ class MusicRepoImpl extends MusicRepo {
     } else {
       return DataFailure(
           response.statusCode.toString(), response.message ?? UNKNOWN_ERROR);
+    }
+  }
+
+  @override
+  Future<DataState<Uint8List>> downloadByte(String url) async {
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      return DataSuccess(response.bodyBytes);
+    } else {
+      return DataFailure(response.statusCode.toString(), response.body);
     }
   }
 }
