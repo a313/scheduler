@@ -5,9 +5,9 @@ import 'package:scheduler/core/utils/util.dart';
 
 class FooterPattern extends StatelessWidget {
   const FooterPattern({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 

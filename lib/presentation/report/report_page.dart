@@ -14,7 +14,7 @@ import 'group_by_student/group_by_student_component.dart';
 import 'report_controller.dart';
 
 class ReportPage extends GetView<ReportController> {
-  const ReportPage({Key? key}) : super(key: key);
+  const ReportPage({super.key});
 
   @override
   Widget build(BuildContext context) {

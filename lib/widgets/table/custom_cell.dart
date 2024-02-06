@@ -4,14 +4,13 @@ import 'package:scheduler/theme/app_fonts.dart';
 
 class CustomCell extends StatelessWidget {
   const CustomCell({
-    Key? key,
+    super.key,
     required this.title,
     this.content,
     this.contentWidget,
     this.titleStyle,
     this.contentStyle,
-  })  : assert(content != null || contentWidget != null),
-        super(key: key);
+  })  : assert(content != null || contentWidget != null);
   final String title;
   final TextStyle? titleStyle;
   final String? content;
@@ -46,14 +45,13 @@ class CustomCell extends StatelessWidget {
 
 class CustomCellFlexibleTitle extends StatelessWidget {
   const CustomCellFlexibleTitle({
-    Key? key,
+    super.key,
     required this.title,
     this.content,
     this.contentWidget,
     this.titleStyle,
     this.contentStyle,
-  })  : assert(content != null || contentWidget != null),
-        super(key: key);
+  })  : assert(content != null || contentWidget != null);
   final String title;
   final TextStyle? titleStyle;
   final String? content;

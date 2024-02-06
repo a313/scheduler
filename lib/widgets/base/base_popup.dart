@@ -8,7 +8,7 @@ import '../base/base_button.dart';
 
 class BasePopup extends StatelessWidget {
   const BasePopup({
-    Key? key,
+    super.key,
     this.title,
     this.desc,
     this.header,
@@ -16,7 +16,7 @@ class BasePopup extends StatelessWidget {
     this.descWidget,
     required this.actions,
     this.headerPadding = const EdgeInsets.only(top: 20),
-  }) : super(key: key);
+  });
 
   final EdgeInsets headerPadding;
   final Widget? header;
@@ -33,7 +33,7 @@ class BasePopup extends StatelessWidget {
     final maxWidth = min(320.0, mq.size.width * 0.96);
     const padHoz = 24.0;
     return MediaQuery(
-        data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
+        data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1)),
         child: Center(
           child: Container(
             constraints: BoxConstraints(maxWidth: maxWidth),
@@ -92,10 +92,9 @@ class BasePopup extends StatelessWidget {
 
 class _SingleButton extends StatelessWidget {
   const _SingleButton({
-    Key? key,
     required this.padHoz,
     required this.actions,
-  }) : super(key: key);
+  });
 
   final double padHoz;
   final List<BaseButton> actions;
@@ -111,10 +110,9 @@ class _SingleButton extends StatelessWidget {
 
 class _MultiButton extends StatelessWidget {
   const _MultiButton({
-    Key? key,
     required this.actions,
     required this.maxWidth,
-  }) : super(key: key);
+  });
 
   final double maxWidth;
   final List<BaseButton> actions;

@@ -5,12 +5,12 @@ import '/theme/app_fonts.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({
-    Key? key,
+    super.key,
     this.onChanged,
     this.onClearSearch,
     this.hintText,
     this.controller,
-  }) : super(key: key);
+  });
   final String? hintText;
   final TextEditingController? controller;
   final Function(String)? onChanged;

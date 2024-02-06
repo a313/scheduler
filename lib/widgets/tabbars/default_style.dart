@@ -5,10 +5,10 @@ import 'package:scheduler/theme/app_fonts.dart';
 class TabBarStyleDefault extends StatelessWidget
     implements PreferredSizeWidget {
   const TabBarStyleDefault({
-    Key? key,
+    super.key,
     required this.controller,
     required this.tabs,
-  }) : super(key: key);
+  });
   final TabController controller;
   final List<Tab> tabs;
 

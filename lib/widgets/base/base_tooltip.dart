@@ -4,7 +4,7 @@ import 'package:scheduler/theme/app_fonts.dart';
 
 class BaseTooltip extends StatelessWidget {
   const BaseTooltip({
-    Key? key,
+    super.key,
     required this.child,
     this.margin,
     this.message,
@@ -12,7 +12,7 @@ class BaseTooltip extends StatelessWidget {
     this.preferBelow = true,
     this.onTriggered,
     this.padding = padSymHor08Ver06,
-  }) : super(key: key);
+  });
   final Widget child;
   final String? message;
   final InlineSpan? richMessage;

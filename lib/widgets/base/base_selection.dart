@@ -4,13 +4,13 @@ import '../../core/utils/util.dart';
 
 class BaseSelection extends StatelessWidget {
   const BaseSelection({
-    Key? key,
+    super.key,
     required this.isSelected,
     required this.onSelect,
     required this.child,
     this.padding = padSymHor08Ver06,
     this.fixedWidth,
-  }) : super(key: key);
+  });
   final Widget child;
   final bool isSelected;
   final Function() onSelect;

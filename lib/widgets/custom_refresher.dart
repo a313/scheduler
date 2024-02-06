@@ -4,12 +4,12 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class CustomRefresher extends StatelessWidget {
   const CustomRefresher({
-    Key? key,
+    super.key,
     required this.controller,
     required this.child,
     this.onRefresh,
     this.onLoading,
-  }) : super(key: key);
+  });
 
   final RefreshController controller;
   final Widget child;

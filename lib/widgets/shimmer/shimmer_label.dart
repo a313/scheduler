@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import '../base/base_shimmer.dart';
 
 class ShimmerLabel extends StatelessWidget {
-  const ShimmerLabel({Key? key, this.height = 21, this.width = 140})
-      : super(key: key);
+  const ShimmerLabel({super.key, this.height = 21, this.width = 140});
   final double height;
   final double width;
   @override

@@ -4,9 +4,9 @@ import 'package:scheduler/core/utils/util.dart';
 
 class FrameFace extends StatelessWidget {
   const FrameFace({
-    Key? key,
+    super.key,
     required this.frameKey,
-  }) : super(key: key);
+  });
 
   final Key? frameKey;
 

@@ -10,7 +10,7 @@ import 'components/student_component.dart';
 import 'students_controller.dart';
 
 class StudentsPage extends GetView<StudentsController> {
-  const StudentsPage({Key? key}) : super(key: key);
+  const StudentsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

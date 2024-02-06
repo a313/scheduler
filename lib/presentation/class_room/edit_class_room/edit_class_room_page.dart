@@ -14,7 +14,7 @@ import '../../../widgets/base/base_button.dart';
 import '../components/timetable_cell.dart';
 
 class EditClassRoomPage extends GetView<EditClassRoomController> {
-  const EditClassRoomPage({Key? key}) : super(key: key);
+  const EditClassRoomPage({super.key});
 
   @override
   Widget build(BuildContext context) {

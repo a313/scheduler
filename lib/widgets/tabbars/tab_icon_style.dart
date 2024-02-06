@@ -11,12 +11,12 @@ class TabItem {
 
 class TabBarStyleIcon extends StatelessWidget implements PreferredSizeWidget {
   const TabBarStyleIcon({
-    Key? key,
+    super.key,
     required this.controller,
     required this.tabs,
     required this.style,
     required this.selectedStyle,
-  }) : super(key: key);
+  });
   final TabController controller;
   final List<TabItem> tabs;
   final TextStyle style;
@@ -47,13 +47,12 @@ class TabBarStyleIcon extends StatelessWidget implements PreferredSizeWidget {
 
 class TabIcon extends StatefulWidget {
   const TabIcon({
-    Key? key,
+    super.key,
     required this.tabs,
     required TabController controler,
     required this.style,
     required this.selectedStyle,
-  })  : controller = controler,
-        super(key: key);
+  })  : controller = controler;
   final TabController controller;
   final List<TabItem> tabs;
   final TextStyle style;
@@ -114,11 +113,10 @@ class _TabIconState extends State<TabIcon> {
 
 class _UnSelected extends StatelessWidget {
   const _UnSelected({
-    Key? key,
     required this.item,
     this.onTap,
     required this.style,
-  }) : super(key: key);
+  });
   final TabItem item;
   final Function()? onTap;
   final TextStyle style;
@@ -159,11 +157,10 @@ class _UnSelected extends StatelessWidget {
 
 class _Selected extends StatelessWidget {
   const _Selected({
-    Key? key,
     required this.item,
     this.onTap,
     required this.selectedStyle,
-  }) : super(key: key);
+  });
   final TabItem item;
   final Function()? onTap;
 

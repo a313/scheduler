@@ -12,7 +12,7 @@ import '../../../widgets/base/base_button.dart';
 import 'edit_reminder_controller.dart';
 
 class EditReminderPage extends GetView<EditReminderController> {
-  const EditReminderPage({Key? key}) : super(key: key);
+  const EditReminderPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -13,7 +13,7 @@ import 'package:scheduler/widgets/shimmer/shimmer_table.dart';
 import 'components/select_day_of_week.dart';
 
 class EditTimetablePage extends GetView<EditTimetableController> {
-  const EditTimetablePage({Key? key}) : super(key: key);
+  const EditTimetablePage({super.key});
 
   @override
   Widget build(BuildContext context) {

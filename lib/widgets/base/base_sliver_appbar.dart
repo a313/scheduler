@@ -6,7 +6,7 @@ import 'package:scheduler/theme/app_fonts.dart';
 
 class BaseSliverAppBar extends StatelessWidget {
   const BaseSliverAppBar({
-    Key? key,
+    super.key,
     required this.isShrink,
     required this.title,
     required this.background,
@@ -14,7 +14,7 @@ class BaseSliverAppBar extends StatelessWidget {
     this.leadingIcon = Icons.arrow_back_ios_new,
     this.bottom,
     this.fixedOverlayStyle,
-  }) : super(key: key);
+  });
 
   final RxBool isShrink;
   final IconData? leadingIcon;

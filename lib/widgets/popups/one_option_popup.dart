@@ -6,12 +6,12 @@ import '../base/base_popup.dart';
 
 class OneOptionPopup extends StatelessWidget {
   const OneOptionPopup({
-    Key? key,
+    super.key,
     required this.desc,
     this.title,
     this.onConfirm,
     this.btnTitle = 'Close',
-  }) : super(key: key);
+  });
 
   final String desc;
   final String? title;

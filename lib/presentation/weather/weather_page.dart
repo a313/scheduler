@@ -10,7 +10,7 @@ import 'components/weather_table.dart';
 import 'weather_controller.dart';
 
 class WeatherPage extends GetView<WeatherController> {
-  const WeatherPage({Key? key}) : super(key: key);
+  const WeatherPage({super.key});
 
   @override
   Widget build(BuildContext context) {

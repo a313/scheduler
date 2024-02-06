@@ -7,7 +7,7 @@ import 'package:scheduler/theme/app_fonts.dart';
 class BaseButton extends StatelessWidget {
   final WidgetBuilder builder;
 
-  const BaseButton._({Key? key, required this.builder}) : super(key: key);
+  const BaseButton._({required this.builder});
 
   factory BaseButton.fixBottom({
     required String title,
@@ -221,12 +221,12 @@ class BaseButton extends StatelessWidget {
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
-    Key? key,
+    super.key,
     required this.title,
     this.onPressed,
     this.padding,
     required this.textStyle,
-  }) : super(key: key);
+  });
   final String title;
   final Function()? onPressed;
   final EdgeInsetsGeometry? padding;
@@ -249,12 +249,12 @@ class PrimaryButton extends StatelessWidget {
 
 class SecondaryButton extends StatelessWidget {
   const SecondaryButton({
-    Key? key,
+    super.key,
     required this.title,
     this.onPressed,
     this.padding,
     required this.textStyle,
-  }) : super(key: key);
+  });
   final String title;
   final Function()? onPressed;
   final EdgeInsetsGeometry? padding;
@@ -279,12 +279,12 @@ class SecondaryButton extends StatelessWidget {
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    Key? key,
+    super.key,
     required this.content,
     this.onPressed,
     this.padding = padAll08,
     this.backgroundColor,
-  }) : super(key: key);
+  });
   final WidgetBuilder content;
   final Color? backgroundColor;
   final Function()? onPressed;
@@ -308,7 +308,7 @@ class CustomButton extends StatelessWidget {
 class BottomBackground extends StatelessWidget {
   final Widget child;
 
-  const BottomBackground({Key? key, required this.child}) : super(key: key);
+  const BottomBackground({super.key, required this.child});
   @override
   Widget build(BuildContext context) {
     return Container(

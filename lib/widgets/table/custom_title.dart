@@ -10,11 +10,11 @@ class CustomTitle extends StatelessWidget {
 
   const CustomTitle(
     this.title, {
-    Key? key,
+    super.key,
     this.textStyle,
     this.smallSize = 16,
     this.bigSize = 18,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     final style = textStyle ?? AppFonts.h500;

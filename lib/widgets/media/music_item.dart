@@ -9,11 +9,11 @@ import 'media_thumb.dart';
 
 class MusicItem extends StatelessWidget {
   const MusicItem({
-    Key? key,
+    super.key,
     required this.data,
     required this.onTap,
     this.actions,
-  }) : super(key: key);
+  });
 
   final MediaItem data;
   final Function(MediaItem audio) onTap;

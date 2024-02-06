@@ -16,7 +16,7 @@ class AudioPlayer extends GetWidget<MusicPlayerController> {
         builder: (context, snapshot) {
           final item = snapshot.data;
           return MediaQuery(
-            data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
+            data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1)),
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(

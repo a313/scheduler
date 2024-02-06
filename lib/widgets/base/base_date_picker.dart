@@ -8,7 +8,7 @@ import 'base_input.dart';
 
 class BaseDatePicker extends StatelessWidget with BaseCommonWidgets {
   const BaseDatePicker({
-    Key? key,
+    super.key,
     required this.title,
     this.isRequired = false,
     this.initDate,
@@ -20,7 +20,7 @@ class BaseDatePicker extends StatelessWidget with BaseCommonWidgets {
     this.maxDate,
     this.canReturnNull = false,
     this.mode = CupertinoDatePickerMode.date,
-  }) : super(key: key);
+  });
   final String title;
   final bool isRequired;
   final DateTime? initDate;

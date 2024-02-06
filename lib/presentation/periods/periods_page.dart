@@ -12,7 +12,7 @@ import '../../widgets/painter/periods_background_painter.dart';
 import 'periods_controller.dart';
 
 class PeriodsPage extends GetView<PeriodsController> {
-  const PeriodsPage({Key? key}) : super(key: key);
+  const PeriodsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

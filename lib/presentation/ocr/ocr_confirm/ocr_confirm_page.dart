@@ -11,7 +11,7 @@ import 'components/gender_picker.dart';
 import 'ocr_confirm_controller.dart';
 
 class OcrConfirmPage extends GetView<OcrConfirmController> {
-  const OcrConfirmPage({Key? key}) : super(key: key);
+  const OcrConfirmPage({super.key});
 
   @override
   Widget build(BuildContext context) {

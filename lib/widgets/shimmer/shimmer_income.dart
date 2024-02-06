@@ -4,7 +4,7 @@ import 'package:scheduler/core/utils/util.dart';
 import '../base/base_shimmer.dart';
 
 class ShimmerIncome extends StatelessWidget {
-  const ShimmerIncome({Key? key}) : super(key: key);
+  const ShimmerIncome({super.key});
 
   @override
   Widget build(BuildContext context) {

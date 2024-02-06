@@ -9,8 +9,7 @@ class UserAvatar extends StatelessWidget {
 
   final Function()? onTapped;
 
-  const UserAvatar({Key? key, this.url, this.onTapped, this.avatarSize = 40.0})
-      : super(key: key);
+  const UserAvatar({super.key, this.url, this.onTapped, this.avatarSize = 40.0});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -36,9 +35,7 @@ class UserAvatar extends StatelessWidget {
 }
 
 class _DefaultAvatarWidget extends StatelessWidget {
-  const _DefaultAvatarWidget({
-    Key? key,
-  }) : super(key: key);
+  const _DefaultAvatarWidget();
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@ import '../base/base_button.dart';
 
 class DatePickerBottomsheet extends StatefulWidget {
   const DatePickerBottomsheet({
-    Key? key,
+    super.key,
     required this.title,
     this.initDate,
     this.minDate,
@@ -16,7 +16,7 @@ class DatePickerBottomsheet extends StatefulWidget {
     this.mode = CupertinoDatePickerMode.date,
     required this.onSelected,
     this.canReturnNull = false,
-  }) : super(key: key);
+  });
   final String title;
   final DateTime? initDate;
   final DateTime? minDate;

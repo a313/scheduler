@@ -3,11 +3,11 @@ import 'package:shimmer/shimmer.dart';
 
 class BaseShimmer extends StatelessWidget {
   const BaseShimmer({
-    Key? key,
+    super.key,
     required this.child,
     this.baseColor,
     this.highlightColor,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final Color? baseColor;

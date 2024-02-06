@@ -4,15 +4,14 @@ publish_to: 'none'
 
 version: 0.3.7+0.0.28
 
-
 environment:
   sdk: '>=3.0.2 <4.0.0'
 
 dependencies:
   audio_service: ^0.18.12
-  audio_session: ^0.1.16
+  audio_session: ^0.1.18
   auto_size_text: ^3.0.0
-  cached_network_image: ^3.2.3
+  cached_network_image: ^3.3.1
   camera: ^0.10.5+3
   collection: any
   crypto: ^3.0.3

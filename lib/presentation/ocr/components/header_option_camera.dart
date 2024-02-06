@@ -5,11 +5,11 @@ import '../../../theme/app_fonts.dart';
 
 class HeaderOptionCamera extends StatelessWidget {
   const HeaderOptionCamera({
-    Key? key,
+    super.key,
     required this.appBarHeight,
     required this.topText,
     required this.bgColor,
-  }) : super(key: key);
+  });
 
   final double appBarHeight;
   final String topText;

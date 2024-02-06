@@ -11,7 +11,7 @@ import 'package:scheduler/widgets/bottomsheets/date_picker_bottomsheet.dart';
 
 class BaseTextField extends StatefulWidget {
   const BaseTextField({
-    Key? key,
+    super.key,
     this.labelText,
     this.helperText,
     this.errorText,
@@ -35,7 +35,7 @@ class BaseTextField extends StatefulWidget {
     this.obscureText = false,
     this.initialValue,
     this.onClear,
-  }) : super(key: key);
+  });
 
   final bool autofocus;
   final FocusNode? focusNode;
@@ -202,7 +202,7 @@ class MoneyInput extends StatefulWidget {
   final String? hintText;
 
   const MoneyInput(
-      {Key? key,
+      {super.key,
       this.helperText,
       this.validator,
       this.controller,
@@ -222,8 +222,7 @@ class MoneyInput extends StatefulWidget {
       this.suffixStr = 'VNĐ',
       this.multiple = 1})
       : assert(maxLength == null || maxLength > 0),
-        assert(multiple > 0),
-        super(key: key);
+        assert(multiple > 0);
 
   @override
   State<MoneyInput> createState() => _MoneyInputState();
@@ -378,7 +377,7 @@ class _MoneyInputState extends State<MoneyInput> {
 
 class BaseDateField extends StatefulWidget {
   const BaseDateField({
-    Key? key,
+    super.key,
     required this.labelText,
     this.mode = CupertinoDatePickerMode.date,
     this.initDate,
@@ -387,7 +386,7 @@ class BaseDateField extends StatefulWidget {
     required this.onSelected,
     required this.timeFormat,
     this.validator,
-  }) : super(key: key);
+  });
 
   final String labelText;
   final CupertinoDatePickerMode mode;

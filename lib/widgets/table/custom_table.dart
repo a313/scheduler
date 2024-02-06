@@ -10,8 +10,7 @@ class CustomTable extends StatelessWidget {
   final Widget? header;
   final List<Widget> cells;
 
-  const CustomTable({Key? key, this.title, required this.cells, this.header})
-      : super(key: key);
+  const CustomTable({super.key, this.title, required this.cells, this.header});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class CustomTable extends StatelessWidget {
   }
 
   CustomTable.separated({
-    Key? key,
+    super.key,
     this.title,
     this.header,
     required int itemCount,
@@ -47,6 +46,5 @@ class CustomTable extends StatelessWidget {
             });
           }
           return widget;
-        }),
-        super(key: key);
+        });
 }

@@ -7,7 +7,7 @@ import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'vpn_controller.dart';
 
 class VpnPage extends GetView<VpnController> {
-  const VpnPage({Key? key}) : super(key: key);
+  const VpnPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,13 +4,13 @@ import 'package:scheduler/theme/app_fonts.dart';
 
 class AmountHelperComponent extends StatelessWidget {
   const AmountHelperComponent({
-    Key? key,
+    super.key,
     this.onTapped,
     required this.amount,
     required this.minAmount,
     required this.maxAmount,
     required this.multiStep,
-  }) : super(key: key);
+  });
 
   final int amount;
   final int minAmount;
@@ -67,8 +67,7 @@ class AmountHelperComponent extends StatelessWidget {
 
 class _AmountHelper extends StatelessWidget {
   const _AmountHelper(
-      {Key? key, required this.amount, this.onTapped, required this.textStyle})
-      : super(key: key);
+      {required this.amount, this.onTapped, required this.textStyle});
   final int amount;
   final TextStyle textStyle;
   final VoidCallback? onTapped;

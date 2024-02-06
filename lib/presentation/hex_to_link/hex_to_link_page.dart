@@ -8,7 +8,7 @@ import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
 import 'hex_to_link_controller.dart';
 
 class HexToLinkPage extends GetView<HexToLinkController> {
-  const HexToLinkPage({Key? key}) : super(key: key);
+  const HexToLinkPage({super.key});
 
   @override
   Widget build(BuildContext context) {

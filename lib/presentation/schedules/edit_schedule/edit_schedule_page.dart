@@ -9,7 +9,7 @@ import '../../../widgets/base/base_scafold_appbar.dart';
 import 'edit_schedule_controller.dart';
 
 class EditSchedulePage extends GetView<EditScheduleController> {
-  const EditSchedulePage({Key? key}) : super(key: key);
+  const EditSchedulePage({super.key});
 
   @override
   Widget build(BuildContext context) {

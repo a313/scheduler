@@ -11,7 +11,7 @@ import 'package:scheduler/widgets/shimmer/shimmer_list.dart';
 import 'reminder_controller.dart';
 
 class ReminderPage extends GetView<ReminderController> {
-  const ReminderPage({Key? key}) : super(key: key);
+  const ReminderPage({super.key});
 
   @override
   Widget build(BuildContext context) {

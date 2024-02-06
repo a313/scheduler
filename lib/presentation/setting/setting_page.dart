@@ -11,7 +11,7 @@ import 'components/app_icon.dart';
 import 'setting_controller.dart';
 
 class SettingPage extends GetView<SettingController> {
-  const SettingPage({Key? key}) : super(key: key);
+  const SettingPage({super.key});
 
   @override
   Widget build(BuildContext context) {

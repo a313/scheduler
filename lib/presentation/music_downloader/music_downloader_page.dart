@@ -9,7 +9,7 @@ import 'components/music_downloader_item.dart';
 import 'music_downloader_controller.dart';
 
 class MusicDownloaderPage extends GetView<MusicDownloaderController> {
-  const MusicDownloaderPage({Key? key}) : super(key: key);
+  const MusicDownloaderPage({super.key});
 
   @override
   Widget build(BuildContext context) {
