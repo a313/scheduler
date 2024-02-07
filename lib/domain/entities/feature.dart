@@ -16,6 +16,7 @@ const ocrPage = 'OCR_PAGE';
 const vpnPage = 'VPN_PAGE';
 const musicPlayerPage = 'MUSIC_PLAYER_PAGE';
 const musicDownloaderPage = 'MUSIC_DOWNLOADER_PAGE';
+const lunarPage = 'LUNAR_PAGE';
 
 class Feature {
   final String key;

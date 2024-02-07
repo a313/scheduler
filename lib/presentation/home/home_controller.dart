@@ -8,6 +8,7 @@ import 'package:scheduler/domain/entities/feature.dart';
 import 'package:scheduler/presentation/clock/clock_page.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:scheduler/presentation/home/components/more_feature.dart';
+import 'package:scheduler/presentation/lunar/lunar_page.dart';
 import 'package:scheduler/presentation/music_downloader/music_downloader_page.dart';
 import 'package:scheduler/presentation/music_player/music_player_page.dart';
 import 'package:scheduler/presentation/ocr/ocr_page.dart';
@@ -230,6 +231,18 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
               colorFilter: activeColor,
             ),
             label: 'Download'.tr),
+      ),
+      Feature(
+        key: lunarPage,
+        page: const LunarPage(),
+        item: BottomNavigationBarItem(
+            icon: BarIcon(
+                path: 'assets/svg/Regular/LunarCalendar.svg',
+                colorFilter: normalColor),
+            activeIcon: const BarIcon(
+              path: 'assets/svg/Regular/LunarCalendarActive.svg',
+            ),
+            label: 'Lunar'.tr),
       ),
       Feature(
         key: settingPage,

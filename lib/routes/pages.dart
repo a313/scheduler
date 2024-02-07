@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:scheduler/presentation/class_room/class_room_binding.dart';
 import 'package:scheduler/presentation/events/events_binding.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_binding.dart';
+import 'package:scheduler/presentation/lunar/lunar_binding.dart';
 import 'package:scheduler/presentation/music_downloader/music_downloader_binding.dart';
 import 'package:scheduler/presentation/music_downloader/music_downloading/music_downloading_binding.dart';
 import 'package:scheduler/presentation/music_downloader/music_downloading/music_downloading_page.dart';
@@ -68,6 +69,7 @@ class AppPages {
         VpnBinding(),
         MusicPlayerBinding(),
         MusicDownloaderBinding(),
+        LunarBinding(),
       ],
     ),
     GetPage(
