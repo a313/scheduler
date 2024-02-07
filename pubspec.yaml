@@ -5,7 +5,7 @@ publish_to: 'none'
 version: 0.3.7+0.0.28
 
 environment:
-  sdk: '>=3.0.2 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   audio_service: ^0.18.12
@@ -44,7 +44,7 @@ dependencies:
   image: ^4.0.17
   image_cropper: ^5.0.0
   image_picker: ^0.8.7+5
-  intl: ^0.18.0
+  intl: any
   json_annotation: ^4.8.1
   just_audio: ^0.9.35
   metadata_god: ^0.5.2+1
