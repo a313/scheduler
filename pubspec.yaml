@@ -82,11 +82,6 @@ dev_dependencies:
 
 icons_launcher:
   image_path: "assets/png/appIcons/app_icon.jpg"
-platforms:
-  android:
-    enable: true
-  ios:
-    enable: true
 
 flutter:
   uses-material-design: true
