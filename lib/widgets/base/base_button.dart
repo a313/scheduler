@@ -74,7 +74,7 @@ class BaseButton extends StatelessWidget {
                         ),
                         onPressed: onLeftPressed,
                         child: Text(leftTitle,
-                            textScaleFactor: 1,
+                            textScaler: const TextScaler.linear(1),
                             maxLines: 1,
                             style: AppFonts.h400.copyWith(
                                 color: context.primaryDark, height: 1)),
@@ -95,7 +95,7 @@ class BaseButton extends StatelessWidget {
                         ),
                         onPressed: onRightPressed,
                         child: Text(rightTitle,
-                            textScaleFactor: 1,
+                            textScaler: const TextScaler.linear(1),
                             maxLines: 1,
                             style: AppFonts.h400.copyWith(
                                 color: context.neutral100, height: 1)),
@@ -242,7 +242,10 @@ class PrimaryButton extends StatelessWidget {
         elevation: 0,
       ),
       onPressed: onPressed,
-      child: Text(title, textScaleFactor: 1, maxLines: 1, style: textStyle),
+      child: Text(title,
+          textScaler: const TextScaler.linear(1),
+          maxLines: 1,
+          style: textStyle),
     );
   }
 }
@@ -272,7 +275,10 @@ class SecondaryButton extends StatelessWidget {
         elevation: 0,
       ),
       onPressed: onPressed,
-      child: Text(title, textScaleFactor: 1, maxLines: 1, style: textStyle),
+      child: Text(title,
+          textScaler: const TextScaler.linear(1),
+          maxLines: 1,
+          style: textStyle),
     );
   }
 }
