@@ -23,7 +23,7 @@ Future<void> main() async {
     await GetStorage.init();
     MetadataGod.initialize();
     if (kDebugMode) {
-      //await DbHelper().replaceDatabase();
+      await DbHelper().replaceDatabase();
       // Utils().cloneDb();
     }
     await DependencyInjection.injection();

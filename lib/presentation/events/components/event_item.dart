@@ -138,17 +138,18 @@ class EventItem extends StatelessWidget {
 
                         return Row(children: child);
                       },
-                      widgetB: (c) => Text(
-                        'No student included',
-                        style:
-                            AppFonts.bSmall.copyWith(color: context.neutral600),
-                      ),
+                      // widgetB: (c) => Text(
+                      //   'No student included',
+                      //   style:
+                      //       AppFonts.bSmall.copyWith(color: context.neutral600),
+                      // ),
                     ),
                   ),
                   if (data.location.hasText)
                     Padding(
                       padding: padSymVer04,
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SvgPicture.asset(
                             'assets/svg/Regular/MapPin.svg',
@@ -157,10 +158,12 @@ class EventItem extends StatelessWidget {
                             colorFilter: context.neutral900.filterSrcIn,
                           ),
                           sizedBoxW02,
-                          Text(
-                            data.location!,
-                            style: AppFonts.bSmall
-                                .copyWith(color: context.neutral900),
+                          Expanded(
+                            child: Text(
+                              data.location!,
+                              style: AppFonts.bSmall
+                                  .copyWith(color: context.neutral900),
+                            ),
                           ),
                         ],
                       ),
