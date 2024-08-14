@@ -50,7 +50,7 @@ dependencies:
   metadata_god: ^0.5.2+1
   mime: ^1.0.4
   package_info_plus: any
-  palette_generator: ^0.3.3+3
+  
   path: ^1.8.3
   path_provider: ^2.1.1
   percent_indicator: ^4.2.3
@@ -68,7 +68,7 @@ dependencies:
   table_calendar: ^3.0.9
   timezone: ^0.9.2
   url_launcher: ^6.1.11
-  vnlunar: ^1.1.0
+  
 
 dev_dependencies:
   build_runner: any
