@@ -17,6 +17,7 @@ const vpnPage = 'VPN_PAGE';
 const musicPlayerPage = 'MUSIC_PLAYER_PAGE';
 const musicDownloaderPage = 'MUSIC_DOWNLOADER_PAGE';
 const lunarPage = 'LUNAR_PAGE';
+const notePage = 'NOTE_PAGE';
 
 class Feature {
   final String key;
