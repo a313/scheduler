@@ -40,6 +40,11 @@ export 'extensions/string_nullsafety.dart';
 export 'extensions/widgets_ext.dart';
 export 'helper/helper.dart';
 
+bool get isDesktop =>
+    Platform.isMacOS || Platform.isWindows || Platform.isLinux;
+
+bool get isMobile => Platform.isAndroid || Platform.isIOS;
+
 extension ListExt on List {
   void addSeparated({required Function(int index) separated}) {
     for (int i = length - 1; i > 0; i--) {

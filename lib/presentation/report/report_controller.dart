@@ -22,7 +22,7 @@ class ReportController extends BaseController {
 
   List<Event> events = [];
   final groupByClass = false.obs;
-  WidgetState state = WidgetState.loading;
+  BaseWidgetState state = BaseWidgetState.loading;
 
   List<ReportForStudent> reportForStudent = [];
   List<ReportForStudent> filterReportForStudent = [];
@@ -53,7 +53,7 @@ class ReportController extends BaseController {
       fillAllEvent(events);
       createReport();
     } else {
-      state = WidgetState.error;
+      state = BaseWidgetState.error;
     }
   }
 
@@ -127,9 +127,9 @@ class ReportController extends BaseController {
     if (groupByClass.value) {
     } else {
       if (filterReportForStudent.isEmpty) {
-        state = WidgetState.empty;
+        state = BaseWidgetState.empty;
       } else {
-        state = WidgetState.success;
+        state = BaseWidgetState.success;
       }
     }
     update();

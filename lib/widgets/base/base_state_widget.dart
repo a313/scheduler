@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum WidgetState { loading, success, empty, error }
+enum BaseWidgetState { loading, success, empty, error }
 
 class BaseStateWidget extends StatelessWidget {
   const BaseStateWidget({
@@ -11,7 +11,7 @@ class BaseStateWidget extends StatelessWidget {
     this.onError,
     this.baseColor,
     this.highlightColor,
-    this.state = WidgetState.loading,
+    this.state = BaseWidgetState.loading,
   });
 
   final WidgetBuilder builder;
@@ -20,16 +20,16 @@ class BaseStateWidget extends StatelessWidget {
   final Widget? onError;
   final Color? baseColor;
   final Color? highlightColor;
-  final WidgetState state;
+  final BaseWidgetState state;
 
   @override
   Widget build(BuildContext context) {
     switch (state) {
-      case WidgetState.loading:
+      case BaseWidgetState.loading:
         return onLoading;
-      case WidgetState.success:
+      case BaseWidgetState.success:
         return builder(context);
-      case WidgetState.empty:
+      case BaseWidgetState.empty:
         return onEmpty ?? const SizedBox();
       default:
         return onError ?? const SizedBox();
