@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
+import 'package:aio/core/utils/util.dart';
 
 import 'custom_title.dart';
 
@@ -33,7 +33,7 @@ class CustomTable extends StatelessWidget {
     required int itemCount,
     required Widget Function(int index) separatorBuilder,
     required Widget Function(int index) itemBuilder,
-  })  : cells = List.generate(max(0, itemCount * 2 - 1), (index) {
+  }) : cells = List.generate(max(0, itemCount * 2 - 1), (index) {
           final int itemIndex = index ~/ 2;
           final Widget widget;
           if (index.isEven) {

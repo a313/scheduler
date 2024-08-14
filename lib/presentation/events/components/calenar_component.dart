@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/theme/app_fonts.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class CalendarComponent extends StatefulWidget {

@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:photo_view/photo_view_gallery.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/ekyc.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/entities/ekyc.dart';
 
 class EkycImagesComponent extends StatelessWidget {
   const EkycImagesComponent({super.key, required this.ekyc});
@@ -77,7 +77,8 @@ class EkycImagesComponent extends StatelessWidget {
 }
 
 class GalleryPreView extends StatelessWidget {
-  const GalleryPreView({super.key, required this.imagePath, this.initIndex = 0});
+  const GalleryPreView(
+      {super.key, required this.imagePath, this.initIndex = 0});
 
   final List<String> imagePath;
   final int initIndex;

@@ -8,18 +8,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:metadata_god/metadata_god.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/device_info.dart';
-import 'package:scheduler/injection.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/device_info.dart';
+import 'package:aio/injection.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 import 'app.dart';
 // ignore: unused_import
 import 'core/utils/helper/sql_helper.dart';
+import 'firebase_options.dart';
 
 Future<void> main() async {
   runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
     await GetStorage.init();
     MetadataGod.initialize();
     if (kDebugMode) {
@@ -30,7 +34,6 @@ Future<void> main() async {
     await DeviceInfo().getDeviceInfo();
 
     if (isMobile) {
-      await Firebase.initializeApp();
       FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
       FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
           FlutterLocalNotificationsPlugin();

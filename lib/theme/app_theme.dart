@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:scheduler/theme/app_light_colors.dart';
+import 'package:aio/theme/app_light_colors.dart';
 
 class AppTheme {
   final lightTheme = ThemeData.light(useMaterial3: false).copyWith(

@@ -2,8 +2,8 @@
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 import '../custom_divider.dart';
 
@@ -29,7 +29,8 @@ class BaseBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final hasHeader = title != null || subTitle != null;
     return MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1)),
+      data: MediaQuery.of(context)
+          .copyWith(textScaler: const TextScaler.linear(1)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

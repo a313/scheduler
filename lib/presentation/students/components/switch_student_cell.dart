@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/student.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/student.dart';
 
 import '../../../theme/app_fonts.dart';
 import '../../../widgets/local_avatar.dart';

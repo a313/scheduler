@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
-import 'package:scheduler/widgets/base/base_state_widget.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
-import 'package:scheduler/widgets/local_avatar.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/theme/app_fonts.dart';
+import 'package:aio/widgets/base/base_state_widget.dart';
+import 'package:aio/widgets/custom_divider.dart';
+import 'package:aio/widgets/local_avatar.dart';
 
 import '../../../data/models/event.dart';
 import 'time_const_component.dart';

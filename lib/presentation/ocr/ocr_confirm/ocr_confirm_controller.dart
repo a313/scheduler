@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/ekyc.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/entities/ekyc.dart';
 
 import '../ocr_camera/ocr_camera_binding.dart';
 import '../ocr_camera/ocr_camera_page.dart';

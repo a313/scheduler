@@ -3,8 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/painter/clock_time_painter.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/widgets/painter/clock_time_painter.dart';
 
 import '../../core/utils/util.dart';
 import '../../widgets/base/base_input.dart';

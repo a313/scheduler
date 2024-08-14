@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/y2_mate_video_detail.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/y2_mate_video_detail.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 class MusicDownloaderItem extends StatelessWidget {
   const MusicDownloaderItem({

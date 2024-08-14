@@ -4,8 +4,8 @@ import 'dart:ui';
 import 'package:get/get.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:intl/intl.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/ekyc.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/entities/ekyc.dart';
 
 class OcrIDCard {
   Offset topLeft = const Offset(0, 0);

@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/onboarding/components/ob_page.dart';
-import 'package:scheduler/routes/routes.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/presentation/onboarding/components/ob_page.dart';
+import 'package:aio/routes/routes.dart';
 
 class OnboardingController extends BaseController {
   final pageController = PageController();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/widgets/base/base_appbar.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/widgets/base/base_appbar.dart';
 
 class BaseScaffold extends StatelessWidget {
   const BaseScaffold({

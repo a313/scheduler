@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/class_room/edit_class_room/edit_class_room_controller.dart';
-import 'package:scheduler/theme/app_fonts.dart';
-import 'package:scheduler/widgets/add_cell.dart';
-import 'package:scheduler/widgets/base/base_input.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/base/base_select_field.dart';
-import 'package:scheduler/widgets/text_field_formater/numberic_formater.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/presentation/class_room/edit_class_room/edit_class_room_controller.dart';
+import 'package:aio/theme/app_fonts.dart';
+import 'package:aio/widgets/add_cell.dart';
+import 'package:aio/widgets/base/base_input.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/widgets/base/base_select_field.dart';
+import 'package:aio/widgets/text_field_formater/numberic_formater.dart';
 
 import '../../../widgets/avatar_picker.dart';
 import '../../../widgets/base/base_button.dart';

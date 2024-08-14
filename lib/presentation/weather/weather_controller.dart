@@ -1,9 +1,9 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/weatherbit.dart';
-import 'package:scheduler/domain/usecases/weather_usecases.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/weatherbit.dart';
+import 'package:aio/domain/usecases/weather_usecases.dart';
 
 class WeatherController extends BaseController {
   final useCase = Get.find<WeatherUseCases>();

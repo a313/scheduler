@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/domain/usecases/vpn_usecases.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/domain/usecases/vpn_usecases.dart';
 
 import '../../domain/entities/vpn_info.dart';
 

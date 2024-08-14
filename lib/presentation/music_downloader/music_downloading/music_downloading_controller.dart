@@ -3,14 +3,14 @@ import 'dart:developer';
 import 'dart:math' as math;
 
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/y2_mate_download_link.dart';
-import 'package:scheduler/data/models/y2_mate_video_detail.dart';
-import 'package:scheduler/domain/usecases/music_usecases.dart';
-import 'package:scheduler/widgets/base/base_button.dart';
-import 'package:scheduler/widgets/base/base_popup.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/y2_mate_download_link.dart';
+import 'package:aio/data/models/y2_mate_video_detail.dart';
+import 'package:aio/domain/usecases/music_usecases.dart';
+import 'package:aio/widgets/base/base_button.dart';
+import 'package:aio/widgets/base/base_popup.dart';
 
 class MusicDownloadingController extends BaseController {
   MusicDownloadingController({

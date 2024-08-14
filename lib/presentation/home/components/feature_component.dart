@@ -2,9 +2,9 @@
 
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
-// import 'package:scheduler/core/utils/util.dart';
-// import 'package:scheduler/presentation/home/home_controller.dart';
-// import 'package:scheduler/theme/app_fonts.dart';
+// import 'package:aio/core/utils/util.dart';
+// import 'package:aio/presentation/home/home_controller.dart';
+// import 'package:aio/theme/app_fonts.dart';
 
 // import '../../../domain/entities/feature.dart';
 

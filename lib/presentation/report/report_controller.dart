@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/event.dart';
-import 'package:scheduler/data/models/report_for_class.dart';
-import 'package:scheduler/data/models/report_for_student.dart';
-import 'package:scheduler/domain/usecases/event_usecases.dart';
-import 'package:scheduler/widgets/base/base_state_widget.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/event.dart';
+import 'package:aio/data/models/report_for_class.dart';
+import 'package:aio/data/models/report_for_student.dart';
+import 'package:aio/domain/usecases/event_usecases.dart';
+import 'package:aio/widgets/base/base_state_widget.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:syncfusion_flutter_xlsio/xlsio.dart';
 

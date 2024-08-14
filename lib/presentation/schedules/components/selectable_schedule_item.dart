@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/schedule.dart';
-import 'package:scheduler/presentation/schedules/components/schedule_item.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/schedule.dart';
+import 'package:aio/presentation/schedules/components/schedule_item.dart';
 
 class SelectableStudentCell extends StatelessWidget {
   const SelectableStudentCell(

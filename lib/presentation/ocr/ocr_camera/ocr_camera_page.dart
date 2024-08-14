@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/presentation/ocr/components/custom_camera_preview.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/presentation/ocr/components/custom_camera_preview.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
 
 import '../components/other_info.dart';
 import 'ocr_camera_controller.dart';

@@ -2,13 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/clock/clock_controller.dart';
-import 'package:scheduler/theme/app_fonts.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/painter/clock_background_painter.dart';
-import 'package:scheduler/widgets/painter/clock_time_painter.dart';
-import 'package:scheduler/widgets/painter/events_painter.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/presentation/clock/clock_controller.dart';
+import 'package:aio/theme/app_fonts.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/widgets/painter/clock_background_painter.dart';
+import 'package:aio/widgets/painter/clock_time_painter.dart';
+import 'package:aio/widgets/painter/events_painter.dart';
 
 class ClockPage extends StatelessWidget {
   const ClockPage({super.key});

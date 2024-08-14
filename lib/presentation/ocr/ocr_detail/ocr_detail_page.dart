@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/widgets/base/base_button.dart';
+import 'package:aio/widgets/base/base_button.dart';
 
 import '../components/ekyc_view.dart';
 import 'ocr_detail_controller.dart';

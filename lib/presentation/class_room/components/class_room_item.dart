@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/theme/app_fonts.dart';
-import 'package:scheduler/widgets/local_avatar.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/theme/app_fonts.dart';
+import 'package:aio/widgets/local_avatar.dart';
 
 class ClassRoomItem extends StatelessWidget {
   const ClassRoomItem({

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
-import 'package:scheduler/widgets/base/base_input.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/base/base_state_widget.dart';
-import 'package:scheduler/widgets/base/search_field.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/theme/app_fonts.dart';
+import 'package:aio/widgets/base/base_input.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/widgets/base/base_state_widget.dart';
+import 'package:aio/widgets/base/search_field.dart';
 
 import '../../widgets/shimmer/shimmer_list.dart';
 import 'group_by_class/group_by_class_component.dart';

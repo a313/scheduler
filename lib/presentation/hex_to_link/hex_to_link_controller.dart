@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/utils/util.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/utils/util.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HexToLinkController extends BaseController {

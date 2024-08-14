@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/schedules/components/swipe_schedule_cell.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/presentation/schedules/components/swipe_schedule_cell.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/widgets/custom_divider.dart';
 
 import 'schedules_controller.dart';
 

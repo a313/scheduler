@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/weatherbit.dart';
-import 'package:scheduler/domain/repo_abs/local_data_repo_abs.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/weatherbit.dart';
+import 'package:aio/domain/repo_abs/local_data_repo_abs.dart';
 
 import '../../domain/repo_abs/weather_repo_abs.dart';
 import '../services/weather_service.dart';

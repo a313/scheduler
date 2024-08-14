@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/constants/enums.dart';
-import 'package:scheduler/domain/entities/ekyc.dart';
+import 'package:aio/core/utils/constants/enums.dart';
+import 'package:aio/domain/entities/ekyc.dart';
 
 import 'ocr_camera_controller.dart';
 

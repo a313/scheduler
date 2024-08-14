@@ -1,8 +1,8 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/widgets/media/media_thumb.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/widgets/media/media_thumb.dart';
 
 import '../music_player_controller.dart';
 
@@ -16,7 +16,8 @@ class AudioPlayer extends GetWidget<MusicPlayerController> {
         builder: (context, snapshot) {
           final item = snapshot.data;
           return MediaQuery(
-            data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1)),
+            data: MediaQuery.of(context)
+                .copyWith(textScaler: const TextScaler.linear(1)),
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(

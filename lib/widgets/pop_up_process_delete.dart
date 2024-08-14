@@ -1,7 +1,7 @@
 // import 'package:easy_localization/easy_localization.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:scheduler/core/utils/extensions/build_context.dart';
+// import 'package:aio/core/utils/extensions/build_context.dart';
 // import 'package:gimo/utils/constants.dart';
 // import 'package:gimo/utils/preferences.dart';
 // import 'package:gimo/utils/size_config.dart';

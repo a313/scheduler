@@ -1,5 +1,5 @@
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/reminder.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/reminder.dart';
 
 import '../../core/utils/util.dart';
 import '../../data/models/event.dart';

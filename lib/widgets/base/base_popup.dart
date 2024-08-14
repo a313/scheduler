@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 import '../base/base_button.dart';
 
@@ -33,7 +33,8 @@ class BasePopup extends StatelessWidget {
     final maxWidth = min(320.0, mq.size.width * 0.96);
     const padHoz = 24.0;
     return MediaQuery(
-        data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1)),
+        data: MediaQuery.of(context)
+            .copyWith(textScaler: const TextScaler.linear(1)),
         child: Center(
           child: Container(
             constraints: BoxConstraints(maxWidth: maxWidth),

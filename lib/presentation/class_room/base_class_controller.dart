@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/utils/util.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/utils/util.dart';
 
 import '../../data/models/class_room.dart';
 import '../../domain/usecases/class_room_usecases.dart';

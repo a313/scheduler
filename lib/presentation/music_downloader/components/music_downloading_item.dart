@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:scheduler/data/models/y2_mate_video_detail.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/data/models/y2_mate_video_detail.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 import '../../../core/utils/util.dart';
 

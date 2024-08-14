@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/vpn_info.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/entities/vpn_info.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
 
 import 'vpn_controller.dart';
 

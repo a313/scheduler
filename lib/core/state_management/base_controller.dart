@@ -2,12 +2,12 @@ import 'dart:ui';
 
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/data/models/reminder.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/domain/usecases/event_usecases.dart';
-import 'package:scheduler/domain/usecases/local_usecase.dart';
-import 'package:scheduler/domain/usecases/notification_usecases.dart';
-import 'package:scheduler/presentation/timetables/timetables_controller.dart';
+import 'package:aio/data/models/reminder.dart';
+import 'package:aio/data/models/student.dart';
+import 'package:aio/domain/usecases/event_usecases.dart';
+import 'package:aio/domain/usecases/local_usecase.dart';
+import 'package:aio/domain/usecases/notification_usecases.dart';
+import 'package:aio/presentation/timetables/timetables_controller.dart';
 
 import '../../data/models/class_room.dart';
 import '../../data/models/event.dart';

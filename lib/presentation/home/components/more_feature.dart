@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/device_info.dart';
-import 'package:scheduler/domain/entities/feature.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/device_info.dart';
+import 'package:aio/domain/entities/feature.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 import '../../../widgets/base/base_bottom_sheet.dart';
 

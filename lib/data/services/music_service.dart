@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:scheduler/core/network/base_response.dart';
-import 'package:scheduler/core/network/dio_service.dart';
+import 'package:aio/core/network/base_response.dart';
+import 'package:aio/core/network/dio_service.dart';
 
 abstract class MusicService extends DioService {
   // Future<BaseResponse> getVideoInfo(String url);

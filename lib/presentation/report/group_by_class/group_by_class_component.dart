@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
-import 'package:scheduler/data/models/report_for_class.dart';
-import 'package:scheduler/presentation/report/group_by_class/group_by_class_item.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
+import 'package:aio/data/models/report_for_class.dart';
+import 'package:aio/presentation/report/group_by_class/group_by_class_item.dart';
+import 'package:aio/widgets/custom_divider.dart';
 
 import 'group_by_class_header.dart';
 

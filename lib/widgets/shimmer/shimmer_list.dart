@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
+import 'package:aio/core/utils/util.dart';
 
 import '../base/base_shimmer.dart';
 

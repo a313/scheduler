@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/theme/app_fonts.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/theme/app_fonts.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
 
 import '../../core/utils/util.dart';
 import 'components/background.dart';

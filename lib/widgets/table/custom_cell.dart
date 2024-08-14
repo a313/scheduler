@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 class CustomCell extends StatelessWidget {
   const CustomCell({
@@ -10,7 +10,7 @@ class CustomCell extends StatelessWidget {
     this.contentWidget,
     this.titleStyle,
     this.contentStyle,
-  })  : assert(content != null || contentWidget != null);
+  }) : assert(content != null || contentWidget != null);
   final String title;
   final TextStyle? titleStyle;
   final String? content;
@@ -51,7 +51,7 @@ class CustomCellFlexibleTitle extends StatelessWidget {
     this.contentWidget,
     this.titleStyle,
     this.contentStyle,
-  })  : assert(content != null || contentWidget != null);
+  }) : assert(content != null || contentWidget != null);
   final String title;
   final TextStyle? titleStyle;
   final String? content;

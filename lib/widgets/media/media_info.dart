@@ -1,9 +1,9 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/constants/sized_boxs.dart';
-import 'package:scheduler/core/utils/extensions/build_context.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/core/utils/constants/sized_boxs.dart';
+import 'package:aio/core/utils/extensions/build_context.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 import 'media_thumb.dart';
 

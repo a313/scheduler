@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:scheduler/core/utils/util.dart';
+import 'package:aio/core/utils/util.dart';
 
 class TabItem {
   final String label;
@@ -52,7 +52,7 @@ class TabIcon extends StatefulWidget {
     required TabController controler,
     required this.style,
     required this.selectedStyle,
-  })  : controller = controler;
+  }) : controller = controler;
   final TabController controller;
   final List<TabItem> tabs;
   final TextStyle style;

@@ -1,5 +1,5 @@
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/utils/util.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/utils/util.dart';
 
 class PeriodsController extends BaseController {
   late DateTime begin;

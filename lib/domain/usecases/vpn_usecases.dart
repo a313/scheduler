@@ -1,4 +1,4 @@
-import 'package:scheduler/domain/entities/vpn_info.dart';
+import 'package:aio/domain/entities/vpn_info.dart';
 
 import '../../core/usecase/data_state.dart';
 import '../repo_abs/vpn_repo_abs.dart';

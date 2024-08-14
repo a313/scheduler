@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/timetable.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/timetable.dart';
 
 import '../../core/converters.dart';
 

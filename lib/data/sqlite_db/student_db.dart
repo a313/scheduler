@@ -1,4 +1,4 @@
-import 'package:scheduler/data/sqlite_db/db_helper.dart';
+import 'package:aio/data/sqlite_db/db_helper.dart';
 
 const STUDENT_TABLE = "student_db";
 

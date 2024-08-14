@@ -1,10 +1,10 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/music_player/components/media_control_component.dart';
-import 'package:scheduler/presentation/music_player/music_player_controller.dart';
-import 'package:scheduler/widgets/media/media_info.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/presentation/music_player/components/media_control_component.dart';
+import 'package:aio/presentation/music_player/music_player_controller.dart';
+import 'package:aio/widgets/media/media_info.dart';
 
 class MiniPlayer extends GetWidget<MusicPlayerController> {
   const MiniPlayer({super.key, required this.audioHandler});

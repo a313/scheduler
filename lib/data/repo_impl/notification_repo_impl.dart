@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:scheduler/domain/repo_abs/notification_repo_abs.dart';
+import 'package:aio/domain/repo_abs/notification_repo_abs.dart';
 import 'package:timezone/timezone.dart';
 
 class NotificationRepoImpl extends NotificationRepo {

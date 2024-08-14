@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/ekyc.dart';
-import 'package:scheduler/presentation/ocr/ocr_util.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/entities/ekyc.dart';
+import 'package:aio/presentation/ocr/ocr_util.dart';
 
 import '../ocr_camera/ocr_camera_binding.dart';
 import '../ocr_camera/ocr_camera_page.dart';

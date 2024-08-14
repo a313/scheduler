@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
+import 'package:aio/widgets/custom_divider.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../data/models/weatherbit.dart';

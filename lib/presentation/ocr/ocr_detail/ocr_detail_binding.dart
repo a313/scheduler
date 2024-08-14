@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:scheduler/presentation/ocr/ocr_detail/ocr_detail_controller.dart';
+import 'package:aio/presentation/ocr/ocr_detail/ocr_detail_controller.dart';
 
 class OcrDetailBinding implements Bindings {
   @override

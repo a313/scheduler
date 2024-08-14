@@ -1,10 +1,10 @@
 import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/reminder.dart';
-import 'package:scheduler/domain/usecases/reminder_usecases.dart';
-import 'package:scheduler/widgets/popups/two_option_popup.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/reminder.dart';
+import 'package:aio/domain/usecases/reminder_usecases.dart';
+import 'package:aio/widgets/popups/two_option_popup.dart';
 
 import '../../routes/routes.dart';
 

@@ -1,7 +1,7 @@
 import 'package:csv/csv.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/vpn_info_model.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/vpn_info_model.dart';
 
 import '../../domain/entities/vpn_info.dart';
 import '../../domain/repo_abs/vpn_repo_abs.dart';

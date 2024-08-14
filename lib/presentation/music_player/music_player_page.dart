@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/music_player/components/header_component.dart';
-import 'package:scheduler/presentation/music_player/components/mini_player.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/presentation/music_player/components/header_component.dart';
+import 'package:aio/presentation/music_player/components/mini_player.dart';
 
 import '../../domain/entities/swipe_action_data.dart';
 import '../../widgets/base/base_scafold_appbar.dart';

@@ -1,14 +1,14 @@
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/sqlite_db/schedule_db.dart';
-import 'package:scheduler/data/models/schedule.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/sqlite_db/schedule_db.dart';
+import 'package:aio/data/models/schedule.dart';
 
 import '../../core/utils/util.dart';
 import '../../domain/repo_abs/schedule_repo_abs.dart';
 
-class ScheduleRepoImpl extends ScheduleRepo {
+class aioepoImpl extends aioepo {
   final ScheduleDB db;
 
-  ScheduleRepoImpl(this.db);
+  aioepoImpl(this.db);
   @override
   Future<DataState<List<Schedule>>> getAllSchedule() async {
     final data = await db.fetchAll();

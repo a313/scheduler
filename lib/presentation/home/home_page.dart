@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/feature.dart';
-import 'package:scheduler/presentation/home/components/side_nav_rail.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/platform_widget.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/entities/feature.dart';
+import 'package:aio/presentation/home/components/side_nav_rail.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/widgets/platform_widget.dart';
 
 import 'components/bar_icon.dart';
 import 'components/bottom_nav_bar.dart';

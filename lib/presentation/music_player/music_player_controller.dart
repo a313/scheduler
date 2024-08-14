@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:audio_service/audio_service.dart';
 import 'package:get/get.dart';
 import 'package:metadata_god/metadata_god.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/usecases/music_usecases.dart';
-import 'package:scheduler/presentation/music_player/components/audio_player.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/usecases/music_usecases.dart';
+import 'package:aio/presentation/music_player/components/audio_player.dart';
 
 class MusicPlayerController extends BaseController {
   List<MediaItem> allMedia = [];

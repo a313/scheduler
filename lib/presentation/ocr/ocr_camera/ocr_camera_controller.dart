@@ -10,10 +10,10 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:photo_gallery/photo_gallery.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/utils/image_helper.dart';
-import 'package:scheduler/domain/entities/ekyc.dart';
-import 'package:scheduler/routes/routes.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/utils/image_helper.dart';
+import 'package:aio/domain/entities/ekyc.dart';
+import 'package:aio/routes/routes.dart';
 
 import '../../../core/utils/transform_image.dart';
 import '../../../core/utils/util.dart';

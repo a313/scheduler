@@ -1,8 +1,8 @@
-import 'package:scheduler/core/usecase/data_state.dart';
+import 'package:aio/core/usecase/data_state.dart';
 
 import '../../data/models/schedule.dart';
 
-abstract class ScheduleRepo {
+abstract class aioepo {
   Future<DataState<List<Schedule>>> getAllSchedule();
 
   Future<DataState<Schedule>> insertOrUpdate(Schedule data);

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/manager/event_tracking.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/domain/usecases/event_usecases.dart';
-import 'package:scheduler/presentation/events/event_events.dart';
+import 'package:aio/core/manager/event_tracking.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/data/models/student.dart';
+import 'package:aio/domain/usecases/event_usecases.dart';
+import 'package:aio/presentation/events/event_events.dart';
 
 import '../../../core/usecase/data_state.dart';
 import '../../../data/models/event.dart';

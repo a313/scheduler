@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:scheduler/domain/entities/vpn_info.dart';
+import 'package:aio/domain/entities/vpn_info.dart';
 
 part 'vpn_info_model.freezed.dart';
 part 'vpn_info_model.g.dart';

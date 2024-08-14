@@ -1,11 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/y2_mate_video_detail.dart';
-import 'package:scheduler/domain/usecases/music_usecases.dart';
-import 'package:scheduler/routes/routes.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/y2_mate_video_detail.dart';
+import 'package:aio/domain/usecases/music_usecases.dart';
+import 'package:aio/routes/routes.dart';
 
 class MusicDownloaderController extends BaseController {
   final musicUC = Get.find<MusicUseCases>();

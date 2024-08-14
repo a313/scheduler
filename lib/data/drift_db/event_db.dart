@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/sqlite_db/db_helper.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/sqlite_db/db_helper.dart';
 
 const EVENT_TABLE = "event_db";
 

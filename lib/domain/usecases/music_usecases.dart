@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:metadata_god/metadata_god.dart';
 import 'package:mime/mime.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/y2_mate_download_link.dart';
-import 'package:scheduler/data/models/y2_mate_video_detail.dart';
-import 'package:scheduler/domain/repo_abs/music_repo_abs.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/y2_mate_download_link.dart';
+import 'package:aio/data/models/y2_mate_video_detail.dart';
+import 'package:aio/domain/repo_abs/music_repo_abs.dart';
 
 class MusicUseCases {
   final MusicRepo _;

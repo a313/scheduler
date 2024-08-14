@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:scheduler/core/network/base_response.dart';
+import 'package:aio/core/network/base_response.dart';
 
 abstract class DioService {
   String get domain;

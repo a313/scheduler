@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/domain/usecases/student_usecases.dart';
-import 'package:scheduler/presentation/students/base_student_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/data/models/student.dart';
+import 'package:aio/domain/usecases/student_usecases.dart';
+import 'package:aio/presentation/students/base_student_controller.dart';
 
 import '../../routes/routes.dart';
 

@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/event.dart';
-import 'package:scheduler/data/models/student.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/data/models/event.dart';
+import 'package:aio/data/models/student.dart';
 
 part 'report_for_student.freezed.dart';
 

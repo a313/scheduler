@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/timetable.dart';
-import 'package:scheduler/presentation/class_room/base_class_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/data/models/timetable.dart';
+import 'package:aio/presentation/class_room/base_class_controller.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../routes/routes.dart';

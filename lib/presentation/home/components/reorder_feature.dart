@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/feature.dart';
-import 'package:scheduler/widgets/base/base_bottom_sheet.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/entities/feature.dart';
+import 'package:aio/widgets/base/base_bottom_sheet.dart';
+import 'package:aio/widgets/custom_divider.dart';
 
 import '../../../theme/app_fonts.dart';
 

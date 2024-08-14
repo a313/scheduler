@@ -1,5 +1,5 @@
 import 'package:geolocator/geolocator.dart';
-import 'package:scheduler/data/models/weatherbit.dart';
+import 'package:aio/data/models/weatherbit.dart';
 
 import '../../core/usecase/data_state.dart';
 import '../repo_abs/weather_repo_abs.dart';

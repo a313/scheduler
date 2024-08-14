@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "911452778918",
+    "project_id": "tools-a75c2",
+    "storage_bucket": "tools-a75c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911452778918:android:e117e37be21554cccc5f67",
+        "android_client_info": {
+          "package_name": "com.aio.tools"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB__-T1fW8JBlctEdoffIA9l4nbTUHqYYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

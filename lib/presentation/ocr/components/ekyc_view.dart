@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 import '../../../domain/entities/ekyc.dart';
 

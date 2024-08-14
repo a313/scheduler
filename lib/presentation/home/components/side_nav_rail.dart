@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/domain/entities/feature.dart';
+import 'package:aio/domain/entities/feature.dart';
 
 class SideNavRail extends StatelessWidget {
   const SideNavRail({

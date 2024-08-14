@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/formater.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/presentation/class_room/components/class_room_item.dart';
-import 'package:scheduler/widgets/base/base_input.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/base/base_state_widget.dart';
+import 'package:aio/core/utils/formater.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/presentation/class_room/components/class_room_item.dart';
+import 'package:aio/widgets/base/base_input.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/widgets/base/base_state_widget.dart';
 
 import '../../../theme/app_fonts.dart';
 import '../../../widgets/avatar_picker.dart';
