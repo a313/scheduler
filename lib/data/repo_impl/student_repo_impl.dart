@@ -1,5 +1,5 @@
 import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/datasource/student_db.dart';
+import 'package:scheduler/data/sqlite_db/student_db.dart';
 import 'package:scheduler/data/models/student.dart';
 import 'package:scheduler/domain/repo_abs/student_repo_abs.dart';
 

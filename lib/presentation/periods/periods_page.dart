@@ -17,7 +17,7 @@ class PeriodsPage extends GetView<PeriodsController> {
   @override
   Widget build(BuildContext context) {
     final size = min(context.width, context.height) * 0.9;
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: 'Periods'.tr,
         onTappedScene: Get.focusScope?.unfocus,
         body: SingleChildScrollView(

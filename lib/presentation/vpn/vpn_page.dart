@@ -11,7 +11,7 @@ class VpnPage extends GetView<VpnController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: 'VPN'.tr,
         body: controller.obx(
           (state) => ListView.separated(

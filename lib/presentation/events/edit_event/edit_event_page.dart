@@ -20,10 +20,10 @@ class EditEventPage extends GetView<EditEventController> {
   @override
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: isEdit ? 'Edit event'.tr : 'New event'.tr,
         onTappedScene: controller.hideKeyboard,
-        onWillPop: controller.onWillPop,
+        onPopInvoked: controller.onWillPop,
         actions: isEdit
             ? [
                 TextButton(

@@ -18,7 +18,7 @@ class EditTimetablePage extends GetView<EditTimetableController> {
   @override
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: isEdit ? 'Edit Timetable'.tr : 'Add Timetable'.tr,
         body: Column(children: [
           Expanded(

@@ -1,4 +1,4 @@
-import 'package:scheduler/data/datasource/db_helper.dart';
+import 'package:scheduler/data/sqlite_db/db_helper.dart';
 
 const SCHEDULE_TABLE = "schedule_db";
 

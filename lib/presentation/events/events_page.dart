@@ -14,7 +14,7 @@ class EventsPage extends GetView<EventsController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         centerTitle: false,
         titleWidget: Obx(() =>
             Text(controller.selectedDay.value.toStringFormat('LLLL yyyy'))),

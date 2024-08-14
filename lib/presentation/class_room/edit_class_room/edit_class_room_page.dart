@@ -19,10 +19,10 @@ class EditClassRoomPage extends GetView<EditClassRoomController> {
   @override
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: isEdit ? 'Edit class'.tr : 'Add class'.tr,
         onTappedScene: controller.hideKeyboard,
-        onWillPop: controller.onWillPop,
+        onPopInvoked: controller.onWillPop,
         actions: isEdit
             ? [
                 TextButton(

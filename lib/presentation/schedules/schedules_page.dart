@@ -13,7 +13,7 @@ class SchedulesPage extends GetView<SchedulesController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: 'Schedules'.tr,
         fab: FloatingActionButton(
           heroTag: runtimeType,

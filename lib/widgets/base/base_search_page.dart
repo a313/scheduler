@@ -50,7 +50,7 @@ class _BaseSearchPageState<T> extends State<BaseSearchPage<T>> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: widget.title,
         body: Column(
           children: [

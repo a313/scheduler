@@ -13,7 +13,7 @@ class QrcodePage extends GetView<QrcodeController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: 'Generate Qr',
         body: Column(
           children: [

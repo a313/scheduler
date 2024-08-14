@@ -18,7 +18,7 @@ class ReportPage extends GetView<ReportController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         elevation: 0,
         title: 'Report'.tr,
         actions: [

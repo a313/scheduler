@@ -4,7 +4,7 @@ import 'package:scheduler/data/models/weatherbit.dart';
 import 'package:scheduler/domain/repo_abs/local_data_repo_abs.dart';
 
 import '../../domain/repo_abs/weather_repo_abs.dart';
-import '../datasource/weather_service.dart';
+import '../services/weather_service.dart';
 
 class WeatherRepoImpl extends WeatherRepo {
   final WeatherService _;

@@ -19,9 +19,9 @@ class EditStudentPage extends GetView<EditStudentController> {
   @override
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         onTappedScene: controller.hideKeyboard,
-        onWillPop: controller.onWillPop,
+        onPopInvoked: controller.onWillPop,
         title: isEdit ? "Edit student" : "Add student",
         actions: isEdit
             ? [

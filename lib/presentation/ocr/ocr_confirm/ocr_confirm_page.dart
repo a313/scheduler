@@ -15,7 +15,7 @@ class OcrConfirmPage extends GetView<OcrConfirmController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: 'Cập nhật thông tin danh tính',
         body: Column(
           children: [

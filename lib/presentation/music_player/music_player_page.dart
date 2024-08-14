@@ -14,7 +14,7 @@ class MusicPlayerPage extends GetView<MusicPlayerController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       title: 'Music'.tr,
       body: GetBuilder<MusicPlayerController>(
         builder: (_) {

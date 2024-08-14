@@ -9,7 +9,7 @@ class LunarPage extends GetView<LunarController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       title: 'Lunar'.tr,
       body: const Column(
         children: [],

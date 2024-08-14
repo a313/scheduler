@@ -17,7 +17,7 @@ class SettingPage extends GetView<SettingController> {
   Widget build(BuildContext context) {
     return GetBuilder<SettingController>(
       builder: (_) {
-        return BaseScafoldAppBar(
+        return BaseScaffoldAppBar(
             title: 'Setting'.tr,
             key: UniqueKey(),
             backgroundColor: context.neutral200,

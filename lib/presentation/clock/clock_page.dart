@@ -16,7 +16,7 @@ class ClockPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = min(context.width, context.height) * 0.9;
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: 'Clock'.tr,
         body: GetBuilder<ClockController>(
           init: ClockController(),

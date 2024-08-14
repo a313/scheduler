@@ -14,7 +14,7 @@ class WeatherPage extends GetView<WeatherController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       title: 'Weather'.tr,
       body: GetBuilder<WeatherController>(
         builder: (controller) {

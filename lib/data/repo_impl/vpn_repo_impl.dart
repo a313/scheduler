@@ -5,7 +5,7 @@ import 'package:scheduler/data/models/vpn_info_model.dart';
 
 import '../../domain/entities/vpn_info.dart';
 import '../../domain/repo_abs/vpn_repo_abs.dart';
-import '../datasource/vpn_service.dart';
+import '../services/vpn_service.dart';
 
 class VpnRepoImpl extends VpnRepo {
   final VpnService _;

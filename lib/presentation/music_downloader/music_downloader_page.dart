@@ -13,7 +13,7 @@ class MusicDownloaderPage extends GetView<MusicDownloaderController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       title: 'Music Downloader'.tr,
       body: Column(
         children: [

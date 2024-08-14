@@ -57,10 +57,10 @@ class MoreFeatureBottomSheet extends StatelessWidget {
                           width: 56,
                           child: Column(
                             children: [
-                              obj.item.icon,
+                              obj.icon,
                               sizedBoxH02,
                               Text(
-                                obj.item.label ?? "",
+                                obj.label,
                                 style: AppFonts.h100
                                     .copyWith(color: context.neutral600),
                               ),

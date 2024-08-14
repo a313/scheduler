@@ -15,7 +15,7 @@ class TimetablesPage extends GetView<TimetablesController> {
   @override
   Widget build(BuildContext context) {
     controller.autoScroll();
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         titleWidget:
             Text(controller.currentTime.value.toStringFormat('LLLL yyyy')),
         centerTitle: false,

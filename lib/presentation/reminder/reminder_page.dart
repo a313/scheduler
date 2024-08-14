@@ -15,7 +15,7 @@ class ReminderPage extends GetView<ReminderController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       fab: FloatingActionButton(
         heroTag: runtimeType,
         onPressed: controller.addReminder,

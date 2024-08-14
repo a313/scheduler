@@ -51,9 +51,9 @@ class _ReorderFeaturePageState extends State<ReorderFeaturePage> {
       );
     }
 
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       title: 'Reorder Features'.tr,
-      onWillPop: () async {
+      onPopInvoked: () async {
         Get.back(result: [
           items.take(pinCount).toList(),
           items.sublist(pinCount),
@@ -72,8 +72,8 @@ class _ReorderFeaturePageState extends State<ReorderFeaturePage> {
           var realIndex = index;
           if (index > pinCount) realIndex = index - 1;
           final obj = items[realIndex];
-          final label = obj.item.label!;
-          final icon = obj.item.icon;
+          final label = obj.label;
+          final icon = obj.icon;
           final isPin = index < pinCount;
           if (isPin && pinCount == 1) {
             return AloneItem(

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -53,9 +54,19 @@ Future<void> main() async {
     tz.initializeTimeZones();
 
     runApp(const MainApp());
+
+    doWhenWindowReady(() {
+      const initialSize = Size(600, 600);
+      appWindow.minSize = initialSize;
+      appWindow.size = initialSize;
+      appWindow.position = const Offset(1800, 50);
+      appWindow.show();
+    });
   }, (error, stackTrace) {
     debugPrint(stackTrace.toString());
     // DebugHelper.addException(ExceptionData(error: error, stack: stackTrace));
-    FirebaseCrashlytics.instance.recordError(error, stackTrace);
+    if (isMobile) {
+      FirebaseCrashlytics.instance.recordError(error, stackTrace);
+    }
   });
 }

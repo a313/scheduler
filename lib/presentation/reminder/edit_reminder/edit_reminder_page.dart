@@ -17,10 +17,10 @@ class EditReminderPage extends GetView<EditReminderController> {
   @override
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: isEdit ? "Edit reminder" : "Add reminder",
         onTappedScene: controller.hideKeyboard,
-        onWillPop: controller.onWillPop,
+        onPopInvoked: controller.onWillPop,
         actions: isEdit
             ? [
                 TextButton(

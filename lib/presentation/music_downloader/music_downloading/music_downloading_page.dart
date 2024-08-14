@@ -11,7 +11,7 @@ class MusicDownloadingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       title: 'Music Downloading',
       body: GetBuilder<MusicDownloadingController>(
         builder: (controller) {

@@ -3,10 +3,10 @@ import 'dart:developer';
 import 'package:collection/collection.dart';
 import 'package:path/path.dart';
 import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/datasource/class_room_db.dart';
-import 'package:scheduler/data/datasource/event_db.dart';
-import 'package:scheduler/data/datasource/reminder_db.dart';
-import 'package:scheduler/data/datasource/schedule_db.dart';
+import 'package:scheduler/data/sqlite_db/class_room_db.dart';
+import 'package:scheduler/data/sqlite_db/event_db.dart';
+import 'package:scheduler/data/sqlite_db/reminder_db.dart';
+import 'package:scheduler/data/sqlite_db/schedule_db.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'student_db.dart';

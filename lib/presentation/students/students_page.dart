@@ -14,7 +14,7 @@ class StudentsPage extends GetView<StudentsController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       title: 'Student'.tr,
       fab: FloatingActionButton(
         heroTag: runtimeType,

@@ -9,7 +9,7 @@ class OcrPage extends GetView<OcrController> {
   const OcrPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       title: 'OCR',
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

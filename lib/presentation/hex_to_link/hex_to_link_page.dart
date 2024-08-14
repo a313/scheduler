@@ -12,7 +12,7 @@ class HexToLinkPage extends GetView<HexToLinkController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: 'Hext To Text'.tr,
         onTappedScene: () => Get.focusScope?.unfocus(),
         body: Column(
