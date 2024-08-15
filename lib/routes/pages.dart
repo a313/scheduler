@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:scheduler/presentation/ai/ai_binding.dart';
 import 'package:scheduler/presentation/class_room/class_room_binding.dart';
 import 'package:scheduler/presentation/events/events_binding.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_binding.dart';
@@ -70,6 +71,7 @@ class AppPages {
         MusicPlayerBinding(),
         MusicDownloaderBinding(),
         LunarBinding(),
+        AiBinding(),
       ],
     ),
     GetPage(

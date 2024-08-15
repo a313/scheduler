@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:scheduler/core/state_management/base_controller.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/domain/entities/feature.dart';
+import 'package:scheduler/presentation/ai/ai_page.dart';
 import 'package:scheduler/presentation/clock/clock_page.dart';
 import 'package:scheduler/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:scheduler/presentation/home/components/more_feature.dart';
@@ -46,6 +47,17 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
   @override
   void onInit() {
     allFeature = [
+      Feature(
+          key: aiPage,
+          page: const AiPage(),
+          icon: BarIcon(
+              path: 'assets/svg/Regular/ChatsCircle.svg',
+              colorFilter: normalColor),
+          activeIcon: BarIcon(
+            path: 'assets/svg/Regular/ChatsCircle.svg',
+            colorFilter: activeColor,
+          ),
+          label: 'Ai'.tr),
       Feature(
         key: eventPage,
         page: const EventsPage(),

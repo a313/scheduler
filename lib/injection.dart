@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:scheduler/core/utils/util.dart';
 import 'package:scheduler/data/drift_db/database.dart';
+import 'package:scheduler/data/repo_impl/ai_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/class_room_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/event_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/local_data_repo_impl.dart';
@@ -11,6 +12,7 @@ import 'package:scheduler/data/repo_impl/reminder_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/schedule_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/student_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/weather_repo_impl.dart';
+import 'package:scheduler/data/services/ai_service.dart';
 import 'package:scheduler/data/services/music_service.dart';
 import 'package:scheduler/data/services/vpn_service.dart';
 import 'package:scheduler/data/services/weather_service.dart';
@@ -20,6 +22,7 @@ import 'package:scheduler/data/sqlite_db/event_db.dart';
 import 'package:scheduler/data/sqlite_db/reminder_db.dart';
 import 'package:scheduler/data/sqlite_db/schedule_db.dart';
 import 'package:scheduler/data/sqlite_db/student_db.dart';
+import 'package:scheduler/domain/usecases/ai_usecases.dart';
 import 'package:scheduler/domain/usecases/class_room_usecases.dart';
 import 'package:scheduler/domain/usecases/event_usecases.dart';
 import 'package:scheduler/domain/usecases/local_usecase.dart';
@@ -74,5 +77,7 @@ class DependencyInjection {
         ));
 
     Get.put<AudioHandler>(audioHandler);
+
+    Get.put(AiUsecases(AiRepoImpl(AiServiceImpl())));
   }
 }

@@ -17,6 +17,7 @@ const vpnPage = 'VPN_PAGE';
 const musicPlayerPage = 'MUSIC_PLAYER_PAGE';
 const musicDownloaderPage = 'MUSIC_DOWNLOADER_PAGE';
 const lunarPage = 'LUNAR_PAGE';
+const aiPage = 'AI_PAGE';
 
 class Feature {
   final String key;
@@ -28,8 +29,8 @@ class Feature {
   Feature({
     required this.page,
     required this.key,
-  required  this.icon,
-   required this.activeIcon,
-   required this.label,
+    required this.icon,
+    required this.activeIcon,
+    required this.label,
   });
 }
