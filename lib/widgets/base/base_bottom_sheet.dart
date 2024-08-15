@@ -29,7 +29,8 @@ class BaseBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final hasHeader = title != null || subTitle != null;
     return MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1)),
+      data: MediaQuery.of(context)
+          .copyWith(textScaler: const TextScaler.linear(1)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

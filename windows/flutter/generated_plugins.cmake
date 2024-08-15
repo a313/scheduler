@@ -6,6 +6,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   bitsdojo_window_windows
   file_selector_windows
   firebase_core
+  flutter_tts
   geolocator_windows
   permission_handler_windows
   share_plus

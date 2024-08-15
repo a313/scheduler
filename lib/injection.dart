@@ -10,6 +10,7 @@ import 'package:scheduler/data/repo_impl/local_data_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/notification_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/reminder_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/schedule_repo_impl.dart';
+import 'package:scheduler/data/repo_impl/speech_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/student_repo_impl.dart';
 import 'package:scheduler/data/repo_impl/weather_repo_impl.dart';
 import 'package:scheduler/data/services/ai_service.dart';
@@ -30,6 +31,7 @@ import 'package:scheduler/domain/usecases/music_usecases.dart';
 import 'package:scheduler/domain/usecases/notification_usecases.dart';
 import 'package:scheduler/domain/usecases/reminder_usecases.dart';
 import 'package:scheduler/domain/usecases/schedule_usecases.dart';
+import 'package:scheduler/domain/usecases/speech_usecases.dart';
 import 'package:scheduler/domain/usecases/student_usecases.dart';
 import 'package:scheduler/domain/usecases/weather_usecases.dart';
 import 'package:scheduler/global.dart';
@@ -79,5 +81,7 @@ class DependencyInjection {
     Get.put<AudioHandler>(audioHandler);
 
     Get.put(AiUsecases(AiRepoImpl(AiServiceImpl())));
+
+    Get.put(SpeechUsecases(SpeechRepoImpl()));
   }
 }
