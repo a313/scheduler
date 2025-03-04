@@ -25,8 +25,12 @@ mixin _$VideoInfo {
   List<Mp3>? get mp3 => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
+  /// Serializes this VideoInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of VideoInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $VideoInfoCopyWith<VideoInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$VideoInfoCopyWithImpl<$Res, $Val extends VideoInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of VideoInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -97,6 +103,8 @@ class __$$VideoInfoImplCopyWithImpl<$Res>
       _$VideoInfoImpl _value, $Res Function(_$VideoInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VideoInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -178,7 +186,7 @@ class _$VideoInfoImpl implements _VideoInfo {
             (identical(other.error, error) || other.error == error));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -187,7 +195,9 @@ class _$VideoInfoImpl implements _VideoInfo {
       const DeepCollectionEquality().hash(_mp3),
       error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VideoInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$VideoInfoImplCopyWith<_$VideoInfoImpl> get copyWith =>
@@ -219,8 +229,11 @@ abstract class _VideoInfo implements VideoInfo {
   List<Mp3>? get mp3;
   @override
   String? get error;
+
+  /// Create a copy of VideoInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$VideoInfoImplCopyWith<_$VideoInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -264,8 +277,12 @@ mixin _$Mp3 {
   int? get fps => throw _privateConstructorUsedError;
   ColorInfo? get colorInfo => throw _privateConstructorUsedError;
 
+  /// Serializes this Mp3 to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $Mp3CopyWith<Mp3> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -322,6 +339,8 @@ class _$Mp3CopyWithImpl<$Res, $Val extends Mp3> implements $Mp3CopyWith<$Res> {
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -490,6 +509,8 @@ class _$Mp3CopyWithImpl<$Res, $Val extends Mp3> implements $Mp3CopyWith<$Res> {
     ) as $Val);
   }
 
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $RangeCopyWith<$Res> get initRange {
@@ -498,6 +519,8 @@ class _$Mp3CopyWithImpl<$Res, $Val extends Mp3> implements $Mp3CopyWith<$Res> {
     });
   }
 
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $RangeCopyWith<$Res> get indexRange {
@@ -506,6 +529,8 @@ class _$Mp3CopyWithImpl<$Res, $Val extends Mp3> implements $Mp3CopyWith<$Res> {
     });
   }
 
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ColorInfoCopyWith<$Res>? get colorInfo {
@@ -573,6 +598,8 @@ class __$$Mp3ImplCopyWithImpl<$Res> extends _$Mp3CopyWithImpl<$Res, _$Mp3Impl>
   __$$Mp3ImplCopyWithImpl(_$Mp3Impl _value, $Res Function(_$Mp3Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -913,7 +940,7 @@ class _$Mp3Impl implements _Mp3 {
                 other.colorInfo == colorInfo));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -951,7 +978,9 @@ class _$Mp3Impl implements _Mp3 {
         colorInfo
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$Mp3ImplCopyWith<_$Mp3Impl> get copyWith =>
@@ -1066,8 +1095,11 @@ abstract class _Mp3 implements Mp3 {
   int? get fps;
   @override
   ColorInfo? get colorInfo;
+
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$Mp3ImplCopyWith<_$Mp3Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1084,8 +1116,12 @@ mixin _$ColorInfo {
   MatrixCoefficients get matrixCoefficients =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this ColorInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ColorInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ColorInfoCopyWith<ColorInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1111,6 +1147,8 @@ class _$ColorInfoCopyWithImpl<$Res, $Val extends ColorInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ColorInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1157,6 +1195,8 @@ class __$$ColorInfoImplCopyWithImpl<$Res>
       _$ColorInfoImpl _value, $Res Function(_$ColorInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ColorInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1218,12 +1258,14 @@ class _$ColorInfoImpl implements _ColorInfo {
                 other.matrixCoefficients == matrixCoefficients));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, primaries, transferCharacteristics, matrixCoefficients);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ColorInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ColorInfoImplCopyWith<_$ColorInfoImpl> get copyWith =>
@@ -1252,8 +1294,11 @@ abstract class _ColorInfo implements ColorInfo {
   TransferCharacteristics get transferCharacteristics;
   @override
   MatrixCoefficients get matrixCoefficients;
+
+  /// Create a copy of ColorInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ColorInfoImplCopyWith<_$ColorInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1267,8 +1312,12 @@ mixin _$Range {
   String get start => throw _privateConstructorUsedError;
   String get end => throw _privateConstructorUsedError;
 
+  /// Serializes this Range to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Range
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RangeCopyWith<Range> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1290,6 +1339,8 @@ class _$RangeCopyWithImpl<$Res, $Val extends Range>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Range
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1327,6 +1378,8 @@ class __$$RangeImplCopyWithImpl<$Res>
       _$RangeImpl _value, $Res Function(_$RangeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Range
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1373,11 +1426,13 @@ class _$RangeImpl implements _Range {
             (identical(other.end, end) || other.end == end));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, start, end);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Range
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RangeImplCopyWith<_$RangeImpl> get copyWith =>
@@ -1401,8 +1456,11 @@ abstract class _Range implements Range {
   String get start;
   @override
   String get end;
+
+  /// Create a copy of Range
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RangeImplCopyWith<_$RangeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

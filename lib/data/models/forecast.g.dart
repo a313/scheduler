@@ -38,7 +38,7 @@ _$ItemImpl _$$ItemImplFromJson(Map<String, dynamic> json) => _$ItemImpl(
       dateWithTimezone: json['dateWithTimezone'] == null
           ? null
           : DateTime.parse(json['dateWithTimezone'] as String),
-      freshSnow: json['freshSnow'] as int?,
+      freshSnow: (json['freshSnow'] as num?)?.toInt(),
       snowHeight: json['snowHeight'],
       weather: json['weather'] == null
           ? null
@@ -46,7 +46,7 @@ _$ItemImpl _$$ItemImplFromJson(Map<String, dynamic> json) => _$ItemImpl(
       prec: json['prec'] == null
           ? null
           : Prec.fromJson(json['prec'] as Map<String, dynamic>),
-      sunHours: json['sunHours'] as int?,
+      sunHours: (json['sunHours'] as num?)?.toInt(),
       rainHours: json['rainHours'],
       temperature: json['temperature'] == null
           ? null
@@ -157,7 +157,7 @@ Map<String, dynamic> _$$SnowLineImplToJson(_$SnowLineImpl instance) =>
 
 _$WeatherImpl _$$WeatherImplFromJson(Map<String, dynamic> json) =>
     _$WeatherImpl(
-      state: json['state'] as int?,
+      state: (json['state'] as num?)?.toInt(),
       text: json['text'] as String?,
       icon: json['icon'] as String?,
     );

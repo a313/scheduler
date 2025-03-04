@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
-import 'package:flutter_tts/flutter_tts_web.dart';
+// import 'package:flutter_tts/flutter_tts_web.dart';
 import 'package:get/get.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:image_picker/image_picker.dart';
@@ -19,7 +19,7 @@ class AiController extends BaseController {
   final AiUsecases usecase = Get.find<AiUsecases>();
   final speech = Get.find<SpeechUsecases>();
 
-  final Rx<TtsState> speechState = TtsState.stopped.obs;
+  // final Rx<TtsState> speechState = TtsState.stopped.obs;
 
   final User user = const User(id: '123123');
   final gemini = const User(id: 'gemini', lastName: 'Gemini');

@@ -19,7 +19,9 @@ mixin _$ReportForClass {
   ClassRoom get classRoom => throw _privateConstructorUsedError;
   List<Event> get events => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReportForClass
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ReportForClassCopyWith<ReportForClass> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$ReportForClassCopyWithImpl<$Res, $Val extends ReportForClass>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ReportForClass
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -63,6 +67,8 @@ class _$ReportForClassCopyWithImpl<$Res, $Val extends ReportForClass>
     ) as $Val);
   }
 
+  /// Create a copy of ReportForClass
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ClassRoomCopyWith<$Res> get classRoom {
@@ -94,6 +100,8 @@ class __$$ReportForClassImplCopyWithImpl<$Res>
       _$ReportForClassImpl _value, $Res Function(_$ReportForClassImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ReportForClass
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -150,7 +158,9 @@ class _$ReportForClassImpl extends _ReportForClass {
   int get hashCode => Object.hash(
       runtimeType, classRoom, const DeepCollectionEquality().hash(_events));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReportForClass
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ReportForClassImplCopyWith<_$ReportForClassImpl> get copyWith =>
@@ -168,8 +178,11 @@ abstract class _ReportForClass extends ReportForClass {
   ClassRoom get classRoom;
   @override
   List<Event> get events;
+
+  /// Create a copy of ReportForClass
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ReportForClassImplCopyWith<_$ReportForClassImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

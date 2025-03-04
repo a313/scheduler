@@ -10,7 +10,7 @@ _$TimetableImpl _$$TimetableImplFromJson(Map<String, dynamic> json) =>
     _$TimetableImpl(
       begin: const TimeOfDayConverter().fromJson(json['begin'] as String),
       end: const TimeOfDayConverter().fromJson(json['end'] as String),
-      dayInWeek: json['dayInWeek'] as int,
+      dayInWeek: (json['dayInWeek'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$TimetableImplToJson(_$TimetableImpl instance) =>

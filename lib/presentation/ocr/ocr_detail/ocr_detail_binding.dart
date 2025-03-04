@@ -8,7 +8,7 @@ class OcrDetailBinding implements Bindings {
       final file = Get.arguments[0];
       final type = Get.arguments[1];
       final ekyc = Get.arguments[2];
-      Get.put(OcrDetailController(file, type, ekyc));
+      // Get.put(OcrDetailController(file, type, ekyc));
     }
   }
 }

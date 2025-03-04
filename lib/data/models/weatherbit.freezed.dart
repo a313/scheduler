@@ -28,8 +28,12 @@ mixin _$Forecast {
   String? get timezone => throw _privateConstructorUsedError;
   List<WeatherInfo>? get data => throw _privateConstructorUsedError;
 
+  /// Serializes this Forecast to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Forecast
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ForecastCopyWith<Forecast> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$ForecastCopyWithImpl<$Res, $Val extends Forecast>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Forecast
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -129,6 +135,8 @@ class __$$ForecastImplCopyWithImpl<$Res>
       _$ForecastImpl _value, $Res Function(_$ForecastImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Forecast
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -236,12 +244,14 @@ class _$ForecastImpl extends _Forecast {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, cityName, stateCode, countryCode,
       lat, lon, timezone, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Forecast
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ForecastImplCopyWith<_$ForecastImpl> get copyWith =>
@@ -283,8 +293,11 @@ abstract class _Forecast extends Forecast {
   String? get timezone;
   @override
   List<WeatherInfo>? get data;
+
+  /// Create a copy of Forecast
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ForecastImplCopyWith<_$ForecastImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -298,8 +311,12 @@ mixin _$CurrentWeather {
   int? get count => throw _privateConstructorUsedError;
   List<WeatherInfo>? get data => throw _privateConstructorUsedError;
 
+  /// Serializes this CurrentWeather to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CurrentWeather
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CurrentWeatherCopyWith<CurrentWeather> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -323,6 +340,8 @@ class _$CurrentWeatherCopyWithImpl<$Res, $Val extends CurrentWeather>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CurrentWeather
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -361,6 +380,8 @@ class __$$CurrentWeatherImplCopyWithImpl<$Res>
       _$CurrentWeatherImpl _value, $Res Function(_$CurrentWeatherImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CurrentWeather
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -416,12 +437,14 @@ class _$CurrentWeatherImpl implements _CurrentWeather {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, count, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CurrentWeather
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CurrentWeatherImplCopyWith<_$CurrentWeatherImpl> get copyWith =>
@@ -447,8 +470,11 @@ abstract class _CurrentWeather implements CurrentWeather {
   int? get count;
   @override
   List<WeatherInfo>? get data;
+
+  /// Create a copy of CurrentWeather
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CurrentWeatherImplCopyWith<_$CurrentWeatherImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -512,8 +538,12 @@ mixin _$WeatherInfo {
   String? get sunset => throw _privateConstructorUsedError;
   String? get timezone => throw _privateConstructorUsedError;
 
+  /// Serializes this WeatherInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of WeatherInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $WeatherInfoCopyWith<WeatherInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -591,6 +621,8 @@ class _$WeatherInfoCopyWithImpl<$Res, $Val extends WeatherInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of WeatherInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -859,6 +891,8 @@ class _$WeatherInfoCopyWithImpl<$Res, $Val extends WeatherInfo>
     ) as $Val);
   }
 
+  /// Create a copy of WeatherInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WeatherCopyWith<$Res>? get weather {
@@ -946,6 +980,8 @@ class __$$WeatherInfoImplCopyWithImpl<$Res>
       _$WeatherInfoImpl _value, $Res Function(_$WeatherInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of WeatherInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1474,7 +1510,7 @@ class _$WeatherInfoImpl extends _WeatherInfo {
                 other.timezone == timezone));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1532,7 +1568,9 @@ class _$WeatherInfoImpl extends _WeatherInfo {
         timezone
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WeatherInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$WeatherInfoImplCopyWith<_$WeatherInfoImpl> get copyWith =>
@@ -1709,8 +1747,11 @@ abstract class _WeatherInfo extends WeatherInfo {
   String? get sunset;
   @override
   String? get timezone;
+
+  /// Create a copy of WeatherInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WeatherInfoImplCopyWith<_$WeatherInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1725,8 +1766,12 @@ mixin _$Weather {
   int? get code => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
 
+  /// Serializes this Weather to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Weather
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $WeatherCopyWith<Weather> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1748,6 +1793,8 @@ class _$WeatherCopyWithImpl<$Res, $Val extends Weather>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Weather
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1790,6 +1837,8 @@ class __$$WeatherImplCopyWithImpl<$Res>
       _$WeatherImpl _value, $Res Function(_$WeatherImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Weather
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1846,11 +1895,13 @@ class _$WeatherImpl implements _Weather {
                 other.description == description));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, icon, code, description);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Weather
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$WeatherImplCopyWith<_$WeatherImpl> get copyWith =>
@@ -1878,8 +1929,11 @@ abstract class _Weather implements Weather {
   int? get code;
   @override
   String? get description;
+
+  /// Create a copy of Weather
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WeatherImplCopyWith<_$WeatherImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -798,22 +798,151 @@ typedef $$ReminderTableTableUpdateCompanionBuilder = ReminderTableCompanion
   Value<String?> image,
 });
 
+class $$ReminderTableTableFilterComposer
+    extends Composer<_$AppDatabase, $ReminderTableTable> {
+  $$ReminderTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get remindDate => $composableBuilder(
+      column: $table.remindDate, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createDate => $composableBuilder(
+      column: $table.createDate, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get alert => $composableBuilder(
+      column: $table.alert, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get time => $composableBuilder(
+      column: $table.time, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get repeat => $composableBuilder(
+      column: $table.repeat, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get interval => $composableBuilder(
+      column: $table.interval, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get softIndex => $composableBuilder(
+      column: $table.softIndex, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get image => $composableBuilder(
+      column: $table.image, builder: (column) => ColumnFilters(column));
+}
+
+class $$ReminderTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $ReminderTableTable> {
+  $$ReminderTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get remindDate => $composableBuilder(
+      column: $table.remindDate, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createDate => $composableBuilder(
+      column: $table.createDate, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get alert => $composableBuilder(
+      column: $table.alert, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get time => $composableBuilder(
+      column: $table.time, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get repeat => $composableBuilder(
+      column: $table.repeat, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get interval => $composableBuilder(
+      column: $table.interval, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get softIndex => $composableBuilder(
+      column: $table.softIndex, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get image => $composableBuilder(
+      column: $table.image, builder: (column) => ColumnOrderings(column));
+}
+
+class $$ReminderTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ReminderTableTable> {
+  $$ReminderTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get remindDate => $composableBuilder(
+      column: $table.remindDate, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createDate => $composableBuilder(
+      column: $table.createDate, builder: (column) => column);
+
+  GeneratedColumn<String> get alert =>
+      $composableBuilder(column: $table.alert, builder: (column) => column);
+
+  GeneratedColumn<String> get time =>
+      $composableBuilder(column: $table.time, builder: (column) => column);
+
+  GeneratedColumn<String> get repeat =>
+      $composableBuilder(column: $table.repeat, builder: (column) => column);
+
+  GeneratedColumn<int> get interval =>
+      $composableBuilder(column: $table.interval, builder: (column) => column);
+
+  GeneratedColumn<int> get softIndex =>
+      $composableBuilder(column: $table.softIndex, builder: (column) => column);
+
+  GeneratedColumn<String> get image =>
+      $composableBuilder(column: $table.image, builder: (column) => column);
+}
+
 class $$ReminderTableTableTableManager extends RootTableManager<
     _$AppDatabase,
     $ReminderTableTable,
     reminder_drift,
     $$ReminderTableTableFilterComposer,
     $$ReminderTableTableOrderingComposer,
+    $$ReminderTableTableAnnotationComposer,
     $$ReminderTableTableCreateCompanionBuilder,
-    $$ReminderTableTableUpdateCompanionBuilder> {
+    $$ReminderTableTableUpdateCompanionBuilder,
+    (
+      reminder_drift,
+      BaseReferences<_$AppDatabase, $ReminderTableTable, reminder_drift>
+    ),
+    reminder_drift,
+    PrefetchHooks Function()> {
   $$ReminderTableTableTableManager(_$AppDatabase db, $ReminderTableTable table)
       : super(TableManagerState(
           db: db,
           table: table,
-          filteringComposer:
-              $$ReminderTableTableFilterComposer(ComposerState(db, table)),
-          orderingComposer:
-              $$ReminderTableTableOrderingComposer(ComposerState(db, table)),
+          createFilteringComposer: () =>
+              $$ReminderTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ReminderTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ReminderTableTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback: ({
             Value<int> id = const Value.absent(),
             Value<String> name = const Value.absent(),
@@ -862,117 +991,28 @@ class $$ReminderTableTableTableManager extends RootTableManager<
             softIndex: softIndex,
             image: image,
           ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
         ));
 }
 
-class $$ReminderTableTableFilterComposer
-    extends FilterComposer<_$AppDatabase, $ReminderTableTable> {
-  $$ReminderTableTableFilterComposer(super.$state);
-  ColumnFilters<int> get id => $state.composableBuilder(
-      column: $state.table.id,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<DateTime> get remindDate => $state.composableBuilder(
-      column: $state.table.remindDate,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<DateTime> get createDate => $state.composableBuilder(
-      column: $state.table.createDate,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<String> get alert => $state.composableBuilder(
-      column: $state.table.alert,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<String> get time => $state.composableBuilder(
-      column: $state.table.time,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<String> get repeat => $state.composableBuilder(
-      column: $state.table.repeat,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<int> get interval => $state.composableBuilder(
-      column: $state.table.interval,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<int> get softIndex => $state.composableBuilder(
-      column: $state.table.softIndex,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<String> get image => $state.composableBuilder(
-      column: $state.table.image,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $$ReminderTableTableOrderingComposer
-    extends OrderingComposer<_$AppDatabase, $ReminderTableTable> {
-  $$ReminderTableTableOrderingComposer(super.$state);
-  ColumnOrderings<int> get id => $state.composableBuilder(
-      column: $state.table.id,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<DateTime> get remindDate => $state.composableBuilder(
-      column: $state.table.remindDate,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<DateTime> get createDate => $state.composableBuilder(
-      column: $state.table.createDate,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<String> get alert => $state.composableBuilder(
-      column: $state.table.alert,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<String> get time => $state.composableBuilder(
-      column: $state.table.time,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<String> get repeat => $state.composableBuilder(
-      column: $state.table.repeat,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<int> get interval => $state.composableBuilder(
-      column: $state.table.interval,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<int> get softIndex => $state.composableBuilder(
-      column: $state.table.softIndex,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<String> get image => $state.composableBuilder(
-      column: $state.table.image,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
+typedef $$ReminderTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $ReminderTableTable,
+    reminder_drift,
+    $$ReminderTableTableFilterComposer,
+    $$ReminderTableTableOrderingComposer,
+    $$ReminderTableTableAnnotationComposer,
+    $$ReminderTableTableCreateCompanionBuilder,
+    $$ReminderTableTableUpdateCompanionBuilder,
+    (
+      reminder_drift,
+      BaseReferences<_$AppDatabase, $ReminderTableTable, reminder_drift>
+    ),
+    reminder_drift,
+    PrefetchHooks Function()>;
 typedef $$ScheduleTableTableCreateCompanionBuilder = ScheduleTableCompanion
     Function({
   Value<int> id,
@@ -988,22 +1028,97 @@ typedef $$ScheduleTableTableUpdateCompanionBuilder = ScheduleTableCompanion
   Value<String> end,
 });
 
+class $$ScheduleTableTableFilterComposer
+    extends Composer<_$AppDatabase, $ScheduleTableTable> {
+  $$ScheduleTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get begin => $composableBuilder(
+      column: $table.begin, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get end => $composableBuilder(
+      column: $table.end, builder: (column) => ColumnFilters(column));
+}
+
+class $$ScheduleTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $ScheduleTableTable> {
+  $$ScheduleTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get begin => $composableBuilder(
+      column: $table.begin, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get end => $composableBuilder(
+      column: $table.end, builder: (column) => ColumnOrderings(column));
+}
+
+class $$ScheduleTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ScheduleTableTable> {
+  $$ScheduleTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get begin =>
+      $composableBuilder(column: $table.begin, builder: (column) => column);
+
+  GeneratedColumn<String> get end =>
+      $composableBuilder(column: $table.end, builder: (column) => column);
+}
+
 class $$ScheduleTableTableTableManager extends RootTableManager<
     _$AppDatabase,
     $ScheduleTableTable,
     schedule_drift,
     $$ScheduleTableTableFilterComposer,
     $$ScheduleTableTableOrderingComposer,
+    $$ScheduleTableTableAnnotationComposer,
     $$ScheduleTableTableCreateCompanionBuilder,
-    $$ScheduleTableTableUpdateCompanionBuilder> {
+    $$ScheduleTableTableUpdateCompanionBuilder,
+    (
+      schedule_drift,
+      BaseReferences<_$AppDatabase, $ScheduleTableTable, schedule_drift>
+    ),
+    schedule_drift,
+    PrefetchHooks Function()> {
   $$ScheduleTableTableTableManager(_$AppDatabase db, $ScheduleTableTable table)
       : super(TableManagerState(
           db: db,
           table: table,
-          filteringComposer:
-              $$ScheduleTableTableFilterComposer(ComposerState(db, table)),
-          orderingComposer:
-              $$ScheduleTableTableOrderingComposer(ComposerState(db, table)),
+          createFilteringComposer: () =>
+              $$ScheduleTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ScheduleTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ScheduleTableTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback: ({
             Value<int> id = const Value.absent(),
             Value<String> name = const Value.absent(),
@@ -1028,56 +1143,28 @@ class $$ScheduleTableTableTableManager extends RootTableManager<
             begin: begin,
             end: end,
           ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
         ));
 }
 
-class $$ScheduleTableTableFilterComposer
-    extends FilterComposer<_$AppDatabase, $ScheduleTableTable> {
-  $$ScheduleTableTableFilterComposer(super.$state);
-  ColumnFilters<int> get id => $state.composableBuilder(
-      column: $state.table.id,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<String> get begin => $state.composableBuilder(
-      column: $state.table.begin,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-
-  ColumnFilters<String> get end => $state.composableBuilder(
-      column: $state.table.end,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $$ScheduleTableTableOrderingComposer
-    extends OrderingComposer<_$AppDatabase, $ScheduleTableTable> {
-  $$ScheduleTableTableOrderingComposer(super.$state);
-  ColumnOrderings<int> get id => $state.composableBuilder(
-      column: $state.table.id,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<String> get begin => $state.composableBuilder(
-      column: $state.table.begin,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  ColumnOrderings<String> get end => $state.composableBuilder(
-      column: $state.table.end,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
-}
+typedef $$ScheduleTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $ScheduleTableTable,
+    schedule_drift,
+    $$ScheduleTableTableFilterComposer,
+    $$ScheduleTableTableOrderingComposer,
+    $$ScheduleTableTableAnnotationComposer,
+    $$ScheduleTableTableCreateCompanionBuilder,
+    $$ScheduleTableTableUpdateCompanionBuilder,
+    (
+      schedule_drift,
+      BaseReferences<_$AppDatabase, $ScheduleTableTable, schedule_drift>
+    ),
+    schedule_drift,
+    PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;

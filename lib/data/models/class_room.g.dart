@@ -8,11 +8,13 @@ part of 'class_room.dart';
 
 _$ClassRoomImpl _$$ClassRoomImplFromJson(Map<String, dynamic> json) =>
     _$ClassRoomImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String,
-      createDate: const DateTimeConverter().fromJson(json['createDate'] as int),
-      openDate: const DateTimeConverter().fromJson(json['openDate'] as int),
-      tuition: json['tuition'] as int,
+      createDate: const DateTimeConverter()
+          .fromJson((json['createDate'] as num).toInt()),
+      openDate:
+          const DateTimeConverter().fromJson((json['openDate'] as num).toInt()),
+      tuition: (json['tuition'] as num).toInt(),
       alert: $enumDecodeNullable(_$AlertTypeEnumMap, json['alert']) ??
           AlertType.None,
       location: json['location'] as String?,
@@ -20,8 +22,8 @@ _$ClassRoomImpl _$$ClassRoomImplFromJson(Map<String, dynamic> json) =>
           ? const []
           : const ListTimetableConverter()
               .fromJson(json['timetables'] as String),
-      isOpen: const BoolConverter().fromJson(json['isOpen'] as int),
-      softIndex: json['softIndex'] as int? ?? -1,
+      isOpen: const BoolConverter().fromJson((json['isOpen'] as num).toInt()),
+      softIndex: (json['softIndex'] as num?)?.toInt() ?? -1,
       image: json['image'] as String?,
     );
 

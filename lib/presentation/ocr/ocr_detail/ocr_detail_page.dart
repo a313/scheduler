@@ -23,18 +23,18 @@ class OcrDetailPage extends StatelessWidget {
         Expanded(
           child: SingleChildScrollView(
             child: Column(children: [
-              Image.file(controller.file),
+              // Image.file(controller.file),
               const Divider(),
-              EkycView(ekyc: controller.current),
+              // EkycView(ekyc: controller.current),
             ]),
           ),
         ),
-        BaseButton.fixBottom2(
-          leftTitle: 'Chụp lại',
-          onLeftPressed: controller.onReTake,
-          rightTitle: 'Tiếp tục',
-          onRightPressed: controller.onNext,
-        )
+        // BaseButton.fixBottom2(
+        //   leftTitle: 'Chụp lại',
+        //   onLeftPressed: controller.onReTake,
+        //   rightTitle: 'Tiếp tục',
+        //   onRightPressed: controller.onNext,
+        // )
       ],
     );
   }

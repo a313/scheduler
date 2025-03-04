@@ -53,8 +53,12 @@ mixin _$Student {
   String? get image => throw _privateConstructorUsedError;
   set image(String? value) => throw _privateConstructorUsedError;
 
+  /// Serializes this Student to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Student
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StudentCopyWith<Student> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -86,6 +90,8 @@ class _$StudentCopyWithImpl<$Res, $Val extends Student>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Student
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -173,6 +179,8 @@ class __$$StudentImplCopyWithImpl<$Res>
       _$StudentImpl _value, $Res Function(_$StudentImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Student
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -300,7 +308,9 @@ class _$StudentImpl extends _Student with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('image', image));
   }
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Student
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StudentImplCopyWith<_$StudentImpl> get copyWith =>
@@ -372,8 +382,11 @@ abstract class _Student extends Student {
   @override
   String? get image;
   set image(String? value);
+
+  /// Create a copy of Student
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StudentImplCopyWith<_$StudentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
