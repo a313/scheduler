@@ -30,8 +30,12 @@ mixin _$Y2MateDownloadLink {
   String get fquality => throw _privateConstructorUsedError;
   String get dlink => throw _privateConstructorUsedError;
 
+  /// Serializes this Y2MateDownloadLink to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Y2MateDownloadLink
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $Y2MateDownloadLinkCopyWith<Y2MateDownloadLink> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -63,6 +67,8 @@ class _$Y2MateDownloadLinkCopyWithImpl<$Res, $Val extends Y2MateDownloadLink>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Y2MateDownloadLink
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,6 +145,8 @@ class __$$Y2MateDownloadLinkImplCopyWithImpl<$Res>
       $Res Function(_$Y2MateDownloadLinkImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Y2MateDownloadLink
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -243,12 +251,14 @@ class _$Y2MateDownloadLinkImpl implements _Y2MateDownloadLink {
             (identical(other.dlink, dlink) || other.dlink == dlink));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, status, mess, cStatus, vid, title, ftype, fquality, dlink);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Y2MateDownloadLink
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$Y2MateDownloadLinkImplCopyWith<_$Y2MateDownloadLinkImpl> get copyWith =>
@@ -294,8 +304,11 @@ abstract class _Y2MateDownloadLink implements Y2MateDownloadLink {
   String get fquality;
   @override
   String get dlink;
+
+  /// Create a copy of Y2MateDownloadLink
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$Y2MateDownloadLinkImplCopyWith<_$Y2MateDownloadLinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

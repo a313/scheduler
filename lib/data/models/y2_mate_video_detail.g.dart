@@ -15,7 +15,7 @@ _$Y2MateVideoDetailImpl _$$Y2MateVideoDetailImplFromJson(
       vid: json['vid'] as String,
       extractor: json['extractor'] as String,
       title: json['title'] as String,
-      t: json['t'] as int,
+      t: (json['t'] as num).toInt(),
       a: json['a'] as String,
       links: Links.fromJson(json['links'] as Map<String, dynamic>),
     );

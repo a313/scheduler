@@ -47,8 +47,12 @@ mixin _$Reminder {
   String? get image => throw _privateConstructorUsedError;
   set image(String? value) => throw _privateConstructorUsedError;
 
+  /// Serializes this Reminder to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Reminder
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ReminderCopyWith<Reminder> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -81,6 +85,8 @@ class _$ReminderCopyWithImpl<$Res, $Val extends Reminder>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Reminder
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -169,6 +175,8 @@ class __$$ReminderImplCopyWithImpl<$Res>
       _$ReminderImpl _value, $Res Function(_$ReminderImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Reminder
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -278,7 +286,9 @@ class _$ReminderImpl extends _Reminder {
     return 'Reminder(id: $id, name: $name, createDate: $createDate, remindDate: $remindDate, alert: $alert, repeat: $repeat, interval: $interval, time: $time, softIndex: $softIndex, image: $image)';
   }
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Reminder
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ReminderImplCopyWith<_$ReminderImpl> get copyWith =>
@@ -345,8 +355,11 @@ abstract class _Reminder extends Reminder {
   @override
   String? get image;
   set image(String? value);
+
+  /// Create a copy of Reminder
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ReminderImplCopyWith<_$ReminderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

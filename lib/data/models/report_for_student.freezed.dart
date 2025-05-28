@@ -22,7 +22,9 @@ mixin _$ReportForStudent {
   set data(Map<ClassRoom, List<Event>> value) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReportForStudent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ReportForStudentCopyWith<ReportForStudent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +50,8 @@ class _$ReportForStudentCopyWithImpl<$Res, $Val extends ReportForStudent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ReportForStudent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -66,6 +70,8 @@ class _$ReportForStudentCopyWithImpl<$Res, $Val extends ReportForStudent>
     ) as $Val);
   }
 
+  /// Create a copy of ReportForStudent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $StudentCopyWith<$Res> get student {
@@ -97,6 +103,8 @@ class __$$ReportForStudentImplCopyWithImpl<$Res>
       $Res Function(_$ReportForStudentImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ReportForStudent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,7 +140,9 @@ class _$ReportForStudentImpl extends _ReportForStudent {
     return 'ReportForStudent(student: $student, data: $data)';
   }
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReportForStudent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ReportForStudentImplCopyWith<_$ReportForStudentImpl> get copyWith =>
@@ -152,8 +162,11 @@ abstract class _ReportForStudent extends ReportForStudent {
   @override
   Map<ClassRoom, List<Event>> get data;
   set data(Map<ClassRoom, List<Event>> value);
+
+  /// Create a copy of ReportForStudent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ReportForStudentImplCopyWith<_$ReportForStudentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

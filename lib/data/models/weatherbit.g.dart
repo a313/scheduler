@@ -32,7 +32,7 @@ Map<String, dynamic> _$$ForecastImplToJson(_$ForecastImpl instance) =>
 
 _$CurrentWeatherImpl _$$CurrentWeatherImplFromJson(Map<String, dynamic> json) =>
     _$CurrentWeatherImpl(
-      count: json['count'] as int?,
+      count: (json['count'] as num?)?.toInt(),
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => WeatherInfo.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -56,7 +56,7 @@ _$WeatherInfoImpl _$$WeatherInfoImplFromJson(Map<String, dynamic> json) =>
           : DateTime.parse(json['timestamp_utc'] as String),
       datetime: json['datetime'] as String?,
       snow: json['snow'] as num?,
-      snowDepth: json['snow_depth'] as int?,
+      snowDepth: (json['snow_depth'] as num?)?.toInt(),
       precip: json['precip'] as num?,
       temp: json['temp'] as num?,
       dewpt: json['dewpt'] as num?,
@@ -64,8 +64,8 @@ _$WeatherInfoImpl _$$WeatherInfoImplFromJson(Map<String, dynamic> json) =>
       minTemp: json['min_temp'] as num?,
       appMaxTemp: json['app_max_temp'] as num?,
       appMinTemp: json['app_min_temp'] as num?,
-      rh: json['rh'] as int?,
-      clouds: json['clouds'] as int?,
+      rh: (json['rh'] as num?)?.toInt(),
+      clouds: (json['clouds'] as num?)?.toInt(),
       weather: json['weather'] == null
           ? null
           : Weather.fromJson(json['weather'] as Map<String, dynamic>),
@@ -76,17 +76,17 @@ _$WeatherInfoImpl _$$WeatherInfoImplFromJson(Map<String, dynamic> json) =>
       vis: json['vis'] as num?,
       pop: json['pop'] as num?,
       moonPhase: json['moon_phase'] as num?,
-      sunriseTs: json['sunrise_ts'] as int?,
-      sunsetTs: json['sunset_ts'] as int?,
-      moonriseTs: json['moonrise_ts'] as int?,
-      moonsetTs: json['moonset_ts'] as int?,
+      sunriseTs: (json['sunrise_ts'] as num?)?.toInt(),
+      sunsetTs: (json['sunset_ts'] as num?)?.toInt(),
+      moonriseTs: (json['moonrise_ts'] as num?)?.toInt(),
+      moonsetTs: (json['moonset_ts'] as num?)?.toInt(),
       pod: json['pod'] as String?,
       windSpd: json['wind_spd'] as num?,
-      windDir: json['wind_dir'] as int?,
+      windDir: (json['wind_dir'] as num?)?.toInt(),
       windCdir: json['wind_cdir'] as String?,
       windCdirFull: json['wind_cdir_full'] as String?,
       appTemp: (json['app_temp'] as num?)?.toDouble(),
-      aqi: json['aqi'] as int?,
+      aqi: (json['aqi'] as num?)?.toInt(),
       cityName: json['city_name'] as String?,
       countryCode: json['country_code'] as String?,
       dhi: (json['dhi'] as num?)?.toDouble(),
@@ -167,7 +167,7 @@ Map<String, dynamic> _$$WeatherInfoImplToJson(_$WeatherInfoImpl instance) =>
 _$WeatherImpl _$$WeatherImplFromJson(Map<String, dynamic> json) =>
     _$WeatherImpl(
       icon: json['icon'] as String?,
-      code: json['code'] as int?,
+      code: (json['code'] as num?)?.toInt(),
       description: json['description'] as String?,
     );
 

@@ -1,7 +1,5 @@
 import 'dart:math';
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:aio/core/utils/util.dart';
 import 'package:aio/presentation/clock/clock_controller.dart';
 import 'package:aio/theme/app_fonts.dart';
@@ -9,6 +7,8 @@ import 'package:aio/widgets/base/base_scafold_appbar.dart';
 import 'package:aio/widgets/painter/clock_background_painter.dart';
 import 'package:aio/widgets/painter/clock_time_painter.dart';
 import 'package:aio/widgets/painter/events_painter.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ClockPage extends StatelessWidget {
   const ClockPage({super.key});
@@ -20,7 +20,7 @@ class ClockPage extends StatelessWidget {
         title: 'Clock'.tr,
         body: GetBuilder<ClockController>(
           init: ClockController(),
-          builder: (_) {
+          builder: (controller) {
             return Column(
               children: [
                 const SizedBox(height: 16, width: double.infinity),
@@ -32,18 +32,18 @@ class ClockPage extends StatelessWidget {
                     child: CustomPaint(
                       painter: EventsPainter(
                         context: context,
-                        events: _.events,
+                        events: controller.events,
                       ),
                       foregroundPainter: ClockTimePainter(
                         context: context,
-                        time: _.currentTime,
+                        time: controller.currentTime,
                       ),
                     ),
                   ),
                 ),
                 sizedBoxH16,
                 Text(
-                  _.currentTime.toStringFormat('HH:mm:ss'),
+                  controller.currentTime.toStringFormat('HH:mm:ss'),
                   style: AppFonts.bLarge,
                 )
               ],

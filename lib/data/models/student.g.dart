@@ -8,13 +8,16 @@ part of 'student.dart';
 
 _$StudentImpl _$$StudentImplFromJson(Map<String, dynamic> json) =>
     _$StudentImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String,
       classId: const ListIntConverter().fromJson(json['classId'] as String),
-      beginStudy: const DateTimeConverter().fromJson(json['beginStudy'] as int),
-      isFollow: const BoolConverter().fromJson(json['isFollow'] as int),
-      isSpecial: const BoolConverter().fromJson(json['isSpecial'] as int),
-      fee: json['fee'] as int,
+      beginStudy: const DateTimeConverter()
+          .fromJson((json['beginStudy'] as num).toInt()),
+      isFollow:
+          const BoolConverter().fromJson((json['isFollow'] as num).toInt()),
+      isSpecial:
+          const BoolConverter().fromJson((json['isSpecial'] as num).toInt()),
+      fee: (json['fee'] as num).toInt(),
       phones: const ListStringConverter().fromJson(json['phones'] as String),
       lastCharge: _$JsonConverterFromJson<int, DateTime>(
           json['lastCharge'], const DateTimeConverter().fromJson),

@@ -1,7 +1,5 @@
 import 'dart:core';
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:aio/core/state_management/base_controller.dart';
 import 'package:aio/core/utils/util.dart';
 import 'package:aio/domain/entities/feature.dart';
@@ -9,14 +7,12 @@ import 'package:aio/presentation/clock/clock_page.dart';
 import 'package:aio/presentation/hex_to_link/hex_to_link_page.dart';
 import 'package:aio/presentation/home/components/more_feature.dart';
 import 'package:aio/presentation/lunar/lunar_page.dart';
-import 'package:aio/presentation/music_downloader/music_downloader_page.dart';
-import 'package:aio/presentation/music_player/music_player_page.dart';
-import 'package:aio/presentation/ocr/ocr_page.dart';
 import 'package:aio/presentation/periods/periods_page.dart';
-import 'package:aio/presentation/qrcode/qrcode_page.dart';
 import 'package:aio/presentation/setting/setting_page.dart';
 import 'package:aio/presentation/timetables/timetables_page.dart';
 import 'package:aio/widgets/base/keep_alive_wrapper.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../class_room/class_room_page.dart';
 import '../events/events_page.dart';
@@ -120,17 +116,6 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
           ),
           label: 'Timetable'.tr),
 
-      Feature(
-          key: qrPage,
-          page: const QrcodePage(),
-          icon: BarIcon(
-              path: 'assets/svg/Regular/QrCode.svg', colorFilter: normalColor),
-          activeIcon: BarIcon(
-            path: 'assets/svg/Regular/QrCode.svg',
-            colorFilter: activeColor,
-          ),
-          label: 'QrCode'.tr),
-
       // Feature(
       //   key: weatherPage,
       //   page: const WeatherPage(),
@@ -167,17 +152,6 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
           ),
           label: 'Clock'.tr),
 
-      Feature(
-          key: ocrPage,
-          page: const OcrPage(),
-          icon: BarIcon(
-              path: 'assets/svg/Regular/Scan.svg', colorFilter: normalColor),
-          activeIcon: BarIcon(
-            path: 'assets/svg/Regular/Scan.svg',
-            colorFilter: activeColor,
-          ),
-          label: 'OCR'.tr),
-
       // Feature(
       //   key: vpnPage,
       //   page: const VpnPage(),
@@ -191,29 +165,6 @@ class HomeController extends BaseController with GetTickerProviderStateMixin {
       //       ),
       //       label: 'VPN'.tr),
       // ),
-      Feature(
-          key: musicPlayerPage,
-          page: const MusicPlayerPage(),
-          icon: BarIcon(
-              path: 'assets/svg/Regular/MusicNotes.svg',
-              colorFilter: normalColor),
-          activeIcon: BarIcon(
-            path: 'assets/svg/Regular/MusicNotes.svg',
-            colorFilter: activeColor,
-          ),
-          label: 'Music'.tr),
-
-      Feature(
-          key: musicDownloaderPage,
-          page: const MusicDownloaderPage(),
-          icon: BarIcon(
-              path: 'assets/svg/Regular/MusicNotesPlus.svg',
-              colorFilter: normalColor),
-          activeIcon: BarIcon(
-            path: 'assets/svg/Regular/MusicNotesPlus.svg',
-            colorFilter: activeColor,
-          ),
-          label: 'Download'.tr),
 
       Feature(
           key: lunarPage,

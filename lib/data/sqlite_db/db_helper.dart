@@ -1,12 +1,12 @@
 import 'dart:developer';
 
-import 'package:collection/collection.dart';
-import 'package:path/path.dart';
 import 'package:aio/core/utils/util.dart';
 import 'package:aio/data/sqlite_db/class_room_db.dart';
 import 'package:aio/data/sqlite_db/event_db.dart';
 import 'package:aio/data/sqlite_db/reminder_db.dart';
 import 'package:aio/data/sqlite_db/schedule_db.dart';
+import 'package:collection/collection.dart';
+import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'student_db.dart';

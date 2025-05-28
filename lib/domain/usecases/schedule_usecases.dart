@@ -4,7 +4,7 @@ import 'package:aio/data/models/schedule.dart';
 import '../repo_abs/schedule_repo_abs.dart';
 
 class ScheduleUseCases {
-  final aioepo _;
+  final ScheduleRepo _;
 
   ScheduleUseCases(this._);
 

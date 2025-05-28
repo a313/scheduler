@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:aio/core/utils/util.dart';
-import 'package:aio/widgets/base/base_appbar.dart';
 
 class BaseScaffold extends StatelessWidget {
   const BaseScaffold({
@@ -136,27 +134,15 @@ class BaseScaffoldAppBar extends StatelessWidget {
       body: body,
       bottomNavigationBar: bottomNavigationBar,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-      appBar: isDesktop
-          ? BaseDesktopAppbar(
-              backgroundColor: appbarColor,
-              elevation: elevation,
-              actions: actions,
-              centerTitle: centerTitle,
-              leading: leading,
-              title: Padding(
-                padding: padSymHor08,
-                child: titleWidget ?? Text(title ?? ''),
-              ),
-            )
-          : AppBar(
-              backgroundColor: appbarColor,
-              elevation: elevation,
-              actions: actions,
-              centerTitle: centerTitle,
-              automaticallyImplyLeading: showBackBtn,
-              systemOverlayStyle: systemOverlayStyle,
-              title: titleWidget ?? Text(title ?? ''),
-            ),
+      appBar: AppBar(
+        backgroundColor: appbarColor,
+        elevation: elevation,
+        actions: actions,
+        centerTitle: centerTitle,
+        automaticallyImplyLeading: showBackBtn,
+        systemOverlayStyle: systemOverlayStyle,
+        title: titleWidget ?? Text(title ?? ''),
+      ),
     );
   }
 }

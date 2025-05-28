@@ -36,8 +36,12 @@ mixin _$VpnInfoModel {
   String get Message => throw _privateConstructorUsedError;
   String get OpenVPN_ConfigData_Base64 => throw _privateConstructorUsedError;
 
+  /// Serializes this VpnInfoModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of VpnInfoModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $VpnInfoModelCopyWith<VpnInfoModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -76,6 +80,8 @@ class _$VpnInfoModelCopyWithImpl<$Res, $Val extends VpnInfoModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of VpnInfoModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -194,6 +200,8 @@ class __$$VpnInfoModelImplCopyWithImpl<$Res>
       _$VpnInfoModelImpl _value, $Res Function(_$VpnInfoModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VpnInfoModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -368,7 +376,7 @@ class _$VpnInfoModelImpl implements _VpnInfoModel {
                 other.OpenVPN_ConfigData_Base64 == OpenVPN_ConfigData_Base64));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -388,7 +396,9 @@ class _$VpnInfoModelImpl implements _VpnInfoModel {
       Message,
       OpenVPN_ConfigData_Base64);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VpnInfoModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$VpnInfoModelImplCopyWith<_$VpnInfoModelImpl> get copyWith =>
@@ -453,8 +463,11 @@ abstract class _VpnInfoModel implements VpnInfoModel {
   String get Message;
   @override
   String get OpenVPN_ConfigData_Base64;
+
+  /// Create a copy of VpnInfoModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$VpnInfoModelImplCopyWith<_$VpnInfoModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

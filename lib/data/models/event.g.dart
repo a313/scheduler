@@ -7,16 +7,18 @@ part of 'event.dart';
 // **************************************************************************
 
 _$EventImpl _$$EventImplFromJson(Map<String, dynamic> json) => _$EventImpl(
-      id: json['id'] as int?,
-      parentId: json['parentId'] as int?,
+      id: (json['id'] as num?)?.toInt(),
+      parentId: (json['parentId'] as num?)?.toInt(),
       name: json['name'] as String,
-      startTime: const DateTimeConverter().fromJson(json['startTime'] as int),
-      endTime: const DateTimeConverter().fromJson(json['endTime'] as int),
+      startTime: const DateTimeConverter()
+          .fromJson((json['startTime'] as num).toInt()),
+      endTime:
+          const DateTimeConverter().fromJson((json['endTime'] as num).toInt()),
       type: $enumDecode(_$EventTypeEnumMap, json['type']),
       alert: $enumDecode(_$AlertTypeEnumMap, json['alert']),
       repeat: $enumDecode(_$RepeatTypeEnumMap, json['repeat']),
       location: json['location'] as String?,
-      classId: json['classId'] as int?,
+      classId: (json['classId'] as num?)?.toInt(),
       invitedIds: json['invitedIds'] == null
           ? const []
           : const ListIntConverter().fromJson(json['invitedIds'] as String),
@@ -25,7 +27,7 @@ _$EventImpl _$$EventImplFromJson(Map<String, dynamic> json) => _$EventImpl(
           : const ListIntConverter().fromJson(json['joinedIds'] as String),
       isActive: json['isActive'] == null
           ? true
-          : const BoolConverter().fromJson(json['isActive'] as int),
+          : const BoolConverter().fromJson((json['isActive'] as num).toInt()),
       note: json['note'] as String?,
     );
 

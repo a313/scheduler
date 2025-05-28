@@ -8,16 +8,18 @@ part of 'reminder.dart';
 
 _$ReminderImpl _$$ReminderImplFromJson(Map<String, dynamic> json) =>
     _$ReminderImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String,
-      createDate: const DateTimeConverter().fromJson(json['createDate'] as int),
-      remindDate: const DateTimeConverter().fromJson(json['remindDate'] as int),
+      createDate: const DateTimeConverter()
+          .fromJson((json['createDate'] as num).toInt()),
+      remindDate: const DateTimeConverter()
+          .fromJson((json['remindDate'] as num).toInt()),
       alert: $enumDecode(_$AlertTypeEnumMap, json['alert']),
       repeat: $enumDecode(_$RepeatTypeEnumMap, json['repeat']),
-      interval: json['interval'] as int? ?? 1,
+      interval: (json['interval'] as num?)?.toInt() ?? 1,
       time: _$JsonConverterFromJson<String, TimeOfDay>(
           json['time'], const TimeOfDayConverter().fromJson),
-      softIndex: json['softIndex'] as int? ?? -1,
+      softIndex: (json['softIndex'] as num?)?.toInt() ?? -1,
       image: json['image'] as String?,
     );
 

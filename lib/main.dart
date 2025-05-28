@@ -1,16 +1,14 @@
 import 'dart:async';
 
-import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/device_info.dart';
+import 'package:aio/injection.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:metadata_god/metadata_god.dart';
-import 'package:aio/core/utils/util.dart';
-import 'package:aio/device_info.dart';
-import 'package:aio/injection.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 import 'app.dart';
@@ -25,7 +23,6 @@ Future<void> main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
     await GetStorage.init();
-    MetadataGod.initialize();
     if (kDebugMode) {
       // await DbHelper().replaceDatabase();
       // Utils().cloneDb();
@@ -57,14 +54,6 @@ Future<void> main() async {
     tz.initializeTimeZones();
 
     runApp(const MainApp());
-
-    doWhenWindowReady(() {
-      const initialSize = Size(600, 600);
-      appWindow.minSize = initialSize;
-      appWindow.size = initialSize;
-      appWindow.position = const Offset(1800, 50);
-      appWindow.show();
-    });
   }, (error, stackTrace) {
     debugPrint(stackTrace.toString());
     // DebugHelper.addException(ExceptionData(error: error, stack: stackTrace));

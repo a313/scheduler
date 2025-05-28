@@ -1,9 +1,9 @@
-import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/material.dart';
 import 'package:aio/core/utils/util.dart';
 import 'package:aio/data/models/event.dart';
 import 'package:aio/theme/app_fonts.dart';
 import 'package:aio/widgets/base/base_state_widget.dart';
+import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/material.dart';
 
 class EventChart extends StatelessWidget {
   const EventChart({
@@ -112,10 +112,13 @@ class _EventItem extends StatelessWidget {
           ],
         ),
         widgetB: (context) => DottedBorder(
-          color: color,
-          radius: const Radius.circular(4),
-          padding: padZero,
-          borderType: BorderType.RRect,
+          options: RectDottedBorderOptions(
+            //TODO
+            color: color,
+            // radius: const Radius.circular(4),
+            padding: padZero,
+            // borderType: BorderType.RRect,
+          ),
           child: Container(
             width: double.infinity,
             height: double.infinity,

@@ -51,8 +51,12 @@ mixin _$ClassRoom {
   String? get image => throw _privateConstructorUsedError;
   set image(String? value) => throw _privateConstructorUsedError;
 
+  /// Serializes this ClassRoom to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ClassRoom
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ClassRoomCopyWith<ClassRoom> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -86,6 +90,8 @@ class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ClassRoom
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -180,6 +186,8 @@ class __$$ClassRoomImplCopyWithImpl<$Res>
       _$ClassRoomImpl _value, $Res Function(_$ClassRoomImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ClassRoom
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -317,7 +325,9 @@ class _$ClassRoomImpl extends _ClassRoom with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('image', image));
   }
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ClassRoom
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ClassRoomImplCopyWith<_$ClassRoomImpl> get copyWith =>
@@ -390,8 +400,11 @@ abstract class _ClassRoom extends ClassRoom {
   @override
   String? get image;
   set image(String? value);
+
+  /// Create a copy of ClassRoom
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ClassRoomImplCopyWith<_$ClassRoomImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
