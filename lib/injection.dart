@@ -24,12 +24,18 @@ import 'package:aio/global.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'core/utils/helper/sql_helper.dart';
+
 class DependencyInjection {
   static Future<void> injection() async {
     Get.put(Global());
     Get.put(LocalUseCases(LocalDataImpl(GetStorage())));
     Get.put(AppDatabase(), permanent: true);
     if (isMobile) {
+      if (!Get.find<LocalUseCases>().didPassIntro()) {
+        await DbHelper().replaceDatabase();
+      }
+
       final db = await DBHelper.openDb();
 
       Get.put(NotificationUseCases(NotificationRepoImpl()));

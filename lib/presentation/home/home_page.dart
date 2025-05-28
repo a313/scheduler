@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:aio/core/utils/util.dart';
 import 'package:aio/domain/entities/feature.dart';
 import 'package:aio/presentation/home/components/side_nav_rail.dart';
 import 'package:aio/widgets/base/base_scafold_appbar.dart';
 import 'package:aio/widgets/platform_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'components/bar_icon.dart';
 import 'components/bottom_nav_bar.dart';
@@ -16,8 +16,9 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (controller) {
-      return BaseScaffoldAppBar(
+      return BaseScaffold(
         scaffoldKey: controller.scaffoldKey,
+        backgroundColor: context.primaryDark,
         resizeToAvoidBottomInset: false,
         bottomNavigationBar: PlatformWidget(
           mobile: BottomNavBar(
