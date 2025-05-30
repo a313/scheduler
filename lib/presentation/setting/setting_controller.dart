@@ -32,9 +32,9 @@ class SettingController extends BaseController {
   @override
   void onInit() {
     appIcons = [
-      AppIconData('Gạo1', 'assets/png/appIcons/app_icon.jpg', 'icon1'),
-      AppIconData('Anya', 'assets/png/appIcons/app_icon2.jpg', 'icon3'),
-      AppIconData('Test', 'assets/png/appIcons/app_icon3.jpeg', 'icon2'),
+      AppIconData('icon1', 'assets/png/appIcons/app_icon.jpg', 'icon1'),
+      AppIconData('icon2', 'assets/png/appIcons/app_icon3.jpeg', 'icon2'),
+      AppIconData('icon3', 'assets/png/appIcons/app_icon2.jpg', 'icon3'),
       AppIconData('icon4', 'assets/png/appIcons/icon4.png', 'icon4'),
       AppIconData('icon5', 'assets/png/appIcons/icon5.png', 'icon5'),
       AppIconData('icon6', 'assets/png/appIcons/icon6.png', 'icon6'),
