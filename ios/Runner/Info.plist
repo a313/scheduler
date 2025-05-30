@@ -32,6 +32,33 @@
 				<key>UIPrerenderedIcon</key>
 				<false/>
 			</dict>
+			<key>icon4</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>icon4</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>icon5</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>icon5</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>icon6</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>icon6</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
 		</dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>

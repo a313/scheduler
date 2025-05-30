@@ -1,7 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:path/path.dart';
 import 'package:aio/core/state_management/base_controller.dart';
 import 'package:aio/core/utils/util.dart';
 import 'package:aio/domain/entities/app_icon.dart';
@@ -9,6 +5,10 @@ import 'package:aio/presentation/events/events_controller.dart';
 import 'package:aio/widgets/base/base_bottom_sheet.dart';
 import 'package:aio/widgets/custom_divider.dart';
 import 'package:aio/widgets/selectable_cell.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:path/path.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -35,6 +35,9 @@ class SettingController extends BaseController {
       AppIconData('Gạo1', 'assets/png/appIcons/app_icon.jpg', 'icon1'),
       AppIconData('Anya', 'assets/png/appIcons/app_icon2.jpg', 'icon3'),
       AppIconData('Test', 'assets/png/appIcons/app_icon3.jpeg', 'icon2'),
+      AppIconData('icon4', 'assets/png/appIcons/icon4.png', 'icon4'),
+      AppIconData('icon5', 'assets/png/appIcons/icon5.png', 'icon5'),
+      AppIconData('icon6', 'assets/png/appIcons/icon6.png', 'icon6'),
     ];
     super.onInit();
   }
