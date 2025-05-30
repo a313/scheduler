@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,160 +10,79 @@ part of 'class_room.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ClassRoom _$ClassRoomFromJson(Map<String, dynamic> json) {
-  return _ClassRoom.fromJson(json);
-}
-
 /// @nodoc
-mixin _$ClassRoom {
-  int? get id => throw _privateConstructorUsedError;
-  set id(int? value) => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  set name(String value) => throw _privateConstructorUsedError;
+mixin _$ClassRoom implements DiagnosticableTreeMixin {
+  int? get id;
+  set id(int? value);
+  String get name;
+  set name(String value);
   @DateTimeConverter()
-  DateTime get createDate => throw _privateConstructorUsedError;
+  DateTime get createDate;
   @DateTimeConverter()
-  set createDate(DateTime value) => throw _privateConstructorUsedError;
+  set createDate(DateTime value);
   @DateTimeConverter()
-  DateTime get openDate => throw _privateConstructorUsedError;
+  DateTime get openDate;
   @DateTimeConverter()
-  set openDate(DateTime value) => throw _privateConstructorUsedError;
-  int get tuition => throw _privateConstructorUsedError;
-  set tuition(int value) => throw _privateConstructorUsedError;
-  AlertType get alert => throw _privateConstructorUsedError;
-  set alert(AlertType value) => throw _privateConstructorUsedError;
-  String? get location => throw _privateConstructorUsedError;
-  set location(String? value) => throw _privateConstructorUsedError;
+  set openDate(DateTime value);
+  int get tuition;
+  set tuition(int value);
+  AlertType get alert;
+  set alert(AlertType value);
+  String? get location;
+  set location(String? value);
   @ListTimetableConverter()
-  List<Timetable> get timetables => throw _privateConstructorUsedError;
+  List<Timetable> get timetables;
   @ListTimetableConverter()
-  set timetables(List<Timetable> value) => throw _privateConstructorUsedError;
+  set timetables(List<Timetable> value);
   @BoolConverter()
-  bool get isOpen => throw _privateConstructorUsedError;
+  bool get isOpen;
   @BoolConverter()
-  set isOpen(bool value) => throw _privateConstructorUsedError;
-  int get softIndex => throw _privateConstructorUsedError;
-  set softIndex(int value) => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  set image(String? value) => throw _privateConstructorUsedError;
-
-  /// Serializes this ClassRoom to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  set isOpen(bool value);
+  int get softIndex;
+  set softIndex(int value);
+  String? get image;
+  set image(String? value);
 
   /// Create a copy of ClassRoom
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ClassRoomCopyWith<ClassRoom> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ClassRoomCopyWith<$Res> {
-  factory $ClassRoomCopyWith(ClassRoom value, $Res Function(ClassRoom) then) =
-      _$ClassRoomCopyWithImpl<$Res, ClassRoom>;
-  @useResult
-  $Res call(
-      {int? id,
-      String name,
-      @DateTimeConverter() DateTime createDate,
-      @DateTimeConverter() DateTime openDate,
-      int tuition,
-      AlertType alert,
-      String? location,
-      @ListTimetableConverter() List<Timetable> timetables,
-      @BoolConverter() bool isOpen,
-      int softIndex,
-      String? image});
-}
-
-/// @nodoc
-class _$ClassRoomCopyWithImpl<$Res, $Val extends ClassRoom>
-    implements $ClassRoomCopyWith<$Res> {
-  _$ClassRoomCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ClassRoom
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ClassRoomCopyWith<ClassRoom> get copyWith =>
+      _$ClassRoomCopyWithImpl<ClassRoom>(this as ClassRoom, _$identity);
+
+  /// Serializes this ClassRoom to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = freezed,
-    Object? name = null,
-    Object? createDate = null,
-    Object? openDate = null,
-    Object? tuition = null,
-    Object? alert = null,
-    Object? location = freezed,
-    Object? timetables = null,
-    Object? isOpen = null,
-    Object? softIndex = null,
-    Object? image = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      createDate: null == createDate
-          ? _value.createDate
-          : createDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      openDate: null == openDate
-          ? _value.openDate
-          : openDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      tuition: null == tuition
-          ? _value.tuition
-          : tuition // ignore: cast_nullable_to_non_nullable
-              as int,
-      alert: null == alert
-          ? _value.alert
-          : alert // ignore: cast_nullable_to_non_nullable
-              as AlertType,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      timetables: null == timetables
-          ? _value.timetables
-          : timetables // ignore: cast_nullable_to_non_nullable
-              as List<Timetable>,
-      isOpen: null == isOpen
-          ? _value.isOpen
-          : isOpen // ignore: cast_nullable_to_non_nullable
-              as bool,
-      softIndex: null == softIndex
-          ? _value.softIndex
-          : softIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'ClassRoom'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('createDate', createDate))
+      ..add(DiagnosticsProperty('openDate', openDate))
+      ..add(DiagnosticsProperty('tuition', tuition))
+      ..add(DiagnosticsProperty('alert', alert))
+      ..add(DiagnosticsProperty('location', location))
+      ..add(DiagnosticsProperty('timetables', timetables))
+      ..add(DiagnosticsProperty('isOpen', isOpen))
+      ..add(DiagnosticsProperty('softIndex', softIndex))
+      ..add(DiagnosticsProperty('image', image));
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, openDate: $openDate, tuition: $tuition, alert: $alert, location: $location, timetables: $timetables, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
   }
 }
 
 /// @nodoc
-abstract class _$$ClassRoomImplCopyWith<$Res>
-    implements $ClassRoomCopyWith<$Res> {
-  factory _$$ClassRoomImplCopyWith(
-          _$ClassRoomImpl value, $Res Function(_$ClassRoomImpl) then) =
-      __$$ClassRoomImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ClassRoomCopyWith<$Res> {
+  factory $ClassRoomCopyWith(ClassRoom value, $Res Function(ClassRoom) _then) =
+      _$ClassRoomCopyWithImpl;
   @useResult
   $Res call(
       {int? id,
@@ -179,12 +99,11 @@ abstract class _$$ClassRoomImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ClassRoomImplCopyWithImpl<$Res>
-    extends _$ClassRoomCopyWithImpl<$Res, _$ClassRoomImpl>
-    implements _$$ClassRoomImplCopyWith<$Res> {
-  __$$ClassRoomImplCopyWithImpl(
-      _$ClassRoomImpl _value, $Res Function(_$ClassRoomImpl) _then)
-      : super(_value, _then);
+class _$ClassRoomCopyWithImpl<$Res> implements $ClassRoomCopyWith<$Res> {
+  _$ClassRoomCopyWithImpl(this._self, this._then);
+
+  final ClassRoom _self;
+  final $Res Function(ClassRoom) _then;
 
   /// Create a copy of ClassRoom
   /// with the given fields replaced by the non-null parameter values.
@@ -203,49 +122,49 @@ class __$$ClassRoomImplCopyWithImpl<$Res>
     Object? softIndex = null,
     Object? image = freezed,
   }) {
-    return _then(_$ClassRoomImpl(
+    return _then(_self.copyWith(
       id: freezed == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       createDate: null == createDate
-          ? _value.createDate
+          ? _self.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       openDate: null == openDate
-          ? _value.openDate
+          ? _self.openDate
           : openDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       tuition: null == tuition
-          ? _value.tuition
+          ? _self.tuition
           : tuition // ignore: cast_nullable_to_non_nullable
               as int,
       alert: null == alert
-          ? _value.alert
+          ? _self.alert
           : alert // ignore: cast_nullable_to_non_nullable
               as AlertType,
       location: freezed == location
-          ? _value.location
+          ? _self.location
           : location // ignore: cast_nullable_to_non_nullable
               as String?,
       timetables: null == timetables
-          ? _value.timetables
+          ? _self.timetables
           : timetables // ignore: cast_nullable_to_non_nullable
               as List<Timetable>,
       isOpen: null == isOpen
-          ? _value.isOpen
+          ? _self.isOpen
           : isOpen // ignore: cast_nullable_to_non_nullable
               as bool,
       softIndex: null == softIndex
-          ? _value.softIndex
+          ? _self.softIndex
           : softIndex // ignore: cast_nullable_to_non_nullable
               as int,
       image: freezed == image
-          ? _value.image
+          ? _self.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -254,8 +173,8 @@ class __$$ClassRoomImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ClassRoomImpl extends _ClassRoom with DiagnosticableTreeMixin {
-  _$ClassRoomImpl(
+class _ClassRoom extends ClassRoom with DiagnosticableTreeMixin {
+  _ClassRoom(
       {this.id,
       required this.name,
       @DateTimeConverter() required this.createDate,
@@ -268,9 +187,8 @@ class _$ClassRoomImpl extends _ClassRoom with DiagnosticableTreeMixin {
       this.softIndex = -1,
       this.image})
       : super._();
-
-  factory _$ClassRoomImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ClassRoomImplFromJson(json);
+  factory _ClassRoom.fromJson(Map<String, dynamic> json) =>
+      _$ClassRoomFromJson(json);
 
   @override
   int? id;
@@ -302,14 +220,23 @@ class _$ClassRoomImpl extends _ClassRoom with DiagnosticableTreeMixin {
   @override
   String? image;
 
+  /// Create a copy of ClassRoom
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, openDate: $openDate, tuition: $tuition, alert: $alert, location: $location, timetables: $timetables, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ClassRoomCopyWith<_ClassRoom> get copyWith =>
+      __$ClassRoomCopyWithImpl<_ClassRoom>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ClassRoomToJson(
+      this,
+    );
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'ClassRoom'))
       ..add(DiagnosticsProperty('id', id))
@@ -325,86 +252,105 @@ class _$ClassRoomImpl extends _ClassRoom with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('image', image));
   }
 
-  /// Create a copy of ClassRoom
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ClassRoomImplCopyWith<_$ClassRoomImpl> get copyWith =>
-      __$$ClassRoomImplCopyWithImpl<_$ClassRoomImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ClassRoomImplToJson(
-      this,
-    );
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ClassRoom(id: $id, name: $name, createDate: $createDate, openDate: $openDate, tuition: $tuition, alert: $alert, location: $location, timetables: $timetables, isOpen: $isOpen, softIndex: $softIndex, image: $image)';
   }
 }
 
-abstract class _ClassRoom extends ClassRoom {
-  factory _ClassRoom(
+/// @nodoc
+abstract mixin class _$ClassRoomCopyWith<$Res>
+    implements $ClassRoomCopyWith<$Res> {
+  factory _$ClassRoomCopyWith(
+          _ClassRoom value, $Res Function(_ClassRoom) _then) =
+      __$ClassRoomCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
       {int? id,
-      required String name,
-      @DateTimeConverter() required DateTime createDate,
-      @DateTimeConverter() required DateTime openDate,
-      required int tuition,
+      String name,
+      @DateTimeConverter() DateTime createDate,
+      @DateTimeConverter() DateTime openDate,
+      int tuition,
       AlertType alert,
       String? location,
       @ListTimetableConverter() List<Timetable> timetables,
-      @BoolConverter() required bool isOpen,
+      @BoolConverter() bool isOpen,
       int softIndex,
-      String? image}) = _$ClassRoomImpl;
-  _ClassRoom._() : super._();
+      String? image});
+}
 
-  factory _ClassRoom.fromJson(Map<String, dynamic> json) =
-      _$ClassRoomImpl.fromJson;
+/// @nodoc
+class __$ClassRoomCopyWithImpl<$Res> implements _$ClassRoomCopyWith<$Res> {
+  __$ClassRoomCopyWithImpl(this._self, this._then);
 
-  @override
-  int? get id;
-  set id(int? value);
-  @override
-  String get name;
-  set name(String value);
-  @override
-  @DateTimeConverter()
-  DateTime get createDate;
-  @DateTimeConverter()
-  set createDate(DateTime value);
-  @override
-  @DateTimeConverter()
-  DateTime get openDate;
-  @DateTimeConverter()
-  set openDate(DateTime value);
-  @override
-  int get tuition;
-  set tuition(int value);
-  @override
-  AlertType get alert;
-  set alert(AlertType value);
-  @override
-  String? get location;
-  set location(String? value);
-  @override
-  @ListTimetableConverter()
-  List<Timetable> get timetables;
-  @ListTimetableConverter()
-  set timetables(List<Timetable> value);
-  @override
-  @BoolConverter()
-  bool get isOpen;
-  @BoolConverter()
-  set isOpen(bool value);
-  @override
-  int get softIndex;
-  set softIndex(int value);
-  @override
-  String? get image;
-  set image(String? value);
+  final _ClassRoom _self;
+  final $Res Function(_ClassRoom) _then;
 
   /// Create a copy of ClassRoom
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ClassRoomImplCopyWith<_$ClassRoomImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = freezed,
+    Object? name = null,
+    Object? createDate = null,
+    Object? openDate = null,
+    Object? tuition = null,
+    Object? alert = null,
+    Object? location = freezed,
+    Object? timetables = null,
+    Object? isOpen = null,
+    Object? softIndex = null,
+    Object? image = freezed,
+  }) {
+    return _then(_ClassRoom(
+      id: freezed == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      createDate: null == createDate
+          ? _self.createDate
+          : createDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      openDate: null == openDate
+          ? _self.openDate
+          : openDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      tuition: null == tuition
+          ? _self.tuition
+          : tuition // ignore: cast_nullable_to_non_nullable
+              as int,
+      alert: null == alert
+          ? _self.alert
+          : alert // ignore: cast_nullable_to_non_nullable
+              as AlertType,
+      location: freezed == location
+          ? _self.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timetables: null == timetables
+          ? _self.timetables
+          : timetables // ignore: cast_nullable_to_non_nullable
+              as List<Timetable>,
+      isOpen: null == isOpen
+          ? _self.isOpen
+          : isOpen // ignore: cast_nullable_to_non_nullable
+              as bool,
+      softIndex: null == softIndex
+          ? _self.softIndex
+          : softIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      image: freezed == image
+          ? _self.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

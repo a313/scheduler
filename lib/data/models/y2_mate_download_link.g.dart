@@ -6,9 +6,8 @@ part of 'y2_mate_download_link.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$Y2MateDownloadLinkImpl _$$Y2MateDownloadLinkImplFromJson(
-        Map<String, dynamic> json) =>
-    _$Y2MateDownloadLinkImpl(
+_Y2MateDownloadLink _$Y2MateDownloadLinkFromJson(Map<String, dynamic> json) =>
+    _Y2MateDownloadLink(
       status: json['status'] as String,
       mess: json['mess'] as String,
       cStatus: json['c_status'] as String,
@@ -19,8 +18,7 @@ _$Y2MateDownloadLinkImpl _$$Y2MateDownloadLinkImplFromJson(
       dlink: json['dlink'] as String,
     );
 
-Map<String, dynamic> _$$Y2MateDownloadLinkImplToJson(
-        _$Y2MateDownloadLinkImpl instance) =>
+Map<String, dynamic> _$Y2MateDownloadLinkToJson(_Y2MateDownloadLink instance) =>
     <String, dynamic>{
       'status': instance.status,
       'mess': instance.mess,

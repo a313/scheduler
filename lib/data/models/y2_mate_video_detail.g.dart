@@ -6,9 +6,8 @@ part of 'y2_mate_video_detail.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$Y2MateVideoDetailImpl _$$Y2MateVideoDetailImplFromJson(
-        Map<String, dynamic> json) =>
-    _$Y2MateVideoDetailImpl(
+_Y2MateVideoDetail _$Y2MateVideoDetailFromJson(Map<String, dynamic> json) =>
+    _Y2MateVideoDetail(
       status: json['status'] as String,
       mess: json['mess'] as String,
       page: json['page'] as String,
@@ -20,8 +19,7 @@ _$Y2MateVideoDetailImpl _$$Y2MateVideoDetailImplFromJson(
       links: Links.fromJson(json['links'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$Y2MateVideoDetailImplToJson(
-        _$Y2MateVideoDetailImpl instance) =>
+Map<String, dynamic> _$Y2MateVideoDetailToJson(_Y2MateVideoDetail instance) =>
     <String, dynamic>{
       'status': instance.status,
       'mess': instance.mess,
@@ -34,7 +32,7 @@ Map<String, dynamic> _$$Y2MateVideoDetailImplToJson(
       'links': instance.links,
     };
 
-_$LinksImpl _$$LinksImplFromJson(Map<String, dynamic> json) => _$LinksImpl(
+_Links _$LinksFromJson(Map<String, dynamic> json) => _Links(
       mp4: (json['mp4'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, ItemDetail.fromJson(e as Map<String, dynamic>)),
       ),
@@ -46,22 +44,20 @@ _$LinksImpl _$$LinksImplFromJson(Map<String, dynamic> json) => _$LinksImpl(
       ),
     );
 
-Map<String, dynamic> _$$LinksImplToJson(_$LinksImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LinksToJson(_Links instance) => <String, dynamic>{
       'mp4': instance.mp4,
       'mp3': instance.mp3,
       'other': instance.other,
     };
 
-_$ItemDetailImpl _$$ItemDetailImplFromJson(Map<String, dynamic> json) =>
-    _$ItemDetailImpl(
+_ItemDetail _$ItemDetailFromJson(Map<String, dynamic> json) => _ItemDetail(
       size: json['size'] as String,
       f: json['f'] as String,
       q: json['q'] as String,
       k: json['k'] as String,
     );
 
-Map<String, dynamic> _$$ItemDetailImplToJson(_$ItemDetailImpl instance) =>
+Map<String, dynamic> _$ItemDetailToJson(_ItemDetail instance) =>
     <String, dynamic>{
       'size': instance.size,
       'f': instance.f,

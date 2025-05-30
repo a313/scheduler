@@ -51,20 +51,20 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB__-T1fW8JBlctEdoffIA9l4nbTUHqYYM',
-    appId: '1:911452778918:android:e117e37be21554cccc5f67',
-    messagingSenderId: '911452778918',
-    projectId: 'tools-a75c2',
-    storageBucket: 'tools-a75c2.appspot.com',
+    apiKey: 'AIzaSyCBqjAupE1gVggrpIEc1blNckOsHqx4uQY',
+    appId: '1:289109535313:android:c7986ee8397becbb6c6670',
+    messagingSenderId: '289109535313',
+    projectId: 'allinone-71666',
+    storageBucket: 'allinone-71666.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBEAfKyQo_gue9K9IfQhf5Nxz9l_VnfiPs',
-    appId: '1:911452778918:ios:8e743e2f8732a7ddcc5f67',
-    messagingSenderId: '911452778918',
-    projectId: 'tools-a75c2',
-    storageBucket: 'tools-a75c2.appspot.com',
-    iosBundleId: 'dev.com.sccl.superclean',
+    apiKey: 'AIzaSyDHN9fmcFz4pJD8g3Hnihe0PjASbzihcZs',
+    appId: '1:289109535313:ios:1cefb9f44bbd01f06c6670',
+    messagingSenderId: '289109535313',
+    projectId: 'allinone-71666',
+    storageBucket: 'allinone-71666.firebasestorage.app',
+    iosBundleId: 'com.lgcns.testApp.aio',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

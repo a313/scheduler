@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,154 +10,80 @@ part of 'student.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Student _$StudentFromJson(Map<String, dynamic> json) {
-  return _Student.fromJson(json);
-}
-
 /// @nodoc
-mixin _$Student {
-  int? get id => throw _privateConstructorUsedError;
-  set id(int? value) => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  set name(String value) => throw _privateConstructorUsedError;
+mixin _$Student implements DiagnosticableTreeMixin {
+  int? get id;
+  set id(int? value);
+  String get name;
+  set name(String value);
   @ListIntConverter()
-  List<int> get classId => throw _privateConstructorUsedError;
+  List<int> get classId;
   @ListIntConverter()
-  set classId(List<int> value) => throw _privateConstructorUsedError;
+  set classId(List<int> value);
   @DateTimeConverter()
-  DateTime get beginStudy => throw _privateConstructorUsedError;
+  DateTime get beginStudy;
   @DateTimeConverter()
-  set beginStudy(DateTime value) => throw _privateConstructorUsedError;
+  set beginStudy(DateTime value);
   @BoolConverter()
-  bool get isFollow => throw _privateConstructorUsedError;
+  bool get isFollow;
   @BoolConverter()
-  set isFollow(bool value) => throw _privateConstructorUsedError;
+  set isFollow(bool value);
   @BoolConverter()
-  bool get isSpecial => throw _privateConstructorUsedError;
+  bool get isSpecial;
   @BoolConverter()
-  set isSpecial(bool value) => throw _privateConstructorUsedError;
-  int get fee => throw _privateConstructorUsedError;
-  set fee(int value) => throw _privateConstructorUsedError;
+  set isSpecial(bool value);
+  int get fee;
+  set fee(int value);
   @ListStringConverter()
-  List<String> get phones => throw _privateConstructorUsedError;
+  List<String> get phones;
   @ListStringConverter()
-  set phones(List<String> value) => throw _privateConstructorUsedError;
+  set phones(List<String> value);
   @DateTimeConverter()
-  DateTime? get lastCharge => throw _privateConstructorUsedError;
+  DateTime? get lastCharge;
   @DateTimeConverter()
-  set lastCharge(DateTime? value) => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  set image(String? value) => throw _privateConstructorUsedError;
-
-  /// Serializes this Student to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  set lastCharge(DateTime? value);
+  String? get image;
+  set image(String? value);
 
   /// Create a copy of Student
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StudentCopyWith<Student> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StudentCopyWith<$Res> {
-  factory $StudentCopyWith(Student value, $Res Function(Student) then) =
-      _$StudentCopyWithImpl<$Res, Student>;
-  @useResult
-  $Res call(
-      {int? id,
-      String name,
-      @ListIntConverter() List<int> classId,
-      @DateTimeConverter() DateTime beginStudy,
-      @BoolConverter() bool isFollow,
-      @BoolConverter() bool isSpecial,
-      int fee,
-      @ListStringConverter() List<String> phones,
-      @DateTimeConverter() DateTime? lastCharge,
-      String? image});
-}
-
-/// @nodoc
-class _$StudentCopyWithImpl<$Res, $Val extends Student>
-    implements $StudentCopyWith<$Res> {
-  _$StudentCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Student
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StudentCopyWith<Student> get copyWith =>
+      _$StudentCopyWithImpl<Student>(this as Student, _$identity);
+
+  /// Serializes this Student to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = freezed,
-    Object? name = null,
-    Object? classId = null,
-    Object? beginStudy = null,
-    Object? isFollow = null,
-    Object? isSpecial = null,
-    Object? fee = null,
-    Object? phones = null,
-    Object? lastCharge = freezed,
-    Object? image = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      classId: null == classId
-          ? _value.classId
-          : classId // ignore: cast_nullable_to_non_nullable
-              as List<int>,
-      beginStudy: null == beginStudy
-          ? _value.beginStudy
-          : beginStudy // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      isFollow: null == isFollow
-          ? _value.isFollow
-          : isFollow // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSpecial: null == isSpecial
-          ? _value.isSpecial
-          : isSpecial // ignore: cast_nullable_to_non_nullable
-              as bool,
-      fee: null == fee
-          ? _value.fee
-          : fee // ignore: cast_nullable_to_non_nullable
-              as int,
-      phones: null == phones
-          ? _value.phones
-          : phones // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      lastCharge: freezed == lastCharge
-          ? _value.lastCharge
-          : lastCharge // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'Student'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('classId', classId))
+      ..add(DiagnosticsProperty('beginStudy', beginStudy))
+      ..add(DiagnosticsProperty('isFollow', isFollow))
+      ..add(DiagnosticsProperty('isSpecial', isSpecial))
+      ..add(DiagnosticsProperty('fee', fee))
+      ..add(DiagnosticsProperty('phones', phones))
+      ..add(DiagnosticsProperty('lastCharge', lastCharge))
+      ..add(DiagnosticsProperty('image', image));
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Student(id: $id, name: $name, classId: $classId, beginStudy: $beginStudy, isFollow: $isFollow, isSpecial: $isSpecial, fee: $fee, phones: $phones, lastCharge: $lastCharge, image: $image)';
   }
 }
 
 /// @nodoc
-abstract class _$$StudentImplCopyWith<$Res> implements $StudentCopyWith<$Res> {
-  factory _$$StudentImplCopyWith(
-          _$StudentImpl value, $Res Function(_$StudentImpl) then) =
-      __$$StudentImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StudentCopyWith<$Res> {
+  factory $StudentCopyWith(Student value, $Res Function(Student) _then) =
+      _$StudentCopyWithImpl;
   @useResult
   $Res call(
       {int? id,
@@ -172,12 +99,11 @@ abstract class _$$StudentImplCopyWith<$Res> implements $StudentCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$StudentImplCopyWithImpl<$Res>
-    extends _$StudentCopyWithImpl<$Res, _$StudentImpl>
-    implements _$$StudentImplCopyWith<$Res> {
-  __$$StudentImplCopyWithImpl(
-      _$StudentImpl _value, $Res Function(_$StudentImpl) _then)
-      : super(_value, _then);
+class _$StudentCopyWithImpl<$Res> implements $StudentCopyWith<$Res> {
+  _$StudentCopyWithImpl(this._self, this._then);
+
+  final Student _self;
+  final $Res Function(Student) _then;
 
   /// Create a copy of Student
   /// with the given fields replaced by the non-null parameter values.
@@ -195,45 +121,45 @@ class __$$StudentImplCopyWithImpl<$Res>
     Object? lastCharge = freezed,
     Object? image = freezed,
   }) {
-    return _then(_$StudentImpl(
+    return _then(_self.copyWith(
       id: freezed == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       classId: null == classId
-          ? _value.classId
+          ? _self.classId
           : classId // ignore: cast_nullable_to_non_nullable
               as List<int>,
       beginStudy: null == beginStudy
-          ? _value.beginStudy
+          ? _self.beginStudy
           : beginStudy // ignore: cast_nullable_to_non_nullable
               as DateTime,
       isFollow: null == isFollow
-          ? _value.isFollow
+          ? _self.isFollow
           : isFollow // ignore: cast_nullable_to_non_nullable
               as bool,
       isSpecial: null == isSpecial
-          ? _value.isSpecial
+          ? _self.isSpecial
           : isSpecial // ignore: cast_nullable_to_non_nullable
               as bool,
       fee: null == fee
-          ? _value.fee
+          ? _self.fee
           : fee // ignore: cast_nullable_to_non_nullable
               as int,
       phones: null == phones
-          ? _value.phones
+          ? _self.phones
           : phones // ignore: cast_nullable_to_non_nullable
               as List<String>,
       lastCharge: freezed == lastCharge
-          ? _value.lastCharge
+          ? _self.lastCharge
           : lastCharge // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       image: freezed == image
-          ? _value.image
+          ? _self.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -242,8 +168,8 @@ class __$$StudentImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StudentImpl extends _Student with DiagnosticableTreeMixin {
-  _$StudentImpl(
+class _Student extends Student with DiagnosticableTreeMixin {
+  _Student(
       {this.id,
       required this.name,
       @ListIntConverter() required this.classId,
@@ -255,9 +181,8 @@ class _$StudentImpl extends _Student with DiagnosticableTreeMixin {
       @DateTimeConverter() this.lastCharge,
       this.image})
       : super._();
-
-  factory _$StudentImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StudentImplFromJson(json);
+  factory _Student.fromJson(Map<String, dynamic> json) =>
+      _$StudentFromJson(json);
 
   @override
   int? id;
@@ -286,14 +211,23 @@ class _$StudentImpl extends _Student with DiagnosticableTreeMixin {
   @override
   String? image;
 
+  /// Create a copy of Student
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Student(id: $id, name: $name, classId: $classId, beginStudy: $beginStudy, isFollow: $isFollow, isSpecial: $isSpecial, fee: $fee, phones: $phones, lastCharge: $lastCharge, image: $image)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StudentCopyWith<_Student> get copyWith =>
+      __$StudentCopyWithImpl<_Student>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StudentToJson(
+      this,
+    );
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Student'))
       ..add(DiagnosticsProperty('id', id))
@@ -308,85 +242,97 @@ class _$StudentImpl extends _Student with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('image', image));
   }
 
-  /// Create a copy of Student
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StudentImplCopyWith<_$StudentImpl> get copyWith =>
-      __$$StudentImplCopyWithImpl<_$StudentImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StudentImplToJson(
-      this,
-    );
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Student(id: $id, name: $name, classId: $classId, beginStudy: $beginStudy, isFollow: $isFollow, isSpecial: $isSpecial, fee: $fee, phones: $phones, lastCharge: $lastCharge, image: $image)';
   }
 }
 
-abstract class _Student extends Student {
-  factory _Student(
+/// @nodoc
+abstract mixin class _$StudentCopyWith<$Res> implements $StudentCopyWith<$Res> {
+  factory _$StudentCopyWith(_Student value, $Res Function(_Student) _then) =
+      __$StudentCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
       {int? id,
-      required String name,
-      @ListIntConverter() required List<int> classId,
-      @DateTimeConverter() required DateTime beginStudy,
-      @BoolConverter() required bool isFollow,
-      @BoolConverter() required bool isSpecial,
-      required int fee,
-      @ListStringConverter() required List<String> phones,
+      String name,
+      @ListIntConverter() List<int> classId,
+      @DateTimeConverter() DateTime beginStudy,
+      @BoolConverter() bool isFollow,
+      @BoolConverter() bool isSpecial,
+      int fee,
+      @ListStringConverter() List<String> phones,
       @DateTimeConverter() DateTime? lastCharge,
-      String? image}) = _$StudentImpl;
-  _Student._() : super._();
+      String? image});
+}
 
-  factory _Student.fromJson(Map<String, dynamic> json) = _$StudentImpl.fromJson;
+/// @nodoc
+class __$StudentCopyWithImpl<$Res> implements _$StudentCopyWith<$Res> {
+  __$StudentCopyWithImpl(this._self, this._then);
 
-  @override
-  int? get id;
-  set id(int? value);
-  @override
-  String get name;
-  set name(String value);
-  @override
-  @ListIntConverter()
-  List<int> get classId;
-  @ListIntConverter()
-  set classId(List<int> value);
-  @override
-  @DateTimeConverter()
-  DateTime get beginStudy;
-  @DateTimeConverter()
-  set beginStudy(DateTime value);
-  @override
-  @BoolConverter()
-  bool get isFollow;
-  @BoolConverter()
-  set isFollow(bool value);
-  @override
-  @BoolConverter()
-  bool get isSpecial;
-  @BoolConverter()
-  set isSpecial(bool value);
-  @override
-  int get fee;
-  set fee(int value);
-  @override
-  @ListStringConverter()
-  List<String> get phones;
-  @ListStringConverter()
-  set phones(List<String> value);
-  @override
-  @DateTimeConverter()
-  DateTime? get lastCharge;
-  @DateTimeConverter()
-  set lastCharge(DateTime? value);
-  @override
-  String? get image;
-  set image(String? value);
+  final _Student _self;
+  final $Res Function(_Student) _then;
 
   /// Create a copy of Student
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StudentImplCopyWith<_$StudentImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = freezed,
+    Object? name = null,
+    Object? classId = null,
+    Object? beginStudy = null,
+    Object? isFollow = null,
+    Object? isSpecial = null,
+    Object? fee = null,
+    Object? phones = null,
+    Object? lastCharge = freezed,
+    Object? image = freezed,
+  }) {
+    return _then(_Student(
+      id: freezed == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      classId: null == classId
+          ? _self.classId
+          : classId // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      beginStudy: null == beginStudy
+          ? _self.beginStudy
+          : beginStudy // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      isFollow: null == isFollow
+          ? _self.isFollow
+          : isFollow // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSpecial: null == isSpecial
+          ? _self.isSpecial
+          : isSpecial // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fee: null == fee
+          ? _self.fee
+          : fee // ignore: cast_nullable_to_non_nullable
+              as int,
+      phones: null == phones
+          ? _self.phones
+          : phones // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      lastCharge: freezed == lastCharge
+          ? _self.lastCharge
+          : lastCharge // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      image: freezed == image
+          ? _self.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

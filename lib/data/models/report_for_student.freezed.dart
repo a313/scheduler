@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,31 +10,35 @@ part of 'report_for_student.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ReportForStudent {
-  Student get student => throw _privateConstructorUsedError;
-  set student(Student value) => throw _privateConstructorUsedError;
-  Map<ClassRoom, List<Event>> get data => throw _privateConstructorUsedError;
-  set data(Map<ClassRoom, List<Event>> value) =>
-      throw _privateConstructorUsedError;
+  Student get student;
+  set student(Student value);
+  Map<ClassRoom, List<Event>> get data;
+  set data(Map<ClassRoom, List<Event>> value);
 
   /// Create a copy of ReportForStudent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ReportForStudentCopyWith<ReportForStudent> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ReportForStudentCopyWithImpl<ReportForStudent>(
+          this as ReportForStudent, _$identity);
+
+  @override
+  String toString() {
+    return 'ReportForStudent(student: $student, data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $ReportForStudentCopyWith<$Res> {
+abstract mixin class $ReportForStudentCopyWith<$Res> {
   factory $ReportForStudentCopyWith(
-          ReportForStudent value, $Res Function(ReportForStudent) then) =
-      _$ReportForStudentCopyWithImpl<$Res, ReportForStudent>;
+          ReportForStudent value, $Res Function(ReportForStudent) _then) =
+      _$ReportForStudentCopyWithImpl;
   @useResult
   $Res call({Student student, Map<ClassRoom, List<Event>> data});
 
@@ -41,14 +46,12 @@ abstract class $ReportForStudentCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ReportForStudentCopyWithImpl<$Res, $Val extends ReportForStudent>
+class _$ReportForStudentCopyWithImpl<$Res>
     implements $ReportForStudentCopyWith<$Res> {
-  _$ReportForStudentCopyWithImpl(this._value, this._then);
+  _$ReportForStudentCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ReportForStudent _self;
+  final $Res Function(ReportForStudent) _then;
 
   /// Create a copy of ReportForStudent
   /// with the given fields replaced by the non-null parameter values.
@@ -58,16 +61,16 @@ class _$ReportForStudentCopyWithImpl<$Res, $Val extends ReportForStudent>
     Object? student = null,
     Object? data = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       student: null == student
-          ? _value.student
+          ? _self.student
           : student // ignore: cast_nullable_to_non_nullable
               as Student,
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<ClassRoom, List<Event>>,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ReportForStudent
@@ -75,18 +78,42 @@ class _$ReportForStudentCopyWithImpl<$Res, $Val extends ReportForStudent>
   @override
   @pragma('vm:prefer-inline')
   $StudentCopyWith<$Res> get student {
-    return $StudentCopyWith<$Res>(_value.student, (value) {
-      return _then(_value.copyWith(student: value) as $Val);
+    return $StudentCopyWith<$Res>(_self.student, (value) {
+      return _then(_self.copyWith(student: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ReportForStudentImplCopyWith<$Res>
+
+class _ReportForStudent extends ReportForStudent {
+  _ReportForStudent({required this.student, required this.data}) : super._();
+
+  @override
+  Student student;
+  @override
+  Map<ClassRoom, List<Event>> data;
+
+  /// Create a copy of ReportForStudent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ReportForStudentCopyWith<_ReportForStudent> get copyWith =>
+      __$ReportForStudentCopyWithImpl<_ReportForStudent>(this, _$identity);
+
+  @override
+  String toString() {
+    return 'ReportForStudent(student: $student, data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ReportForStudentCopyWith<$Res>
     implements $ReportForStudentCopyWith<$Res> {
-  factory _$$ReportForStudentImplCopyWith(_$ReportForStudentImpl value,
-          $Res Function(_$ReportForStudentImpl) then) =
-      __$$ReportForStudentImplCopyWithImpl<$Res>;
+  factory _$ReportForStudentCopyWith(
+          _ReportForStudent value, $Res Function(_ReportForStudent) _then) =
+      __$ReportForStudentCopyWithImpl;
   @override
   @useResult
   $Res call({Student student, Map<ClassRoom, List<Event>> data});
@@ -96,77 +123,42 @@ abstract class _$$ReportForStudentImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ReportForStudentImplCopyWithImpl<$Res>
-    extends _$ReportForStudentCopyWithImpl<$Res, _$ReportForStudentImpl>
-    implements _$$ReportForStudentImplCopyWith<$Res> {
-  __$$ReportForStudentImplCopyWithImpl(_$ReportForStudentImpl _value,
-      $Res Function(_$ReportForStudentImpl) _then)
-      : super(_value, _then);
+class __$ReportForStudentCopyWithImpl<$Res>
+    implements _$ReportForStudentCopyWith<$Res> {
+  __$ReportForStudentCopyWithImpl(this._self, this._then);
+
+  final _ReportForStudent _self;
+  final $Res Function(_ReportForStudent) _then;
 
   /// Create a copy of ReportForStudent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? student = null,
     Object? data = null,
   }) {
-    return _then(_$ReportForStudentImpl(
+    return _then(_ReportForStudent(
       student: null == student
-          ? _value.student
+          ? _self.student
           : student // ignore: cast_nullable_to_non_nullable
               as Student,
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<ClassRoom, List<Event>>,
     ));
   }
-}
-
-/// @nodoc
-
-class _$ReportForStudentImpl extends _ReportForStudent {
-  _$ReportForStudentImpl({required this.student, required this.data})
-      : super._();
-
-  @override
-  Student student;
-  @override
-  Map<ClassRoom, List<Event>> data;
-
-  @override
-  String toString() {
-    return 'ReportForStudent(student: $student, data: $data)';
-  }
 
   /// Create a copy of ReportForStudent
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ReportForStudentImplCopyWith<_$ReportForStudentImpl> get copyWith =>
-      __$$ReportForStudentImplCopyWithImpl<_$ReportForStudentImpl>(
-          this, _$identity);
+  $StudentCopyWith<$Res> get student {
+    return $StudentCopyWith<$Res>(_self.student, (value) {
+      return _then(_self.copyWith(student: value));
+    });
+  }
 }
 
-abstract class _ReportForStudent extends ReportForStudent {
-  factory _ReportForStudent(
-      {required Student student,
-      required Map<ClassRoom, List<Event>> data}) = _$ReportForStudentImpl;
-  _ReportForStudent._() : super._();
-
-  @override
-  Student get student;
-  set student(Student value);
-  @override
-  Map<ClassRoom, List<Event>> get data;
-  set data(Map<ClassRoom, List<Event>> value);
-
-  /// Create a copy of ReportForStudent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ReportForStudentImplCopyWith<_$ReportForStudentImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

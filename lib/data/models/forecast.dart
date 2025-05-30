@@ -4,7 +4,7 @@ part 'forecast.freezed.dart';
 part 'forecast.g.dart';
 
 @freezed
-class Forecast with _$Forecast {
+sealed class Forecast with _$Forecast {
   const factory Forecast({
     List<Item>? items,
     DateTime? forecastDate,
@@ -19,7 +19,7 @@ class Forecast with _$Forecast {
 }
 
 @freezed
-class Item with _$Item {
+sealed class Item with _$Item {
   const factory Item({
     DateTime? date,
     DateTime? dateWithTimezone,
@@ -40,7 +40,7 @@ class Item with _$Item {
 }
 
 @freezed
-class Astronomy with _$Astronomy {
+sealed class Astronomy with _$Astronomy {
   const factory Astronomy({
     DateTime? dawn,
     DateTime? sunrise,
@@ -59,7 +59,7 @@ class Astronomy with _$Astronomy {
 }
 
 @freezed
-class Prec with _$Prec {
+sealed class Prec with _$Prec {
   const factory Prec({
     double? sum,
     double? probability,
@@ -71,7 +71,7 @@ class Prec with _$Prec {
 }
 
 @freezed
-class SnowLine with _$SnowLine {
+sealed class SnowLine with _$SnowLine {
   const factory SnowLine({
     double? avg,
     double? min,
@@ -84,7 +84,7 @@ class SnowLine with _$SnowLine {
 }
 
 @freezed
-class Weather with _$Weather {
+sealed class Weather with _$Weather {
   const factory Weather({
     int? state,
     String? text,
@@ -96,7 +96,7 @@ class Weather with _$Weather {
 }
 
 @freezed
-class Wind with _$Wind {
+sealed class Wind with _$Wind {
   const factory Wind({
     String? unit,
     String? direction,
@@ -112,7 +112,7 @@ class Wind with _$Wind {
 }
 
 @freezed
-class Gusts with _$Gusts {
+sealed class Gusts with _$Gusts {
   const factory Gusts({
     double? value,
     String? text,

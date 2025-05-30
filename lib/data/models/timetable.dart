@@ -7,7 +7,7 @@ part 'timetable.freezed.dart';
 part 'timetable.g.dart';
 
 @unfreezed
-class Timetable with _$Timetable {
+sealed class Timetable with _$Timetable {
   const Timetable._();
   factory Timetable({
     @TimeOfDayConverter() required TimeOfDay begin,

@@ -7,7 +7,7 @@ part 'schedule.freezed.dart';
 part 'schedule.g.dart';
 
 @unfreezed
-class Schedule with _$Schedule {
+sealed class Schedule with _$Schedule {
   const Schedule._();
   factory Schedule({
     int? id,

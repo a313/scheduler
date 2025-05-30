@@ -6,8 +6,7 @@ part of 'video_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$VideoInfoImpl _$$VideoInfoImplFromJson(Map<String, dynamic> json) =>
-    _$VideoInfoImpl(
+_VideoInfo _$VideoInfoFromJson(Map<String, dynamic> json) => _VideoInfo(
       creator: json['creator'] as String?,
       mp4: (json['mp4'] as List<dynamic>?)
           ?.map((e) => Mp3.fromJson(e as Map<String, dynamic>))
@@ -18,7 +17,7 @@ _$VideoInfoImpl _$$VideoInfoImplFromJson(Map<String, dynamic> json) =>
       error: json['error'] as String?,
     );
 
-Map<String, dynamic> _$$VideoInfoImplToJson(_$VideoInfoImpl instance) =>
+Map<String, dynamic> _$VideoInfoToJson(_VideoInfo instance) =>
     <String, dynamic>{
       'creator': instance.creator,
       'mp4': instance.mp4,
@@ -26,7 +25,7 @@ Map<String, dynamic> _$$VideoInfoImplToJson(_$VideoInfoImpl instance) =>
       'error': instance.error,
     };
 
-_$Mp3Impl _$$Mp3ImplFromJson(Map<String, dynamic> json) => _$Mp3Impl(
+_Mp3 _$Mp3FromJson(Map<String, dynamic> json) => _Mp3(
       mimeType: json['mimeType'] as String,
       qualityLabel: json['qualityLabel'] as String?,
       bitrate: (json['bitrate'] as num).toInt(),
@@ -64,7 +63,7 @@ _$Mp3Impl _$$Mp3ImplFromJson(Map<String, dynamic> json) => _$Mp3Impl(
           : ColorInfo.fromJson(json['colorInfo'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$Mp3ImplToJson(_$Mp3Impl instance) => <String, dynamic>{
+Map<String, dynamic> _$Mp3ToJson(_Mp3 instance) => <String, dynamic>{
       'mimeType': instance.mimeType,
       'qualityLabel': instance.qualityLabel,
       'bitrate': instance.bitrate,
@@ -108,8 +107,7 @@ const _$ContainerEnumMap = {
   Container.WEBM: 'WEBM',
 };
 
-_$ColorInfoImpl _$$ColorInfoImplFromJson(Map<String, dynamic> json) =>
-    _$ColorInfoImpl(
+_ColorInfo _$ColorInfoFromJson(Map<String, dynamic> json) => _ColorInfo(
       primaries: $enumDecode(_$PrimariesEnumMap, json['primaries']),
       transferCharacteristics: $enumDecode(
           _$TransferCharacteristicsEnumMap, json['transferCharacteristics']),
@@ -117,7 +115,7 @@ _$ColorInfoImpl _$$ColorInfoImplFromJson(Map<String, dynamic> json) =>
           $enumDecode(_$MatrixCoefficientsEnumMap, json['matrixCoefficients']),
     );
 
-Map<String, dynamic> _$$ColorInfoImplToJson(_$ColorInfoImpl instance) =>
+Map<String, dynamic> _$ColorInfoToJson(_ColorInfo instance) =>
     <String, dynamic>{
       'primaries': _$PrimariesEnumMap[instance.primaries]!,
       'transferCharacteristics':
@@ -140,13 +138,12 @@ const _$MatrixCoefficientsEnumMap = {
       'COLOR_MATRIX_COEFFICIENTS_BT709',
 };
 
-_$RangeImpl _$$RangeImplFromJson(Map<String, dynamic> json) => _$RangeImpl(
+_Range _$RangeFromJson(Map<String, dynamic> json) => _Range(
       start: json['start'] as String,
       end: json['end'] as String,
     );
 
-Map<String, dynamic> _$$RangeImplToJson(_$RangeImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$RangeToJson(_Range instance) => <String, dynamic>{
       'start': instance.start,
       'end': instance.end,
     };

@@ -6,8 +6,7 @@ part of 'student.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StudentImpl _$$StudentImplFromJson(Map<String, dynamic> json) =>
-    _$StudentImpl(
+_Student _$StudentFromJson(Map<String, dynamic> json) => _Student(
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String,
       classId: const ListIntConverter().fromJson(json['classId'] as String),
@@ -24,8 +23,7 @@ _$StudentImpl _$$StudentImplFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String?,
     );
 
-Map<String, dynamic> _$$StudentImplToJson(_$StudentImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$StudentToJson(_Student instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'classId': const ListIntConverter().toJson(instance.classId),

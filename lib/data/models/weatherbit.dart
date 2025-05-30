@@ -1,11 +1,11 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:aio/core/utils/util.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'weatherbit.freezed.dart';
 part 'weatherbit.g.dart';
 
 @freezed
-class Forecast with _$Forecast {
+sealed class Forecast with _$Forecast {
   const Forecast._();
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Forecast({
@@ -33,7 +33,7 @@ class Forecast with _$Forecast {
 }
 
 @freezed
-class CurrentWeather with _$CurrentWeather {
+sealed class CurrentWeather with _$CurrentWeather {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory CurrentWeather({
     int? count,
@@ -45,7 +45,7 @@ class CurrentWeather with _$CurrentWeather {
 }
 
 @freezed
-class WeatherInfo with _$WeatherInfo {
+sealed class WeatherInfo with _$WeatherInfo {
   const WeatherInfo._();
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory WeatherInfo({
@@ -115,7 +115,7 @@ class WeatherInfo with _$WeatherInfo {
 }
 
 @freezed
-class Weather with _$Weather {
+sealed class Weather with _$Weather {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Weather({
     String? icon,

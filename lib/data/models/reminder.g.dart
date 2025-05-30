@@ -6,8 +6,7 @@ part of 'reminder.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ReminderImpl _$$ReminderImplFromJson(Map<String, dynamic> json) =>
-    _$ReminderImpl(
+_Reminder _$ReminderFromJson(Map<String, dynamic> json) => _Reminder(
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String,
       createDate: const DateTimeConverter()
@@ -23,8 +22,7 @@ _$ReminderImpl _$$ReminderImplFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String?,
     );
 
-Map<String, dynamic> _$$ReminderImplToJson(_$ReminderImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ReminderToJson(_Reminder instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'createDate': const DateTimeConverter().toJson(instance.createDate),

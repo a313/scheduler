@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,99 +10,66 @@ part of 'video_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-VideoInfo _$VideoInfoFromJson(Map<String, dynamic> json) {
-  return _VideoInfo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$VideoInfo {
-  String? get creator => throw _privateConstructorUsedError;
-  List<Mp3>? get mp4 => throw _privateConstructorUsedError;
-  List<Mp3>? get mp3 => throw _privateConstructorUsedError;
-  String? get error => throw _privateConstructorUsedError;
-
-  /// Serializes this VideoInfo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get creator;
+  List<Mp3>? get mp4;
+  List<Mp3>? get mp3;
+  String? get error;
 
   /// Create a copy of VideoInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $VideoInfoCopyWith<VideoInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $VideoInfoCopyWith<$Res> {
-  factory $VideoInfoCopyWith(VideoInfo value, $Res Function(VideoInfo) then) =
-      _$VideoInfoCopyWithImpl<$Res, VideoInfo>;
-  @useResult
-  $Res call({String? creator, List<Mp3>? mp4, List<Mp3>? mp3, String? error});
-}
-
-/// @nodoc
-class _$VideoInfoCopyWithImpl<$Res, $Val extends VideoInfo>
-    implements $VideoInfoCopyWith<$Res> {
-  _$VideoInfoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of VideoInfo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $VideoInfoCopyWith<VideoInfo> get copyWith =>
+      _$VideoInfoCopyWithImpl<VideoInfo>(this as VideoInfo, _$identity);
+
+  /// Serializes this VideoInfo to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? creator = freezed,
-    Object? mp4 = freezed,
-    Object? mp3 = freezed,
-    Object? error = freezed,
-  }) {
-    return _then(_value.copyWith(
-      creator: freezed == creator
-          ? _value.creator
-          : creator // ignore: cast_nullable_to_non_nullable
-              as String?,
-      mp4: freezed == mp4
-          ? _value.mp4
-          : mp4 // ignore: cast_nullable_to_non_nullable
-              as List<Mp3>?,
-      mp3: freezed == mp3
-          ? _value.mp3
-          : mp3 // ignore: cast_nullable_to_non_nullable
-              as List<Mp3>?,
-      error: freezed == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is VideoInfo &&
+            (identical(other.creator, creator) || other.creator == creator) &&
+            const DeepCollectionEquality().equals(other.mp4, mp4) &&
+            const DeepCollectionEquality().equals(other.mp3, mp3) &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      creator,
+      const DeepCollectionEquality().hash(mp4),
+      const DeepCollectionEquality().hash(mp3),
+      error);
+
+  @override
+  String toString() {
+    return 'VideoInfo(creator: $creator, mp4: $mp4, mp3: $mp3, error: $error)';
   }
 }
 
 /// @nodoc
-abstract class _$$VideoInfoImplCopyWith<$Res>
-    implements $VideoInfoCopyWith<$Res> {
-  factory _$$VideoInfoImplCopyWith(
-          _$VideoInfoImpl value, $Res Function(_$VideoInfoImpl) then) =
-      __$$VideoInfoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $VideoInfoCopyWith<$Res> {
+  factory $VideoInfoCopyWith(VideoInfo value, $Res Function(VideoInfo) _then) =
+      _$VideoInfoCopyWithImpl;
   @useResult
   $Res call({String? creator, List<Mp3>? mp4, List<Mp3>? mp3, String? error});
 }
 
 /// @nodoc
-class __$$VideoInfoImplCopyWithImpl<$Res>
-    extends _$VideoInfoCopyWithImpl<$Res, _$VideoInfoImpl>
-    implements _$$VideoInfoImplCopyWith<$Res> {
-  __$$VideoInfoImplCopyWithImpl(
-      _$VideoInfoImpl _value, $Res Function(_$VideoInfoImpl) _then)
-      : super(_value, _then);
+class _$VideoInfoCopyWithImpl<$Res> implements $VideoInfoCopyWith<$Res> {
+  _$VideoInfoCopyWithImpl(this._self, this._then);
+
+  final VideoInfo _self;
+  final $Res Function(VideoInfo) _then;
 
   /// Create a copy of VideoInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -113,21 +81,21 @@ class __$$VideoInfoImplCopyWithImpl<$Res>
     Object? mp3 = freezed,
     Object? error = freezed,
   }) {
-    return _then(_$VideoInfoImpl(
+    return _then(_self.copyWith(
       creator: freezed == creator
-          ? _value.creator
+          ? _self.creator
           : creator // ignore: cast_nullable_to_non_nullable
               as String?,
       mp4: freezed == mp4
-          ? _value._mp4
+          ? _self.mp4
           : mp4 // ignore: cast_nullable_to_non_nullable
               as List<Mp3>?,
       mp3: freezed == mp3
-          ? _value._mp3
+          ? _self.mp3
           : mp3 // ignore: cast_nullable_to_non_nullable
               as List<Mp3>?,
       error: freezed == error
-          ? _value.error
+          ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -136,14 +104,13 @@ class __$$VideoInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$VideoInfoImpl implements _VideoInfo {
-  const _$VideoInfoImpl(
+class _VideoInfo implements VideoInfo {
+  const _VideoInfo(
       {this.creator, final List<Mp3>? mp4, final List<Mp3>? mp3, this.error})
       : _mp4 = mp4,
         _mp3 = mp3;
-
-  factory _$VideoInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$VideoInfoImplFromJson(json);
+  factory _VideoInfo.fromJson(Map<String, dynamic> json) =>
+      _$VideoInfoFromJson(json);
 
   @override
   final String? creator;
@@ -170,16 +137,26 @@ class _$VideoInfoImpl implements _VideoInfo {
   @override
   final String? error;
 
+  /// Create a copy of VideoInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'VideoInfo(creator: $creator, mp4: $mp4, mp3: $mp3, error: $error)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$VideoInfoCopyWith<_VideoInfo> get copyWith =>
+      __$VideoInfoCopyWithImpl<_VideoInfo>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$VideoInfoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$VideoInfoImpl &&
+            other is _VideoInfo &&
             (identical(other.creator, creator) || other.creator == creator) &&
             const DeepCollectionEquality().equals(other._mp4, _mp4) &&
             const DeepCollectionEquality().equals(other._mp3, _mp3) &&
@@ -195,695 +172,111 @@ class _$VideoInfoImpl implements _VideoInfo {
       const DeepCollectionEquality().hash(_mp3),
       error);
 
-  /// Create a copy of VideoInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$VideoInfoImplCopyWith<_$VideoInfoImpl> get copyWith =>
-      __$$VideoInfoImplCopyWithImpl<_$VideoInfoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$VideoInfoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'VideoInfo(creator: $creator, mp4: $mp4, mp3: $mp3, error: $error)';
   }
 }
 
-abstract class _VideoInfo implements VideoInfo {
-  const factory _VideoInfo(
-      {final String? creator,
-      final List<Mp3>? mp4,
-      final List<Mp3>? mp3,
-      final String? error}) = _$VideoInfoImpl;
+/// @nodoc
+abstract mixin class _$VideoInfoCopyWith<$Res>
+    implements $VideoInfoCopyWith<$Res> {
+  factory _$VideoInfoCopyWith(
+          _VideoInfo value, $Res Function(_VideoInfo) _then) =
+      __$VideoInfoCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String? creator, List<Mp3>? mp4, List<Mp3>? mp3, String? error});
+}
 
-  factory _VideoInfo.fromJson(Map<String, dynamic> json) =
-      _$VideoInfoImpl.fromJson;
+/// @nodoc
+class __$VideoInfoCopyWithImpl<$Res> implements _$VideoInfoCopyWith<$Res> {
+  __$VideoInfoCopyWithImpl(this._self, this._then);
 
-  @override
-  String? get creator;
-  @override
-  List<Mp3>? get mp4;
-  @override
-  List<Mp3>? get mp3;
-  @override
-  String? get error;
+  final _VideoInfo _self;
+  final $Res Function(_VideoInfo) _then;
 
   /// Create a copy of VideoInfo
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$VideoInfoImplCopyWith<_$VideoInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Mp3 _$Mp3FromJson(Map<String, dynamic> json) {
-  return _Mp3.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Mp3 {
-  String get mimeType => throw _privateConstructorUsedError;
-  String? get qualityLabel => throw _privateConstructorUsedError;
-  int get bitrate => throw _privateConstructorUsedError;
-  int? get audioBitrate => throw _privateConstructorUsedError;
-  int get itag => throw _privateConstructorUsedError;
-  Range get initRange => throw _privateConstructorUsedError;
-  Range get indexRange => throw _privateConstructorUsedError;
-  String get lastModified => throw _privateConstructorUsedError;
-  String get contentLength => throw _privateConstructorUsedError;
-  String get quality => throw _privateConstructorUsedError;
-  ProjectionType get projectionType => throw _privateConstructorUsedError;
-  int get averageBitrate => throw _privateConstructorUsedError;
-  String? get audioQuality => throw _privateConstructorUsedError;
-  String get approxDurationMs => throw _privateConstructorUsedError;
-  String? get audioSampleRate => throw _privateConstructorUsedError;
-  int? get audioChannels => throw _privateConstructorUsedError;
-  double? get loudnessDb => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
-  bool get hasVideo => throw _privateConstructorUsedError;
-  bool get hasAudio => throw _privateConstructorUsedError;
-  Container get container => throw _privateConstructorUsedError;
-  String get codecs => throw _privateConstructorUsedError;
-  String? get videoCodec => throw _privateConstructorUsedError;
-  String? get audioCodec => throw _privateConstructorUsedError;
-  bool get isLive => throw _privateConstructorUsedError;
-  bool get isHls => throw _privateConstructorUsedError;
-  bool get isDashMpd => throw _privateConstructorUsedError;
-  bool? get highReplication => throw _privateConstructorUsedError;
-  int? get width => throw _privateConstructorUsedError;
-  int? get height => throw _privateConstructorUsedError;
-  int? get fps => throw _privateConstructorUsedError;
-  ColorInfo? get colorInfo => throw _privateConstructorUsedError;
-
-  /// Serializes this Mp3 to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Mp3
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $Mp3CopyWith<Mp3> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $Mp3CopyWith<$Res> {
-  factory $Mp3CopyWith(Mp3 value, $Res Function(Mp3) then) =
-      _$Mp3CopyWithImpl<$Res, Mp3>;
-  @useResult
-  $Res call(
-      {String mimeType,
-      String? qualityLabel,
-      int bitrate,
-      int? audioBitrate,
-      int itag,
-      Range initRange,
-      Range indexRange,
-      String lastModified,
-      String contentLength,
-      String quality,
-      ProjectionType projectionType,
-      int averageBitrate,
-      String? audioQuality,
-      String approxDurationMs,
-      String? audioSampleRate,
-      int? audioChannels,
-      double? loudnessDb,
-      String url,
-      bool hasVideo,
-      bool hasAudio,
-      Container container,
-      String codecs,
-      String? videoCodec,
-      String? audioCodec,
-      bool isLive,
-      bool isHls,
-      bool isDashMpd,
-      bool? highReplication,
-      int? width,
-      int? height,
-      int? fps,
-      ColorInfo? colorInfo});
-
-  $RangeCopyWith<$Res> get initRange;
-  $RangeCopyWith<$Res> get indexRange;
-  $ColorInfoCopyWith<$Res>? get colorInfo;
-}
-
-/// @nodoc
-class _$Mp3CopyWithImpl<$Res, $Val extends Mp3> implements $Mp3CopyWith<$Res> {
-  _$Mp3CopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Mp3
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? mimeType = null,
-    Object? qualityLabel = freezed,
-    Object? bitrate = null,
-    Object? audioBitrate = freezed,
-    Object? itag = null,
-    Object? initRange = null,
-    Object? indexRange = null,
-    Object? lastModified = null,
-    Object? contentLength = null,
-    Object? quality = null,
-    Object? projectionType = null,
-    Object? averageBitrate = null,
-    Object? audioQuality = freezed,
-    Object? approxDurationMs = null,
-    Object? audioSampleRate = freezed,
-    Object? audioChannels = freezed,
-    Object? loudnessDb = freezed,
-    Object? url = null,
-    Object? hasVideo = null,
-    Object? hasAudio = null,
-    Object? container = null,
-    Object? codecs = null,
-    Object? videoCodec = freezed,
-    Object? audioCodec = freezed,
-    Object? isLive = null,
-    Object? isHls = null,
-    Object? isDashMpd = null,
-    Object? highReplication = freezed,
-    Object? width = freezed,
-    Object? height = freezed,
-    Object? fps = freezed,
-    Object? colorInfo = freezed,
+    Object? creator = freezed,
+    Object? mp4 = freezed,
+    Object? mp3 = freezed,
+    Object? error = freezed,
   }) {
-    return _then(_value.copyWith(
-      mimeType: null == mimeType
-          ? _value.mimeType
-          : mimeType // ignore: cast_nullable_to_non_nullable
-              as String,
-      qualityLabel: freezed == qualityLabel
-          ? _value.qualityLabel
-          : qualityLabel // ignore: cast_nullable_to_non_nullable
+    return _then(_VideoInfo(
+      creator: freezed == creator
+          ? _self.creator
+          : creator // ignore: cast_nullable_to_non_nullable
               as String?,
-      bitrate: null == bitrate
-          ? _value.bitrate
-          : bitrate // ignore: cast_nullable_to_non_nullable
-              as int,
-      audioBitrate: freezed == audioBitrate
-          ? _value.audioBitrate
-          : audioBitrate // ignore: cast_nullable_to_non_nullable
-              as int?,
-      itag: null == itag
-          ? _value.itag
-          : itag // ignore: cast_nullable_to_non_nullable
-              as int,
-      initRange: null == initRange
-          ? _value.initRange
-          : initRange // ignore: cast_nullable_to_non_nullable
-              as Range,
-      indexRange: null == indexRange
-          ? _value.indexRange
-          : indexRange // ignore: cast_nullable_to_non_nullable
-              as Range,
-      lastModified: null == lastModified
-          ? _value.lastModified
-          : lastModified // ignore: cast_nullable_to_non_nullable
-              as String,
-      contentLength: null == contentLength
-          ? _value.contentLength
-          : contentLength // ignore: cast_nullable_to_non_nullable
-              as String,
-      quality: null == quality
-          ? _value.quality
-          : quality // ignore: cast_nullable_to_non_nullable
-              as String,
-      projectionType: null == projectionType
-          ? _value.projectionType
-          : projectionType // ignore: cast_nullable_to_non_nullable
-              as ProjectionType,
-      averageBitrate: null == averageBitrate
-          ? _value.averageBitrate
-          : averageBitrate // ignore: cast_nullable_to_non_nullable
-              as int,
-      audioQuality: freezed == audioQuality
-          ? _value.audioQuality
-          : audioQuality // ignore: cast_nullable_to_non_nullable
+      mp4: freezed == mp4
+          ? _self._mp4
+          : mp4 // ignore: cast_nullable_to_non_nullable
+              as List<Mp3>?,
+      mp3: freezed == mp3
+          ? _self._mp3
+          : mp3 // ignore: cast_nullable_to_non_nullable
+              as List<Mp3>?,
+      error: freezed == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
               as String?,
-      approxDurationMs: null == approxDurationMs
-          ? _value.approxDurationMs
-          : approxDurationMs // ignore: cast_nullable_to_non_nullable
-              as String,
-      audioSampleRate: freezed == audioSampleRate
-          ? _value.audioSampleRate
-          : audioSampleRate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      audioChannels: freezed == audioChannels
-          ? _value.audioChannels
-          : audioChannels // ignore: cast_nullable_to_non_nullable
-              as int?,
-      loudnessDb: freezed == loudnessDb
-          ? _value.loudnessDb
-          : loudnessDb // ignore: cast_nullable_to_non_nullable
-              as double?,
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      hasVideo: null == hasVideo
-          ? _value.hasVideo
-          : hasVideo // ignore: cast_nullable_to_non_nullable
-              as bool,
-      hasAudio: null == hasAudio
-          ? _value.hasAudio
-          : hasAudio // ignore: cast_nullable_to_non_nullable
-              as bool,
-      container: null == container
-          ? _value.container
-          : container // ignore: cast_nullable_to_non_nullable
-              as Container,
-      codecs: null == codecs
-          ? _value.codecs
-          : codecs // ignore: cast_nullable_to_non_nullable
-              as String,
-      videoCodec: freezed == videoCodec
-          ? _value.videoCodec
-          : videoCodec // ignore: cast_nullable_to_non_nullable
-              as String?,
-      audioCodec: freezed == audioCodec
-          ? _value.audioCodec
-          : audioCodec // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isLive: null == isLive
-          ? _value.isLive
-          : isLive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isHls: null == isHls
-          ? _value.isHls
-          : isHls // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDashMpd: null == isDashMpd
-          ? _value.isDashMpd
-          : isDashMpd // ignore: cast_nullable_to_non_nullable
-              as bool,
-      highReplication: freezed == highReplication
-          ? _value.highReplication
-          : highReplication // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      width: freezed == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
-      height: freezed == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      fps: freezed == fps
-          ? _value.fps
-          : fps // ignore: cast_nullable_to_non_nullable
-              as int?,
-      colorInfo: freezed == colorInfo
-          ? _value.colorInfo
-          : colorInfo // ignore: cast_nullable_to_non_nullable
-              as ColorInfo?,
-    ) as $Val);
-  }
-
-  /// Create a copy of Mp3
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RangeCopyWith<$Res> get initRange {
-    return $RangeCopyWith<$Res>(_value.initRange, (value) {
-      return _then(_value.copyWith(initRange: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Mp3
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RangeCopyWith<$Res> get indexRange {
-    return $RangeCopyWith<$Res>(_value.indexRange, (value) {
-      return _then(_value.copyWith(indexRange: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Mp3
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ColorInfoCopyWith<$Res>? get colorInfo {
-    if (_value.colorInfo == null) {
-      return null;
-    }
-
-    return $ColorInfoCopyWith<$Res>(_value.colorInfo!, (value) {
-      return _then(_value.copyWith(colorInfo: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$Mp3ImplCopyWith<$Res> implements $Mp3CopyWith<$Res> {
-  factory _$$Mp3ImplCopyWith(_$Mp3Impl value, $Res Function(_$Mp3Impl) then) =
-      __$$Mp3ImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String mimeType,
-      String? qualityLabel,
-      int bitrate,
-      int? audioBitrate,
-      int itag,
-      Range initRange,
-      Range indexRange,
-      String lastModified,
-      String contentLength,
-      String quality,
-      ProjectionType projectionType,
-      int averageBitrate,
-      String? audioQuality,
-      String approxDurationMs,
-      String? audioSampleRate,
-      int? audioChannels,
-      double? loudnessDb,
-      String url,
-      bool hasVideo,
-      bool hasAudio,
-      Container container,
-      String codecs,
-      String? videoCodec,
-      String? audioCodec,
-      bool isLive,
-      bool isHls,
-      bool isDashMpd,
-      bool? highReplication,
-      int? width,
-      int? height,
-      int? fps,
-      ColorInfo? colorInfo});
-
-  @override
-  $RangeCopyWith<$Res> get initRange;
-  @override
-  $RangeCopyWith<$Res> get indexRange;
-  @override
-  $ColorInfoCopyWith<$Res>? get colorInfo;
-}
-
-/// @nodoc
-class __$$Mp3ImplCopyWithImpl<$Res> extends _$Mp3CopyWithImpl<$Res, _$Mp3Impl>
-    implements _$$Mp3ImplCopyWith<$Res> {
-  __$$Mp3ImplCopyWithImpl(_$Mp3Impl _value, $Res Function(_$Mp3Impl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Mp3
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? mimeType = null,
-    Object? qualityLabel = freezed,
-    Object? bitrate = null,
-    Object? audioBitrate = freezed,
-    Object? itag = null,
-    Object? initRange = null,
-    Object? indexRange = null,
-    Object? lastModified = null,
-    Object? contentLength = null,
-    Object? quality = null,
-    Object? projectionType = null,
-    Object? averageBitrate = null,
-    Object? audioQuality = freezed,
-    Object? approxDurationMs = null,
-    Object? audioSampleRate = freezed,
-    Object? audioChannels = freezed,
-    Object? loudnessDb = freezed,
-    Object? url = null,
-    Object? hasVideo = null,
-    Object? hasAudio = null,
-    Object? container = null,
-    Object? codecs = null,
-    Object? videoCodec = freezed,
-    Object? audioCodec = freezed,
-    Object? isLive = null,
-    Object? isHls = null,
-    Object? isDashMpd = null,
-    Object? highReplication = freezed,
-    Object? width = freezed,
-    Object? height = freezed,
-    Object? fps = freezed,
-    Object? colorInfo = freezed,
-  }) {
-    return _then(_$Mp3Impl(
-      mimeType: null == mimeType
-          ? _value.mimeType
-          : mimeType // ignore: cast_nullable_to_non_nullable
-              as String,
-      qualityLabel: freezed == qualityLabel
-          ? _value.qualityLabel
-          : qualityLabel // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bitrate: null == bitrate
-          ? _value.bitrate
-          : bitrate // ignore: cast_nullable_to_non_nullable
-              as int,
-      audioBitrate: freezed == audioBitrate
-          ? _value.audioBitrate
-          : audioBitrate // ignore: cast_nullable_to_non_nullable
-              as int?,
-      itag: null == itag
-          ? _value.itag
-          : itag // ignore: cast_nullable_to_non_nullable
-              as int,
-      initRange: null == initRange
-          ? _value.initRange
-          : initRange // ignore: cast_nullable_to_non_nullable
-              as Range,
-      indexRange: null == indexRange
-          ? _value.indexRange
-          : indexRange // ignore: cast_nullable_to_non_nullable
-              as Range,
-      lastModified: null == lastModified
-          ? _value.lastModified
-          : lastModified // ignore: cast_nullable_to_non_nullable
-              as String,
-      contentLength: null == contentLength
-          ? _value.contentLength
-          : contentLength // ignore: cast_nullable_to_non_nullable
-              as String,
-      quality: null == quality
-          ? _value.quality
-          : quality // ignore: cast_nullable_to_non_nullable
-              as String,
-      projectionType: null == projectionType
-          ? _value.projectionType
-          : projectionType // ignore: cast_nullable_to_non_nullable
-              as ProjectionType,
-      averageBitrate: null == averageBitrate
-          ? _value.averageBitrate
-          : averageBitrate // ignore: cast_nullable_to_non_nullable
-              as int,
-      audioQuality: freezed == audioQuality
-          ? _value.audioQuality
-          : audioQuality // ignore: cast_nullable_to_non_nullable
-              as String?,
-      approxDurationMs: null == approxDurationMs
-          ? _value.approxDurationMs
-          : approxDurationMs // ignore: cast_nullable_to_non_nullable
-              as String,
-      audioSampleRate: freezed == audioSampleRate
-          ? _value.audioSampleRate
-          : audioSampleRate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      audioChannels: freezed == audioChannels
-          ? _value.audioChannels
-          : audioChannels // ignore: cast_nullable_to_non_nullable
-              as int?,
-      loudnessDb: freezed == loudnessDb
-          ? _value.loudnessDb
-          : loudnessDb // ignore: cast_nullable_to_non_nullable
-              as double?,
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      hasVideo: null == hasVideo
-          ? _value.hasVideo
-          : hasVideo // ignore: cast_nullable_to_non_nullable
-              as bool,
-      hasAudio: null == hasAudio
-          ? _value.hasAudio
-          : hasAudio // ignore: cast_nullable_to_non_nullable
-              as bool,
-      container: null == container
-          ? _value.container
-          : container // ignore: cast_nullable_to_non_nullable
-              as Container,
-      codecs: null == codecs
-          ? _value.codecs
-          : codecs // ignore: cast_nullable_to_non_nullable
-              as String,
-      videoCodec: freezed == videoCodec
-          ? _value.videoCodec
-          : videoCodec // ignore: cast_nullable_to_non_nullable
-              as String?,
-      audioCodec: freezed == audioCodec
-          ? _value.audioCodec
-          : audioCodec // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isLive: null == isLive
-          ? _value.isLive
-          : isLive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isHls: null == isHls
-          ? _value.isHls
-          : isHls // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDashMpd: null == isDashMpd
-          ? _value.isDashMpd
-          : isDashMpd // ignore: cast_nullable_to_non_nullable
-              as bool,
-      highReplication: freezed == highReplication
-          ? _value.highReplication
-          : highReplication // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      width: freezed == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
-      height: freezed == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      fps: freezed == fps
-          ? _value.fps
-          : fps // ignore: cast_nullable_to_non_nullable
-              as int?,
-      colorInfo: freezed == colorInfo
-          ? _value.colorInfo
-          : colorInfo // ignore: cast_nullable_to_non_nullable
-              as ColorInfo?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$Mp3Impl implements _Mp3 {
-  const _$Mp3Impl(
-      {required this.mimeType,
-      required this.qualityLabel,
-      required this.bitrate,
-      this.audioBitrate,
-      required this.itag,
-      required this.initRange,
-      required this.indexRange,
-      required this.lastModified,
-      required this.contentLength,
-      required this.quality,
-      required this.projectionType,
-      required this.averageBitrate,
-      this.audioQuality,
-      required this.approxDurationMs,
-      this.audioSampleRate,
-      this.audioChannels,
-      this.loudnessDb,
-      required this.url,
-      required this.hasVideo,
-      required this.hasAudio,
-      required this.container,
-      required this.codecs,
-      required this.videoCodec,
-      required this.audioCodec,
-      required this.isLive,
-      required this.isHls,
-      required this.isDashMpd,
-      this.highReplication,
-      this.width,
-      this.height,
-      this.fps,
-      this.colorInfo});
+mixin _$Mp3 {
+  String get mimeType;
+  String? get qualityLabel;
+  int get bitrate;
+  int? get audioBitrate;
+  int get itag;
+  Range get initRange;
+  Range get indexRange;
+  String get lastModified;
+  String get contentLength;
+  String get quality;
+  ProjectionType get projectionType;
+  int get averageBitrate;
+  String? get audioQuality;
+  String get approxDurationMs;
+  String? get audioSampleRate;
+  int? get audioChannels;
+  double? get loudnessDb;
+  String get url;
+  bool get hasVideo;
+  bool get hasAudio;
+  Container get container;
+  String get codecs;
+  String? get videoCodec;
+  String? get audioCodec;
+  bool get isLive;
+  bool get isHls;
+  bool get isDashMpd;
+  bool? get highReplication;
+  int? get width;
+  int? get height;
+  int? get fps;
+  ColorInfo? get colorInfo;
 
-  factory _$Mp3Impl.fromJson(Map<String, dynamic> json) =>
-      _$$Mp3ImplFromJson(json);
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $Mp3CopyWith<Mp3> get copyWith =>
+      _$Mp3CopyWithImpl<Mp3>(this as Mp3, _$identity);
 
-  @override
-  final String mimeType;
-  @override
-  final String? qualityLabel;
-  @override
-  final int bitrate;
-  @override
-  final int? audioBitrate;
-  @override
-  final int itag;
-  @override
-  final Range initRange;
-  @override
-  final Range indexRange;
-  @override
-  final String lastModified;
-  @override
-  final String contentLength;
-  @override
-  final String quality;
-  @override
-  final ProjectionType projectionType;
-  @override
-  final int averageBitrate;
-  @override
-  final String? audioQuality;
-  @override
-  final String approxDurationMs;
-  @override
-  final String? audioSampleRate;
-  @override
-  final int? audioChannels;
-  @override
-  final double? loudnessDb;
-  @override
-  final String url;
-  @override
-  final bool hasVideo;
-  @override
-  final bool hasAudio;
-  @override
-  final Container container;
-  @override
-  final String codecs;
-  @override
-  final String? videoCodec;
-  @override
-  final String? audioCodec;
-  @override
-  final bool isLive;
-  @override
-  final bool isHls;
-  @override
-  final bool isDashMpd;
-  @override
-  final bool? highReplication;
-  @override
-  final int? width;
-  @override
-  final int? height;
-  @override
-  final int? fps;
-  @override
-  final ColorInfo? colorInfo;
-
-  @override
-  String toString() {
-    return 'Mp3(mimeType: $mimeType, qualityLabel: $qualityLabel, bitrate: $bitrate, audioBitrate: $audioBitrate, itag: $itag, initRange: $initRange, indexRange: $indexRange, lastModified: $lastModified, contentLength: $contentLength, quality: $quality, projectionType: $projectionType, averageBitrate: $averageBitrate, audioQuality: $audioQuality, approxDurationMs: $approxDurationMs, audioSampleRate: $audioSampleRate, audioChannels: $audioChannels, loudnessDb: $loudnessDb, url: $url, hasVideo: $hasVideo, hasAudio: $hasAudio, container: $container, codecs: $codecs, videoCodec: $videoCodec, audioCodec: $audioCodec, isLive: $isLive, isHls: $isHls, isDashMpd: $isDashMpd, highReplication: $highReplication, width: $width, height: $height, fps: $fps, colorInfo: $colorInfo)';
-  }
+  /// Serializes this Mp3 to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Mp3Impl &&
+            other is Mp3 &&
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.qualityLabel, qualityLabel) ||
@@ -978,277 +371,771 @@ class _$Mp3Impl implements _Mp3 {
         colorInfo
       ]);
 
-  /// Create a copy of Mp3
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$Mp3ImplCopyWith<_$Mp3Impl> get copyWith =>
-      __$$Mp3ImplCopyWithImpl<_$Mp3Impl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$Mp3ImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Mp3 implements Mp3 {
-  const factory _Mp3(
-      {required final String mimeType,
-      required final String? qualityLabel,
-      required final int bitrate,
-      final int? audioBitrate,
-      required final int itag,
-      required final Range initRange,
-      required final Range indexRange,
-      required final String lastModified,
-      required final String contentLength,
-      required final String quality,
-      required final ProjectionType projectionType,
-      required final int averageBitrate,
-      final String? audioQuality,
-      required final String approxDurationMs,
-      final String? audioSampleRate,
-      final int? audioChannels,
-      final double? loudnessDb,
-      required final String url,
-      required final bool hasVideo,
-      required final bool hasAudio,
-      required final Container container,
-      required final String codecs,
-      required final String? videoCodec,
-      required final String? audioCodec,
-      required final bool isLive,
-      required final bool isHls,
-      required final bool isDashMpd,
-      final bool? highReplication,
-      final int? width,
-      final int? height,
-      final int? fps,
-      final ColorInfo? colorInfo}) = _$Mp3Impl;
-
-  factory _Mp3.fromJson(Map<String, dynamic> json) = _$Mp3Impl.fromJson;
-
-  @override
-  String get mimeType;
-  @override
-  String? get qualityLabel;
-  @override
-  int get bitrate;
-  @override
-  int? get audioBitrate;
-  @override
-  int get itag;
-  @override
-  Range get initRange;
-  @override
-  Range get indexRange;
-  @override
-  String get lastModified;
-  @override
-  String get contentLength;
-  @override
-  String get quality;
-  @override
-  ProjectionType get projectionType;
-  @override
-  int get averageBitrate;
-  @override
-  String? get audioQuality;
-  @override
-  String get approxDurationMs;
-  @override
-  String? get audioSampleRate;
-  @override
-  int? get audioChannels;
-  @override
-  double? get loudnessDb;
-  @override
-  String get url;
-  @override
-  bool get hasVideo;
-  @override
-  bool get hasAudio;
-  @override
-  Container get container;
-  @override
-  String get codecs;
-  @override
-  String? get videoCodec;
-  @override
-  String? get audioCodec;
-  @override
-  bool get isLive;
-  @override
-  bool get isHls;
-  @override
-  bool get isDashMpd;
-  @override
-  bool? get highReplication;
-  @override
-  int? get width;
-  @override
-  int? get height;
-  @override
-  int? get fps;
-  @override
-  ColorInfo? get colorInfo;
-
-  /// Create a copy of Mp3
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$Mp3ImplCopyWith<_$Mp3Impl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-ColorInfo _$ColorInfoFromJson(Map<String, dynamic> json) {
-  return _ColorInfo.fromJson(json);
-}
-
-/// @nodoc
-mixin _$ColorInfo {
-  Primaries get primaries => throw _privateConstructorUsedError;
-  TransferCharacteristics get transferCharacteristics =>
-      throw _privateConstructorUsedError;
-  MatrixCoefficients get matrixCoefficients =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this ColorInfo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ColorInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ColorInfoCopyWith<ColorInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ColorInfoCopyWith<$Res> {
-  factory $ColorInfoCopyWith(ColorInfo value, $Res Function(ColorInfo) then) =
-      _$ColorInfoCopyWithImpl<$Res, ColorInfo>;
-  @useResult
-  $Res call(
-      {Primaries primaries,
-      TransferCharacteristics transferCharacteristics,
-      MatrixCoefficients matrixCoefficients});
-}
-
-/// @nodoc
-class _$ColorInfoCopyWithImpl<$Res, $Val extends ColorInfo>
-    implements $ColorInfoCopyWith<$Res> {
-  _$ColorInfoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ColorInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? primaries = null,
-    Object? transferCharacteristics = null,
-    Object? matrixCoefficients = null,
-  }) {
-    return _then(_value.copyWith(
-      primaries: null == primaries
-          ? _value.primaries
-          : primaries // ignore: cast_nullable_to_non_nullable
-              as Primaries,
-      transferCharacteristics: null == transferCharacteristics
-          ? _value.transferCharacteristics
-          : transferCharacteristics // ignore: cast_nullable_to_non_nullable
-              as TransferCharacteristics,
-      matrixCoefficients: null == matrixCoefficients
-          ? _value.matrixCoefficients
-          : matrixCoefficients // ignore: cast_nullable_to_non_nullable
-              as MatrixCoefficients,
-    ) as $Val);
+  String toString() {
+    return 'Mp3(mimeType: $mimeType, qualityLabel: $qualityLabel, bitrate: $bitrate, audioBitrate: $audioBitrate, itag: $itag, initRange: $initRange, indexRange: $indexRange, lastModified: $lastModified, contentLength: $contentLength, quality: $quality, projectionType: $projectionType, averageBitrate: $averageBitrate, audioQuality: $audioQuality, approxDurationMs: $approxDurationMs, audioSampleRate: $audioSampleRate, audioChannels: $audioChannels, loudnessDb: $loudnessDb, url: $url, hasVideo: $hasVideo, hasAudio: $hasAudio, container: $container, codecs: $codecs, videoCodec: $videoCodec, audioCodec: $audioCodec, isLive: $isLive, isHls: $isHls, isDashMpd: $isDashMpd, highReplication: $highReplication, width: $width, height: $height, fps: $fps, colorInfo: $colorInfo)';
   }
 }
 
 /// @nodoc
-abstract class _$$ColorInfoImplCopyWith<$Res>
-    implements $ColorInfoCopyWith<$Res> {
-  factory _$$ColorInfoImplCopyWith(
-          _$ColorInfoImpl value, $Res Function(_$ColorInfoImpl) then) =
-      __$$ColorInfoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $Mp3CopyWith<$Res> {
+  factory $Mp3CopyWith(Mp3 value, $Res Function(Mp3) _then) = _$Mp3CopyWithImpl;
   @useResult
   $Res call(
-      {Primaries primaries,
-      TransferCharacteristics transferCharacteristics,
-      MatrixCoefficients matrixCoefficients});
+      {String mimeType,
+      String? qualityLabel,
+      int bitrate,
+      int? audioBitrate,
+      int itag,
+      Range initRange,
+      Range indexRange,
+      String lastModified,
+      String contentLength,
+      String quality,
+      ProjectionType projectionType,
+      int averageBitrate,
+      String? audioQuality,
+      String approxDurationMs,
+      String? audioSampleRate,
+      int? audioChannels,
+      double? loudnessDb,
+      String url,
+      bool hasVideo,
+      bool hasAudio,
+      Container container,
+      String codecs,
+      String? videoCodec,
+      String? audioCodec,
+      bool isLive,
+      bool isHls,
+      bool isDashMpd,
+      bool? highReplication,
+      int? width,
+      int? height,
+      int? fps,
+      ColorInfo? colorInfo});
+
+  $RangeCopyWith<$Res> get initRange;
+  $RangeCopyWith<$Res> get indexRange;
+  $ColorInfoCopyWith<$Res>? get colorInfo;
 }
 
 /// @nodoc
-class __$$ColorInfoImplCopyWithImpl<$Res>
-    extends _$ColorInfoCopyWithImpl<$Res, _$ColorInfoImpl>
-    implements _$$ColorInfoImplCopyWith<$Res> {
-  __$$ColorInfoImplCopyWithImpl(
-      _$ColorInfoImpl _value, $Res Function(_$ColorInfoImpl) _then)
-      : super(_value, _then);
+class _$Mp3CopyWithImpl<$Res> implements $Mp3CopyWith<$Res> {
+  _$Mp3CopyWithImpl(this._self, this._then);
 
-  /// Create a copy of ColorInfo
+  final Mp3 _self;
+  final $Res Function(Mp3) _then;
+
+  /// Create a copy of Mp3
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? primaries = null,
-    Object? transferCharacteristics = null,
-    Object? matrixCoefficients = null,
+    Object? mimeType = null,
+    Object? qualityLabel = freezed,
+    Object? bitrate = null,
+    Object? audioBitrate = freezed,
+    Object? itag = null,
+    Object? initRange = null,
+    Object? indexRange = null,
+    Object? lastModified = null,
+    Object? contentLength = null,
+    Object? quality = null,
+    Object? projectionType = null,
+    Object? averageBitrate = null,
+    Object? audioQuality = freezed,
+    Object? approxDurationMs = null,
+    Object? audioSampleRate = freezed,
+    Object? audioChannels = freezed,
+    Object? loudnessDb = freezed,
+    Object? url = null,
+    Object? hasVideo = null,
+    Object? hasAudio = null,
+    Object? container = null,
+    Object? codecs = null,
+    Object? videoCodec = freezed,
+    Object? audioCodec = freezed,
+    Object? isLive = null,
+    Object? isHls = null,
+    Object? isDashMpd = null,
+    Object? highReplication = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? fps = freezed,
+    Object? colorInfo = freezed,
   }) {
-    return _then(_$ColorInfoImpl(
-      primaries: null == primaries
-          ? _value.primaries
-          : primaries // ignore: cast_nullable_to_non_nullable
-              as Primaries,
-      transferCharacteristics: null == transferCharacteristics
-          ? _value.transferCharacteristics
-          : transferCharacteristics // ignore: cast_nullable_to_non_nullable
-              as TransferCharacteristics,
-      matrixCoefficients: null == matrixCoefficients
-          ? _value.matrixCoefficients
-          : matrixCoefficients // ignore: cast_nullable_to_non_nullable
-              as MatrixCoefficients,
+    return _then(_self.copyWith(
+      mimeType: null == mimeType
+          ? _self.mimeType
+          : mimeType // ignore: cast_nullable_to_non_nullable
+              as String,
+      qualityLabel: freezed == qualityLabel
+          ? _self.qualityLabel
+          : qualityLabel // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bitrate: null == bitrate
+          ? _self.bitrate
+          : bitrate // ignore: cast_nullable_to_non_nullable
+              as int,
+      audioBitrate: freezed == audioBitrate
+          ? _self.audioBitrate
+          : audioBitrate // ignore: cast_nullable_to_non_nullable
+              as int?,
+      itag: null == itag
+          ? _self.itag
+          : itag // ignore: cast_nullable_to_non_nullable
+              as int,
+      initRange: null == initRange
+          ? _self.initRange
+          : initRange // ignore: cast_nullable_to_non_nullable
+              as Range,
+      indexRange: null == indexRange
+          ? _self.indexRange
+          : indexRange // ignore: cast_nullable_to_non_nullable
+              as Range,
+      lastModified: null == lastModified
+          ? _self.lastModified
+          : lastModified // ignore: cast_nullable_to_non_nullable
+              as String,
+      contentLength: null == contentLength
+          ? _self.contentLength
+          : contentLength // ignore: cast_nullable_to_non_nullable
+              as String,
+      quality: null == quality
+          ? _self.quality
+          : quality // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectionType: null == projectionType
+          ? _self.projectionType
+          : projectionType // ignore: cast_nullable_to_non_nullable
+              as ProjectionType,
+      averageBitrate: null == averageBitrate
+          ? _self.averageBitrate
+          : averageBitrate // ignore: cast_nullable_to_non_nullable
+              as int,
+      audioQuality: freezed == audioQuality
+          ? _self.audioQuality
+          : audioQuality // ignore: cast_nullable_to_non_nullable
+              as String?,
+      approxDurationMs: null == approxDurationMs
+          ? _self.approxDurationMs
+          : approxDurationMs // ignore: cast_nullable_to_non_nullable
+              as String,
+      audioSampleRate: freezed == audioSampleRate
+          ? _self.audioSampleRate
+          : audioSampleRate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      audioChannels: freezed == audioChannels
+          ? _self.audioChannels
+          : audioChannels // ignore: cast_nullable_to_non_nullable
+              as int?,
+      loudnessDb: freezed == loudnessDb
+          ? _self.loudnessDb
+          : loudnessDb // ignore: cast_nullable_to_non_nullable
+              as double?,
+      url: null == url
+          ? _self.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      hasVideo: null == hasVideo
+          ? _self.hasVideo
+          : hasVideo // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasAudio: null == hasAudio
+          ? _self.hasAudio
+          : hasAudio // ignore: cast_nullable_to_non_nullable
+              as bool,
+      container: null == container
+          ? _self.container
+          : container // ignore: cast_nullable_to_non_nullable
+              as Container,
+      codecs: null == codecs
+          ? _self.codecs
+          : codecs // ignore: cast_nullable_to_non_nullable
+              as String,
+      videoCodec: freezed == videoCodec
+          ? _self.videoCodec
+          : videoCodec // ignore: cast_nullable_to_non_nullable
+              as String?,
+      audioCodec: freezed == audioCodec
+          ? _self.audioCodec
+          : audioCodec // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isLive: null == isLive
+          ? _self.isLive
+          : isLive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isHls: null == isHls
+          ? _self.isHls
+          : isHls // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDashMpd: null == isDashMpd
+          ? _self.isDashMpd
+          : isDashMpd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      highReplication: freezed == highReplication
+          ? _self.highReplication
+          : highReplication // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      width: freezed == width
+          ? _self.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
+      height: freezed == height
+          ? _self.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      fps: freezed == fps
+          ? _self.fps
+          : fps // ignore: cast_nullable_to_non_nullable
+              as int?,
+      colorInfo: freezed == colorInfo
+          ? _self.colorInfo
+          : colorInfo // ignore: cast_nullable_to_non_nullable
+              as ColorInfo?,
     ));
+  }
+
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RangeCopyWith<$Res> get initRange {
+    return $RangeCopyWith<$Res>(_self.initRange, (value) {
+      return _then(_self.copyWith(initRange: value));
+    });
+  }
+
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RangeCopyWith<$Res> get indexRange {
+    return $RangeCopyWith<$Res>(_self.indexRange, (value) {
+      return _then(_self.copyWith(indexRange: value));
+    });
+  }
+
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ColorInfoCopyWith<$Res>? get colorInfo {
+    if (_self.colorInfo == null) {
+      return null;
+    }
+
+    return $ColorInfoCopyWith<$Res>(_self.colorInfo!, (value) {
+      return _then(_self.copyWith(colorInfo: value));
+    });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ColorInfoImpl implements _ColorInfo {
-  const _$ColorInfoImpl(
-      {required this.primaries,
-      required this.transferCharacteristics,
-      required this.matrixCoefficients});
+class _Mp3 implements Mp3 {
+  const _Mp3(
+      {required this.mimeType,
+      required this.qualityLabel,
+      required this.bitrate,
+      this.audioBitrate,
+      required this.itag,
+      required this.initRange,
+      required this.indexRange,
+      required this.lastModified,
+      required this.contentLength,
+      required this.quality,
+      required this.projectionType,
+      required this.averageBitrate,
+      this.audioQuality,
+      required this.approxDurationMs,
+      this.audioSampleRate,
+      this.audioChannels,
+      this.loudnessDb,
+      required this.url,
+      required this.hasVideo,
+      required this.hasAudio,
+      required this.container,
+      required this.codecs,
+      required this.videoCodec,
+      required this.audioCodec,
+      required this.isLive,
+      required this.isHls,
+      required this.isDashMpd,
+      this.highReplication,
+      this.width,
+      this.height,
+      this.fps,
+      this.colorInfo});
+  factory _Mp3.fromJson(Map<String, dynamic> json) => _$Mp3FromJson(json);
 
-  factory _$ColorInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ColorInfoImplFromJson(json);
+  @override
+  final String mimeType;
+  @override
+  final String? qualityLabel;
+  @override
+  final int bitrate;
+  @override
+  final int? audioBitrate;
+  @override
+  final int itag;
+  @override
+  final Range initRange;
+  @override
+  final Range indexRange;
+  @override
+  final String lastModified;
+  @override
+  final String contentLength;
+  @override
+  final String quality;
+  @override
+  final ProjectionType projectionType;
+  @override
+  final int averageBitrate;
+  @override
+  final String? audioQuality;
+  @override
+  final String approxDurationMs;
+  @override
+  final String? audioSampleRate;
+  @override
+  final int? audioChannels;
+  @override
+  final double? loudnessDb;
+  @override
+  final String url;
+  @override
+  final bool hasVideo;
+  @override
+  final bool hasAudio;
+  @override
+  final Container container;
+  @override
+  final String codecs;
+  @override
+  final String? videoCodec;
+  @override
+  final String? audioCodec;
+  @override
+  final bool isLive;
+  @override
+  final bool isHls;
+  @override
+  final bool isDashMpd;
+  @override
+  final bool? highReplication;
+  @override
+  final int? width;
+  @override
+  final int? height;
+  @override
+  final int? fps;
+  @override
+  final ColorInfo? colorInfo;
+
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$Mp3CopyWith<_Mp3> get copyWith =>
+      __$Mp3CopyWithImpl<_Mp3>(this, _$identity);
 
   @override
-  final Primaries primaries;
-  @override
-  final TransferCharacteristics transferCharacteristics;
-  @override
-  final MatrixCoefficients matrixCoefficients;
-
-  @override
-  String toString() {
-    return 'ColorInfo(primaries: $primaries, transferCharacteristics: $transferCharacteristics, matrixCoefficients: $matrixCoefficients)';
+  Map<String, dynamic> toJson() {
+    return _$Mp3ToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ColorInfoImpl &&
+            other is _Mp3 &&
+            (identical(other.mimeType, mimeType) ||
+                other.mimeType == mimeType) &&
+            (identical(other.qualityLabel, qualityLabel) ||
+                other.qualityLabel == qualityLabel) &&
+            (identical(other.bitrate, bitrate) || other.bitrate == bitrate) &&
+            (identical(other.audioBitrate, audioBitrate) ||
+                other.audioBitrate == audioBitrate) &&
+            (identical(other.itag, itag) || other.itag == itag) &&
+            (identical(other.initRange, initRange) ||
+                other.initRange == initRange) &&
+            (identical(other.indexRange, indexRange) ||
+                other.indexRange == indexRange) &&
+            (identical(other.lastModified, lastModified) ||
+                other.lastModified == lastModified) &&
+            (identical(other.contentLength, contentLength) ||
+                other.contentLength == contentLength) &&
+            (identical(other.quality, quality) || other.quality == quality) &&
+            (identical(other.projectionType, projectionType) ||
+                other.projectionType == projectionType) &&
+            (identical(other.averageBitrate, averageBitrate) ||
+                other.averageBitrate == averageBitrate) &&
+            (identical(other.audioQuality, audioQuality) ||
+                other.audioQuality == audioQuality) &&
+            (identical(other.approxDurationMs, approxDurationMs) ||
+                other.approxDurationMs == approxDurationMs) &&
+            (identical(other.audioSampleRate, audioSampleRate) ||
+                other.audioSampleRate == audioSampleRate) &&
+            (identical(other.audioChannels, audioChannels) ||
+                other.audioChannels == audioChannels) &&
+            (identical(other.loudnessDb, loudnessDb) ||
+                other.loudnessDb == loudnessDb) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.hasVideo, hasVideo) ||
+                other.hasVideo == hasVideo) &&
+            (identical(other.hasAudio, hasAudio) ||
+                other.hasAudio == hasAudio) &&
+            (identical(other.container, container) ||
+                other.container == container) &&
+            (identical(other.codecs, codecs) || other.codecs == codecs) &&
+            (identical(other.videoCodec, videoCodec) ||
+                other.videoCodec == videoCodec) &&
+            (identical(other.audioCodec, audioCodec) ||
+                other.audioCodec == audioCodec) &&
+            (identical(other.isLive, isLive) || other.isLive == isLive) &&
+            (identical(other.isHls, isHls) || other.isHls == isHls) &&
+            (identical(other.isDashMpd, isDashMpd) ||
+                other.isDashMpd == isDashMpd) &&
+            (identical(other.highReplication, highReplication) ||
+                other.highReplication == highReplication) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.fps, fps) || other.fps == fps) &&
+            (identical(other.colorInfo, colorInfo) ||
+                other.colorInfo == colorInfo));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        mimeType,
+        qualityLabel,
+        bitrate,
+        audioBitrate,
+        itag,
+        initRange,
+        indexRange,
+        lastModified,
+        contentLength,
+        quality,
+        projectionType,
+        averageBitrate,
+        audioQuality,
+        approxDurationMs,
+        audioSampleRate,
+        audioChannels,
+        loudnessDb,
+        url,
+        hasVideo,
+        hasAudio,
+        container,
+        codecs,
+        videoCodec,
+        audioCodec,
+        isLive,
+        isHls,
+        isDashMpd,
+        highReplication,
+        width,
+        height,
+        fps,
+        colorInfo
+      ]);
+
+  @override
+  String toString() {
+    return 'Mp3(mimeType: $mimeType, qualityLabel: $qualityLabel, bitrate: $bitrate, audioBitrate: $audioBitrate, itag: $itag, initRange: $initRange, indexRange: $indexRange, lastModified: $lastModified, contentLength: $contentLength, quality: $quality, projectionType: $projectionType, averageBitrate: $averageBitrate, audioQuality: $audioQuality, approxDurationMs: $approxDurationMs, audioSampleRate: $audioSampleRate, audioChannels: $audioChannels, loudnessDb: $loudnessDb, url: $url, hasVideo: $hasVideo, hasAudio: $hasAudio, container: $container, codecs: $codecs, videoCodec: $videoCodec, audioCodec: $audioCodec, isLive: $isLive, isHls: $isHls, isDashMpd: $isDashMpd, highReplication: $highReplication, width: $width, height: $height, fps: $fps, colorInfo: $colorInfo)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$Mp3CopyWith<$Res> implements $Mp3CopyWith<$Res> {
+  factory _$Mp3CopyWith(_Mp3 value, $Res Function(_Mp3) _then) =
+      __$Mp3CopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String mimeType,
+      String? qualityLabel,
+      int bitrate,
+      int? audioBitrate,
+      int itag,
+      Range initRange,
+      Range indexRange,
+      String lastModified,
+      String contentLength,
+      String quality,
+      ProjectionType projectionType,
+      int averageBitrate,
+      String? audioQuality,
+      String approxDurationMs,
+      String? audioSampleRate,
+      int? audioChannels,
+      double? loudnessDb,
+      String url,
+      bool hasVideo,
+      bool hasAudio,
+      Container container,
+      String codecs,
+      String? videoCodec,
+      String? audioCodec,
+      bool isLive,
+      bool isHls,
+      bool isDashMpd,
+      bool? highReplication,
+      int? width,
+      int? height,
+      int? fps,
+      ColorInfo? colorInfo});
+
+  @override
+  $RangeCopyWith<$Res> get initRange;
+  @override
+  $RangeCopyWith<$Res> get indexRange;
+  @override
+  $ColorInfoCopyWith<$Res>? get colorInfo;
+}
+
+/// @nodoc
+class __$Mp3CopyWithImpl<$Res> implements _$Mp3CopyWith<$Res> {
+  __$Mp3CopyWithImpl(this._self, this._then);
+
+  final _Mp3 _self;
+  final $Res Function(_Mp3) _then;
+
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? mimeType = null,
+    Object? qualityLabel = freezed,
+    Object? bitrate = null,
+    Object? audioBitrate = freezed,
+    Object? itag = null,
+    Object? initRange = null,
+    Object? indexRange = null,
+    Object? lastModified = null,
+    Object? contentLength = null,
+    Object? quality = null,
+    Object? projectionType = null,
+    Object? averageBitrate = null,
+    Object? audioQuality = freezed,
+    Object? approxDurationMs = null,
+    Object? audioSampleRate = freezed,
+    Object? audioChannels = freezed,
+    Object? loudnessDb = freezed,
+    Object? url = null,
+    Object? hasVideo = null,
+    Object? hasAudio = null,
+    Object? container = null,
+    Object? codecs = null,
+    Object? videoCodec = freezed,
+    Object? audioCodec = freezed,
+    Object? isLive = null,
+    Object? isHls = null,
+    Object? isDashMpd = null,
+    Object? highReplication = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? fps = freezed,
+    Object? colorInfo = freezed,
+  }) {
+    return _then(_Mp3(
+      mimeType: null == mimeType
+          ? _self.mimeType
+          : mimeType // ignore: cast_nullable_to_non_nullable
+              as String,
+      qualityLabel: freezed == qualityLabel
+          ? _self.qualityLabel
+          : qualityLabel // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bitrate: null == bitrate
+          ? _self.bitrate
+          : bitrate // ignore: cast_nullable_to_non_nullable
+              as int,
+      audioBitrate: freezed == audioBitrate
+          ? _self.audioBitrate
+          : audioBitrate // ignore: cast_nullable_to_non_nullable
+              as int?,
+      itag: null == itag
+          ? _self.itag
+          : itag // ignore: cast_nullable_to_non_nullable
+              as int,
+      initRange: null == initRange
+          ? _self.initRange
+          : initRange // ignore: cast_nullable_to_non_nullable
+              as Range,
+      indexRange: null == indexRange
+          ? _self.indexRange
+          : indexRange // ignore: cast_nullable_to_non_nullable
+              as Range,
+      lastModified: null == lastModified
+          ? _self.lastModified
+          : lastModified // ignore: cast_nullable_to_non_nullable
+              as String,
+      contentLength: null == contentLength
+          ? _self.contentLength
+          : contentLength // ignore: cast_nullable_to_non_nullable
+              as String,
+      quality: null == quality
+          ? _self.quality
+          : quality // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectionType: null == projectionType
+          ? _self.projectionType
+          : projectionType // ignore: cast_nullable_to_non_nullable
+              as ProjectionType,
+      averageBitrate: null == averageBitrate
+          ? _self.averageBitrate
+          : averageBitrate // ignore: cast_nullable_to_non_nullable
+              as int,
+      audioQuality: freezed == audioQuality
+          ? _self.audioQuality
+          : audioQuality // ignore: cast_nullable_to_non_nullable
+              as String?,
+      approxDurationMs: null == approxDurationMs
+          ? _self.approxDurationMs
+          : approxDurationMs // ignore: cast_nullable_to_non_nullable
+              as String,
+      audioSampleRate: freezed == audioSampleRate
+          ? _self.audioSampleRate
+          : audioSampleRate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      audioChannels: freezed == audioChannels
+          ? _self.audioChannels
+          : audioChannels // ignore: cast_nullable_to_non_nullable
+              as int?,
+      loudnessDb: freezed == loudnessDb
+          ? _self.loudnessDb
+          : loudnessDb // ignore: cast_nullable_to_non_nullable
+              as double?,
+      url: null == url
+          ? _self.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      hasVideo: null == hasVideo
+          ? _self.hasVideo
+          : hasVideo // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasAudio: null == hasAudio
+          ? _self.hasAudio
+          : hasAudio // ignore: cast_nullable_to_non_nullable
+              as bool,
+      container: null == container
+          ? _self.container
+          : container // ignore: cast_nullable_to_non_nullable
+              as Container,
+      codecs: null == codecs
+          ? _self.codecs
+          : codecs // ignore: cast_nullable_to_non_nullable
+              as String,
+      videoCodec: freezed == videoCodec
+          ? _self.videoCodec
+          : videoCodec // ignore: cast_nullable_to_non_nullable
+              as String?,
+      audioCodec: freezed == audioCodec
+          ? _self.audioCodec
+          : audioCodec // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isLive: null == isLive
+          ? _self.isLive
+          : isLive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isHls: null == isHls
+          ? _self.isHls
+          : isHls // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDashMpd: null == isDashMpd
+          ? _self.isDashMpd
+          : isDashMpd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      highReplication: freezed == highReplication
+          ? _self.highReplication
+          : highReplication // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      width: freezed == width
+          ? _self.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
+      height: freezed == height
+          ? _self.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      fps: freezed == fps
+          ? _self.fps
+          : fps // ignore: cast_nullable_to_non_nullable
+              as int?,
+      colorInfo: freezed == colorInfo
+          ? _self.colorInfo
+          : colorInfo // ignore: cast_nullable_to_non_nullable
+              as ColorInfo?,
+    ));
+  }
+
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RangeCopyWith<$Res> get initRange {
+    return $RangeCopyWith<$Res>(_self.initRange, (value) {
+      return _then(_self.copyWith(initRange: value));
+    });
+  }
+
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RangeCopyWith<$Res> get indexRange {
+    return $RangeCopyWith<$Res>(_self.indexRange, (value) {
+      return _then(_self.copyWith(indexRange: value));
+    });
+  }
+
+  /// Create a copy of Mp3
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ColorInfoCopyWith<$Res>? get colorInfo {
+    if (_self.colorInfo == null) {
+      return null;
+    }
+
+    return $ColorInfoCopyWith<$Res>(_self.colorInfo!, (value) {
+      return _then(_self.copyWith(colorInfo: value));
+    });
+  }
+}
+
+/// @nodoc
+mixin _$ColorInfo {
+  Primaries get primaries;
+  TransferCharacteristics get transferCharacteristics;
+  MatrixCoefficients get matrixCoefficients;
+
+  /// Create a copy of ColorInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ColorInfoCopyWith<ColorInfo> get copyWith =>
+      _$ColorInfoCopyWithImpl<ColorInfo>(this as ColorInfo, _$identity);
+
+  /// Serializes this ColorInfo to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ColorInfo &&
             (identical(other.primaries, primaries) ||
                 other.primaries == primaries) &&
             (identical(
@@ -1263,165 +1150,180 @@ class _$ColorInfoImpl implements _ColorInfo {
   int get hashCode => Object.hash(
       runtimeType, primaries, transferCharacteristics, matrixCoefficients);
 
-  /// Create a copy of ColorInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ColorInfoImplCopyWith<_$ColorInfoImpl> get copyWith =>
-      __$$ColorInfoImplCopyWithImpl<_$ColorInfoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ColorInfoImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _ColorInfo implements ColorInfo {
-  const factory _ColorInfo(
-      {required final Primaries primaries,
-      required final TransferCharacteristics transferCharacteristics,
-      required final MatrixCoefficients matrixCoefficients}) = _$ColorInfoImpl;
-
-  factory _ColorInfo.fromJson(Map<String, dynamic> json) =
-      _$ColorInfoImpl.fromJson;
-
-  @override
-  Primaries get primaries;
-  @override
-  TransferCharacteristics get transferCharacteristics;
-  @override
-  MatrixCoefficients get matrixCoefficients;
-
-  /// Create a copy of ColorInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ColorInfoImplCopyWith<_$ColorInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Range _$RangeFromJson(Map<String, dynamic> json) {
-  return _Range.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Range {
-  String get start => throw _privateConstructorUsedError;
-  String get end => throw _privateConstructorUsedError;
-
-  /// Serializes this Range to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Range
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $RangeCopyWith<Range> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RangeCopyWith<$Res> {
-  factory $RangeCopyWith(Range value, $Res Function(Range) then) =
-      _$RangeCopyWithImpl<$Res, Range>;
-  @useResult
-  $Res call({String start, String end});
-}
-
-/// @nodoc
-class _$RangeCopyWithImpl<$Res, $Val extends Range>
-    implements $RangeCopyWith<$Res> {
-  _$RangeCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Range
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? start = null,
-    Object? end = null,
-  }) {
-    return _then(_value.copyWith(
-      start: null == start
-          ? _value.start
-          : start // ignore: cast_nullable_to_non_nullable
-              as String,
-      end: null == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  String toString() {
+    return 'ColorInfo(primaries: $primaries, transferCharacteristics: $transferCharacteristics, matrixCoefficients: $matrixCoefficients)';
   }
 }
 
 /// @nodoc
-abstract class _$$RangeImplCopyWith<$Res> implements $RangeCopyWith<$Res> {
-  factory _$$RangeImplCopyWith(
-          _$RangeImpl value, $Res Function(_$RangeImpl) then) =
-      __$$RangeImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ColorInfoCopyWith<$Res> {
+  factory $ColorInfoCopyWith(ColorInfo value, $Res Function(ColorInfo) _then) =
+      _$ColorInfoCopyWithImpl;
   @useResult
-  $Res call({String start, String end});
+  $Res call(
+      {Primaries primaries,
+      TransferCharacteristics transferCharacteristics,
+      MatrixCoefficients matrixCoefficients});
 }
 
 /// @nodoc
-class __$$RangeImplCopyWithImpl<$Res>
-    extends _$RangeCopyWithImpl<$Res, _$RangeImpl>
-    implements _$$RangeImplCopyWith<$Res> {
-  __$$RangeImplCopyWithImpl(
-      _$RangeImpl _value, $Res Function(_$RangeImpl) _then)
-      : super(_value, _then);
+class _$ColorInfoCopyWithImpl<$Res> implements $ColorInfoCopyWith<$Res> {
+  _$ColorInfoCopyWithImpl(this._self, this._then);
 
-  /// Create a copy of Range
+  final ColorInfo _self;
+  final $Res Function(ColorInfo) _then;
+
+  /// Create a copy of ColorInfo
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? start = null,
-    Object? end = null,
+    Object? primaries = null,
+    Object? transferCharacteristics = null,
+    Object? matrixCoefficients = null,
   }) {
-    return _then(_$RangeImpl(
-      start: null == start
-          ? _value.start
-          : start // ignore: cast_nullable_to_non_nullable
-              as String,
-      end: null == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(_self.copyWith(
+      primaries: null == primaries
+          ? _self.primaries
+          : primaries // ignore: cast_nullable_to_non_nullable
+              as Primaries,
+      transferCharacteristics: null == transferCharacteristics
+          ? _self.transferCharacteristics
+          : transferCharacteristics // ignore: cast_nullable_to_non_nullable
+              as TransferCharacteristics,
+      matrixCoefficients: null == matrixCoefficients
+          ? _self.matrixCoefficients
+          : matrixCoefficients // ignore: cast_nullable_to_non_nullable
+              as MatrixCoefficients,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$RangeImpl implements _Range {
-  const _$RangeImpl({required this.start, required this.end});
-
-  factory _$RangeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RangeImplFromJson(json);
-
-  @override
-  final String start;
-  @override
-  final String end;
+class _ColorInfo implements ColorInfo {
+  const _ColorInfo(
+      {required this.primaries,
+      required this.transferCharacteristics,
+      required this.matrixCoefficients});
+  factory _ColorInfo.fromJson(Map<String, dynamic> json) =>
+      _$ColorInfoFromJson(json);
 
   @override
-  String toString() {
-    return 'Range(start: $start, end: $end)';
+  final Primaries primaries;
+  @override
+  final TransferCharacteristics transferCharacteristics;
+  @override
+  final MatrixCoefficients matrixCoefficients;
+
+  /// Create a copy of ColorInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ColorInfoCopyWith<_ColorInfo> get copyWith =>
+      __$ColorInfoCopyWithImpl<_ColorInfo>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ColorInfoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RangeImpl &&
+            other is _ColorInfo &&
+            (identical(other.primaries, primaries) ||
+                other.primaries == primaries) &&
+            (identical(
+                    other.transferCharacteristics, transferCharacteristics) ||
+                other.transferCharacteristics == transferCharacteristics) &&
+            (identical(other.matrixCoefficients, matrixCoefficients) ||
+                other.matrixCoefficients == matrixCoefficients));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, primaries, transferCharacteristics, matrixCoefficients);
+
+  @override
+  String toString() {
+    return 'ColorInfo(primaries: $primaries, transferCharacteristics: $transferCharacteristics, matrixCoefficients: $matrixCoefficients)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ColorInfoCopyWith<$Res>
+    implements $ColorInfoCopyWith<$Res> {
+  factory _$ColorInfoCopyWith(
+          _ColorInfo value, $Res Function(_ColorInfo) _then) =
+      __$ColorInfoCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Primaries primaries,
+      TransferCharacteristics transferCharacteristics,
+      MatrixCoefficients matrixCoefficients});
+}
+
+/// @nodoc
+class __$ColorInfoCopyWithImpl<$Res> implements _$ColorInfoCopyWith<$Res> {
+  __$ColorInfoCopyWithImpl(this._self, this._then);
+
+  final _ColorInfo _self;
+  final $Res Function(_ColorInfo) _then;
+
+  /// Create a copy of ColorInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? primaries = null,
+    Object? transferCharacteristics = null,
+    Object? matrixCoefficients = null,
+  }) {
+    return _then(_ColorInfo(
+      primaries: null == primaries
+          ? _self.primaries
+          : primaries // ignore: cast_nullable_to_non_nullable
+              as Primaries,
+      transferCharacteristics: null == transferCharacteristics
+          ? _self.transferCharacteristics
+          : transferCharacteristics // ignore: cast_nullable_to_non_nullable
+              as TransferCharacteristics,
+      matrixCoefficients: null == matrixCoefficients
+          ? _self.matrixCoefficients
+          : matrixCoefficients // ignore: cast_nullable_to_non_nullable
+              as MatrixCoefficients,
+    ));
+  }
+}
+
+/// @nodoc
+mixin _$Range {
+  String get start;
+  String get end;
+
+  /// Create a copy of Range
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $RangeCopyWith<Range> get copyWith =>
+      _$RangeCopyWithImpl<Range>(this as Range, _$identity);
+
+  /// Serializes this Range to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Range &&
             (identical(other.start, start) || other.start == start) &&
             (identical(other.end, end) || other.end == end));
   }
@@ -1430,37 +1332,128 @@ class _$RangeImpl implements _Range {
   @override
   int get hashCode => Object.hash(runtimeType, start, end);
 
-  /// Create a copy of Range
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RangeImplCopyWith<_$RangeImpl> get copyWith =>
-      __$$RangeImplCopyWithImpl<_$RangeImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RangeImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Range(start: $start, end: $end)';
   }
 }
 
-abstract class _Range implements Range {
-  const factory _Range(
-      {required final String start, required final String end}) = _$RangeImpl;
+/// @nodoc
+abstract mixin class $RangeCopyWith<$Res> {
+  factory $RangeCopyWith(Range value, $Res Function(Range) _then) =
+      _$RangeCopyWithImpl;
+  @useResult
+  $Res call({String start, String end});
+}
 
-  factory _Range.fromJson(Map<String, dynamic> json) = _$RangeImpl.fromJson;
+/// @nodoc
+class _$RangeCopyWithImpl<$Res> implements $RangeCopyWith<$Res> {
+  _$RangeCopyWithImpl(this._self, this._then);
+
+  final Range _self;
+  final $Res Function(Range) _then;
+
+  /// Create a copy of Range
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? start = null,
+    Object? end = null,
+  }) {
+    return _then(_self.copyWith(
+      start: null == start
+          ? _self.start
+          : start // ignore: cast_nullable_to_non_nullable
+              as String,
+      end: null == end
+          ? _self.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _Range implements Range {
+  const _Range({required this.start, required this.end});
+  factory _Range.fromJson(Map<String, dynamic> json) => _$RangeFromJson(json);
 
   @override
-  String get start;
+  final String start;
   @override
-  String get end;
+  final String end;
 
   /// Create a copy of Range
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RangeImplCopyWith<_$RangeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$RangeCopyWith<_Range> get copyWith =>
+      __$RangeCopyWithImpl<_Range>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RangeToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Range &&
+            (identical(other.start, start) || other.start == start) &&
+            (identical(other.end, end) || other.end == end));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, start, end);
+
+  @override
+  String toString() {
+    return 'Range(start: $start, end: $end)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$RangeCopyWith<$Res> implements $RangeCopyWith<$Res> {
+  factory _$RangeCopyWith(_Range value, $Res Function(_Range) _then) =
+      __$RangeCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String start, String end});
+}
+
+/// @nodoc
+class __$RangeCopyWithImpl<$Res> implements _$RangeCopyWith<$Res> {
+  __$RangeCopyWithImpl(this._self, this._then);
+
+  final _Range _self;
+  final $Res Function(_Range) _then;
+
+  /// Create a copy of Range
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? start = null,
+    Object? end = null,
+  }) {
+    return _then(_Range(
+      start: null == start
+          ? _self.start
+          : start // ignore: cast_nullable_to_non_nullable
+              as String,
+      end: null == end
+          ? _self.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

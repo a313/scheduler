@@ -6,8 +6,7 @@ part of 'class_room.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ClassRoomImpl _$$ClassRoomImplFromJson(Map<String, dynamic> json) =>
-    _$ClassRoomImpl(
+_ClassRoom _$ClassRoomFromJson(Map<String, dynamic> json) => _ClassRoom(
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String,
       createDate: const DateTimeConverter()
@@ -27,7 +26,7 @@ _$ClassRoomImpl _$$ClassRoomImplFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String?,
     );
 
-Map<String, dynamic> _$$ClassRoomImplToJson(_$ClassRoomImpl instance) =>
+Map<String, dynamic> _$ClassRoomToJson(_ClassRoom instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

@@ -6,8 +6,7 @@ part of 'weatherbit.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ForecastImpl _$$ForecastImplFromJson(Map<String, dynamic> json) =>
-    _$ForecastImpl(
+_Forecast _$ForecastFromJson(Map<String, dynamic> json) => _Forecast(
       cityName: json['city_name'] as String?,
       stateCode: json['state_code'] as String?,
       countryCode: json['country_code'] as String?,
@@ -19,8 +18,7 @@ _$ForecastImpl _$$ForecastImplFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$ForecastImplToJson(_$ForecastImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ForecastToJson(_Forecast instance) => <String, dynamic>{
       'city_name': instance.cityName,
       'state_code': instance.stateCode,
       'country_code': instance.countryCode,
@@ -30,23 +28,21 @@ Map<String, dynamic> _$$ForecastImplToJson(_$ForecastImpl instance) =>
       'data': instance.data,
     };
 
-_$CurrentWeatherImpl _$$CurrentWeatherImplFromJson(Map<String, dynamic> json) =>
-    _$CurrentWeatherImpl(
+_CurrentWeather _$CurrentWeatherFromJson(Map<String, dynamic> json) =>
+    _CurrentWeather(
       count: (json['count'] as num?)?.toInt(),
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => WeatherInfo.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$CurrentWeatherImplToJson(
-        _$CurrentWeatherImpl instance) =>
+Map<String, dynamic> _$CurrentWeatherToJson(_CurrentWeather instance) =>
     <String, dynamic>{
       'count': instance.count,
       'data': instance.data,
     };
 
-_$WeatherInfoImpl _$$WeatherInfoImplFromJson(Map<String, dynamic> json) =>
-    _$WeatherInfoImpl(
+_WeatherInfo _$WeatherInfoFromJson(Map<String, dynamic> json) => _WeatherInfo(
       ts: json['ts'] as num?,
       timestampLocal: json['timestamp_local'] == null
           ? null
@@ -108,7 +104,7 @@ _$WeatherInfoImpl _$$WeatherInfoImplFromJson(Map<String, dynamic> json) =>
       timezone: json['timezone'] as String?,
     );
 
-Map<String, dynamic> _$$WeatherInfoImplToJson(_$WeatherInfoImpl instance) =>
+Map<String, dynamic> _$WeatherInfoToJson(_WeatherInfo instance) =>
     <String, dynamic>{
       'ts': instance.ts,
       'timestamp_local': instance.timestampLocal?.toIso8601String(),
@@ -164,15 +160,13 @@ Map<String, dynamic> _$$WeatherInfoImplToJson(_$WeatherInfoImpl instance) =>
       'timezone': instance.timezone,
     };
 
-_$WeatherImpl _$$WeatherImplFromJson(Map<String, dynamic> json) =>
-    _$WeatherImpl(
+_Weather _$WeatherFromJson(Map<String, dynamic> json) => _Weather(
       icon: json['icon'] as String?,
       code: (json['code'] as num?)?.toInt(),
       description: json['description'] as String?,
     );
 
-Map<String, dynamic> _$$WeatherImplToJson(_$WeatherImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$WeatherToJson(_Weather instance) => <String, dynamic>{
       'icon': instance.icon,
       'code': instance.code,
       'description': instance.description,

@@ -8,7 +8,7 @@ part 'student.freezed.dart';
 part 'student.g.dart';
 
 @unfreezed
-class Student with _$Student {
+sealed class Student with _$Student {
   const Student._();
 
   factory Student({

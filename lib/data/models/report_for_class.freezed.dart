@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,28 +10,47 @@ part of 'report_for_class.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ReportForClass {
-  ClassRoom get classRoom => throw _privateConstructorUsedError;
-  List<Event> get events => throw _privateConstructorUsedError;
+  ClassRoom get classRoom;
+  List<Event> get events;
 
   /// Create a copy of ReportForClass
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ReportForClassCopyWith<ReportForClass> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ReportForClassCopyWithImpl<ReportForClass>(
+          this as ReportForClass, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ReportForClass &&
+            (identical(other.classRoom, classRoom) ||
+                other.classRoom == classRoom) &&
+            const DeepCollectionEquality().equals(other.events, events));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, classRoom, const DeepCollectionEquality().hash(events));
+
+  @override
+  String toString() {
+    return 'ReportForClass(classRoom: $classRoom, events: $events)';
+  }
 }
 
 /// @nodoc
-abstract class $ReportForClassCopyWith<$Res> {
+abstract mixin class $ReportForClassCopyWith<$Res> {
   factory $ReportForClassCopyWith(
-          ReportForClass value, $Res Function(ReportForClass) then) =
-      _$ReportForClassCopyWithImpl<$Res, ReportForClass>;
+          ReportForClass value, $Res Function(ReportForClass) _then) =
+      _$ReportForClassCopyWithImpl;
   @useResult
   $Res call({ClassRoom classRoom, List<Event> events});
 
@@ -38,14 +58,12 @@ abstract class $ReportForClassCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ReportForClassCopyWithImpl<$Res, $Val extends ReportForClass>
+class _$ReportForClassCopyWithImpl<$Res>
     implements $ReportForClassCopyWith<$Res> {
-  _$ReportForClassCopyWithImpl(this._value, this._then);
+  _$ReportForClassCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ReportForClass _self;
+  final $Res Function(ReportForClass) _then;
 
   /// Create a copy of ReportForClass
   /// with the given fields replaced by the non-null parameter values.
@@ -55,16 +73,16 @@ class _$ReportForClassCopyWithImpl<$Res, $Val extends ReportForClass>
     Object? classRoom = null,
     Object? events = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       classRoom: null == classRoom
-          ? _value.classRoom
+          ? _self.classRoom
           : classRoom // ignore: cast_nullable_to_non_nullable
               as ClassRoom,
       events: null == events
-          ? _value.events
+          ? _self.events
           : events // ignore: cast_nullable_to_non_nullable
               as List<Event>,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ReportForClass
@@ -72,60 +90,16 @@ class _$ReportForClassCopyWithImpl<$Res, $Val extends ReportForClass>
   @override
   @pragma('vm:prefer-inline')
   $ClassRoomCopyWith<$Res> get classRoom {
-    return $ClassRoomCopyWith<$Res>(_value.classRoom, (value) {
-      return _then(_value.copyWith(classRoom: value) as $Val);
+    return $ClassRoomCopyWith<$Res>(_self.classRoom, (value) {
+      return _then(_self.copyWith(classRoom: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ReportForClassImplCopyWith<$Res>
-    implements $ReportForClassCopyWith<$Res> {
-  factory _$$ReportForClassImplCopyWith(_$ReportForClassImpl value,
-          $Res Function(_$ReportForClassImpl) then) =
-      __$$ReportForClassImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ClassRoom classRoom, List<Event> events});
 
-  @override
-  $ClassRoomCopyWith<$Res> get classRoom;
-}
-
-/// @nodoc
-class __$$ReportForClassImplCopyWithImpl<$Res>
-    extends _$ReportForClassCopyWithImpl<$Res, _$ReportForClassImpl>
-    implements _$$ReportForClassImplCopyWith<$Res> {
-  __$$ReportForClassImplCopyWithImpl(
-      _$ReportForClassImpl _value, $Res Function(_$ReportForClassImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ReportForClass
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? classRoom = null,
-    Object? events = null,
-  }) {
-    return _then(_$ReportForClassImpl(
-      classRoom: null == classRoom
-          ? _value.classRoom
-          : classRoom // ignore: cast_nullable_to_non_nullable
-              as ClassRoom,
-      events: null == events
-          ? _value._events
-          : events // ignore: cast_nullable_to_non_nullable
-              as List<Event>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ReportForClassImpl extends _ReportForClass {
-  _$ReportForClassImpl(
-      {required this.classRoom, required final List<Event> events})
+class _ReportForClass extends ReportForClass {
+  _ReportForClass({required this.classRoom, required final List<Event> events})
       : _events = events,
         super._();
 
@@ -139,16 +113,19 @@ class _$ReportForClassImpl extends _ReportForClass {
     return EqualUnmodifiableListView(_events);
   }
 
+  /// Create a copy of ReportForClass
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ReportForClass(classRoom: $classRoom, events: $events)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ReportForClassCopyWith<_ReportForClass> get copyWith =>
+      __$ReportForClassCopyWithImpl<_ReportForClass>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReportForClassImpl &&
+            other is _ReportForClass &&
             (identical(other.classRoom, classRoom) ||
                 other.classRoom == classRoom) &&
             const DeepCollectionEquality().equals(other._events, _events));
@@ -158,31 +135,63 @@ class _$ReportForClassImpl extends _ReportForClass {
   int get hashCode => Object.hash(
       runtimeType, classRoom, const DeepCollectionEquality().hash(_events));
 
+  @override
+  String toString() {
+    return 'ReportForClass(classRoom: $classRoom, events: $events)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ReportForClassCopyWith<$Res>
+    implements $ReportForClassCopyWith<$Res> {
+  factory _$ReportForClassCopyWith(
+          _ReportForClass value, $Res Function(_ReportForClass) _then) =
+      __$ReportForClassCopyWithImpl;
+  @override
+  @useResult
+  $Res call({ClassRoom classRoom, List<Event> events});
+
+  @override
+  $ClassRoomCopyWith<$Res> get classRoom;
+}
+
+/// @nodoc
+class __$ReportForClassCopyWithImpl<$Res>
+    implements _$ReportForClassCopyWith<$Res> {
+  __$ReportForClassCopyWithImpl(this._self, this._then);
+
+  final _ReportForClass _self;
+  final $Res Function(_ReportForClass) _then;
+
   /// Create a copy of ReportForClass
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ReportForClassImplCopyWith<_$ReportForClassImpl> get copyWith =>
-      __$$ReportForClassImplCopyWithImpl<_$ReportForClassImpl>(
-          this, _$identity);
-}
-
-abstract class _ReportForClass extends ReportForClass {
-  factory _ReportForClass(
-      {required final ClassRoom classRoom,
-      required final List<Event> events}) = _$ReportForClassImpl;
-  _ReportForClass._() : super._();
-
-  @override
-  ClassRoom get classRoom;
-  @override
-  List<Event> get events;
+  $Res call({
+    Object? classRoom = null,
+    Object? events = null,
+  }) {
+    return _then(_ReportForClass(
+      classRoom: null == classRoom
+          ? _self.classRoom
+          : classRoom // ignore: cast_nullable_to_non_nullable
+              as ClassRoom,
+      events: null == events
+          ? _self._events
+          : events // ignore: cast_nullable_to_non_nullable
+              as List<Event>,
+    ));
+  }
 
   /// Create a copy of ReportForClass
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ReportForClassImplCopyWith<_$ReportForClassImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $ClassRoomCopyWith<$Res> get classRoom {
+    return $ClassRoomCopyWith<$Res>(_self.classRoom, (value) {
+      return _then(_self.copyWith(classRoom: value));
+    });
+  }
 }
+
+// dart format on

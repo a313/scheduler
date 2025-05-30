@@ -6,14 +6,13 @@ part of 'timetable.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TimetableImpl _$$TimetableImplFromJson(Map<String, dynamic> json) =>
-    _$TimetableImpl(
+_Timetable _$TimetableFromJson(Map<String, dynamic> json) => _Timetable(
       begin: const TimeOfDayConverter().fromJson(json['begin'] as String),
       end: const TimeOfDayConverter().fromJson(json['end'] as String),
       dayInWeek: (json['dayInWeek'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$TimetableImplToJson(_$TimetableImpl instance) =>
+Map<String, dynamic> _$TimetableToJson(_Timetable instance) =>
     <String, dynamic>{
       'begin': const TimeOfDayConverter().toJson(instance.begin),
       'end': const TimeOfDayConverter().toJson(instance.end),

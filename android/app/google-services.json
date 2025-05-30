@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "911452778918",
-    "project_id": "tools-a75c2",
-    "storage_bucket": "tools-a75c2.appspot.com"
+    "project_number": "289109535313",
+    "project_id": "allinone-71666",
+    "storage_bucket": "allinone-71666.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:911452778918:android:e117e37be21554cccc5f67",
+        "mobilesdk_app_id": "1:289109535313:android:c7986ee8397becbb6c6670",
         "android_client_info": {
-          "package_name": "com.aio.tools"
+          "package_name": "com.example.aio"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB__-T1fW8JBlctEdoffIA9l4nbTUHqYYM"
+          "current_key": "AIzaSyCBqjAupE1gVggrpIEc1blNckOsHqx4uQY"
         }
       ],
       "services": {

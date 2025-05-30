@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,42 +10,65 @@ part of 'y2_mate_video_detail.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Y2MateVideoDetail _$Y2MateVideoDetailFromJson(Map<String, dynamic> json) {
-  return _Y2MateVideoDetail.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Y2MateVideoDetail {
-  String get status => throw _privateConstructorUsedError;
-  String get mess => throw _privateConstructorUsedError;
-  String get page => throw _privateConstructorUsedError;
-  String get vid => throw _privateConstructorUsedError;
-  String get extractor => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  int get t => throw _privateConstructorUsedError;
-  String get a => throw _privateConstructorUsedError;
-  Links get links => throw _privateConstructorUsedError;
-
-  /// Serializes this Y2MateVideoDetail to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get status;
+  String get mess;
+  String get page;
+  String get vid;
+  String get extractor;
+  String get title;
+  int get t;
+  String get a;
+  Links get links;
 
   /// Create a copy of Y2MateVideoDetail
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $Y2MateVideoDetailCopyWith<Y2MateVideoDetail> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$Y2MateVideoDetailCopyWithImpl<Y2MateVideoDetail>(
+          this as Y2MateVideoDetail, _$identity);
+
+  /// Serializes this Y2MateVideoDetail to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Y2MateVideoDetail &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.mess, mess) || other.mess == mess) &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.vid, vid) || other.vid == vid) &&
+            (identical(other.extractor, extractor) ||
+                other.extractor == extractor) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.t, t) || other.t == t) &&
+            (identical(other.a, a) || other.a == a) &&
+            (identical(other.links, links) || other.links == links));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, status, mess, page, vid, extractor, title, t, a, links);
+
+  @override
+  String toString() {
+    return 'Y2MateVideoDetail(status: $status, mess: $mess, page: $page, vid: $vid, extractor: $extractor, title: $title, t: $t, a: $a, links: $links)';
+  }
 }
 
 /// @nodoc
-abstract class $Y2MateVideoDetailCopyWith<$Res> {
+abstract mixin class $Y2MateVideoDetailCopyWith<$Res> {
   factory $Y2MateVideoDetailCopyWith(
-          Y2MateVideoDetail value, $Res Function(Y2MateVideoDetail) then) =
-      _$Y2MateVideoDetailCopyWithImpl<$Res, Y2MateVideoDetail>;
+          Y2MateVideoDetail value, $Res Function(Y2MateVideoDetail) _then) =
+      _$Y2MateVideoDetailCopyWithImpl;
   @useResult
   $Res call(
       {String status,
@@ -61,14 +85,12 @@ abstract class $Y2MateVideoDetailCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$Y2MateVideoDetailCopyWithImpl<$Res, $Val extends Y2MateVideoDetail>
+class _$Y2MateVideoDetailCopyWithImpl<$Res>
     implements $Y2MateVideoDetailCopyWith<$Res> {
-  _$Y2MateVideoDetailCopyWithImpl(this._value, this._then);
+  _$Y2MateVideoDetailCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Y2MateVideoDetail _self;
+  final $Res Function(Y2MateVideoDetail) _then;
 
   /// Create a copy of Y2MateVideoDetail
   /// with the given fields replaced by the non-null parameter values.
@@ -85,44 +107,44 @@ class _$Y2MateVideoDetailCopyWithImpl<$Res, $Val extends Y2MateVideoDetail>
     Object? a = null,
     Object? links = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       status: null == status
-          ? _value.status
+          ? _self.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
       mess: null == mess
-          ? _value.mess
+          ? _self.mess
           : mess // ignore: cast_nullable_to_non_nullable
               as String,
       page: null == page
-          ? _value.page
+          ? _self.page
           : page // ignore: cast_nullable_to_non_nullable
               as String,
       vid: null == vid
-          ? _value.vid
+          ? _self.vid
           : vid // ignore: cast_nullable_to_non_nullable
               as String,
       extractor: null == extractor
-          ? _value.extractor
+          ? _self.extractor
           : extractor // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
-          ? _value.title
+          ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
       t: null == t
-          ? _value.t
+          ? _self.t
           : t // ignore: cast_nullable_to_non_nullable
               as int,
       a: null == a
-          ? _value.a
+          ? _self.a
           : a // ignore: cast_nullable_to_non_nullable
               as String,
       links: null == links
-          ? _value.links
+          ? _self.links
           : links // ignore: cast_nullable_to_non_nullable
               as Links,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of Y2MateVideoDetail
@@ -130,103 +152,16 @@ class _$Y2MateVideoDetailCopyWithImpl<$Res, $Val extends Y2MateVideoDetail>
   @override
   @pragma('vm:prefer-inline')
   $LinksCopyWith<$Res> get links {
-    return $LinksCopyWith<$Res>(_value.links, (value) {
-      return _then(_value.copyWith(links: value) as $Val);
+    return $LinksCopyWith<$Res>(_self.links, (value) {
+      return _then(_self.copyWith(links: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$Y2MateVideoDetailImplCopyWith<$Res>
-    implements $Y2MateVideoDetailCopyWith<$Res> {
-  factory _$$Y2MateVideoDetailImplCopyWith(_$Y2MateVideoDetailImpl value,
-          $Res Function(_$Y2MateVideoDetailImpl) then) =
-      __$$Y2MateVideoDetailImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String status,
-      String mess,
-      String page,
-      String vid,
-      String extractor,
-      String title,
-      int t,
-      String a,
-      Links links});
-
-  @override
-  $LinksCopyWith<$Res> get links;
-}
-
-/// @nodoc
-class __$$Y2MateVideoDetailImplCopyWithImpl<$Res>
-    extends _$Y2MateVideoDetailCopyWithImpl<$Res, _$Y2MateVideoDetailImpl>
-    implements _$$Y2MateVideoDetailImplCopyWith<$Res> {
-  __$$Y2MateVideoDetailImplCopyWithImpl(_$Y2MateVideoDetailImpl _value,
-      $Res Function(_$Y2MateVideoDetailImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Y2MateVideoDetail
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? status = null,
-    Object? mess = null,
-    Object? page = null,
-    Object? vid = null,
-    Object? extractor = null,
-    Object? title = null,
-    Object? t = null,
-    Object? a = null,
-    Object? links = null,
-  }) {
-    return _then(_$Y2MateVideoDetailImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      mess: null == mess
-          ? _value.mess
-          : mess // ignore: cast_nullable_to_non_nullable
-              as String,
-      page: null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as String,
-      vid: null == vid
-          ? _value.vid
-          : vid // ignore: cast_nullable_to_non_nullable
-              as String,
-      extractor: null == extractor
-          ? _value.extractor
-          : extractor // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      t: null == t
-          ? _value.t
-          : t // ignore: cast_nullable_to_non_nullable
-              as int,
-      a: null == a
-          ? _value.a
-          : a // ignore: cast_nullable_to_non_nullable
-              as String,
-      links: null == links
-          ? _value.links
-          : links // ignore: cast_nullable_to_non_nullable
-              as Links,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$Y2MateVideoDetailImpl implements _Y2MateVideoDetail {
-  const _$Y2MateVideoDetailImpl(
+class _Y2MateVideoDetail implements Y2MateVideoDetail {
+  const _Y2MateVideoDetail(
       {required this.status,
       required this.mess,
       required this.page,
@@ -236,9 +171,8 @@ class _$Y2MateVideoDetailImpl implements _Y2MateVideoDetail {
       required this.t,
       required this.a,
       required this.links});
-
-  factory _$Y2MateVideoDetailImpl.fromJson(Map<String, dynamic> json) =>
-      _$$Y2MateVideoDetailImplFromJson(json);
+  factory _Y2MateVideoDetail.fromJson(Map<String, dynamic> json) =>
+      _$Y2MateVideoDetailFromJson(json);
 
   @override
   final String status;
@@ -259,16 +193,26 @@ class _$Y2MateVideoDetailImpl implements _Y2MateVideoDetail {
   @override
   final Links links;
 
+  /// Create a copy of Y2MateVideoDetail
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Y2MateVideoDetail(status: $status, mess: $mess, page: $page, vid: $vid, extractor: $extractor, title: $title, t: $t, a: $a, links: $links)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$Y2MateVideoDetailCopyWith<_Y2MateVideoDetail> get copyWith =>
+      __$Y2MateVideoDetailCopyWithImpl<_Y2MateVideoDetail>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$Y2MateVideoDetailToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Y2MateVideoDetailImpl &&
+            other is _Y2MateVideoDetail &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.mess, mess) || other.mess == mess) &&
             (identical(other.page, page) || other.page == page) &&
@@ -286,137 +230,153 @@ class _$Y2MateVideoDetailImpl implements _Y2MateVideoDetail {
   int get hashCode => Object.hash(
       runtimeType, status, mess, page, vid, extractor, title, t, a, links);
 
-  /// Create a copy of Y2MateVideoDetail
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$Y2MateVideoDetailImplCopyWith<_$Y2MateVideoDetailImpl> get copyWith =>
-      __$$Y2MateVideoDetailImplCopyWithImpl<_$Y2MateVideoDetailImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$Y2MateVideoDetailImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Y2MateVideoDetail(status: $status, mess: $mess, page: $page, vid: $vid, extractor: $extractor, title: $title, t: $t, a: $a, links: $links)';
   }
 }
 
-abstract class _Y2MateVideoDetail implements Y2MateVideoDetail {
-  const factory _Y2MateVideoDetail(
-      {required final String status,
-      required final String mess,
-      required final String page,
-      required final String vid,
-      required final String extractor,
-      required final String title,
-      required final int t,
-      required final String a,
-      required final Links links}) = _$Y2MateVideoDetailImpl;
+/// @nodoc
+abstract mixin class _$Y2MateVideoDetailCopyWith<$Res>
+    implements $Y2MateVideoDetailCopyWith<$Res> {
+  factory _$Y2MateVideoDetailCopyWith(
+          _Y2MateVideoDetail value, $Res Function(_Y2MateVideoDetail) _then) =
+      __$Y2MateVideoDetailCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String status,
+      String mess,
+      String page,
+      String vid,
+      String extractor,
+      String title,
+      int t,
+      String a,
+      Links links});
 
-  factory _Y2MateVideoDetail.fromJson(Map<String, dynamic> json) =
-      _$Y2MateVideoDetailImpl.fromJson;
+  @override
+  $LinksCopyWith<$Res> get links;
+}
 
-  @override
-  String get status;
-  @override
-  String get mess;
-  @override
-  String get page;
-  @override
-  String get vid;
-  @override
-  String get extractor;
-  @override
-  String get title;
-  @override
-  int get t;
-  @override
-  String get a;
-  @override
-  Links get links;
+/// @nodoc
+class __$Y2MateVideoDetailCopyWithImpl<$Res>
+    implements _$Y2MateVideoDetailCopyWith<$Res> {
+  __$Y2MateVideoDetailCopyWithImpl(this._self, this._then);
+
+  final _Y2MateVideoDetail _self;
+  final $Res Function(_Y2MateVideoDetail) _then;
 
   /// Create a copy of Y2MateVideoDetail
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$Y2MateVideoDetailImplCopyWith<_$Y2MateVideoDetailImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? status = null,
+    Object? mess = null,
+    Object? page = null,
+    Object? vid = null,
+    Object? extractor = null,
+    Object? title = null,
+    Object? t = null,
+    Object? a = null,
+    Object? links = null,
+  }) {
+    return _then(_Y2MateVideoDetail(
+      status: null == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      mess: null == mess
+          ? _self.mess
+          : mess // ignore: cast_nullable_to_non_nullable
+              as String,
+      page: null == page
+          ? _self.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as String,
+      vid: null == vid
+          ? _self.vid
+          : vid // ignore: cast_nullable_to_non_nullable
+              as String,
+      extractor: null == extractor
+          ? _self.extractor
+          : extractor // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _self.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      t: null == t
+          ? _self.t
+          : t // ignore: cast_nullable_to_non_nullable
+              as int,
+      a: null == a
+          ? _self.a
+          : a // ignore: cast_nullable_to_non_nullable
+              as String,
+      links: null == links
+          ? _self.links
+          : links // ignore: cast_nullable_to_non_nullable
+              as Links,
+    ));
+  }
 
-Links _$LinksFromJson(Map<String, dynamic> json) {
-  return _Links.fromJson(json);
+  /// Create a copy of Y2MateVideoDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LinksCopyWith<$Res> get links {
+    return $LinksCopyWith<$Res>(_self.links, (value) {
+      return _then(_self.copyWith(links: value));
+    });
+  }
 }
 
 /// @nodoc
 mixin _$Links {
-  Map<String, ItemDetail>? get mp4 => throw _privateConstructorUsedError;
-  Map<String, ItemDetail>? get mp3 => throw _privateConstructorUsedError;
-  Map<String, ItemDetail>? get other => throw _privateConstructorUsedError;
-
-  /// Serializes this Links to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, ItemDetail>? get mp4;
+  Map<String, ItemDetail>? get mp3;
+  Map<String, ItemDetail>? get other;
 
   /// Create a copy of Links
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LinksCopyWith<Links> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LinksCopyWith<$Res> {
-  factory $LinksCopyWith(Links value, $Res Function(Links) then) =
-      _$LinksCopyWithImpl<$Res, Links>;
-  @useResult
-  $Res call(
-      {Map<String, ItemDetail>? mp4,
-      Map<String, ItemDetail>? mp3,
-      Map<String, ItemDetail>? other});
-}
-
-/// @nodoc
-class _$LinksCopyWithImpl<$Res, $Val extends Links>
-    implements $LinksCopyWith<$Res> {
-  _$LinksCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Links
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LinksCopyWith<Links> get copyWith =>
+      _$LinksCopyWithImpl<Links>(this as Links, _$identity);
+
+  /// Serializes this Links to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? mp4 = freezed,
-    Object? mp3 = freezed,
-    Object? other = freezed,
-  }) {
-    return _then(_value.copyWith(
-      mp4: freezed == mp4
-          ? _value.mp4
-          : mp4 // ignore: cast_nullable_to_non_nullable
-              as Map<String, ItemDetail>?,
-      mp3: freezed == mp3
-          ? _value.mp3
-          : mp3 // ignore: cast_nullable_to_non_nullable
-              as Map<String, ItemDetail>?,
-      other: freezed == other
-          ? _value.other
-          : other // ignore: cast_nullable_to_non_nullable
-              as Map<String, ItemDetail>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Links &&
+            const DeepCollectionEquality().equals(other.mp4, mp4) &&
+            const DeepCollectionEquality().equals(other.mp3, mp3) &&
+            const DeepCollectionEquality().equals(other.other, this.other));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(mp4),
+      const DeepCollectionEquality().hash(mp3),
+      const DeepCollectionEquality().hash(other));
+
+  @override
+  String toString() {
+    return 'Links(mp4: $mp4, mp3: $mp3, other: $other)';
   }
 }
 
 /// @nodoc
-abstract class _$$LinksImplCopyWith<$Res> implements $LinksCopyWith<$Res> {
-  factory _$$LinksImplCopyWith(
-          _$LinksImpl value, $Res Function(_$LinksImpl) then) =
-      __$$LinksImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LinksCopyWith<$Res> {
+  factory $LinksCopyWith(Links value, $Res Function(Links) _then) =
+      _$LinksCopyWithImpl;
   @useResult
   $Res call(
       {Map<String, ItemDetail>? mp4,
@@ -425,12 +385,11 @@ abstract class _$$LinksImplCopyWith<$Res> implements $LinksCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$LinksImplCopyWithImpl<$Res>
-    extends _$LinksCopyWithImpl<$Res, _$LinksImpl>
-    implements _$$LinksImplCopyWith<$Res> {
-  __$$LinksImplCopyWithImpl(
-      _$LinksImpl _value, $Res Function(_$LinksImpl) _then)
-      : super(_value, _then);
+class _$LinksCopyWithImpl<$Res> implements $LinksCopyWith<$Res> {
+  _$LinksCopyWithImpl(this._self, this._then);
+
+  final Links _self;
+  final $Res Function(Links) _then;
 
   /// Create a copy of Links
   /// with the given fields replaced by the non-null parameter values.
@@ -441,17 +400,17 @@ class __$$LinksImplCopyWithImpl<$Res>
     Object? mp3 = freezed,
     Object? other = freezed,
   }) {
-    return _then(_$LinksImpl(
+    return _then(_self.copyWith(
       mp4: freezed == mp4
-          ? _value._mp4
+          ? _self.mp4
           : mp4 // ignore: cast_nullable_to_non_nullable
               as Map<String, ItemDetail>?,
       mp3: freezed == mp3
-          ? _value._mp3
+          ? _self.mp3
           : mp3 // ignore: cast_nullable_to_non_nullable
               as Map<String, ItemDetail>?,
       other: freezed == other
-          ? _value._other
+          ? _self.other
           : other // ignore: cast_nullable_to_non_nullable
               as Map<String, ItemDetail>?,
     ));
@@ -460,17 +419,15 @@ class __$$LinksImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LinksImpl implements _Links {
-  const _$LinksImpl(
+class _Links implements Links {
+  const _Links(
       {final Map<String, ItemDetail>? mp4,
       final Map<String, ItemDetail>? mp3,
       final Map<String, ItemDetail>? other})
       : _mp4 = mp4,
         _mp3 = mp3,
         _other = other;
-
-  factory _$LinksImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LinksImplFromJson(json);
+  factory _Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
 
   final Map<String, ItemDetail>? _mp4;
   @override
@@ -502,16 +459,26 @@ class _$LinksImpl implements _Links {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Create a copy of Links
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Links(mp4: $mp4, mp3: $mp3, other: $other)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LinksCopyWith<_Links> get copyWith =>
+      __$LinksCopyWithImpl<_Links>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LinksToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LinksImpl &&
+            other is _Links &&
             const DeepCollectionEquality().equals(other._mp4, _mp4) &&
             const DeepCollectionEquality().equals(other._mp3, _mp3) &&
             const DeepCollectionEquality().equals(other._other, this._other));
@@ -525,194 +492,79 @@ class _$LinksImpl implements _Links {
       const DeepCollectionEquality().hash(_mp3),
       const DeepCollectionEquality().hash(_other));
 
-  /// Create a copy of Links
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LinksImplCopyWith<_$LinksImpl> get copyWith =>
-      __$$LinksImplCopyWithImpl<_$LinksImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LinksImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Links implements Links {
-  const factory _Links(
-      {final Map<String, ItemDetail>? mp4,
-      final Map<String, ItemDetail>? mp3,
-      final Map<String, ItemDetail>? other}) = _$LinksImpl;
-
-  factory _Links.fromJson(Map<String, dynamic> json) = _$LinksImpl.fromJson;
-
-  @override
-  Map<String, ItemDetail>? get mp4;
-  @override
-  Map<String, ItemDetail>? get mp3;
-  @override
-  Map<String, ItemDetail>? get other;
-
-  /// Create a copy of Links
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LinksImplCopyWith<_$LinksImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-ItemDetail _$ItemDetailFromJson(Map<String, dynamic> json) {
-  return _ItemDetail.fromJson(json);
-}
-
-/// @nodoc
-mixin _$ItemDetail {
-  String get size => throw _privateConstructorUsedError;
-  String get f => throw _privateConstructorUsedError;
-  String get q => throw _privateConstructorUsedError;
-  String get k => throw _privateConstructorUsedError;
-
-  /// Serializes this ItemDetail to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ItemDetail
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ItemDetailCopyWith<ItemDetail> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ItemDetailCopyWith<$Res> {
-  factory $ItemDetailCopyWith(
-          ItemDetail value, $Res Function(ItemDetail) then) =
-      _$ItemDetailCopyWithImpl<$Res, ItemDetail>;
-  @useResult
-  $Res call({String size, String f, String q, String k});
-}
-
-/// @nodoc
-class _$ItemDetailCopyWithImpl<$Res, $Val extends ItemDetail>
-    implements $ItemDetailCopyWith<$Res> {
-  _$ItemDetailCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ItemDetail
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? size = null,
-    Object? f = null,
-    Object? q = null,
-    Object? k = null,
-  }) {
-    return _then(_value.copyWith(
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as String,
-      f: null == f
-          ? _value.f
-          : f // ignore: cast_nullable_to_non_nullable
-              as String,
-      q: null == q
-          ? _value.q
-          : q // ignore: cast_nullable_to_non_nullable
-              as String,
-      k: null == k
-          ? _value.k
-          : k // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  String toString() {
+    return 'Links(mp4: $mp4, mp3: $mp3, other: $other)';
   }
 }
 
 /// @nodoc
-abstract class _$$ItemDetailImplCopyWith<$Res>
-    implements $ItemDetailCopyWith<$Res> {
-  factory _$$ItemDetailImplCopyWith(
-          _$ItemDetailImpl value, $Res Function(_$ItemDetailImpl) then) =
-      __$$ItemDetailImplCopyWithImpl<$Res>;
+abstract mixin class _$LinksCopyWith<$Res> implements $LinksCopyWith<$Res> {
+  factory _$LinksCopyWith(_Links value, $Res Function(_Links) _then) =
+      __$LinksCopyWithImpl;
   @override
   @useResult
-  $Res call({String size, String f, String q, String k});
+  $Res call(
+      {Map<String, ItemDetail>? mp4,
+      Map<String, ItemDetail>? mp3,
+      Map<String, ItemDetail>? other});
 }
 
 /// @nodoc
-class __$$ItemDetailImplCopyWithImpl<$Res>
-    extends _$ItemDetailCopyWithImpl<$Res, _$ItemDetailImpl>
-    implements _$$ItemDetailImplCopyWith<$Res> {
-  __$$ItemDetailImplCopyWithImpl(
-      _$ItemDetailImpl _value, $Res Function(_$ItemDetailImpl) _then)
-      : super(_value, _then);
+class __$LinksCopyWithImpl<$Res> implements _$LinksCopyWith<$Res> {
+  __$LinksCopyWithImpl(this._self, this._then);
 
-  /// Create a copy of ItemDetail
+  final _Links _self;
+  final $Res Function(_Links) _then;
+
+  /// Create a copy of Links
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
-    Object? size = null,
-    Object? f = null,
-    Object? q = null,
-    Object? k = null,
+    Object? mp4 = freezed,
+    Object? mp3 = freezed,
+    Object? other = freezed,
   }) {
-    return _then(_$ItemDetailImpl(
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as String,
-      f: null == f
-          ? _value.f
-          : f // ignore: cast_nullable_to_non_nullable
-              as String,
-      q: null == q
-          ? _value.q
-          : q // ignore: cast_nullable_to_non_nullable
-              as String,
-      k: null == k
-          ? _value.k
-          : k // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(_Links(
+      mp4: freezed == mp4
+          ? _self._mp4
+          : mp4 // ignore: cast_nullable_to_non_nullable
+              as Map<String, ItemDetail>?,
+      mp3: freezed == mp3
+          ? _self._mp3
+          : mp3 // ignore: cast_nullable_to_non_nullable
+              as Map<String, ItemDetail>?,
+      other: freezed == other
+          ? _self._other
+          : other // ignore: cast_nullable_to_non_nullable
+              as Map<String, ItemDetail>?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$ItemDetailImpl implements _ItemDetail {
-  const _$ItemDetailImpl(
-      {required this.size, required this.f, required this.q, required this.k});
+mixin _$ItemDetail {
+  String get size;
+  String get f;
+  String get q;
+  String get k;
 
-  factory _$ItemDetailImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ItemDetailImplFromJson(json);
+  /// Create a copy of ItemDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ItemDetailCopyWith<ItemDetail> get copyWith =>
+      _$ItemDetailCopyWithImpl<ItemDetail>(this as ItemDetail, _$identity);
 
-  @override
-  final String size;
-  @override
-  final String f;
-  @override
-  final String q;
-  @override
-  final String k;
-
-  @override
-  String toString() {
-    return 'ItemDetail(size: $size, f: $f, q: $q, k: $k)';
-  }
+  /// Serializes this ItemDetail to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItemDetailImpl &&
+            other is ItemDetail &&
             (identical(other.size, size) || other.size == size) &&
             (identical(other.f, f) || other.f == f) &&
             (identical(other.q, q) || other.q == q) &&
@@ -723,45 +575,159 @@ class _$ItemDetailImpl implements _ItemDetail {
   @override
   int get hashCode => Object.hash(runtimeType, size, f, q, k);
 
-  /// Create a copy of ItemDetail
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ItemDetailImplCopyWith<_$ItemDetailImpl> get copyWith =>
-      __$$ItemDetailImplCopyWithImpl<_$ItemDetailImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ItemDetailImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ItemDetail(size: $size, f: $f, q: $q, k: $k)';
   }
 }
 
-abstract class _ItemDetail implements ItemDetail {
-  const factory _ItemDetail(
-      {required final String size,
-      required final String f,
-      required final String q,
-      required final String k}) = _$ItemDetailImpl;
+/// @nodoc
+abstract mixin class $ItemDetailCopyWith<$Res> {
+  factory $ItemDetailCopyWith(
+          ItemDetail value, $Res Function(ItemDetail) _then) =
+      _$ItemDetailCopyWithImpl;
+  @useResult
+  $Res call({String size, String f, String q, String k});
+}
 
-  factory _ItemDetail.fromJson(Map<String, dynamic> json) =
-      _$ItemDetailImpl.fromJson;
+/// @nodoc
+class _$ItemDetailCopyWithImpl<$Res> implements $ItemDetailCopyWith<$Res> {
+  _$ItemDetailCopyWithImpl(this._self, this._then);
+
+  final ItemDetail _self;
+  final $Res Function(ItemDetail) _then;
+
+  /// Create a copy of ItemDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? size = null,
+    Object? f = null,
+    Object? q = null,
+    Object? k = null,
+  }) {
+    return _then(_self.copyWith(
+      size: null == size
+          ? _self.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as String,
+      f: null == f
+          ? _self.f
+          : f // ignore: cast_nullable_to_non_nullable
+              as String,
+      q: null == q
+          ? _self.q
+          : q // ignore: cast_nullable_to_non_nullable
+              as String,
+      k: null == k
+          ? _self.k
+          : k // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _ItemDetail implements ItemDetail {
+  const _ItemDetail(
+      {required this.size, required this.f, required this.q, required this.k});
+  factory _ItemDetail.fromJson(Map<String, dynamic> json) =>
+      _$ItemDetailFromJson(json);
 
   @override
-  String get size;
+  final String size;
   @override
-  String get f;
+  final String f;
   @override
-  String get q;
+  final String q;
   @override
-  String get k;
+  final String k;
 
   /// Create a copy of ItemDetail
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ItemDetailImplCopyWith<_$ItemDetailImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ItemDetailCopyWith<_ItemDetail> get copyWith =>
+      __$ItemDetailCopyWithImpl<_ItemDetail>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ItemDetailToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ItemDetail &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.f, f) || other.f == f) &&
+            (identical(other.q, q) || other.q == q) &&
+            (identical(other.k, k) || other.k == k));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, size, f, q, k);
+
+  @override
+  String toString() {
+    return 'ItemDetail(size: $size, f: $f, q: $q, k: $k)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ItemDetailCopyWith<$Res>
+    implements $ItemDetailCopyWith<$Res> {
+  factory _$ItemDetailCopyWith(
+          _ItemDetail value, $Res Function(_ItemDetail) _then) =
+      __$ItemDetailCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String size, String f, String q, String k});
+}
+
+/// @nodoc
+class __$ItemDetailCopyWithImpl<$Res> implements _$ItemDetailCopyWith<$Res> {
+  __$ItemDetailCopyWithImpl(this._self, this._then);
+
+  final _ItemDetail _self;
+  final $Res Function(_ItemDetail) _then;
+
+  /// Create a copy of ItemDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? size = null,
+    Object? f = null,
+    Object? q = null,
+    Object? k = null,
+  }) {
+    return _then(_ItemDetail(
+      size: null == size
+          ? _self.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as String,
+      f: null == f
+          ? _self.f
+          : f // ignore: cast_nullable_to_non_nullable
+              as String,
+      q: null == q
+          ? _self.q
+          : q // ignore: cast_nullable_to_non_nullable
+              as String,
+      k: null == k
+          ? _self.k
+          : k // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

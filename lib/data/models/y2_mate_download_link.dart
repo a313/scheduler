@@ -16,7 +16,7 @@ String y2MateDownloadLinkToJson(Y2MateDownloadLink data) =>
     json.encode(data.toJson());
 
 @freezed
-class Y2MateDownloadLink with _$Y2MateDownloadLink {
+sealed class Y2MateDownloadLink with _$Y2MateDownloadLink {
   const factory Y2MateDownloadLink({
     required String status,
     required String mess,

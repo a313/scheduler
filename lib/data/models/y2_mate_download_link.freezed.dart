@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,122 +10,64 @@ part of 'y2_mate_download_link.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Y2MateDownloadLink _$Y2MateDownloadLinkFromJson(Map<String, dynamic> json) {
-  return _Y2MateDownloadLink.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Y2MateDownloadLink {
-  String get status => throw _privateConstructorUsedError;
-  String get mess => throw _privateConstructorUsedError;
+  String get status;
+  String get mess;
   @JsonKey(name: 'c_status')
-  String get cStatus => throw _privateConstructorUsedError;
-  String get vid => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get ftype => throw _privateConstructorUsedError;
-  String get fquality => throw _privateConstructorUsedError;
-  String get dlink => throw _privateConstructorUsedError;
-
-  /// Serializes this Y2MateDownloadLink to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get cStatus;
+  String get vid;
+  String get title;
+  String get ftype;
+  String get fquality;
+  String get dlink;
 
   /// Create a copy of Y2MateDownloadLink
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $Y2MateDownloadLinkCopyWith<Y2MateDownloadLink> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $Y2MateDownloadLinkCopyWith<$Res> {
-  factory $Y2MateDownloadLinkCopyWith(
-          Y2MateDownloadLink value, $Res Function(Y2MateDownloadLink) then) =
-      _$Y2MateDownloadLinkCopyWithImpl<$Res, Y2MateDownloadLink>;
-  @useResult
-  $Res call(
-      {String status,
-      String mess,
-      @JsonKey(name: 'c_status') String cStatus,
-      String vid,
-      String title,
-      String ftype,
-      String fquality,
-      String dlink});
-}
-
-/// @nodoc
-class _$Y2MateDownloadLinkCopyWithImpl<$Res, $Val extends Y2MateDownloadLink>
-    implements $Y2MateDownloadLinkCopyWith<$Res> {
-  _$Y2MateDownloadLinkCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Y2MateDownloadLink
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $Y2MateDownloadLinkCopyWith<Y2MateDownloadLink> get copyWith =>
+      _$Y2MateDownloadLinkCopyWithImpl<Y2MateDownloadLink>(
+          this as Y2MateDownloadLink, _$identity);
+
+  /// Serializes this Y2MateDownloadLink to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? status = null,
-    Object? mess = null,
-    Object? cStatus = null,
-    Object? vid = null,
-    Object? title = null,
-    Object? ftype = null,
-    Object? fquality = null,
-    Object? dlink = null,
-  }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      mess: null == mess
-          ? _value.mess
-          : mess // ignore: cast_nullable_to_non_nullable
-              as String,
-      cStatus: null == cStatus
-          ? _value.cStatus
-          : cStatus // ignore: cast_nullable_to_non_nullable
-              as String,
-      vid: null == vid
-          ? _value.vid
-          : vid // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      ftype: null == ftype
-          ? _value.ftype
-          : ftype // ignore: cast_nullable_to_non_nullable
-              as String,
-      fquality: null == fquality
-          ? _value.fquality
-          : fquality // ignore: cast_nullable_to_non_nullable
-              as String,
-      dlink: null == dlink
-          ? _value.dlink
-          : dlink // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Y2MateDownloadLink &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.mess, mess) || other.mess == mess) &&
+            (identical(other.cStatus, cStatus) || other.cStatus == cStatus) &&
+            (identical(other.vid, vid) || other.vid == vid) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.ftype, ftype) || other.ftype == ftype) &&
+            (identical(other.fquality, fquality) ||
+                other.fquality == fquality) &&
+            (identical(other.dlink, dlink) || other.dlink == dlink));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, status, mess, cStatus, vid, title, ftype, fquality, dlink);
+
+  @override
+  String toString() {
+    return 'Y2MateDownloadLink(status: $status, mess: $mess, cStatus: $cStatus, vid: $vid, title: $title, ftype: $ftype, fquality: $fquality, dlink: $dlink)';
   }
 }
 
 /// @nodoc
-abstract class _$$Y2MateDownloadLinkImplCopyWith<$Res>
-    implements $Y2MateDownloadLinkCopyWith<$Res> {
-  factory _$$Y2MateDownloadLinkImplCopyWith(_$Y2MateDownloadLinkImpl value,
-          $Res Function(_$Y2MateDownloadLinkImpl) then) =
-      __$$Y2MateDownloadLinkImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $Y2MateDownloadLinkCopyWith<$Res> {
+  factory $Y2MateDownloadLinkCopyWith(
+          Y2MateDownloadLink value, $Res Function(Y2MateDownloadLink) _then) =
+      _$Y2MateDownloadLinkCopyWithImpl;
   @useResult
   $Res call(
       {String status,
@@ -138,12 +81,12 @@ abstract class _$$Y2MateDownloadLinkImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$Y2MateDownloadLinkImplCopyWithImpl<$Res>
-    extends _$Y2MateDownloadLinkCopyWithImpl<$Res, _$Y2MateDownloadLinkImpl>
-    implements _$$Y2MateDownloadLinkImplCopyWith<$Res> {
-  __$$Y2MateDownloadLinkImplCopyWithImpl(_$Y2MateDownloadLinkImpl _value,
-      $Res Function(_$Y2MateDownloadLinkImpl) _then)
-      : super(_value, _then);
+class _$Y2MateDownloadLinkCopyWithImpl<$Res>
+    implements $Y2MateDownloadLinkCopyWith<$Res> {
+  _$Y2MateDownloadLinkCopyWithImpl(this._self, this._then);
+
+  final Y2MateDownloadLink _self;
+  final $Res Function(Y2MateDownloadLink) _then;
 
   /// Create a copy of Y2MateDownloadLink
   /// with the given fields replaced by the non-null parameter values.
@@ -159,37 +102,37 @@ class __$$Y2MateDownloadLinkImplCopyWithImpl<$Res>
     Object? fquality = null,
     Object? dlink = null,
   }) {
-    return _then(_$Y2MateDownloadLinkImpl(
+    return _then(_self.copyWith(
       status: null == status
-          ? _value.status
+          ? _self.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
       mess: null == mess
-          ? _value.mess
+          ? _self.mess
           : mess // ignore: cast_nullable_to_non_nullable
               as String,
       cStatus: null == cStatus
-          ? _value.cStatus
+          ? _self.cStatus
           : cStatus // ignore: cast_nullable_to_non_nullable
               as String,
       vid: null == vid
-          ? _value.vid
+          ? _self.vid
           : vid // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
-          ? _value.title
+          ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
       ftype: null == ftype
-          ? _value.ftype
+          ? _self.ftype
           : ftype // ignore: cast_nullable_to_non_nullable
               as String,
       fquality: null == fquality
-          ? _value.fquality
+          ? _self.fquality
           : fquality // ignore: cast_nullable_to_non_nullable
               as String,
       dlink: null == dlink
-          ? _value.dlink
+          ? _self.dlink
           : dlink // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -198,8 +141,8 @@ class __$$Y2MateDownloadLinkImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$Y2MateDownloadLinkImpl implements _Y2MateDownloadLink {
-  const _$Y2MateDownloadLinkImpl(
+class _Y2MateDownloadLink implements Y2MateDownloadLink {
+  const _Y2MateDownloadLink(
       {required this.status,
       required this.mess,
       @JsonKey(name: 'c_status') required this.cStatus,
@@ -208,9 +151,8 @@ class _$Y2MateDownloadLinkImpl implements _Y2MateDownloadLink {
       required this.ftype,
       required this.fquality,
       required this.dlink});
-
-  factory _$Y2MateDownloadLinkImpl.fromJson(Map<String, dynamic> json) =>
-      _$$Y2MateDownloadLinkImplFromJson(json);
+  factory _Y2MateDownloadLink.fromJson(Map<String, dynamic> json) =>
+      _$Y2MateDownloadLinkFromJson(json);
 
   @override
   final String status;
@@ -230,16 +172,26 @@ class _$Y2MateDownloadLinkImpl implements _Y2MateDownloadLink {
   @override
   final String dlink;
 
+  /// Create a copy of Y2MateDownloadLink
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Y2MateDownloadLink(status: $status, mess: $mess, cStatus: $cStatus, vid: $vid, title: $title, ftype: $ftype, fquality: $fquality, dlink: $dlink)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$Y2MateDownloadLinkCopyWith<_Y2MateDownloadLink> get copyWith =>
+      __$Y2MateDownloadLinkCopyWithImpl<_Y2MateDownloadLink>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$Y2MateDownloadLinkToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Y2MateDownloadLinkImpl &&
+            other is _Y2MateDownloadLink &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.mess, mess) || other.mess == mess) &&
             (identical(other.cStatus, cStatus) || other.cStatus == cStatus) &&
@@ -256,59 +208,88 @@ class _$Y2MateDownloadLinkImpl implements _Y2MateDownloadLink {
   int get hashCode => Object.hash(
       runtimeType, status, mess, cStatus, vid, title, ftype, fquality, dlink);
 
-  /// Create a copy of Y2MateDownloadLink
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$Y2MateDownloadLinkImplCopyWith<_$Y2MateDownloadLinkImpl> get copyWith =>
-      __$$Y2MateDownloadLinkImplCopyWithImpl<_$Y2MateDownloadLinkImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$Y2MateDownloadLinkImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Y2MateDownloadLink(status: $status, mess: $mess, cStatus: $cStatus, vid: $vid, title: $title, ftype: $ftype, fquality: $fquality, dlink: $dlink)';
   }
 }
 
-abstract class _Y2MateDownloadLink implements Y2MateDownloadLink {
-  const factory _Y2MateDownloadLink(
-      {required final String status,
-      required final String mess,
-      @JsonKey(name: 'c_status') required final String cStatus,
-      required final String vid,
-      required final String title,
-      required final String ftype,
-      required final String fquality,
-      required final String dlink}) = _$Y2MateDownloadLinkImpl;
+/// @nodoc
+abstract mixin class _$Y2MateDownloadLinkCopyWith<$Res>
+    implements $Y2MateDownloadLinkCopyWith<$Res> {
+  factory _$Y2MateDownloadLinkCopyWith(
+          _Y2MateDownloadLink value, $Res Function(_Y2MateDownloadLink) _then) =
+      __$Y2MateDownloadLinkCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String status,
+      String mess,
+      @JsonKey(name: 'c_status') String cStatus,
+      String vid,
+      String title,
+      String ftype,
+      String fquality,
+      String dlink});
+}
 
-  factory _Y2MateDownloadLink.fromJson(Map<String, dynamic> json) =
-      _$Y2MateDownloadLinkImpl.fromJson;
+/// @nodoc
+class __$Y2MateDownloadLinkCopyWithImpl<$Res>
+    implements _$Y2MateDownloadLinkCopyWith<$Res> {
+  __$Y2MateDownloadLinkCopyWithImpl(this._self, this._then);
 
-  @override
-  String get status;
-  @override
-  String get mess;
-  @override
-  @JsonKey(name: 'c_status')
-  String get cStatus;
-  @override
-  String get vid;
-  @override
-  String get title;
-  @override
-  String get ftype;
-  @override
-  String get fquality;
-  @override
-  String get dlink;
+  final _Y2MateDownloadLink _self;
+  final $Res Function(_Y2MateDownloadLink) _then;
 
   /// Create a copy of Y2MateDownloadLink
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$Y2MateDownloadLinkImplCopyWith<_$Y2MateDownloadLinkImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? status = null,
+    Object? mess = null,
+    Object? cStatus = null,
+    Object? vid = null,
+    Object? title = null,
+    Object? ftype = null,
+    Object? fquality = null,
+    Object? dlink = null,
+  }) {
+    return _then(_Y2MateDownloadLink(
+      status: null == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      mess: null == mess
+          ? _self.mess
+          : mess // ignore: cast_nullable_to_non_nullable
+              as String,
+      cStatus: null == cStatus
+          ? _self.cStatus
+          : cStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+      vid: null == vid
+          ? _self.vid
+          : vid // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _self.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      ftype: null == ftype
+          ? _self.ftype
+          : ftype // ignore: cast_nullable_to_non_nullable
+              as String,
+      fquality: null == fquality
+          ? _self.fquality
+          : fquality // ignore: cast_nullable_to_non_nullable
+              as String,
+      dlink: null == dlink
+          ? _self.dlink
+          : dlink // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

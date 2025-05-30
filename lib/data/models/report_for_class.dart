@@ -6,7 +6,7 @@ import 'event.dart';
 part 'report_for_class.freezed.dart';
 
 @freezed
-class ReportForClass with _$ReportForClass {
+sealed class ReportForClass with _$ReportForClass {
   ReportForClass._();
   factory ReportForClass({
     required ClassRoom classRoom,
