@@ -1,10 +1,10 @@
 import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/domain/usecases/event_usecases.dart';
-import 'package:scheduler/presentation/class_room/base_class_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/domain/usecases/event_usecases.dart';
+import 'package:aio/presentation/class_room/base_class_controller.dart';
 
 import '../../routes/routes.dart';
 import '../../widgets/popups/two_option_popup.dart';

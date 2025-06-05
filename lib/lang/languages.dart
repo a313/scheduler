@@ -105,6 +105,7 @@ class Languages extends Translations {
           'Remain': 'Remain',
           'Passed': 'Passed',
           'Weather': 'Weather',
+          'Lunar': 'Lunar',
         },
         'vi': {
           'Filter': 'Lọc',
@@ -207,6 +208,7 @@ class Languages extends Translations {
           'Remain': 'Còn lại',
           'Passed': 'Đã qua',
           'Weather': 'Thời tiết',
+          'Lunar': 'Âm Lịch',
         },
       };
 }

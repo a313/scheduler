@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:scheduler/core/utils/util.dart';
+import 'package:aio/core/utils/util.dart';
 
 class NumbericInputFormatter extends TextInputFormatter {
   @override

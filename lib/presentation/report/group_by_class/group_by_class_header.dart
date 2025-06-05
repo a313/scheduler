@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/widgets/base/base_tooltip.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/widgets/base/base_tooltip.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../data/models/event.dart';

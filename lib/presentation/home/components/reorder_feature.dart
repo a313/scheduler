@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/feature.dart';
-import 'package:scheduler/widgets/base/base_bottom_sheet.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/entities/feature.dart';
+import 'package:aio/widgets/base/base_bottom_sheet.dart';
+import 'package:aio/widgets/custom_divider.dart';
 
 import '../../../theme/app_fonts.dart';
 
@@ -74,8 +74,8 @@ class _ReorderFeatureBottomSheetState extends State<ReorderFeatureBottomSheet> {
           var realIndex = index;
           if (index > pinCount) realIndex = index - 1;
           final obj = items[realIndex];
-          final label = obj.item.label!;
-          final icon = obj.item.icon;
+          final label = obj.label;
+          final icon = obj.icon;
           final isPin = index < pinCount;
           if (isPin && pinCount == 1) {
             return AloneItem(

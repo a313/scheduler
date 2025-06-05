@@ -1,5 +1,5 @@
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/schedule.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/schedule.dart';
 
 import '../repo_abs/schedule_repo_abs.dart';
 

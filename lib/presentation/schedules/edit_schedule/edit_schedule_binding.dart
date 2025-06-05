@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:scheduler/data/models/schedule.dart';
+import 'package:aio/data/models/schedule.dart';
 
 import 'edit_schedule_controller.dart';
 

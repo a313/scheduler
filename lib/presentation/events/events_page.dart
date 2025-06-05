@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/presentation/events/components/calenar_component.dart';
-import 'package:scheduler/presentation/events/components/events_component.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/shimmer/shimmer_list.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/presentation/events/components/calenar_component.dart';
+import 'package:aio/presentation/events/components/events_component.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/widgets/shimmer/shimmer_list.dart';
 
 import '../../widgets/custom_refresher.dart';
 import 'events_controller.dart';
@@ -14,7 +14,7 @@ class EventsPage extends GetView<EventsController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         centerTitle: false,
         titleWidget: Obx(() =>
             Text(controller.selectedDay.value.toStringFormat('LLLL yyyy'))),

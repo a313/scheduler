@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 class AmountHelperComponent extends StatelessWidget {
   const AmountHelperComponent({

@@ -1,7 +1,7 @@
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/event.dart';
-import 'package:scheduler/domain/repo_abs/event_repo_abs.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/event.dart';
+import 'package:aio/domain/repo_abs/event_repo_abs.dart';
 
 class EventUseCases {
   final EventRepo _;

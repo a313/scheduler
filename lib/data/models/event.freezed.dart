@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,73 +10,100 @@ part of 'event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+/// @nodoc
+mixin _$Event implements DiagnosticableTreeMixin {
+  int? get id;
+  set id(int? value);
+  int? get parentId;
+  set parentId(int? value);
+  String get name;
+  set name(String value);
+  @DateTimeConverter()
+  DateTime get startTime;
+  @DateTimeConverter()
+  set startTime(DateTime value);
+  @DateTimeConverter()
+  DateTime get endTime;
+  @DateTimeConverter()
+  set endTime(DateTime value);
+  EventType get type;
+  set type(EventType value);
+  AlertType get alert;
+  set alert(AlertType value);
+  RepeatType get repeat;
+  set repeat(RepeatType value);
+  String? get location;
+  set location(String? value);
+  int? get classId;
+  set classId(int? value);
+  @ListIntConverter()
+  List<int> get invitedIds;
+  @ListIntConverter()
+  set invitedIds(List<int> value);
+  @ListIntConverter()
+  List<int> get joinedIds;
+  @ListIntConverter()
+  set joinedIds(List<int> value);
+  @BoolConverter()
+  bool get isActive;
+  @BoolConverter()
+  set isActive(bool value);
+  String? get note;
+  set note(String? value);
+  @JsonKey(includeToJson: false, includeFromJson: false)
+  List<Student> get students;
+  @JsonKey(includeToJson: false, includeFromJson: false)
+  set students(List<Student> value);
+  @JsonKey(includeToJson: false, includeFromJson: false)
+  ClassRoom? get classRoom;
+  @JsonKey(includeToJson: false, includeFromJson: false)
+  set classRoom(ClassRoom? value);
 
-Event _$EventFromJson(Map<String, dynamic> json) {
-  return _Event.fromJson(json);
+  /// Create a copy of Event
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $EventCopyWith<Event> get copyWith =>
+      _$EventCopyWithImpl<Event>(this as Event, _$identity);
+
+  /// Serializes this Event to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'Event'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('parentId', parentId))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('startTime', startTime))
+      ..add(DiagnosticsProperty('endTime', endTime))
+      ..add(DiagnosticsProperty('type', type))
+      ..add(DiagnosticsProperty('alert', alert))
+      ..add(DiagnosticsProperty('repeat', repeat))
+      ..add(DiagnosticsProperty('location', location))
+      ..add(DiagnosticsProperty('classId', classId))
+      ..add(DiagnosticsProperty('invitedIds', invitedIds))
+      ..add(DiagnosticsProperty('joinedIds', joinedIds))
+      ..add(DiagnosticsProperty('isActive', isActive))
+      ..add(DiagnosticsProperty('note', note))
+      ..add(DiagnosticsProperty('students', students))
+      ..add(DiagnosticsProperty('classRoom', classRoom));
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Event(id: $id, parentId: $parentId, name: $name, startTime: $startTime, endTime: $endTime, type: $type, alert: $alert, repeat: $repeat, location: $location, classId: $classId, invitedIds: $invitedIds, joinedIds: $joinedIds, isActive: $isActive, note: $note, students: $students, classRoom: $classRoom)';
+  }
 }
 
 /// @nodoc
-mixin _$Event {
-  int? get id => throw _privateConstructorUsedError;
-  set id(int? value) => throw _privateConstructorUsedError;
-  int? get parentId => throw _privateConstructorUsedError;
-  set parentId(int? value) => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  set name(String value) => throw _privateConstructorUsedError;
-  @DateTimeConverter()
-  DateTime get startTime => throw _privateConstructorUsedError;
-  @DateTimeConverter()
-  set startTime(DateTime value) => throw _privateConstructorUsedError;
-  @DateTimeConverter()
-  DateTime get endTime => throw _privateConstructorUsedError;
-  @DateTimeConverter()
-  set endTime(DateTime value) => throw _privateConstructorUsedError;
-  EventType get type => throw _privateConstructorUsedError;
-  set type(EventType value) => throw _privateConstructorUsedError;
-  AlertType get alert => throw _privateConstructorUsedError;
-  set alert(AlertType value) => throw _privateConstructorUsedError;
-  RepeatType get repeat => throw _privateConstructorUsedError;
-  set repeat(RepeatType value) => throw _privateConstructorUsedError;
-  String? get location => throw _privateConstructorUsedError;
-  set location(String? value) => throw _privateConstructorUsedError;
-  int? get classId => throw _privateConstructorUsedError;
-  set classId(int? value) => throw _privateConstructorUsedError;
-  @ListIntConverter()
-  List<int> get invitedIds => throw _privateConstructorUsedError;
-  @ListIntConverter()
-  set invitedIds(List<int> value) => throw _privateConstructorUsedError;
-  @ListIntConverter()
-  List<int> get joinedIds => throw _privateConstructorUsedError;
-  @ListIntConverter()
-  set joinedIds(List<int> value) => throw _privateConstructorUsedError;
-  @BoolConverter()
-  bool get isActive => throw _privateConstructorUsedError;
-  @BoolConverter()
-  set isActive(bool value) => throw _privateConstructorUsedError;
-  String? get note => throw _privateConstructorUsedError;
-  set note(String? value) => throw _privateConstructorUsedError;
-  @JsonKey(includeToJson: false, includeFromJson: false)
-  List<Student> get students => throw _privateConstructorUsedError;
-  @JsonKey(includeToJson: false, includeFromJson: false)
-  set students(List<Student> value) => throw _privateConstructorUsedError;
-  @JsonKey(includeToJson: false, includeFromJson: false)
-  ClassRoom? get classRoom => throw _privateConstructorUsedError;
-  @JsonKey(includeToJson: false, includeFromJson: false)
-  set classRoom(ClassRoom? value) => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $EventCopyWith<Event> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $EventCopyWith<$Res> {
-  factory $EventCopyWith(Event value, $Res Function(Event) then) =
-      _$EventCopyWithImpl<$Res, Event>;
+abstract mixin class $EventCopyWith<$Res> {
+  factory $EventCopyWith(Event value, $Res Function(Event) _then) =
+      _$EventCopyWithImpl;
   @useResult
   $Res call(
       {int? id,
@@ -101,15 +129,14 @@ abstract class $EventCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EventCopyWithImpl<$Res, $Val extends Event>
-    implements $EventCopyWith<$Res> {
-  _$EventCopyWithImpl(this._value, this._then);
+class _$EventCopyWithImpl<$Res> implements $EventCopyWith<$Res> {
+  _$EventCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Event _self;
+  final $Res Function(Event) _then;
 
+  /// Create a copy of Event
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,219 +157,93 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
     Object? students = null,
     Object? classRoom = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       id: freezed == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
       parentId: freezed == parentId
-          ? _value.parentId
+          ? _self.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
               as int?,
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       startTime: null == startTime
-          ? _value.startTime
+          ? _self.startTime
           : startTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
       endTime: null == endTime
-          ? _value.endTime
+          ? _self.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as EventType,
       alert: null == alert
-          ? _value.alert
+          ? _self.alert
           : alert // ignore: cast_nullable_to_non_nullable
               as AlertType,
       repeat: null == repeat
-          ? _value.repeat
+          ? _self.repeat
           : repeat // ignore: cast_nullable_to_non_nullable
               as RepeatType,
       location: freezed == location
-          ? _value.location
+          ? _self.location
           : location // ignore: cast_nullable_to_non_nullable
               as String?,
       classId: freezed == classId
-          ? _value.classId
+          ? _self.classId
           : classId // ignore: cast_nullable_to_non_nullable
               as int?,
       invitedIds: null == invitedIds
-          ? _value.invitedIds
+          ? _self.invitedIds
           : invitedIds // ignore: cast_nullable_to_non_nullable
               as List<int>,
       joinedIds: null == joinedIds
-          ? _value.joinedIds
+          ? _self.joinedIds
           : joinedIds // ignore: cast_nullable_to_non_nullable
               as List<int>,
       isActive: null == isActive
-          ? _value.isActive
+          ? _self.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
       note: freezed == note
-          ? _value.note
+          ? _self.note
           : note // ignore: cast_nullable_to_non_nullable
               as String?,
       students: null == students
-          ? _value.students
+          ? _self.students
           : students // ignore: cast_nullable_to_non_nullable
               as List<Student>,
       classRoom: freezed == classRoom
-          ? _value.classRoom
+          ? _self.classRoom
           : classRoom // ignore: cast_nullable_to_non_nullable
               as ClassRoom?,
-    ) as $Val);
+    ));
   }
 
+  /// Create a copy of Event
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ClassRoomCopyWith<$Res>? get classRoom {
-    if (_value.classRoom == null) {
+    if (_self.classRoom == null) {
       return null;
     }
 
-    return $ClassRoomCopyWith<$Res>(_value.classRoom!, (value) {
-      return _then(_value.copyWith(classRoom: value) as $Val);
+    return $ClassRoomCopyWith<$Res>(_self.classRoom!, (value) {
+      return _then(_self.copyWith(classRoom: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
-  factory _$$EventImplCopyWith(
-          _$EventImpl value, $Res Function(_$EventImpl) then) =
-      __$$EventImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int? id,
-      int? parentId,
-      String name,
-      @DateTimeConverter() DateTime startTime,
-      @DateTimeConverter() DateTime endTime,
-      EventType type,
-      AlertType alert,
-      RepeatType repeat,
-      String? location,
-      int? classId,
-      @ListIntConverter() List<int> invitedIds,
-      @ListIntConverter() List<int> joinedIds,
-      @BoolConverter() bool isActive,
-      String? note,
-      @JsonKey(includeToJson: false, includeFromJson: false)
-      List<Student> students,
-      @JsonKey(includeToJson: false, includeFromJson: false)
-      ClassRoom? classRoom});
-
-  @override
-  $ClassRoomCopyWith<$Res>? get classRoom;
-}
-
-/// @nodoc
-class __$$EventImplCopyWithImpl<$Res>
-    extends _$EventCopyWithImpl<$Res, _$EventImpl>
-    implements _$$EventImplCopyWith<$Res> {
-  __$$EventImplCopyWithImpl(
-      _$EventImpl _value, $Res Function(_$EventImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? parentId = freezed,
-    Object? name = null,
-    Object? startTime = null,
-    Object? endTime = null,
-    Object? type = null,
-    Object? alert = null,
-    Object? repeat = null,
-    Object? location = freezed,
-    Object? classId = freezed,
-    Object? invitedIds = null,
-    Object? joinedIds = null,
-    Object? isActive = null,
-    Object? note = freezed,
-    Object? students = null,
-    Object? classRoom = freezed,
-  }) {
-    return _then(_$EventImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      parentId: freezed == parentId
-          ? _value.parentId
-          : parentId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      startTime: null == startTime
-          ? _value.startTime
-          : startTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endTime: null == endTime
-          ? _value.endTime
-          : endTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as EventType,
-      alert: null == alert
-          ? _value.alert
-          : alert // ignore: cast_nullable_to_non_nullable
-              as AlertType,
-      repeat: null == repeat
-          ? _value.repeat
-          : repeat // ignore: cast_nullable_to_non_nullable
-              as RepeatType,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      classId: freezed == classId
-          ? _value.classId
-          : classId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      invitedIds: null == invitedIds
-          ? _value.invitedIds
-          : invitedIds // ignore: cast_nullable_to_non_nullable
-              as List<int>,
-      joinedIds: null == joinedIds
-          ? _value.joinedIds
-          : joinedIds // ignore: cast_nullable_to_non_nullable
-              as List<int>,
-      isActive: null == isActive
-          ? _value.isActive
-          : isActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      note: freezed == note
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
-              as String?,
-      students: null == students
-          ? _value.students
-          : students // ignore: cast_nullable_to_non_nullable
-              as List<Student>,
-      classRoom: freezed == classRoom
-          ? _value.classRoom
-          : classRoom // ignore: cast_nullable_to_non_nullable
-              as ClassRoom?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$EventImpl extends _Event with DiagnosticableTreeMixin {
-  _$EventImpl(
+class _Event extends Event with DiagnosticableTreeMixin {
+  _Event(
       {this.id,
       this.parentId,
       required this.name,
@@ -361,9 +262,7 @@ class _$EventImpl extends _Event with DiagnosticableTreeMixin {
       this.students = const [],
       @JsonKey(includeToJson: false, includeFromJson: false) this.classRoom})
       : super._();
-
-  factory _$EventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EventImplFromJson(json);
+  factory _Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 
   @override
   int? id;
@@ -408,14 +307,23 @@ class _$EventImpl extends _Event with DiagnosticableTreeMixin {
   @JsonKey(includeToJson: false, includeFromJson: false)
   ClassRoom? classRoom;
 
+  /// Create a copy of Event
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Event(id: $id, parentId: $parentId, name: $name, startTime: $startTime, endTime: $endTime, type: $type, alert: $alert, repeat: $repeat, location: $location, classId: $classId, invitedIds: $invitedIds, joinedIds: $joinedIds, isActive: $isActive, note: $note, students: $students, classRoom: $classRoom)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$EventCopyWith<_Event> get copyWith =>
+      __$EventCopyWithImpl<_Event>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EventToJson(
+      this,
+    );
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Event'))
       ..add(DiagnosticsProperty('id', id))
@@ -436,30 +344,27 @@ class _$EventImpl extends _Event with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('classRoom', classRoom));
   }
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$EventImplCopyWith<_$EventImpl> get copyWith =>
-      __$$EventImplCopyWithImpl<_$EventImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EventImplToJson(
-      this,
-    );
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Event(id: $id, parentId: $parentId, name: $name, startTime: $startTime, endTime: $endTime, type: $type, alert: $alert, repeat: $repeat, location: $location, classId: $classId, invitedIds: $invitedIds, joinedIds: $joinedIds, isActive: $isActive, note: $note, students: $students, classRoom: $classRoom)';
   }
 }
 
-abstract class _Event extends Event {
-  factory _Event(
+/// @nodoc
+abstract mixin class _$EventCopyWith<$Res> implements $EventCopyWith<$Res> {
+  factory _$EventCopyWith(_Event value, $Res Function(_Event) _then) =
+      __$EventCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
       {int? id,
       int? parentId,
-      required String name,
-      @DateTimeConverter() required DateTime startTime,
-      @DateTimeConverter() required DateTime endTime,
-      required EventType type,
-      required AlertType alert,
-      required RepeatType repeat,
+      String name,
+      @DateTimeConverter() DateTime startTime,
+      @DateTimeConverter() DateTime endTime,
+      EventType type,
+      AlertType alert,
+      RepeatType repeat,
       String? location,
       int? classId,
       @ListIntConverter() List<int> invitedIds,
@@ -469,75 +374,122 @@ abstract class _Event extends Event {
       @JsonKey(includeToJson: false, includeFromJson: false)
       List<Student> students,
       @JsonKey(includeToJson: false, includeFromJson: false)
-      ClassRoom? classRoom}) = _$EventImpl;
-  _Event._() : super._();
-
-  factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
+      ClassRoom? classRoom});
 
   @override
-  int? get id;
-  set id(int? value);
-  @override
-  int? get parentId;
-  set parentId(int? value);
-  @override
-  String get name;
-  set name(String value);
-  @override
-  @DateTimeConverter()
-  DateTime get startTime;
-  @DateTimeConverter()
-  set startTime(DateTime value);
-  @override
-  @DateTimeConverter()
-  DateTime get endTime;
-  @DateTimeConverter()
-  set endTime(DateTime value);
-  @override
-  EventType get type;
-  set type(EventType value);
-  @override
-  AlertType get alert;
-  set alert(AlertType value);
-  @override
-  RepeatType get repeat;
-  set repeat(RepeatType value);
-  @override
-  String? get location;
-  set location(String? value);
-  @override
-  int? get classId;
-  set classId(int? value);
-  @override
-  @ListIntConverter()
-  List<int> get invitedIds;
-  @ListIntConverter()
-  set invitedIds(List<int> value);
-  @override
-  @ListIntConverter()
-  List<int> get joinedIds;
-  @ListIntConverter()
-  set joinedIds(List<int> value);
-  @override
-  @BoolConverter()
-  bool get isActive;
-  @BoolConverter()
-  set isActive(bool value);
-  @override
-  String? get note;
-  set note(String? value);
-  @override
-  @JsonKey(includeToJson: false, includeFromJson: false)
-  List<Student> get students;
-  @JsonKey(includeToJson: false, includeFromJson: false)
-  set students(List<Student> value);
-  @override
-  @JsonKey(includeToJson: false, includeFromJson: false)
-  ClassRoom? get classRoom;
-  @JsonKey(includeToJson: false, includeFromJson: false)
-  set classRoom(ClassRoom? value);
-  @override
-  @JsonKey(ignore: true)
-  _$$EventImplCopyWith<_$EventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ClassRoomCopyWith<$Res>? get classRoom;
 }
+
+/// @nodoc
+class __$EventCopyWithImpl<$Res> implements _$EventCopyWith<$Res> {
+  __$EventCopyWithImpl(this._self, this._then);
+
+  final _Event _self;
+  final $Res Function(_Event) _then;
+
+  /// Create a copy of Event
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = freezed,
+    Object? parentId = freezed,
+    Object? name = null,
+    Object? startTime = null,
+    Object? endTime = null,
+    Object? type = null,
+    Object? alert = null,
+    Object? repeat = null,
+    Object? location = freezed,
+    Object? classId = freezed,
+    Object? invitedIds = null,
+    Object? joinedIds = null,
+    Object? isActive = null,
+    Object? note = freezed,
+    Object? students = null,
+    Object? classRoom = freezed,
+  }) {
+    return _then(_Event(
+      id: freezed == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      parentId: freezed == parentId
+          ? _self.parentId
+          : parentId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      startTime: null == startTime
+          ? _self.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endTime: null == endTime
+          ? _self.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as EventType,
+      alert: null == alert
+          ? _self.alert
+          : alert // ignore: cast_nullable_to_non_nullable
+              as AlertType,
+      repeat: null == repeat
+          ? _self.repeat
+          : repeat // ignore: cast_nullable_to_non_nullable
+              as RepeatType,
+      location: freezed == location
+          ? _self.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      classId: freezed == classId
+          ? _self.classId
+          : classId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      invitedIds: null == invitedIds
+          ? _self.invitedIds
+          : invitedIds // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      joinedIds: null == joinedIds
+          ? _self.joinedIds
+          : joinedIds // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      isActive: null == isActive
+          ? _self.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      note: freezed == note
+          ? _self.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as String?,
+      students: null == students
+          ? _self.students
+          : students // ignore: cast_nullable_to_non_nullable
+              as List<Student>,
+      classRoom: freezed == classRoom
+          ? _self.classRoom
+          : classRoom // ignore: cast_nullable_to_non_nullable
+              as ClassRoom?,
+    ));
+  }
+
+  /// Create a copy of Event
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ClassRoomCopyWith<$Res>? get classRoom {
+    if (_self.classRoom == null) {
+      return null;
+    }
+
+    return $ClassRoomCopyWith<$Res>(_self.classRoom!, (value) {
+      return _then(_self.copyWith(classRoom: value));
+    });
+  }
+}
+
+// dart format on

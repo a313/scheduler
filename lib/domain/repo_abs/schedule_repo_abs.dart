@@ -1,4 +1,4 @@
-import 'package:scheduler/core/usecase/data_state.dart';
+import 'package:aio/core/usecase/data_state.dart';
 
 import '../../data/models/schedule.dart';
 

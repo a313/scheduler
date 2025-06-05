@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:scheduler/core/utils/util.dart';
+import 'package:aio/core/utils/util.dart';
 
 class ObscureWidget extends StatelessWidget {
   const ObscureWidget({

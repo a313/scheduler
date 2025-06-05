@@ -1,11 +1,11 @@
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/event.dart';
+import 'package:aio/domain/usecases/event_usecases.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/event.dart';
-import 'package:scheduler/domain/usecases/event_usecases.dart';
 
 import '../events/components/event_bottomsheet.dart';
 

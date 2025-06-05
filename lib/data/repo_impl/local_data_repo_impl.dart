@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:scheduler/data/models/weatherbit.dart';
-import 'package:scheduler/domain/repo_abs/local_data_repo_abs.dart';
+import 'package:aio/data/models/weatherbit.dart';
+import 'package:aio/domain/repo_abs/local_data_repo_abs.dart';
 
 class LocalDataImpl extends LocalDataRepo {
   final GetStorage _;

@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 import '../../widgets/loading_indicator.dart';
 import '../../widgets/popups/one_option_popup.dart';
@@ -100,6 +100,7 @@ mixin BaseCommonWidgets {
               style: AppFonts.h500.copyWith(color: textColor, height: 1)),
       messageText: Text(
         message,
+        textScaler: const TextScaler.linear(1),
         style: AppFonts.bSmall.copyWith(color: textColor, height: 1),
       ),
       mainButton: IconButton(

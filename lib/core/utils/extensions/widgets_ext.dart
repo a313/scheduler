@@ -18,9 +18,7 @@ extension WidgetExt on Widget {
 
   Widget disable({bool isDisable = true}) {
     if (isDisable) {
-      return ColorFiltered(
-          colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.color),
-          child: this);
+      return Opacity(opacity: 0.3, child: this);
     } else {
       return this;
     }

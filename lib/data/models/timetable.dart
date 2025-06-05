@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:scheduler/core/utils/util.dart';
 
 import '../../core/converters.dart';
 
@@ -8,7 +7,7 @@ part 'timetable.freezed.dart';
 part 'timetable.g.dart';
 
 @unfreezed
-class Timetable with _$Timetable {
+sealed class Timetable with _$Timetable {
   const Timetable._();
   factory Timetable({
     @TimeOfDayConverter() required TimeOfDay begin,

@@ -14,7 +14,7 @@ VideoInfo videoInfoFromJson(String str) => VideoInfo.fromJson(json.decode(str));
 String videoInfoToJson(VideoInfo data) => json.encode(data.toJson());
 
 @freezed
-class VideoInfo with _$VideoInfo {
+sealed class VideoInfo with _$VideoInfo {
   const factory VideoInfo({
     String? creator,
     List<Mp3>? mp4,
@@ -29,7 +29,7 @@ class VideoInfo with _$VideoInfo {
 }
 
 @freezed
-class Mp3 with _$Mp3 {
+sealed class Mp3 with _$Mp3 {
   const factory Mp3({
     required String mimeType,
     required String? qualityLabel,
@@ -69,7 +69,7 @@ class Mp3 with _$Mp3 {
 }
 
 @freezed
-class ColorInfo with _$ColorInfo {
+sealed class ColorInfo with _$ColorInfo {
   const factory ColorInfo({
     required Primaries primaries,
     required TransferCharacteristics transferCharacteristics,
@@ -105,7 +105,7 @@ final containerValues =
     EnumValues({"mp4": Container.MP4, "webm": Container.WEBM});
 
 @freezed
-class Range with _$Range {
+sealed class Range with _$Range {
   const factory Range({
     required String start,
     required String end,

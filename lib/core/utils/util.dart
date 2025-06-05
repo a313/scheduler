@@ -6,14 +6,14 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/reminder.dart';
-import 'package:scheduler/data/models/schedule.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/domain/usecases/class_room_usecases.dart';
-import 'package:scheduler/domain/usecases/reminder_usecases.dart';
-import 'package:scheduler/domain/usecases/student_usecases.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/data/models/reminder.dart';
+import 'package:aio/data/models/schedule.dart';
+import 'package:aio/data/models/student.dart';
+import 'package:aio/domain/usecases/class_room_usecases.dart';
+import 'package:aio/domain/usecases/reminder_usecases.dart';
+import 'package:aio/domain/usecases/student_usecases.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'helper/sql_helper.dart';
@@ -39,6 +39,11 @@ export 'extensions/string.dart';
 export 'extensions/string_nullsafety.dart';
 export 'extensions/widgets_ext.dart';
 export 'helper/helper.dart';
+
+bool get isDesktop =>
+    Platform.isMacOS || Platform.isWindows || Platform.isLinux;
+
+bool get isMobile => Platform.isAndroid || Platform.isIOS;
 
 extension ListExt on List {
   void addSeparated({required Function(int index) separated}) {

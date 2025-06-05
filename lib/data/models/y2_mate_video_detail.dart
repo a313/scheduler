@@ -18,7 +18,7 @@ extension Y2MateExt on Y2MateVideoDetail {
 }
 
 @freezed
-class Y2MateVideoDetail with _$Y2MateVideoDetail {
+sealed class Y2MateVideoDetail with _$Y2MateVideoDetail {
   const factory Y2MateVideoDetail({
     required String status,
     required String mess,
@@ -47,7 +47,7 @@ class Y2MateVideoDetail with _$Y2MateVideoDetail {
 }
 
 @freezed
-class Links with _$Links {
+sealed class Links with _$Links {
   const factory Links({
     Map<String, ItemDetail>? mp4,
     Map<String, ItemDetail>? mp3,
@@ -58,7 +58,7 @@ class Links with _$Links {
 }
 
 @freezed
-class ItemDetail with _$ItemDetail {
+sealed class ItemDetail with _$ItemDetail {
   const factory ItemDetail({
     required String size,
     required String f,

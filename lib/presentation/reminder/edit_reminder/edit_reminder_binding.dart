@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:scheduler/data/models/reminder.dart';
+import 'package:aio/data/models/reminder.dart';
 
 import 'edit_reminder_controller.dart';
 

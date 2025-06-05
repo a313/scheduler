@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/widgets/ratio_field.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/widgets/ratio_field.dart';
 
 import '../../../../theme/app_fonts.dart';
 

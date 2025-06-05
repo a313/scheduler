@@ -1,7 +1,7 @@
 import 'dart:developer';
 
+import 'package:aio/domain/repo_abs/notification_repo_abs.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:scheduler/domain/repo_abs/notification_repo_abs.dart';
 import 'package:timezone/timezone.dart';
 
 class NotificationRepoImpl extends NotificationRepo {
@@ -37,8 +37,13 @@ class NotificationRepoImpl extends NotificationRepo {
         sound: RawResourceAndroidNotificationSound('assets/sound/meoi.mp4'),
       ),
     );
-    _.zonedSchedule(id, title, desc, TZDateTime.from(time.toUtc(), UTC), detail,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime);
+    _.zonedSchedule(
+      id,
+      title,
+      desc,
+      TZDateTime.from(time.toUtc(), UTC),
+      detail,
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+    );
   }
 }

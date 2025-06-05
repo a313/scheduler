@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
+import 'package:aio/widgets/custom_divider.dart';
 
 import '../base/base_bottom_sheet.dart';
 import '../base/base_button.dart';

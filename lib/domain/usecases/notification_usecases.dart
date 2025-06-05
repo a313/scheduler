@@ -1,4 +1,4 @@
-import 'package:scheduler/data/models/event.dart';
+import 'package:aio/data/models/event.dart';
 
 import '../../core/utils/util.dart';
 import '../repo_abs/notification_repo_abs.dart';

@@ -1,15 +1,15 @@
 import 'dart:developer';
 
+import 'package:aio/core/manager/event_tracking.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/data/models/student.dart';
+import 'package:aio/presentation/students/base_student_controller.dart';
+import 'package:aio/presentation/students/student_event.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/manager/event_tracking.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/presentation/students/base_student_controller.dart';
-import 'package:scheduler/presentation/students/student_event.dart';
 
 import '../../../widgets/popups/two_option_popup.dart';
 
@@ -181,7 +181,9 @@ class EditStudentController extends BaseStudentController
     if (initData == null) return true;
     if (!listEquals(initData.classId, data.classId)) return true;
     if (initData.isFollow != data.isFollow ||
-        initData.beginStudy != data.beginStudy) return true;
+        initData.beginStudy != data.beginStudy) {
+      return true;
+    }
     return false;
   }
 }

@@ -16,11 +16,20 @@ const ocrPage = 'OCR_PAGE';
 const vpnPage = 'VPN_PAGE';
 const musicPlayerPage = 'MUSIC_PLAYER_PAGE';
 const musicDownloaderPage = 'MUSIC_DOWNLOADER_PAGE';
+const lunarPage = 'LUNAR_PAGE';
 
 class Feature {
   final String key;
   final Widget page;
-  final BottomNavigationBarItem item;
+  final Widget icon;
+  final Widget activeIcon;
+  final String label;
 
-  Feature({required this.page, required this.item, required this.key});
+  Feature({
+    required this.page,
+    required this.key,
+  required  this.icon,
+   required this.activeIcon,
+   required this.label,
+  });
 }

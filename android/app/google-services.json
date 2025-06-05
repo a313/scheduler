@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "289109535313",
+    "project_id": "allinone-71666",
+    "storage_bucket": "allinone-71666.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289109535313:android:c7986ee8397becbb6c6670",
+        "android_client_info": {
+          "package_name": "com.example.aio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBqjAupE1gVggrpIEc1blNckOsHqx4uQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

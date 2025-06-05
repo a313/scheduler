@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/usecases/local_usecase.dart';
-import 'package:scheduler/lang/languages.dart';
-import 'package:scheduler/routes/pages.dart';
-import 'package:scheduler/routes/routes.dart';
-import 'package:scheduler/theme/app_theme.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/usecases/local_usecase.dart';
+import 'package:aio/lang/languages.dart';
+import 'package:aio/routes/pages.dart';
+import 'package:aio/routes/routes.dart';
+import 'package:aio/theme/app_theme.dart';
 
 class MainApp extends StatefulWidget {
   const MainApp({super.key});

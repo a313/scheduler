@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/domain/usecases/event_usecases.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/student.dart';
+import 'package:aio/domain/usecases/event_usecases.dart';
 
 import '../../data/models/event.dart';
 import '../../domain/usecases/class_room_usecases.dart';

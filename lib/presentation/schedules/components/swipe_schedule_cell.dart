@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
-import 'package:scheduler/data/models/schedule.dart';
-import 'package:scheduler/presentation/schedules/components/schedule_item.dart';
+import 'package:aio/data/models/schedule.dart';
+import 'package:aio/presentation/schedules/components/schedule_item.dart';
 
 class SwipeScheduleCell extends StatelessWidget {
   const SwipeScheduleCell({

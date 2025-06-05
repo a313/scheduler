@@ -15,7 +15,7 @@ class EditSchedulePage extends GetView<EditScheduleController> {
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
     final data = controller.data;
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: isEdit ? 'Edit Schedule'.tr : 'Add Schedule'.tr,
         body: Column(children: [
           Expanded(

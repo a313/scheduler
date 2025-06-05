@@ -1,21 +1,19 @@
+import 'package:aio/core/manager/event_tracking.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/event.dart';
+import 'package:aio/data/models/weatherbit.dart';
+import 'package:aio/domain/usecases/class_room_usecases.dart';
+import 'package:aio/domain/usecases/event_usecases.dart';
+import 'package:aio/domain/usecases/notification_usecases.dart';
+import 'package:aio/domain/usecases/reminder_usecases.dart';
+import 'package:aio/domain/usecases/student_usecases.dart';
+import 'package:aio/presentation/events/components/event_bottomsheet.dart';
+import 'package:aio/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:scheduler/core/manager/event_tracking.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/event.dart';
-import 'package:scheduler/data/models/weatherbit.dart';
-import 'package:scheduler/domain/usecases/class_room_usecases.dart';
-import 'package:scheduler/domain/usecases/event_usecases.dart';
-import 'package:scheduler/domain/usecases/notification_usecases.dart';
-import 'package:scheduler/domain/usecases/reminder_usecases.dart';
-import 'package:scheduler/domain/usecases/student_usecases.dart';
-import 'package:scheduler/domain/usecases/weather_usecases.dart';
-import 'package:scheduler/presentation/events/components/event_bottomsheet.dart';
-import 'package:scheduler/routes/routes.dart';
 
 import '../../data/models/class_room.dart';
 import '../../data/models/reminder.dart';
@@ -24,7 +22,7 @@ import 'event_events.dart';
 
 class EventsController extends BaseController with WidgetsBindingObserver {
   EventUseCases useCases = Get.find();
-  WeatherUseCases weatherUseCases = Get.find();
+  // WeatherUseCases weatherUseCases = Get.find();
   NotificationUseCases notiUseCases = Get.find();
   ClassRoomUseCases classRoomUseCases = Get.find();
   ReminderUseCases reminderUseCases = Get.find();
@@ -90,13 +88,13 @@ class EventsController extends BaseController with WidgetsBindingObserver {
   }
 
   Future<void> getWeather() async {
-    Position? currentPosition = await getCurrentPosition();
-    if (currentPosition == null) return;
-    final result = await weatherUseCases.getForecastSummary(currentPosition);
-    if (result is DataSuccess<Forecast>) {
-      weather = result.data;
-      updateUI();
-    }
+    // Position? currentPosition = await getCurrentPosition();
+    // if (currentPosition == null) return;
+    // final result = await weatherUseCases.getForecastSummary(currentPosition);
+    // if (result is DataSuccess<Forecast>) {
+    //   weather = result.data;
+    //   updateUI();
+    // }
   }
 
   Future<void> getClassRooms() async {

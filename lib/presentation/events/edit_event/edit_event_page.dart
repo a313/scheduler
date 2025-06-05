@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/presentation/students/components/multi_select_student_cell.dart';
-import 'package:scheduler/theme/app_fonts.dart';
-import 'package:scheduler/widgets/base/base_button.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/base/base_select_field.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/data/models/student.dart';
+import 'package:aio/presentation/students/components/multi_select_student_cell.dart';
+import 'package:aio/theme/app_fonts.dart';
+import 'package:aio/widgets/base/base_button.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/widgets/base/base_select_field.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../widgets/base/base_input.dart';
@@ -20,10 +20,10 @@ class EditEventPage extends GetView<EditEventController> {
   @override
   Widget build(BuildContext context) {
     final isEdit = controller.initData != null;
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: isEdit ? 'Edit event'.tr : 'New event'.tr,
         onTappedScene: controller.hideKeyboard,
-        onWillPop: controller.onWillPop,
+        onPopInvoked: controller.onWillPop,
         actions: isEdit
             ? [
                 TextButton(

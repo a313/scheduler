@@ -7,8 +7,8 @@ class LoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => Future.value(false),
+    return PopScope(
+      canPop: false,
       child: Center(
         child: Container(
             padding: const EdgeInsets.all(16.0),

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:scheduler/widgets/shimmer/shimmer_avatar.dart';
+import 'package:aio/widgets/shimmer/shimmer_avatar.dart';
 
 class UserAvatar extends StatelessWidget {
   final String? url;

@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/y2_mate_download_link.dart';
-import 'package:scheduler/data/models/y2_mate_video_detail.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/y2_mate_download_link.dart';
+import 'package:aio/data/models/y2_mate_video_detail.dart';
 
 abstract class MusicRepo {
   Future<DataState<Y2MateVideoDetail>> getVideoYoutubeInfo(String url);

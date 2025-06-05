@@ -1,4 +1,4 @@
-import 'package:scheduler/data/models/class_room.dart';
+import 'package:aio/data/models/class_room.dart';
 
 import '../../core/usecase/data_state.dart';
 

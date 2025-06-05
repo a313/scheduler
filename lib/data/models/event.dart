@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:scheduler/core/converters.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/class_room.dart';
+import 'package:aio/core/converters.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/class_room.dart';
 
 import 'student.dart';
 
@@ -11,7 +11,7 @@ part 'event.freezed.dart';
 part 'event.g.dart';
 
 @unfreezed
-class Event with _$Event {
+sealed class Event with _$Event {
   const Event._();
   factory Event({
     int? id,

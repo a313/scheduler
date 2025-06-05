@@ -1,7 +1,7 @@
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/datasource/class_room_db.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/domain/repo_abs/class_room_repo_abs.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/sqlite_db/class_room_db.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/domain/repo_abs/class_room_repo_abs.dart';
 
 import '../../core/utils/util.dart';
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/state_management/base_controller.dart';
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/models/schedule.dart';
-import 'package:scheduler/data/models/timetable.dart';
-import 'package:scheduler/domain/usecases/schedule_usecases.dart';
+import 'package:aio/core/state_management/base_controller.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/schedule.dart';
+import 'package:aio/data/models/timetable.dart';
+import 'package:aio/domain/usecases/schedule_usecases.dart';
 
 class EditTimetableController extends BaseController
     with StateMixin<List<Schedule>> {

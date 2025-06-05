@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
+import 'package:aio/core/utils/util.dart';
 
 import '../../core/state_management/base_common_widget.dart';
 import '../bottomsheets/date_picker_bottomsheet.dart';

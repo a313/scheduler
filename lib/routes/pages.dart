@@ -1,27 +1,18 @@
+import 'package:aio/presentation/class_room/class_room_binding.dart';
+import 'package:aio/presentation/events/events_binding.dart';
+import 'package:aio/presentation/hex_to_link/hex_to_link_binding.dart';
+import 'package:aio/presentation/lunar/lunar_binding.dart';
+import 'package:aio/presentation/periods/periods_binding.dart';
+import 'package:aio/presentation/reminder/reminder_binding.dart';
+import 'package:aio/presentation/report/report_binding.dart';
+import 'package:aio/presentation/schedules/edit_schedule/edit_schedule_binding.dart';
+import 'package:aio/presentation/schedules/edit_schedule/edit_schedule_page.dart';
+import 'package:aio/presentation/schedules/schedules_binding.dart';
+import 'package:aio/presentation/schedules/schedules_page.dart';
+import 'package:aio/presentation/setting/setting_binding.dart';
+import 'package:aio/presentation/students/students_binding.dart';
+import 'package:aio/presentation/timetables/timetables_binding.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/presentation/class_room/class_room_binding.dart';
-import 'package:scheduler/presentation/events/events_binding.dart';
-import 'package:scheduler/presentation/hex_to_link/hex_to_link_binding.dart';
-import 'package:scheduler/presentation/music_downloader/music_downloader_binding.dart';
-import 'package:scheduler/presentation/music_downloader/music_downloading/music_downloading_binding.dart';
-import 'package:scheduler/presentation/music_downloader/music_downloading/music_downloading_page.dart';
-import 'package:scheduler/presentation/music_player/music_player_binding.dart';
-import 'package:scheduler/presentation/ocr/ocr_binding.dart';
-import 'package:scheduler/presentation/ocr/ocr_detail/ocr_detail_binding.dart';
-import 'package:scheduler/presentation/ocr/ocr_detail/ocr_detail_page.dart';
-import 'package:scheduler/presentation/periods/periods_binding.dart';
-import 'package:scheduler/presentation/qrcode/qrcode_binding.dart';
-import 'package:scheduler/presentation/reminder/reminder_binding.dart';
-import 'package:scheduler/presentation/report/report_binding.dart';
-import 'package:scheduler/presentation/schedules/edit_schedule/edit_schedule_binding.dart';
-import 'package:scheduler/presentation/schedules/edit_schedule/edit_schedule_page.dart';
-import 'package:scheduler/presentation/schedules/schedules_binding.dart';
-import 'package:scheduler/presentation/schedules/schedules_page.dart';
-import 'package:scheduler/presentation/setting/setting_binding.dart';
-import 'package:scheduler/presentation/students/students_binding.dart';
-import 'package:scheduler/presentation/timetables/timetables_binding.dart';
-import 'package:scheduler/presentation/vpn/vpn_binding.dart';
-import 'package:scheduler/presentation/weather/weather_binding.dart';
 
 import '../presentation/class_room/edit_class_room/edit_class_room_binding.dart';
 import '../presentation/class_room/edit_class_room/edit_class_room_page.dart';
@@ -31,8 +22,6 @@ import '../presentation/events/edit_event/edit_event_binding.dart';
 import '../presentation/events/edit_event/edit_event_page.dart';
 import '../presentation/home/home_binding.dart';
 import '../presentation/home/home_page.dart';
-import '../presentation/ocr/ocr_confirm/ocr_confirm_binding.dart';
-import '../presentation/ocr/ocr_confirm/ocr_confirm_page.dart';
 import '../presentation/onboarding/onboarding_binding.dart';
 import '../presentation/onboarding/onboarding_page.dart';
 import '../presentation/reminder/edit_reminder/edit_reminder_binding.dart';
@@ -61,13 +50,8 @@ class AppPages {
         StudentsBinding(),
         TimetablesBinding(),
         SettingBinding(),
-        WeatherBinding(),
         PeriodsBinding(),
-        QrcodeBinding(),
-        OcrBinding(),
-        VpnBinding(),
-        MusicPlayerBinding(),
-        MusicDownloaderBinding(),
+        LunarBinding(),
       ],
     ),
     GetPage(
@@ -104,21 +88,6 @@ class AppPages {
       name: Routes.editSchedule,
       page: () => const EditSchedulePage(),
       binding: EditScheduleBinding(),
-    ),
-    GetPage(
-      name: Routes.ocrDetail,
-      page: () => const OcrDetailPage(),
-      binding: OcrDetailBinding(),
-    ),
-    GetPage(
-      name: Routes.ocrConfirm,
-      page: () => const OcrConfirmPage(),
-      binding: OcrConfirmBinding(),
-    ),
-    GetPage(
-      name: Routes.musicDownloading,
-      page: () => const MusicDownloadingPage(),
-      binding: MusicDownloadingBinding(),
     ),
   ];
 }

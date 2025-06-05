@@ -1,6 +1,6 @@
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/student.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/student.dart';
 
 import '../../../theme/app_fonts.dart';
 import '../../../widgets/local_avatar.dart';
@@ -31,7 +31,7 @@ class SwitchStudentCell extends StatelessWidget {
                 transformHitTests: false,
                 scale: .85,
                 child: CupertinoSwitch(
-                  activeColor:
+                  activeTrackColor:
                       enable ? context.primaryDark : context.disableColor,
                   value: switchValue,
                   onChanged: onChanged,

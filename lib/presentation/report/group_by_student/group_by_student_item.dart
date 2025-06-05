@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/event.dart';
-import 'package:scheduler/widgets/local_avatar.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/data/models/event.dart';
+import 'package:aio/widgets/local_avatar.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../theme/app_fonts.dart';

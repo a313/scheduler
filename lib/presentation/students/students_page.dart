@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/swipe_action_data.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
-import 'package:scheduler/widgets/shimmer/shimmer_list.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/entities/swipe_action_data.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/widgets/shimmer/shimmer_list.dart';
 
 import 'components/student_component.dart';
 import 'students_controller.dart';
@@ -14,7 +14,7 @@ class StudentsPage extends GetView<StudentsController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       title: 'Student'.tr,
       fab: FloatingActionButton(
         heroTag: runtimeType,

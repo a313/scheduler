@@ -1,6 +1,6 @@
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/datasource/schedule_db.dart';
-import 'package:scheduler/data/models/schedule.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/models/schedule.dart';
+import 'package:aio/data/sqlite_db/schedule_db.dart';
 
 import '../../core/utils/util.dart';
 import '../../domain/repo_abs/schedule_repo_abs.dart';

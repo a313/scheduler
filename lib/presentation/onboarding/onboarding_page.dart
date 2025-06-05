@@ -1,8 +1,8 @@
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/theme/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
 
 import '../../widgets/animations/circle_progress_bar.dart';
 import 'onboarding_controller.dart';
@@ -60,7 +60,7 @@ class OnboardingPage extends GetView<OnboardingController> {
                       width: 44,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: context.primaryDark.withOpacity(0.5),
+                        color: context.primaryDark.withAlpha(125),
                       ),
                       child: IconButton(
                         onPressed: controller.onNext,

@@ -1,10 +1,10 @@
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/student.dart';
+import 'package:aio/theme/app_fonts.dart';
+import 'package:aio/widgets/base/base_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/theme/app_fonts.dart';
-import 'package:scheduler/widgets/base/base_button.dart';
 
 import '../../../data/models/event.dart';
 import '../../../widgets/base/base_bottom_sheet.dart';
@@ -51,7 +51,7 @@ class _EventBottomSheetState extends State<EventBottomSheet> {
             ),
             sizedBoxW08,
             CupertinoSwitch(
-              activeColor: context.primaryDark,
+              activeTrackColor: context.primaryDark,
               value: isActive,
               onChanged: (value) {
                 setState(() {

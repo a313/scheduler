@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 class BaseButton extends StatelessWidget {
   final WidgetBuilder builder;
@@ -74,6 +74,7 @@ class BaseButton extends StatelessWidget {
                         ),
                         onPressed: onLeftPressed,
                         child: Text(leftTitle,
+                            textScaler: const TextScaler.linear(1),
                             maxLines: 1,
                             style: AppFonts.h400.copyWith(
                                 color: context.primaryDark, height: 1)),
@@ -94,6 +95,7 @@ class BaseButton extends StatelessWidget {
                         ),
                         onPressed: onRightPressed,
                         child: Text(rightTitle,
+                            textScaler: const TextScaler.linear(1),
                             maxLines: 1,
                             style: AppFonts.h400.copyWith(
                                 color: context.neutral100, height: 1)),
@@ -240,7 +242,10 @@ class PrimaryButton extends StatelessWidget {
         elevation: 0,
       ),
       onPressed: onPressed,
-      child: Text(title, maxLines: 1, style: textStyle),
+      child: Text(title,
+          textScaler: const TextScaler.linear(1),
+          maxLines: 1,
+          style: textStyle),
     );
   }
 }
@@ -270,7 +275,10 @@ class SecondaryButton extends StatelessWidget {
         elevation: 0,
       ),
       onPressed: onPressed,
-      child: Text(title, maxLines: 1, style: textStyle),
+      child: Text(title,
+          textScaler: const TextScaler.linear(1),
+          maxLines: 1,
+          style: textStyle),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/data/models/report_for_student.dart';
+import 'package:aio/data/models/report_for_student.dart';
 
 import '../../../core/utils/util.dart';
 import '../../../theme/app_fonts.dart';

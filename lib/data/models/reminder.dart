@@ -1,6 +1,6 @@
+import 'package:aio/core/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:scheduler/core/utils/util.dart';
 
 import '../../core/converters.dart';
 
@@ -8,7 +8,7 @@ part 'reminder.freezed.dart';
 part 'reminder.g.dart';
 
 @unfreezed
-class Reminder with _$Reminder {
+sealed class Reminder with _$Reminder {
   const Reminder._();
 
   factory Reminder({

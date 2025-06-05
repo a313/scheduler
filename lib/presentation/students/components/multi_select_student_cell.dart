@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/presentation/students/components/compact_student_item.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/student.dart';
+import 'package:aio/presentation/students/components/compact_student_item.dart';
 
 class MultiSelectStudentCell extends StatelessWidget {
   const MultiSelectStudentCell(

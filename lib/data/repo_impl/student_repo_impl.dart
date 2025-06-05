@@ -1,7 +1,7 @@
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/data/datasource/student_db.dart';
-import 'package:scheduler/data/models/student.dart';
-import 'package:scheduler/domain/repo_abs/student_repo_abs.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/data/sqlite_db/student_db.dart';
+import 'package:aio/data/models/student.dart';
+import 'package:aio/domain/repo_abs/student_repo_abs.dart';
 
 import '../../core/utils/util.dart';
 

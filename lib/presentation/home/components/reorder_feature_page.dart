@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/domain/entities/feature.dart';
-import 'package:scheduler/theme/app_fonts.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/domain/entities/feature.dart';
+import 'package:aio/theme/app_fonts.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
 
 import '../../../widgets/custom_divider.dart';
 
@@ -51,9 +51,9 @@ class _ReorderFeaturePageState extends State<ReorderFeaturePage> {
       );
     }
 
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
       title: 'Reorder Features'.tr,
-      onWillPop: () async {
+      onPopInvoked: () async {
         Get.back(result: [
           items.take(pinCount).toList(),
           items.sublist(pinCount),
@@ -72,8 +72,8 @@ class _ReorderFeaturePageState extends State<ReorderFeaturePage> {
           var realIndex = index;
           if (index > pinCount) realIndex = index - 1;
           final obj = items[realIndex];
-          final label = obj.item.label!;
-          final icon = obj.item.icon;
+          final label = obj.label;
+          final icon = obj.icon;
           final isPin = index < pinCount;
           if (isPin && pinCount == 1) {
             return AloneItem(

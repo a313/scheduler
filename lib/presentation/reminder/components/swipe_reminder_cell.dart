@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
-import 'package:scheduler/data/models/reminder.dart';
-import 'package:scheduler/presentation/reminder/components/reminder_item.dart';
+import 'package:aio/data/models/reminder.dart';
+import 'package:aio/presentation/reminder/components/reminder_item.dart';
 
 class SwipeReminderCell extends StatelessWidget {
   const SwipeReminderCell({

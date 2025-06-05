@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/theme/app_fonts.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/theme/app_fonts.dart';
 
 import '../base/base_bottom_sheet.dart';
 import '../base/base_button.dart';

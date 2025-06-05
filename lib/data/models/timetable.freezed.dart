@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,86 +10,42 @@ part of 'timetable.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Timetable _$TimetableFromJson(Map<String, dynamic> json) {
-  return _Timetable.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Timetable {
   @TimeOfDayConverter()
-  TimeOfDay get begin => throw _privateConstructorUsedError;
+  TimeOfDay get begin;
   @TimeOfDayConverter()
-  set begin(TimeOfDay value) => throw _privateConstructorUsedError;
+  set begin(TimeOfDay value);
   @TimeOfDayConverter()
-  TimeOfDay get end => throw _privateConstructorUsedError;
+  TimeOfDay get end;
   @TimeOfDayConverter()
-  set end(TimeOfDay value) => throw _privateConstructorUsedError;
-  int get dayInWeek => throw _privateConstructorUsedError;
-  set dayInWeek(int value) => throw _privateConstructorUsedError;
+  set end(TimeOfDay value);
+  int get dayInWeek;
+  set dayInWeek(int value);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TimetableCopyWith<Timetable> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TimetableCopyWith<$Res> {
-  factory $TimetableCopyWith(Timetable value, $Res Function(Timetable) then) =
-      _$TimetableCopyWithImpl<$Res, Timetable>;
-  @useResult
-  $Res call(
-      {@TimeOfDayConverter() TimeOfDay begin,
-      @TimeOfDayConverter() TimeOfDay end,
-      int dayInWeek});
-}
-
-/// @nodoc
-class _$TimetableCopyWithImpl<$Res, $Val extends Timetable>
-    implements $TimetableCopyWith<$Res> {
-  _$TimetableCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of Timetable
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $TimetableCopyWith<Timetable> get copyWith =>
+      _$TimetableCopyWithImpl<Timetable>(this as Timetable, _$identity);
+
+  /// Serializes this Timetable to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? begin = null,
-    Object? end = null,
-    Object? dayInWeek = null,
-  }) {
-    return _then(_value.copyWith(
-      begin: null == begin
-          ? _value.begin
-          : begin // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
-      end: null == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
-      dayInWeek: null == dayInWeek
-          ? _value.dayInWeek
-          : dayInWeek // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+  String toString() {
+    return 'Timetable(begin: $begin, end: $end, dayInWeek: $dayInWeek)';
   }
 }
 
 /// @nodoc
-abstract class _$$TimetableImplCopyWith<$Res>
-    implements $TimetableCopyWith<$Res> {
-  factory _$$TimetableImplCopyWith(
-          _$TimetableImpl value, $Res Function(_$TimetableImpl) then) =
-      __$$TimetableImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $TimetableCopyWith<$Res> {
+  factory $TimetableCopyWith(Timetable value, $Res Function(Timetable) _then) =
+      _$TimetableCopyWithImpl;
   @useResult
   $Res call(
       {@TimeOfDayConverter() TimeOfDay begin,
@@ -97,13 +54,14 @@ abstract class _$$TimetableImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TimetableImplCopyWithImpl<$Res>
-    extends _$TimetableCopyWithImpl<$Res, _$TimetableImpl>
-    implements _$$TimetableImplCopyWith<$Res> {
-  __$$TimetableImplCopyWithImpl(
-      _$TimetableImpl _value, $Res Function(_$TimetableImpl) _then)
-      : super(_value, _then);
+class _$TimetableCopyWithImpl<$Res> implements $TimetableCopyWith<$Res> {
+  _$TimetableCopyWithImpl(this._self, this._then);
 
+  final Timetable _self;
+  final $Res Function(Timetable) _then;
+
+  /// Create a copy of Timetable
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -111,17 +69,17 @@ class __$$TimetableImplCopyWithImpl<$Res>
     Object? end = null,
     Object? dayInWeek = null,
   }) {
-    return _then(_$TimetableImpl(
+    return _then(_self.copyWith(
       begin: null == begin
-          ? _value.begin
+          ? _self.begin
           : begin // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
       end: null == end
-          ? _value.end
+          ? _self.end
           : end // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
       dayInWeek: null == dayInWeek
-          ? _value.dayInWeek
+          ? _self.dayInWeek
           : dayInWeek // ignore: cast_nullable_to_non_nullable
               as int,
     ));
@@ -130,15 +88,14 @@ class __$$TimetableImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TimetableImpl extends _Timetable {
-  _$TimetableImpl(
+class _Timetable extends Timetable {
+  _Timetable(
       {@TimeOfDayConverter() required this.begin,
       @TimeOfDayConverter() required this.end,
       required this.dayInWeek})
       : super._();
-
-  factory _$TimetableImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TimetableImplFromJson(json);
+  factory _Timetable.fromJson(Map<String, dynamic> json) =>
+      _$TimetableFromJson(json);
 
   @override
   @TimeOfDayConverter()
@@ -149,50 +106,72 @@ class _$TimetableImpl extends _Timetable {
   @override
   int dayInWeek;
 
+  /// Create a copy of Timetable
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TimetableCopyWith<_Timetable> get copyWith =>
+      __$TimetableCopyWithImpl<_Timetable>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TimetableToJson(
+      this,
+    );
+  }
+
   @override
   String toString() {
     return 'Timetable(begin: $begin, end: $end, dayInWeek: $dayInWeek)';
   }
+}
 
-  @JsonKey(ignore: true)
+/// @nodoc
+abstract mixin class _$TimetableCopyWith<$Res>
+    implements $TimetableCopyWith<$Res> {
+  factory _$TimetableCopyWith(
+          _Timetable value, $Res Function(_Timetable) _then) =
+      __$TimetableCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@TimeOfDayConverter() TimeOfDay begin,
+      @TimeOfDayConverter() TimeOfDay end,
+      int dayInWeek});
+}
+
+/// @nodoc
+class __$TimetableCopyWithImpl<$Res> implements _$TimetableCopyWith<$Res> {
+  __$TimetableCopyWithImpl(this._self, this._then);
+
+  final _Timetable _self;
+  final $Res Function(_Timetable) _then;
+
+  /// Create a copy of Timetable
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$TimetableImplCopyWith<_$TimetableImpl> get copyWith =>
-      __$$TimetableImplCopyWithImpl<_$TimetableImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TimetableImplToJson(
-      this,
-    );
+  $Res call({
+    Object? begin = null,
+    Object? end = null,
+    Object? dayInWeek = null,
+  }) {
+    return _then(_Timetable(
+      begin: null == begin
+          ? _self.begin
+          : begin // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      end: null == end
+          ? _self.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      dayInWeek: null == dayInWeek
+          ? _self.dayInWeek
+          : dayInWeek // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
   }
 }
 
-abstract class _Timetable extends Timetable {
-  factory _Timetable(
-      {@TimeOfDayConverter() required TimeOfDay begin,
-      @TimeOfDayConverter() required TimeOfDay end,
-      required int dayInWeek}) = _$TimetableImpl;
-  _Timetable._() : super._();
-
-  factory _Timetable.fromJson(Map<String, dynamic> json) =
-      _$TimetableImpl.fromJson;
-
-  @override
-  @TimeOfDayConverter()
-  TimeOfDay get begin;
-  @TimeOfDayConverter()
-  set begin(TimeOfDay value);
-  @override
-  @TimeOfDayConverter()
-  TimeOfDay get end;
-  @TimeOfDayConverter()
-  set end(TimeOfDay value);
-  @override
-  int get dayInWeek;
-  set dayInWeek(int value);
-  @override
-  @JsonKey(ignore: true)
-  _$$TimetableImplCopyWith<_$TimetableImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

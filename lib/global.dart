@@ -1,6 +1,6 @@
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/data/models/reminder.dart';
-import 'package:scheduler/data/models/student.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/data/models/reminder.dart';
+import 'package:aio/data/models/student.dart';
 
 class Global {
   List<Student> allStudent = [];

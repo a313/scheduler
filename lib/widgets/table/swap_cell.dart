@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/constants/durations.dart';
+import 'package:aio/core/utils/constants/durations.dart';
 
 class SwapCell extends StatelessWidget {
   const SwapCell(

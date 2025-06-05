@@ -1,12 +1,12 @@
 import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
-import 'package:scheduler/core/usecase/data_state.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/datasource/music_service.dart';
-import 'package:scheduler/data/models/y2_mate_download_link.dart';
-import 'package:scheduler/data/models/y2_mate_video_detail.dart';
-import 'package:scheduler/domain/repo_abs/music_repo_abs.dart';
+import 'package:aio/core/usecase/data_state.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/services/music_service.dart';
+import 'package:aio/data/models/y2_mate_download_link.dart';
+import 'package:aio/data/models/y2_mate_video_detail.dart';
+import 'package:aio/domain/repo_abs/music_repo_abs.dart';
 
 class MusicRepoImpl extends MusicRepo {
   final MusicService _;

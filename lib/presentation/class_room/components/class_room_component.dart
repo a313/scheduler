@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
-import 'package:scheduler/data/models/class_room.dart';
-import 'package:scheduler/domain/entities/swipe_action_data.dart';
-import 'package:scheduler/presentation/class_room/components/class_room_cell.dart';
-import 'package:scheduler/presentation/class_room/components/class_room_header.dart';
-import 'package:scheduler/widgets/custom_divider.dart';
+import 'package:aio/data/models/class_room.dart';
+import 'package:aio/domain/entities/swipe_action_data.dart';
+import 'package:aio/presentation/class_room/components/class_room_cell.dart';
+import 'package:aio/presentation/class_room/components/class_room_header.dart';
+import 'package:aio/widgets/custom_divider.dart';
 
 class ClassRoomComponent extends StatelessWidget {
   const ClassRoomComponent({

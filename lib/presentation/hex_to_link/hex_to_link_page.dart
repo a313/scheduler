@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/widgets/base/base_button.dart';
-import 'package:scheduler/widgets/base/base_input.dart';
-import 'package:scheduler/widgets/base/base_scafold_appbar.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/widgets/base/base_button.dart';
+import 'package:aio/widgets/base/base_input.dart';
+import 'package:aio/widgets/base/base_scafold_appbar.dart';
 
 import 'hex_to_link_controller.dart';
 
@@ -12,7 +12,7 @@ class HexToLinkPage extends GetView<HexToLinkController> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScafoldAppBar(
+    return BaseScaffoldAppBar(
         title: 'Hext To Text'.tr,
         onTappedScene: () => Get.focusScope?.unfocus(),
         body: Column(

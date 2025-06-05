@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:scheduler/core/utils/extensions/date_time.dart';
+import 'package:aio/core/utils/extensions/date_time.dart';
 
 import '../../core/converters.dart';
 
@@ -8,7 +8,7 @@ part 'student.freezed.dart';
 part 'student.g.dart';
 
 @unfreezed
-class Student with _$Student {
+sealed class Student with _$Student {
   const Student._();
 
   factory Student({

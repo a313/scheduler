@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/domain/repo_abs/local_data_repo_abs.dart';
+import 'package:aio/domain/repo_abs/local_data_repo_abs.dart';
 
 import '../entities/feature.dart';
 

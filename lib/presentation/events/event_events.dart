@@ -1,6 +1,6 @@
-import 'package:scheduler/core/manager/event_tracking.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/event.dart';
+import 'package:aio/core/manager/event_tracking.dart';
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/event.dart';
 
 class EventEvent extends EventTracking {
   EventEvent({String? eventName}) : super(name: eventName ?? "Event");

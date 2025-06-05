@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: Switch to build_ipa lane" time="0.000125">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: fvm flutter build ipa -t lib/main.dart --release --export-method=enterprise" time="160.471872">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: Switch to upload_firebase_distribution lane" time="0.00021">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: firebase_app_distribution" time="11.553847">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: Switch to upload_dSYM lane" time="0.000342">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: upload_symbols_to_crashlytics" time="3.501109">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>

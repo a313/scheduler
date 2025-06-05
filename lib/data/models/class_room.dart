@@ -1,7 +1,7 @@
+import 'package:aio/core/utils/util.dart';
+import 'package:aio/data/models/timetable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:scheduler/core/utils/util.dart';
-import 'package:scheduler/data/models/timetable.dart';
 
 import '../../core/converters.dart';
 
@@ -9,7 +9,7 @@ part 'class_room.freezed.dart';
 part 'class_room.g.dart';
 
 @unfreezed
-class ClassRoom with _$ClassRoom {
+sealed class ClassRoom with _$ClassRoom {
   const ClassRoom._();
   factory ClassRoom(
       {int? id,

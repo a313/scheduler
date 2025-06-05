@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:scheduler/core/utils/util.dart';
+import 'package:aio/core/utils/util.dart';
 
 import '../../data/models/event.dart';
 import '../../theme/app_fonts.dart';

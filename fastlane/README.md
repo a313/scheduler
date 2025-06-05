@@ -13,14 +13,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-### fetch_appcenter_version
-
-```sh
-[bundle exec] fastlane fetch_appcenter_version
-```
-
-
-
 ### build_ipa
 
 ```sh
@@ -45,50 +37,18 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### upload_appcenter_apk
+### upload_firebase_distribution
 
 ```sh
-[bundle exec] fastlane upload_appcenter_apk
+[bundle exec] fastlane upload_firebase_distribution
 ```
 
 
 
-### upload_appcenter_ipa
+### cd
 
 ```sh
-[bundle exec] fastlane upload_appcenter_ipa
-```
-
-
-
-### submit_ios
-
-```sh
-[bundle exec] fastlane submit_ios
-```
-
-
-
-### submit_and
-
-```sh
-[bundle exec] fastlane submit_and
-```
-
-
-
-### appcenter
-
-```sh
-[bundle exec] fastlane appcenter
-```
-
-
-
-### submit
-
-```sh
-[bundle exec] fastlane submit
+[bundle exec] fastlane cd
 ```
 
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swipe_action_cell/core/cell.dart';
-import 'package:scheduler/domain/entities/swipe_action_data.dart';
+import 'package:aio/domain/entities/swipe_action_data.dart';
 
 import '../../../data/models/class_room.dart';
 import 'class_room_item.dart';
