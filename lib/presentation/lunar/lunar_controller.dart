@@ -6,14 +6,6 @@ class LunarController extends GetxController {
   final Rx<DateTime> selectedDate = DateTime.now().obs;
   final Rx<DateTime> focusedDay = DateTime.now().obs;
 
-  @override
-  void onInit() {
-    getData();
-    super.onInit();
-  }
-
-  void getData() {}
-
   void onDaySelected(DateTime selectedDay, DateTime focusedDay) {
     selectedDate.value = selectedDay;
     this.focusedDay.value = focusedDay;
