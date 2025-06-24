@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:aio/core/state_management/base_controller.dart';
 import 'package:aio/core/usecase/data_state.dart';
 import 'package:aio/data/models/schedule.dart';
 import 'package:aio/data/models/timetable.dart';
 import 'package:aio/domain/usecases/schedule_usecases.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class EditTimetableController extends BaseController
     with StateMixin<List<Schedule>> {
@@ -36,7 +36,7 @@ class EditTimetableController extends BaseController
 
   bool validData() {
     final date = validDate();
-    final time = data.isValid;
+    final time = validTime();
     if (date && time) return true;
     if (!date) {
       showSnackBar('Not valid date');

@@ -2,7 +2,7 @@ name: aio
 description: A new Flutter project.
 publish_to: 'none'
 
-version: 0.3.11+05.06.2025
+version: 0.3.12+06.24.2025
 
 environment:
   sdk: '>=3.7.2'
