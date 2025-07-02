@@ -1,8 +1,6 @@
 import 'package:aio/core/utils/util.dart';
 import 'package:aio/data/models/chat_message.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class DataMessageWidget extends StatelessWidget {
   const DataMessageWidget({super.key, required this.data});
@@ -10,8 +8,8 @@ class DataMessageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mine = data.mimeType;
-    if (mine.startsWith('image')) {
+    final mime = data.mimeType;
+    if (mime.startsWith('image')) {
       return ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: context.screenWidth * 0.5,
@@ -23,67 +21,70 @@ class DataMessageWidget extends StatelessWidget {
         ),
       );
     }
-    final extension = extensionFromMime(mine);
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+    final extension = _extensionFromMime(mime);
+    final isImage = extension?.startsWith('image') == true;
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: borRad08,
+        color: context.neutral200,
+      ),
+      padding: padAll08,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            padding: const EdgeInsets.all(4),
-            decoration: BoxDecoration(
-              borderRadius: borRad08,
-              color: context.theme.dividerColor,
-            ),
-            child: SvgPicture.asset(getFileByExtension(extension)),
+          Icon(
+            isImage ? Icons.image : Icons.insert_drive_file,
+            color: context.primaryDark,
           ),
-          sizedBoxW06,
-          Flexible(
+          sizedBoxW08,
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  data.fileName?.split('.').first ?? 'File',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  data.fileName ?? 'Unknown file',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: context.neutral1100,
+                  ),
                 ),
-                sizedBoxH02,
                 Text(
-                  extension.toUpperCase(),
-                  style: context.theme.textTheme.bodySmall,
+                  extension ?? mime,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: context.neutral600,
+                  ),
                 ),
               ],
             ),
           ),
-          sizedBoxW06,
         ],
       ),
     );
   }
 
-  String getFileByExtension(String extension) {
-    if (extension.startsWith('pdf')) {
-      return 'assets/svg/Regular/FilePdf.svg';
-    } else if (extension.startsWith('css')) {
-      return 'assets/svg/Regular/FileCss.svg';
-    } else if (extension.startsWith('zip')) {
-      return 'assets/svg/Regular/FileZip.svg';
-    } else if (extension.startsWith('rar')) {
-      return 'assets/svg/Regular/FileZip.svg';
-    } else if (extension.startsWith('csv')) {
-      return 'assets/svg/Regular/FileCsv.svg';
-    } else if (extension.startsWith('dat')) {
-      return 'assets/svg/Regular/FileDat.svg';
-    } else if (extension.startsWith('doc')) {
-      return 'assets/svg/Regular/FileDoc.svg';
-    } else if (extension.startsWith('ppt')) {
-      return 'assets/svg/Regular/FilePpt.svg';
-    } else if (extension.startsWith('text')) {
-      return 'assets/svg/Regular/FileText.svg';
-    } else {
-      return 'assets/svg/Regular/File.svg';
-    }
+  String? _extensionFromMime(String mimeType) {
+    // Simple mime to extension mapping
+    const mimeToExt = {
+      'image/jpeg': 'jpeg',
+      'image/jpg': 'jpg',
+      'image/png': 'png',
+      'image/gif': 'gif',
+      'image/webp': 'webp',
+      'application/pdf': 'pdf',
+      'text/plain': 'txt',
+      'application/json': 'json',
+      'application/xml': 'xml',
+      'application/zip': 'zip',
+      'application/x-rar-compressed': 'rar',
+      'application/msword': 'doc',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+          'docx',
+      'application/vnd.ms-excel': 'xls',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+          'xlsx',
+    };
+
+    return mimeToExt[mimeType] ?? mimeType.split('/').last;
   }
 }

@@ -15,6 +15,7 @@ extension BuildContextExtension on BuildContext {
       isLightMode ? AppLightColors.primaryLight : AppDarkColors.primaryLight;
   Color get disableColor =>
       isLightMode ? AppLightColors.disableColor : AppDarkColors.disableColor;
+  Color get disabledColor => disableColor; // Alias for consistency
 
   Color get funcBitterLemon => isLightMode
       ? AppLightColors.funcBitterLemon
@@ -54,6 +55,11 @@ extension BuildContextExtension on BuildContext {
       isLightMode ? AppLightColors.neutral1100 : AppDarkColors.neutral1100;
   Color get bgColor =>
       isLightMode ? AppLightColors.bgColor : AppDarkColors.bgColor;
+
+  // Additional color helpers for the chat UI
+  Color get dividerColor => neutral300;
+  Color get surfaceSchemeColor => neutral200;
+  Color get secondarySchemeColor => primaryDark;
 
   Size get screenSize => MediaQuery.of(this).size;
 

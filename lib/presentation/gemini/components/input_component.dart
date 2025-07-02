@@ -1,8 +1,7 @@
 import 'package:aio/core/utils/util.dart';
 import 'package:aio/widgets/base/base_state_widget.dart';
-
+import 'package:aio/widgets/custom_divider.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../gemini_controller.dart';
@@ -40,44 +39,44 @@ class InputComponent extends GetWidget<GeminiController> {
                   Obx(
                     () => ABWidget(
                       isShowA: controller.attachments.isNotEmpty,
-                      widgetA:
-                          (_) => SizedBox(
-                            height: 64,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  child: ListView.separated(
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.horizontal,
-                                    primary: true,
-                                    padding: padSymHor10,
-                                    separatorBuilder:
-                                        (context, index) => sizedBoxW04,
-                                    itemCount: controller.attachments.length,
-                                    itemBuilder: (context, index) {
-                                      final data = controller.attachments
-                                          .elementAt(index);
-                                      return AttachmentBuilder(
-                                        data: data,
-                                        onRemove: controller.onRemoveAttachment,
-                                      );
-                                    },
-                                  ),
-                                ),
-                                sizedBoxH04,
-                                const DsDivider(),
-                              ],
+                      widgetA: (context) => SizedBox(
+                        height: 64,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: ListView.separated(
+                                shrinkWrap: true,
+                                scrollDirection: Axis.horizontal,
+                                primary: true,
+                                padding: padSymHor10,
+                                separatorBuilder: (context, index) =>
+                                    sizedBoxW04,
+                                itemCount: controller.attachments.length,
+                                itemBuilder: (context, index) {
+                                  final data =
+                                      controller.attachments.elementAt(index);
+                                  return AttachmentBuilder(
+                                    data: data,
+                                    onRemove: controller.onRemoveAttachment,
+                                  );
+                                },
+                              ),
                             ),
-                          ),
+                            sizedBoxH04,
+                            const CustomDivider(),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   TextField(
                     autofocus: true,
                     focusNode: controller.focusNode,
                     controller: controller.mesController,
-                    onSubmitted: (_) => controller.onSendMessage(msg: _),
-                    onEditingComplete: () => controller.onSendMessage,
+                    onSubmitted: (value) =>
+                        controller.onSendMessage(msg: value),
+                    onEditingComplete: () => controller.onSendMessage(),
                     textInputAction: TextInputAction.newline,
                     textCapitalization: TextCapitalization.sentences,
                     maxLines: 5,

@@ -10,10 +10,14 @@ class AuthorAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (author.isGemini) {
-      return Image.asset(
-        'assets/png/gemini-icon_480.png',
+      return Container(
         width: size,
         height: size,
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          gradient: LinearGradient(colors: [Colors.blue, Colors.purple]),
+        ),
+        child: Icon(Icons.auto_awesome, color: Colors.white, size: size * 0.6),
       );
     }
     return AvatarWidget(name: author.name, url: author.avatarUrl, size: size);

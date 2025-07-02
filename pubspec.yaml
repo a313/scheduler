@@ -5,7 +5,7 @@ publish_to: 'none'
 version: 0.3.12+06.24.2025
 
 environment:
-  sdk: '>=3.7.2'
+  sdk: '>=3.6.0'
 
 dependencies:
   archive: any
@@ -20,6 +20,8 @@ dependencies:
   dotted_border: any
   drift: any
   drift_flutter: any
+  file_picker: any
+  firebase_ai: any
   firebase_analytics: any
   firebase_core: any
   firebase_crashlytics: any
@@ -44,6 +46,7 @@ dependencies:
   intl: any
   json_annotation: any
   just_audio: any
+  mime: any
   package_info_plus: any
   path: any
   path_provider: any
@@ -59,6 +62,7 @@ dependencies:
   shimmer: any
   skeletonizer: any
   sqflite: any
+  super_clipboard: any
   syncfusion_flutter_xlsio: any
   table_calendar: any
   timezone: any

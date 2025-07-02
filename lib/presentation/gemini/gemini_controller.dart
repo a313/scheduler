@@ -1,11 +1,15 @@
 import 'package:aio/core/usecase/data_state.dart';
 import 'package:aio/data/models/chat_message.dart';
 import 'package:aio/data/models/chat_user.dart';
+import 'package:aio/domain/usecases/ai_usecases.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_ai/firebase_ai.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/request/request.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mime/mime.dart';
+import 'package:super_clipboard/super_clipboard.dart';
 
 class GeminiController extends GetxController {
   final AiUsecases usecase = Get.find<AiUsecases>();
@@ -30,8 +34,7 @@ class GeminiController extends GetxController {
   }
 
   KeyEventResult _handleKeyPress(FocusNode node, KeyEvent event) {
-    final sendEvent =
-        event is KeyDownEvent &&
+    final sendEvent = event is KeyDownEvent &&
         (event.physicalKey == PhysicalKeyboardKey.enter ||
             event.physicalKey == PhysicalKeyboardKey.numpadEnter) &&
         !HardwareKeyboard.instance.physicalKeysPressed.any(
@@ -40,8 +43,7 @@ class GeminiController extends GetxController {
             PhysicalKeyboardKey.shiftRight,
           }.contains(key),
         );
-    final pasteEvent =
-        event is KeyDownEvent &&
+    final pasteEvent = event is KeyDownEvent &&
         event.physicalKey == PhysicalKeyboardKey.keyV &&
         HardwareKeyboard.instance.physicalKeysPressed.any(
           (key) => <PhysicalKeyboardKey>{
@@ -135,6 +137,7 @@ class GeminiController extends GetxController {
 
     if (result != null) {
       final bytes = await result.readAsBytes();
+      final mimeType = lookupMimeType(result.name) ?? 'image/jpeg';
       _addDataMessage(data: bytes, name: result.name, mime: mimeType);
     }
   }
@@ -183,8 +186,7 @@ class GeminiController extends GetxController {
       if (pasted != null) {
         final selection = mesController.selection;
         final oldText = mesController.text;
-        final newText =
-            oldText.substring(0, selection.end) +
+        final newText = oldText.substring(0, selection.end) +
             pasted +
             oldText.substring(selection.end);
         mesController.value = TextEditingValue(

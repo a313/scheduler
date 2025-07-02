@@ -1,5 +1,6 @@
 import 'package:aio/core/utils/util.dart';
 import 'package:aio/data/drift_db/database.dart';
+import 'package:aio/data/repo_impl/ai_repo_impl.dart';
 import 'package:aio/data/repo_impl/class_room_repo_impl.dart';
 import 'package:aio/data/repo_impl/event_repo_impl.dart';
 import 'package:aio/data/repo_impl/local_data_repo_impl.dart';
@@ -13,6 +14,7 @@ import 'package:aio/data/sqlite_db/event_db.dart';
 import 'package:aio/data/sqlite_db/reminder_db.dart';
 import 'package:aio/data/sqlite_db/schedule_db.dart';
 import 'package:aio/data/sqlite_db/student_db.dart';
+import 'package:aio/domain/usecases/ai_usecases.dart';
 import 'package:aio/domain/usecases/class_room_usecases.dart';
 import 'package:aio/domain/usecases/event_usecases.dart';
 import 'package:aio/domain/usecases/local_usecase.dart';
@@ -29,6 +31,10 @@ class DependencyInjection {
     Get.put(Global());
     Get.put(LocalUseCases(LocalDataImpl(GetStorage())));
     Get.put(AppDatabase(), permanent: true);
+
+    // AI Dependencies
+    Get.put(AiUsecases(AiRepoImpl()));
+
     if (isMobile) {
       // if (!Get.find<LocalUseCases>().didPassIntro()) {
       //   await DbHelper().replaceDatabase();
