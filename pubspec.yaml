@@ -32,6 +32,7 @@ dependencies:
   flutter_svg: any
   flutter_swipe_action_cell: any
   freezed_annotation: any
+  full_calender: ^1.2.12
   geolocator: any
   get: any
   get_storage: any
@@ -56,13 +57,12 @@ dependencies:
   rxdart: any
   share_plus: any
   shimmer: any
+  skeletonizer: any
   sqflite: any
   syncfusion_flutter_xlsio: any
   table_calendar: any
   timezone: any
   url_launcher: any
-  full_calender: ^1.2.12
-
 
 dev_dependencies:
   build_runner: any

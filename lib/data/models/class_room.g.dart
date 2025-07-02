@@ -7,24 +7,28 @@ part of 'class_room.dart';
 // **************************************************************************
 
 _ClassRoom _$ClassRoomFromJson(Map<String, dynamic> json) => _ClassRoom(
-      id: (json['id'] as num?)?.toInt(),
-      name: json['name'] as String,
-      createDate: const DateTimeConverter()
-          .fromJson((json['createDate'] as num).toInt()),
-      openDate:
-          const DateTimeConverter().fromJson((json['openDate'] as num).toInt()),
-      tuition: (json['tuition'] as num).toInt(),
-      alert: $enumDecodeNullable(_$AlertTypeEnumMap, json['alert']) ??
-          AlertType.None,
-      location: json['location'] as String?,
-      timetables: json['timetables'] == null
+  id: (json['id'] as num?)?.toInt(),
+  name: json['name'] as String,
+  createDate: const DateTimeConverter().fromJson(
+    (json['createDate'] as num).toInt(),
+  ),
+  openDate: const DateTimeConverter().fromJson(
+    (json['openDate'] as num).toInt(),
+  ),
+  tuition: (json['tuition'] as num).toInt(),
+  alert:
+      $enumDecodeNullable(_$AlertTypeEnumMap, json['alert']) ?? AlertType.None,
+  location: json['location'] as String?,
+  timetables:
+      json['timetables'] == null
           ? const []
-          : const ListTimetableConverter()
-              .fromJson(json['timetables'] as String),
-      isOpen: const BoolConverter().fromJson((json['isOpen'] as num).toInt()),
-      softIndex: (json['softIndex'] as num?)?.toInt() ?? -1,
-      image: json['image'] as String?,
-    );
+          : const ListTimetableConverter().fromJson(
+            json['timetables'] as String,
+          ),
+  isOpen: const BoolConverter().fromJson((json['isOpen'] as num).toInt()),
+  softIndex: (json['softIndex'] as num?)?.toInt() ?? -1,
+  image: json['image'] as String?,
+);
 
 Map<String, dynamic> _$ClassRoomToJson(_ClassRoom instance) =>
     <String, dynamic>{

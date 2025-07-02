@@ -33,29 +33,29 @@ Map<String, dynamic> _$Y2MateVideoDetailToJson(_Y2MateVideoDetail instance) =>
     };
 
 _Links _$LinksFromJson(Map<String, dynamic> json) => _Links(
-      mp4: (json['mp4'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, ItemDetail.fromJson(e as Map<String, dynamic>)),
-      ),
-      mp3: (json['mp3'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, ItemDetail.fromJson(e as Map<String, dynamic>)),
-      ),
-      other: (json['other'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, ItemDetail.fromJson(e as Map<String, dynamic>)),
-      ),
-    );
+  mp4: (json['mp4'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, ItemDetail.fromJson(e as Map<String, dynamic>)),
+  ),
+  mp3: (json['mp3'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, ItemDetail.fromJson(e as Map<String, dynamic>)),
+  ),
+  other: (json['other'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, ItemDetail.fromJson(e as Map<String, dynamic>)),
+  ),
+);
 
 Map<String, dynamic> _$LinksToJson(_Links instance) => <String, dynamic>{
-      'mp4': instance.mp4,
-      'mp3': instance.mp3,
-      'other': instance.other,
-    };
+  'mp4': instance.mp4,
+  'mp3': instance.mp3,
+  'other': instance.other,
+};
 
 _ItemDetail _$ItemDetailFromJson(Map<String, dynamic> json) => _ItemDetail(
-      size: json['size'] as String,
-      f: json['f'] as String,
-      q: json['q'] as String,
-      k: json['k'] as String,
-    );
+  size: json['size'] as String,
+  f: json['f'] as String,
+  q: json['q'] as String,
+  k: json['k'] as String,
+);
 
 Map<String, dynamic> _$ItemDetailToJson(_ItemDetail instance) =>
     <String, dynamic>{

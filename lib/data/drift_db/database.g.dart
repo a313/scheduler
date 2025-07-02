@@ -12,86 +12,130 @@ class $ReminderTableTable extends ReminderTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
-      'name', aliasedName, false,
-      additionalChecks: GeneratedColumn.checkTextLength(maxTextLength: 255),
-      type: DriftSqlType.string,
-      requiredDuringInsert: true);
-  static const VerificationMeta _remindDateMeta =
-      const VerificationMeta('remindDate');
+    'name',
+    aliasedName,
+    false,
+    additionalChecks: GeneratedColumn.checkTextLength(maxTextLength: 255),
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _remindDateMeta = const VerificationMeta(
+    'remindDate',
+  );
   @override
   late final GeneratedColumn<DateTime> remindDate = GeneratedColumn<DateTime>(
-      'remind_date', aliasedName, true,
-      type: DriftSqlType.dateTime, requiredDuringInsert: false);
-  static const VerificationMeta _createDateMeta =
-      const VerificationMeta('createDate');
+    'remind_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createDateMeta = const VerificationMeta(
+    'createDate',
+  );
   @override
   late final GeneratedColumn<DateTime> createDate = GeneratedColumn<DateTime>(
-      'create_date', aliasedName, true,
-      type: DriftSqlType.dateTime, requiredDuringInsert: false);
+    'create_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _alertMeta = const VerificationMeta('alert');
   @override
   late final GeneratedColumn<String> alert = GeneratedColumn<String>(
-      'alert', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
+    'alert',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _timeMeta = const VerificationMeta('time');
   @override
   late final GeneratedColumn<String> time = GeneratedColumn<String>(
-      'time', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
+    'time',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _repeatMeta = const VerificationMeta('repeat');
   @override
   late final GeneratedColumn<String> repeat = GeneratedColumn<String>(
-      'repeat', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _intervalMeta =
-      const VerificationMeta('interval');
+    'repeat',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _intervalMeta = const VerificationMeta(
+    'interval',
+  );
   @override
   late final GeneratedColumn<int> interval = GeneratedColumn<int>(
-      'interval', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
-  static const VerificationMeta _softIndexMeta =
-      const VerificationMeta('softIndex');
+    'interval',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _softIndexMeta = const VerificationMeta(
+    'softIndex',
+  );
   @override
   late final GeneratedColumn<int> softIndex = GeneratedColumn<int>(
-      'soft_index', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(-1));
+    'soft_index',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(-1),
+  );
   static const VerificationMeta _imageMeta = const VerificationMeta('image');
   @override
   late final GeneratedColumn<String> image = GeneratedColumn<String>(
-      'image', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
+    'image',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        name,
-        remindDate,
-        createDate,
-        alert,
-        time,
-        repeat,
-        interval,
-        softIndex,
-        image
-      ];
+    id,
+    name,
+    remindDate,
+    createDate,
+    alert,
+    time,
+    repeat,
+    interval,
+    softIndex,
+    image,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'reminder_table';
   @override
-  VerificationContext validateIntegrity(Insertable<reminder_drift> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<reminder_drift> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -99,47 +143,61 @@ class $ReminderTableTable extends ReminderTable
     }
     if (data.containsKey('name')) {
       context.handle(
-          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
     if (data.containsKey('remind_date')) {
       context.handle(
-          _remindDateMeta,
-          remindDate.isAcceptableOrUnknown(
-              data['remind_date']!, _remindDateMeta));
+        _remindDateMeta,
+        remindDate.isAcceptableOrUnknown(data['remind_date']!, _remindDateMeta),
+      );
     }
     if (data.containsKey('create_date')) {
       context.handle(
-          _createDateMeta,
-          createDate.isAcceptableOrUnknown(
-              data['create_date']!, _createDateMeta));
+        _createDateMeta,
+        createDate.isAcceptableOrUnknown(data['create_date']!, _createDateMeta),
+      );
     }
     if (data.containsKey('alert')) {
       context.handle(
-          _alertMeta, alert.isAcceptableOrUnknown(data['alert']!, _alertMeta));
+        _alertMeta,
+        alert.isAcceptableOrUnknown(data['alert']!, _alertMeta),
+      );
     }
     if (data.containsKey('time')) {
       context.handle(
-          _timeMeta, time.isAcceptableOrUnknown(data['time']!, _timeMeta));
+        _timeMeta,
+        time.isAcceptableOrUnknown(data['time']!, _timeMeta),
+      );
     }
     if (data.containsKey('repeat')) {
-      context.handle(_repeatMeta,
-          repeat.isAcceptableOrUnknown(data['repeat']!, _repeatMeta));
+      context.handle(
+        _repeatMeta,
+        repeat.isAcceptableOrUnknown(data['repeat']!, _repeatMeta),
+      );
     }
     if (data.containsKey('interval')) {
-      context.handle(_intervalMeta,
-          interval.isAcceptableOrUnknown(data['interval']!, _intervalMeta));
+      context.handle(
+        _intervalMeta,
+        interval.isAcceptableOrUnknown(data['interval']!, _intervalMeta),
+      );
     } else if (isInserting) {
       context.missing(_intervalMeta);
     }
     if (data.containsKey('soft_index')) {
-      context.handle(_softIndexMeta,
-          softIndex.isAcceptableOrUnknown(data['soft_index']!, _softIndexMeta));
+      context.handle(
+        _softIndexMeta,
+        softIndex.isAcceptableOrUnknown(data['soft_index']!, _softIndexMeta),
+      );
     }
     if (data.containsKey('image')) {
       context.handle(
-          _imageMeta, image.isAcceptableOrUnknown(data['image']!, _imageMeta));
+        _imageMeta,
+        image.isAcceptableOrUnknown(data['image']!, _imageMeta),
+      );
     }
     return context;
   }
@@ -150,26 +208,50 @@ class $ReminderTableTable extends ReminderTable
   reminder_drift map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return reminder_drift(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      name: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
-      remindDate: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}remind_date']),
-      createDate: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}create_date']),
-      alert: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}alert']),
-      time: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}time']),
-      repeat: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}repeat']),
-      interval: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}interval'])!,
-      softIndex: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}soft_index'])!,
-      image: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}image']),
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      name:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}name'],
+          )!,
+      remindDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}remind_date'],
+      ),
+      createDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}create_date'],
+      ),
+      alert: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}alert'],
+      ),
+      time: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}time'],
+      ),
+      repeat: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}repeat'],
+      ),
+      interval:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}interval'],
+          )!,
+      softIndex:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}soft_index'],
+          )!,
+      image: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}image'],
+      ),
     );
   }
 
@@ -190,17 +272,18 @@ class reminder_drift extends DataClass implements Insertable<reminder_drift> {
   final int interval;
   final int softIndex;
   final String? image;
-  const reminder_drift(
-      {required this.id,
-      required this.name,
-      this.remindDate,
-      this.createDate,
-      this.alert,
-      this.time,
-      this.repeat,
-      required this.interval,
-      required this.softIndex,
-      this.image});
+  const reminder_drift({
+    required this.id,
+    required this.name,
+    this.remindDate,
+    this.createDate,
+    this.alert,
+    this.time,
+    this.repeat,
+    required this.interval,
+    required this.softIndex,
+    this.image,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -233,12 +316,14 @@ class reminder_drift extends DataClass implements Insertable<reminder_drift> {
     return ReminderTableCompanion(
       id: Value(id),
       name: Value(name),
-      remindDate: remindDate == null && nullToAbsent
-          ? const Value.absent()
-          : Value(remindDate),
-      createDate: createDate == null && nullToAbsent
-          ? const Value.absent()
-          : Value(createDate),
+      remindDate:
+          remindDate == null && nullToAbsent
+              ? const Value.absent()
+              : Value(remindDate),
+      createDate:
+          createDate == null && nullToAbsent
+              ? const Value.absent()
+              : Value(createDate),
       alert:
           alert == null && nullToAbsent ? const Value.absent() : Value(alert),
       time: time == null && nullToAbsent ? const Value.absent() : Value(time),
@@ -251,8 +336,10 @@ class reminder_drift extends DataClass implements Insertable<reminder_drift> {
     );
   }
 
-  factory reminder_drift.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory reminder_drift.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return reminder_drift(
       id: serializer.fromJson<int>(json['id']),
@@ -284,29 +371,29 @@ class reminder_drift extends DataClass implements Insertable<reminder_drift> {
     };
   }
 
-  reminder_drift copyWith(
-          {int? id,
-          String? name,
-          Value<DateTime?> remindDate = const Value.absent(),
-          Value<DateTime?> createDate = const Value.absent(),
-          Value<String?> alert = const Value.absent(),
-          Value<String?> time = const Value.absent(),
-          Value<String?> repeat = const Value.absent(),
-          int? interval,
-          int? softIndex,
-          Value<String?> image = const Value.absent()}) =>
-      reminder_drift(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        remindDate: remindDate.present ? remindDate.value : this.remindDate,
-        createDate: createDate.present ? createDate.value : this.createDate,
-        alert: alert.present ? alert.value : this.alert,
-        time: time.present ? time.value : this.time,
-        repeat: repeat.present ? repeat.value : this.repeat,
-        interval: interval ?? this.interval,
-        softIndex: softIndex ?? this.softIndex,
-        image: image.present ? image.value : this.image,
-      );
+  reminder_drift copyWith({
+    int? id,
+    String? name,
+    Value<DateTime?> remindDate = const Value.absent(),
+    Value<DateTime?> createDate = const Value.absent(),
+    Value<String?> alert = const Value.absent(),
+    Value<String?> time = const Value.absent(),
+    Value<String?> repeat = const Value.absent(),
+    int? interval,
+    int? softIndex,
+    Value<String?> image = const Value.absent(),
+  }) => reminder_drift(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    remindDate: remindDate.present ? remindDate.value : this.remindDate,
+    createDate: createDate.present ? createDate.value : this.createDate,
+    alert: alert.present ? alert.value : this.alert,
+    time: time.present ? time.value : this.time,
+    repeat: repeat.present ? repeat.value : this.repeat,
+    interval: interval ?? this.interval,
+    softIndex: softIndex ?? this.softIndex,
+    image: image.present ? image.value : this.image,
+  );
   reminder_drift copyWithCompanion(ReminderTableCompanion data) {
     return reminder_drift(
       id: data.id.present ? data.id.value : this.id,
@@ -342,8 +429,18 @@ class reminder_drift extends DataClass implements Insertable<reminder_drift> {
   }
 
   @override
-  int get hashCode => Object.hash(id, name, remindDate, createDate, alert, time,
-      repeat, interval, softIndex, image);
+  int get hashCode => Object.hash(
+    id,
+    name,
+    remindDate,
+    createDate,
+    alert,
+    time,
+    repeat,
+    interval,
+    softIndex,
+    image,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -394,8 +491,8 @@ class ReminderTableCompanion extends UpdateCompanion<reminder_drift> {
     required int interval,
     this.softIndex = const Value.absent(),
     this.image = const Value.absent(),
-  })  : name = Value(name),
-        interval = Value(interval);
+  }) : name = Value(name),
+       interval = Value(interval);
   static Insertable<reminder_drift> custom({
     Expression<int>? id,
     Expression<String>? name,
@@ -422,17 +519,18 @@ class ReminderTableCompanion extends UpdateCompanion<reminder_drift> {
     });
   }
 
-  ReminderTableCompanion copyWith(
-      {Value<int>? id,
-      Value<String>? name,
-      Value<DateTime?>? remindDate,
-      Value<DateTime?>? createDate,
-      Value<String?>? alert,
-      Value<String?>? time,
-      Value<String?>? repeat,
-      Value<int>? interval,
-      Value<int>? softIndex,
-      Value<String?>? image}) {
+  ReminderTableCompanion copyWith({
+    Value<int>? id,
+    Value<String>? name,
+    Value<DateTime?>? remindDate,
+    Value<DateTime?>? createDate,
+    Value<String?>? alert,
+    Value<String?>? time,
+    Value<String?>? repeat,
+    Value<int>? interval,
+    Value<int>? softIndex,
+    Value<String?>? image,
+  }) {
     return ReminderTableCompanion(
       id: id ?? this.id,
       name: name ?? this.name,
@@ -510,29 +608,44 @@ class $ScheduleTableTable extends ScheduleTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
-      'name', aliasedName, false,
-      additionalChecks: GeneratedColumn.checkTextLength(maxTextLength: 255),
-      type: DriftSqlType.string,
-      requiredDuringInsert: true);
+    'name',
+    aliasedName,
+    false,
+    additionalChecks: GeneratedColumn.checkTextLength(maxTextLength: 255),
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _beginMeta = const VerificationMeta('begin');
   @override
   late final GeneratedColumn<String> begin = GeneratedColumn<String>(
-      'begin', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+    'begin',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _endMeta = const VerificationMeta('end');
   @override
   late final GeneratedColumn<String> end = GeneratedColumn<String>(
-      'end', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+    'end',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
   @override
   List<GeneratedColumn> get $columns => [id, name, begin, end];
   @override
@@ -541,8 +654,10 @@ class $ScheduleTableTable extends ScheduleTable
   String get actualTableName => $name;
   static const String $name = 'schedule_table';
   @override
-  VerificationContext validateIntegrity(Insertable<schedule_drift> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<schedule_drift> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -550,19 +665,25 @@ class $ScheduleTableTable extends ScheduleTable
     }
     if (data.containsKey('name')) {
       context.handle(
-          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
     if (data.containsKey('begin')) {
       context.handle(
-          _beginMeta, begin.isAcceptableOrUnknown(data['begin']!, _beginMeta));
+        _beginMeta,
+        begin.isAcceptableOrUnknown(data['begin']!, _beginMeta),
+      );
     } else if (isInserting) {
       context.missing(_beginMeta);
     }
     if (data.containsKey('end')) {
       context.handle(
-          _endMeta, end.isAcceptableOrUnknown(data['end']!, _endMeta));
+        _endMeta,
+        end.isAcceptableOrUnknown(data['end']!, _endMeta),
+      );
     } else if (isInserting) {
       context.missing(_endMeta);
     }
@@ -575,14 +696,26 @@ class $ScheduleTableTable extends ScheduleTable
   schedule_drift map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return schedule_drift(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      name: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
-      begin: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}begin'])!,
-      end: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}end'])!,
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      name:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}name'],
+          )!,
+      begin:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}begin'],
+          )!,
+      end:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}end'],
+          )!,
     );
   }
 
@@ -597,11 +730,12 @@ class schedule_drift extends DataClass implements Insertable<schedule_drift> {
   final String name;
   final String begin;
   final String end;
-  const schedule_drift(
-      {required this.id,
-      required this.name,
-      required this.begin,
-      required this.end});
+  const schedule_drift({
+    required this.id,
+    required this.name,
+    required this.begin,
+    required this.end,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -621,8 +755,10 @@ class schedule_drift extends DataClass implements Insertable<schedule_drift> {
     );
   }
 
-  factory schedule_drift.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory schedule_drift.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return schedule_drift(
       id: serializer.fromJson<int>(json['id']),
@@ -642,14 +778,17 @@ class schedule_drift extends DataClass implements Insertable<schedule_drift> {
     };
   }
 
-  schedule_drift copyWith(
-          {int? id, String? name, String? begin, String? end}) =>
-      schedule_drift(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        begin: begin ?? this.begin,
-        end: end ?? this.end,
-      );
+  schedule_drift copyWith({
+    int? id,
+    String? name,
+    String? begin,
+    String? end,
+  }) => schedule_drift(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    begin: begin ?? this.begin,
+    end: end ?? this.end,
+  );
   schedule_drift copyWithCompanion(ScheduleTableCompanion data) {
     return schedule_drift(
       id: data.id.present ? data.id.value : this.id,
@@ -698,9 +837,9 @@ class ScheduleTableCompanion extends UpdateCompanion<schedule_drift> {
     required String name,
     required String begin,
     required String end,
-  })  : name = Value(name),
-        begin = Value(begin),
-        end = Value(end);
+  }) : name = Value(name),
+       begin = Value(begin),
+       end = Value(end);
   static Insertable<schedule_drift> custom({
     Expression<int>? id,
     Expression<String>? name,
@@ -715,11 +854,12 @@ class ScheduleTableCompanion extends UpdateCompanion<schedule_drift> {
     });
   }
 
-  ScheduleTableCompanion copyWith(
-      {Value<int>? id,
-      Value<String>? name,
-      Value<String>? begin,
-      Value<String>? end}) {
+  ScheduleTableCompanion copyWith({
+    Value<int>? id,
+    Value<String>? name,
+    Value<String>? begin,
+    Value<String>? end,
+  }) {
     return ScheduleTableCompanion(
       id: id ?? this.id,
       name: name ?? this.name,
@@ -767,36 +907,38 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities =>
-      [reminderTable, scheduleTable];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [
+    reminderTable,
+    scheduleTable,
+  ];
 }
 
-typedef $$ReminderTableTableCreateCompanionBuilder = ReminderTableCompanion
-    Function({
-  Value<int> id,
-  required String name,
-  Value<DateTime?> remindDate,
-  Value<DateTime?> createDate,
-  Value<String?> alert,
-  Value<String?> time,
-  Value<String?> repeat,
-  required int interval,
-  Value<int> softIndex,
-  Value<String?> image,
-});
-typedef $$ReminderTableTableUpdateCompanionBuilder = ReminderTableCompanion
-    Function({
-  Value<int> id,
-  Value<String> name,
-  Value<DateTime?> remindDate,
-  Value<DateTime?> createDate,
-  Value<String?> alert,
-  Value<String?> time,
-  Value<String?> repeat,
-  Value<int> interval,
-  Value<int> softIndex,
-  Value<String?> image,
-});
+typedef $$ReminderTableTableCreateCompanionBuilder =
+    ReminderTableCompanion Function({
+      Value<int> id,
+      required String name,
+      Value<DateTime?> remindDate,
+      Value<DateTime?> createDate,
+      Value<String?> alert,
+      Value<String?> time,
+      Value<String?> repeat,
+      required int interval,
+      Value<int> softIndex,
+      Value<String?> image,
+    });
+typedef $$ReminderTableTableUpdateCompanionBuilder =
+    ReminderTableCompanion Function({
+      Value<int> id,
+      Value<String> name,
+      Value<DateTime?> remindDate,
+      Value<DateTime?> createDate,
+      Value<String?> alert,
+      Value<String?> time,
+      Value<String?> repeat,
+      Value<int> interval,
+      Value<int> softIndex,
+      Value<String?> image,
+    });
 
 class $$ReminderTableTableFilterComposer
     extends Composer<_$AppDatabase, $ReminderTableTable> {
@@ -808,34 +950,54 @@ class $$ReminderTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnFilters(column));
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get remindDate => $composableBuilder(
-      column: $table.remindDate, builder: (column) => ColumnFilters(column));
+    column: $table.remindDate,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createDate => $composableBuilder(
-      column: $table.createDate, builder: (column) => ColumnFilters(column));
+    column: $table.createDate,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get alert => $composableBuilder(
-      column: $table.alert, builder: (column) => ColumnFilters(column));
+    column: $table.alert,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get time => $composableBuilder(
-      column: $table.time, builder: (column) => ColumnFilters(column));
+    column: $table.time,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get repeat => $composableBuilder(
-      column: $table.repeat, builder: (column) => ColumnFilters(column));
+    column: $table.repeat,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get interval => $composableBuilder(
-      column: $table.interval, builder: (column) => ColumnFilters(column));
+    column: $table.interval,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get softIndex => $composableBuilder(
-      column: $table.softIndex, builder: (column) => ColumnFilters(column));
+    column: $table.softIndex,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get image => $composableBuilder(
-      column: $table.image, builder: (column) => ColumnFilters(column));
+    column: $table.image,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$ReminderTableTableOrderingComposer
@@ -848,34 +1010,54 @@ class $$ReminderTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnOrderings(column));
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get remindDate => $composableBuilder(
-      column: $table.remindDate, builder: (column) => ColumnOrderings(column));
+    column: $table.remindDate,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createDate => $composableBuilder(
-      column: $table.createDate, builder: (column) => ColumnOrderings(column));
+    column: $table.createDate,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get alert => $composableBuilder(
-      column: $table.alert, builder: (column) => ColumnOrderings(column));
+    column: $table.alert,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get time => $composableBuilder(
-      column: $table.time, builder: (column) => ColumnOrderings(column));
+    column: $table.time,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get repeat => $composableBuilder(
-      column: $table.repeat, builder: (column) => ColumnOrderings(column));
+    column: $table.repeat,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get interval => $composableBuilder(
-      column: $table.interval, builder: (column) => ColumnOrderings(column));
+    column: $table.interval,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get softIndex => $composableBuilder(
-      column: $table.softIndex, builder: (column) => ColumnOrderings(column));
+    column: $table.softIndex,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get image => $composableBuilder(
-      column: $table.image, builder: (column) => ColumnOrderings(column));
+    column: $table.image,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$ReminderTableTableAnnotationComposer
@@ -894,10 +1076,14 @@ class $$ReminderTableTableAnnotationComposer
       $composableBuilder(column: $table.name, builder: (column) => column);
 
   GeneratedColumn<DateTime> get remindDate => $composableBuilder(
-      column: $table.remindDate, builder: (column) => column);
+    column: $table.remindDate,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get createDate => $composableBuilder(
-      column: $table.createDate, builder: (column) => column);
+    column: $table.createDate,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<String> get alert =>
       $composableBuilder(column: $table.alert, builder: (column) => column);
@@ -918,115 +1104,133 @@ class $$ReminderTableTableAnnotationComposer
       $composableBuilder(column: $table.image, builder: (column) => column);
 }
 
-class $$ReminderTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $ReminderTableTable,
-    reminder_drift,
-    $$ReminderTableTableFilterComposer,
-    $$ReminderTableTableOrderingComposer,
-    $$ReminderTableTableAnnotationComposer,
-    $$ReminderTableTableCreateCompanionBuilder,
-    $$ReminderTableTableUpdateCompanionBuilder,
-    (
-      reminder_drift,
-      BaseReferences<_$AppDatabase, $ReminderTableTable, reminder_drift>
-    ),
-    reminder_drift,
-    PrefetchHooks Function()> {
+class $$ReminderTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ReminderTableTable,
+          reminder_drift,
+          $$ReminderTableTableFilterComposer,
+          $$ReminderTableTableOrderingComposer,
+          $$ReminderTableTableAnnotationComposer,
+          $$ReminderTableTableCreateCompanionBuilder,
+          $$ReminderTableTableUpdateCompanionBuilder,
+          (
+            reminder_drift,
+            BaseReferences<_$AppDatabase, $ReminderTableTable, reminder_drift>,
+          ),
+          reminder_drift,
+          PrefetchHooks Function()
+        > {
   $$ReminderTableTableTableManager(_$AppDatabase db, $ReminderTableTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$ReminderTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$ReminderTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$ReminderTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<DateTime?> remindDate = const Value.absent(),
-            Value<DateTime?> createDate = const Value.absent(),
-            Value<String?> alert = const Value.absent(),
-            Value<String?> time = const Value.absent(),
-            Value<String?> repeat = const Value.absent(),
-            Value<int> interval = const Value.absent(),
-            Value<int> softIndex = const Value.absent(),
-            Value<String?> image = const Value.absent(),
-          }) =>
-              ReminderTableCompanion(
-            id: id,
-            name: name,
-            remindDate: remindDate,
-            createDate: createDate,
-            alert: alert,
-            time: time,
-            repeat: repeat,
-            interval: interval,
-            softIndex: softIndex,
-            image: image,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required String name,
-            Value<DateTime?> remindDate = const Value.absent(),
-            Value<DateTime?> createDate = const Value.absent(),
-            Value<String?> alert = const Value.absent(),
-            Value<String?> time = const Value.absent(),
-            Value<String?> repeat = const Value.absent(),
-            required int interval,
-            Value<int> softIndex = const Value.absent(),
-            Value<String?> image = const Value.absent(),
-          }) =>
-              ReminderTableCompanion.insert(
-            id: id,
-            name: name,
-            remindDate: remindDate,
-            createDate: createDate,
-            alert: alert,
-            time: time,
-            repeat: repeat,
-            interval: interval,
-            softIndex: softIndex,
-            image: image,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$ReminderTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () =>
+                  $$ReminderTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer:
+              () => $$ReminderTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<DateTime?> remindDate = const Value.absent(),
+                Value<DateTime?> createDate = const Value.absent(),
+                Value<String?> alert = const Value.absent(),
+                Value<String?> time = const Value.absent(),
+                Value<String?> repeat = const Value.absent(),
+                Value<int> interval = const Value.absent(),
+                Value<int> softIndex = const Value.absent(),
+                Value<String?> image = const Value.absent(),
+              }) => ReminderTableCompanion(
+                id: id,
+                name: name,
+                remindDate: remindDate,
+                createDate: createDate,
+                alert: alert,
+                time: time,
+                repeat: repeat,
+                interval: interval,
+                softIndex: softIndex,
+                image: image,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String name,
+                Value<DateTime?> remindDate = const Value.absent(),
+                Value<DateTime?> createDate = const Value.absent(),
+                Value<String?> alert = const Value.absent(),
+                Value<String?> time = const Value.absent(),
+                Value<String?> repeat = const Value.absent(),
+                required int interval,
+                Value<int> softIndex = const Value.absent(),
+                Value<String?> image = const Value.absent(),
+              }) => ReminderTableCompanion.insert(
+                id: id,
+                name: name,
+                remindDate: remindDate,
+                createDate: createDate,
+                alert: alert,
+                time: time,
+                repeat: repeat,
+                interval: interval,
+                softIndex: softIndex,
+                image: image,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$ReminderTableTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $ReminderTableTable,
-    reminder_drift,
-    $$ReminderTableTableFilterComposer,
-    $$ReminderTableTableOrderingComposer,
-    $$ReminderTableTableAnnotationComposer,
-    $$ReminderTableTableCreateCompanionBuilder,
-    $$ReminderTableTableUpdateCompanionBuilder,
-    (
+typedef $$ReminderTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ReminderTableTable,
       reminder_drift,
-      BaseReferences<_$AppDatabase, $ReminderTableTable, reminder_drift>
-    ),
-    reminder_drift,
-    PrefetchHooks Function()>;
-typedef $$ScheduleTableTableCreateCompanionBuilder = ScheduleTableCompanion
-    Function({
-  Value<int> id,
-  required String name,
-  required String begin,
-  required String end,
-});
-typedef $$ScheduleTableTableUpdateCompanionBuilder = ScheduleTableCompanion
-    Function({
-  Value<int> id,
-  Value<String> name,
-  Value<String> begin,
-  Value<String> end,
-});
+      $$ReminderTableTableFilterComposer,
+      $$ReminderTableTableOrderingComposer,
+      $$ReminderTableTableAnnotationComposer,
+      $$ReminderTableTableCreateCompanionBuilder,
+      $$ReminderTableTableUpdateCompanionBuilder,
+      (
+        reminder_drift,
+        BaseReferences<_$AppDatabase, $ReminderTableTable, reminder_drift>,
+      ),
+      reminder_drift,
+      PrefetchHooks Function()
+    >;
+typedef $$ScheduleTableTableCreateCompanionBuilder =
+    ScheduleTableCompanion Function({
+      Value<int> id,
+      required String name,
+      required String begin,
+      required String end,
+    });
+typedef $$ScheduleTableTableUpdateCompanionBuilder =
+    ScheduleTableCompanion Function({
+      Value<int> id,
+      Value<String> name,
+      Value<String> begin,
+      Value<String> end,
+    });
 
 class $$ScheduleTableTableFilterComposer
     extends Composer<_$AppDatabase, $ScheduleTableTable> {
@@ -1038,16 +1242,24 @@ class $$ScheduleTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnFilters(column));
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get begin => $composableBuilder(
-      column: $table.begin, builder: (column) => ColumnFilters(column));
+    column: $table.begin,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get end => $composableBuilder(
-      column: $table.end, builder: (column) => ColumnFilters(column));
+    column: $table.end,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$ScheduleTableTableOrderingComposer
@@ -1060,16 +1272,24 @@ class $$ScheduleTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnOrderings(column));
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get begin => $composableBuilder(
-      column: $table.begin, builder: (column) => ColumnOrderings(column));
+    column: $table.begin,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get end => $composableBuilder(
-      column: $table.end, builder: (column) => ColumnOrderings(column));
+    column: $table.end,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$ScheduleTableTableAnnotationComposer
@@ -1094,77 +1314,95 @@ class $$ScheduleTableTableAnnotationComposer
       $composableBuilder(column: $table.end, builder: (column) => column);
 }
 
-class $$ScheduleTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $ScheduleTableTable,
-    schedule_drift,
-    $$ScheduleTableTableFilterComposer,
-    $$ScheduleTableTableOrderingComposer,
-    $$ScheduleTableTableAnnotationComposer,
-    $$ScheduleTableTableCreateCompanionBuilder,
-    $$ScheduleTableTableUpdateCompanionBuilder,
-    (
-      schedule_drift,
-      BaseReferences<_$AppDatabase, $ScheduleTableTable, schedule_drift>
-    ),
-    schedule_drift,
-    PrefetchHooks Function()> {
+class $$ScheduleTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ScheduleTableTable,
+          schedule_drift,
+          $$ScheduleTableTableFilterComposer,
+          $$ScheduleTableTableOrderingComposer,
+          $$ScheduleTableTableAnnotationComposer,
+          $$ScheduleTableTableCreateCompanionBuilder,
+          $$ScheduleTableTableUpdateCompanionBuilder,
+          (
+            schedule_drift,
+            BaseReferences<_$AppDatabase, $ScheduleTableTable, schedule_drift>,
+          ),
+          schedule_drift,
+          PrefetchHooks Function()
+        > {
   $$ScheduleTableTableTableManager(_$AppDatabase db, $ScheduleTableTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$ScheduleTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$ScheduleTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$ScheduleTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<String> begin = const Value.absent(),
-            Value<String> end = const Value.absent(),
-          }) =>
-              ScheduleTableCompanion(
-            id: id,
-            name: name,
-            begin: begin,
-            end: end,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required String name,
-            required String begin,
-            required String end,
-          }) =>
-              ScheduleTableCompanion.insert(
-            id: id,
-            name: name,
-            begin: begin,
-            end: end,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$ScheduleTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () =>
+                  $$ScheduleTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer:
+              () => $$ScheduleTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String> begin = const Value.absent(),
+                Value<String> end = const Value.absent(),
+              }) => ScheduleTableCompanion(
+                id: id,
+                name: name,
+                begin: begin,
+                end: end,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String name,
+                required String begin,
+                required String end,
+              }) => ScheduleTableCompanion.insert(
+                id: id,
+                name: name,
+                begin: begin,
+                end: end,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$ScheduleTableTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $ScheduleTableTable,
-    schedule_drift,
-    $$ScheduleTableTableFilterComposer,
-    $$ScheduleTableTableOrderingComposer,
-    $$ScheduleTableTableAnnotationComposer,
-    $$ScheduleTableTableCreateCompanionBuilder,
-    $$ScheduleTableTableUpdateCompanionBuilder,
-    (
+typedef $$ScheduleTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ScheduleTableTable,
       schedule_drift,
-      BaseReferences<_$AppDatabase, $ScheduleTableTable, schedule_drift>
-    ),
-    schedule_drift,
-    PrefetchHooks Function()>;
+      $$ScheduleTableTableFilterComposer,
+      $$ScheduleTableTableOrderingComposer,
+      $$ScheduleTableTableAnnotationComposer,
+      $$ScheduleTableTableCreateCompanionBuilder,
+      $$ScheduleTableTableUpdateCompanionBuilder,
+      (
+        schedule_drift,
+        BaseReferences<_$AppDatabase, $ScheduleTableTable, schedule_drift>,
+      ),
+      schedule_drift,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;

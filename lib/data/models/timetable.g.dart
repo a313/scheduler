@@ -7,10 +7,10 @@ part of 'timetable.dart';
 // **************************************************************************
 
 _Timetable _$TimetableFromJson(Map<String, dynamic> json) => _Timetable(
-      begin: const TimeOfDayConverter().fromJson(json['begin'] as String),
-      end: const TimeOfDayConverter().fromJson(json['end'] as String),
-      dayInWeek: (json['dayInWeek'] as num).toInt(),
-    );
+  begin: const TimeOfDayConverter().fromJson(json['begin'] as String),
+  end: const TimeOfDayConverter().fromJson(json['end'] as String),
+  dayInWeek: (json['dayInWeek'] as num).toInt(),
+);
 
 Map<String, dynamic> _$TimetableToJson(_Timetable instance) =>
     <String, dynamic>{
